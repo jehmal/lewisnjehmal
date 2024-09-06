@@ -11,7 +11,7 @@ export function ModeToggle({ className }: { className?: string }) {
   };
 
   return (
-    <Button variant="ghost" size="icon" onClick={toggleTheme} className={className}>
+    <Button variant="ghost" onClick={toggleTheme} className={className}>
       {theme === 'light' ? <MoonIcon className="h-6 w-6" /> : <SunIcon className="h-6 w-6" />}
     </Button>
   );
