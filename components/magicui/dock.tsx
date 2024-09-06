@@ -1,8 +1,8 @@
 "use client";
 
-import React, { PropsWithChildren, useRef } from "react";
+import React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
-import { useMotionValue, useSpring, useTransform, motion } from "framer-motion";
+import { useMotionValue, motion, MotionValue } from "framer-motion";
 
 import { cn } from "@/lib/utils";
 
@@ -36,12 +36,15 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
     const mouseX = useMotionValue(Infinity);
 
     const renderChildren = () => {
-      return React.Children.map(children, (child: any) => {
-        return React.cloneElement(child, {
-          mouseX: mouseX,
-          magnification: magnification,
-          distance: distance,
-        });
+      return React.Children.map(children, (child) => {
+        if (React.isValidElement(child)) {
+          return React.cloneElement(child, {
+            mouseX,
+            magnification,
+            distance,
+          } as DockIconProps);
+        }
+        return child;
       });
     };
 
@@ -68,9 +71,13 @@ Dock.displayName = "Dock";
 export interface DockIconProps {
   children: React.ReactNode;
   onClick?: () => void;
+  mouseX?: MotionValue<number>;
+  magnification?: number;
+  distance?: number;
 }
 
-const DockIcon: React.FC<DockIconProps> = ({ children, onClick }) => {
+const DockIcon: React.FC<DockIconProps> = ({ children, onClick, mouseX, magnification, distance }) => {
+  // Use mouseX, magnification, and distance here if needed
   return (
     <button onClick={onClick}>
       {children}

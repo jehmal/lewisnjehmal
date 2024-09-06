@@ -56,6 +56,8 @@ export default function Globe({
     },
   }));
 
+  const phiRef = useRef(0);
+
   const updatePointerInteraction = (value: number | null) => {
     pointerInteracting.current = value;
     canvasRef.current!.style.cursor = value ? "grabbing" : "grab";
@@ -70,13 +72,13 @@ export default function Globe({
   };
 
   const onRender = useCallback(
-    (state: Record<string, any>) => {
-      if (!pointerInteracting.current) phi += 0.005;
-      state.phi = phi + r.get();
+    (state: Record<string, unknown>) => {
+      if (!pointerInteracting.current) phiRef.current += 0.005;
+      state.phi = phiRef.current + r.get();
       state.width = width * 2;
       state.height = width * 2;
     },
-    [pointerInteracting, phi, r],
+    [pointerInteracting, r],
   );
 
   const onResize = () => {
@@ -86,6 +88,12 @@ export default function Globe({
   };
 
   useEffect(() => {
+    const onResize = () => {
+      if (canvasRef.current) {
+        width = canvasRef.current.offsetWidth;
+      }
+    };
+
     window.addEventListener("resize", onResize);
     onResize();
 
@@ -97,8 +105,11 @@ export default function Globe({
     });
 
     setTimeout(() => (canvasRef.current!.style.opacity = "1"));
-    return () => globe.destroy();
-  }, [config, onRender, onResize, width]);
+    return () => {
+      globe.destroy();
+      window.removeEventListener("resize", onResize);
+    };
+  }, [config, onRender]);
 
   return (
     <div
