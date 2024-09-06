@@ -77,11 +77,35 @@ export interface DockIconProps {
 }
 
 const DockIcon: React.FC<DockIconProps> = ({ children, onClick, mouseX, magnification, distance }) => {
-  // Use mouseX, magnification, and distance here if needed
+  const [scale, setScale] = React.useState(1);
+  // Change this line
+  const iconRef = React.useRef<HTMLButtonElement | null>(null);
+
+  React.useEffect(() => {
+    if (mouseX && magnification && distance && iconRef.current) {
+      const unsubscribe = mouseX.onChange((latestX) => {
+        const iconRect = iconRef.current?.getBoundingClientRect();
+        if (iconRect) {
+          const iconCenterX = iconRect.left + iconRect.width / 2;
+          const distanceFromMouse = Math.abs(latestX - iconCenterX);
+          const scaleValue = Math.max(1, 1 + (magnification / 100) * (1 - distanceFromMouse / distance));
+          setScale(scaleValue);
+        }
+      });
+      return unsubscribe;
+    }
+  }, [mouseX, magnification, distance]);
+
   return (
-    <button onClick={onClick}>
+    <motion.button
+      ref={iconRef}
+      onClick={onClick}
+      style={{ scale }}
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.9 }}
+    >
       {children}
-    </button>
+    </motion.button>
   );
 };
 
