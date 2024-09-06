@@ -66,59 +66,16 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
 Dock.displayName = "Dock";
 
 export interface DockIconProps {
-  size?: number;
-  magnification?: number;
-  distance?: number;
-  mouseX?: any;
-  className?: string;
-  children?: React.ReactNode;
-  props?: PropsWithChildren;
+  children: React.ReactNode;
+  onClick?: () => void;
 }
 
-const DockIcon = ({
-  size,
-  magnification = DEFAULT_MAGNIFICATION,
-  distance = DEFAULT_DISTANCE,
-  mouseX,
-  className,
-  children,
-  ...props
-}: DockIconProps) => {
-  const ref = useRef<HTMLDivElement>(null);
-
-  const distanceCalc = useTransform(mouseX, (val: number) => {
-    const bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
-
-    return val - bounds.x - bounds.width / 2;
-  });
-
-  let widthSync = useTransform(
-    distanceCalc,
-    [-distance, 0, distance],
-    [40, magnification, 40],
-  );
-
-  let width = useSpring(widthSync, {
-    mass: 0.1,
-    stiffness: 150,
-    damping: 12,
-  });
-
+const DockIcon: React.FC<DockIconProps> = ({ children, onClick }) => {
   return (
-    <motion.div
-      ref={ref}
-      style={{ width }}
-      className={cn(
-        "flex aspect-square cursor-pointer items-center justify-center rounded-full",
-        className,
-      )}
-      {...props}
-    >
+    <button onClick={onClick}>
       {children}
-    </motion.div>
+    </button>
   );
 };
-
-DockIcon.displayName = "DockIcon";
 
 export { Dock, DockIcon, dockVariants };

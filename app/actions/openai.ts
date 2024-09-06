@@ -31,7 +31,8 @@ async function runAssistant(threadId: string) {
 async function getAssistantResponse(threadId: string) {
   const messages = await openai.beta.threads.messages.list(threadId);
   const lastMessage = messages.data[0];
-  return lastMessage.content[0].text.value;
+  const textContent = lastMessage.content.find(c => c.type === 'text');
+  return textContent ? textContent.text.value : 'No text response available';
 }
 
 export async function generateChatResponse(message: string): Promise<{ response: string; context: string }> {

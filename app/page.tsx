@@ -1,62 +1,15 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { generateChatResponse } from './actions/openai';
-import { searchExa } from './actions/exa';
 import { FadeText } from "@/components/magicui/fade-text";
 import TypingAnimation from "@/components/magicui/typing-animation";
-import Meteors from "@/components/magicui/meteors";
-import GridPattern from "@/components/magicui/animated-grid-pattern";
-import { CalendarIcon, FileTextIcon, BarChartIcon, GlobeIcon, ChatBubbleIcon } from "@radix-ui/react-icons";
+import { FileTextIcon, BarChartIcon, GlobeIcon, ChatBubbleIcon } from "@radix-ui/react-icons";
 import { BentoGrid, BentoCard } from "@/components/magicui/bento-grid";
-import Marquee from "@/components/magicui/marquee";
-import AnimatedListDemo from "@/components/example/animated-list-demo";
-import AnimatedBeamMultipleOutputDemo from "@/components/example/animated-beam-multiple-outputs";
-import { cn } from "@/lib/utils";
-import { Button, buttonVariants } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
 import { Dock, DockIcon } from "@/components/magicui/dock";
-import Link from 'next/link';
-import { ModeToggle } from "@/components/mode-toggle";
 import { AnimatedSubscribeButton } from "@/components/magicui/animated-subscribe-button";
 import Globe from "@/components/magicui/globe";
-import { Input } from "@/components/ui/input";
 import { CardDemo } from "@/components/feature-block-animated-card";
 import DotPattern from "@/components/magicui/dot-pattern";
-
-interface File {
-  name: string;
-  body: string;
-}
-
-const files: File[] = [
-  {
-    name: "bitcoin.pdf",
-    body: "Bitcoin is a cryptocurrency invented in 2008 by an unknown person or group of people using the name Satoshi Nakamoto.",
-  },
-  {
-    name: "finances.xlsx",
-    body: "A spreadsheet or worksheet is a file made of rows and columns that help sort data, arrange data easily, and calculate numerical data.",
-  },
-  {
-    name: "logo.svg",
-    body: "Scalable Vector Graphics is an Extensible Markup Language-based vector image format for two-dimensional graphics with support for interactivity and animation.",
-  },
-  {
-    name: "keys.gpg",
-    body: "GPG keys are used to encrypt and decrypt email, files, directories, and whole disk partitions and to authenticate messages.",
-  },
-  {
-    name: "seed.txt",
-    body: "A seed phrase, seed recovery phrase or backup seed phrase is a list of words which store all the information needed to recover Bitcoin funds on-chain.",
-  },
-];
 
 const features = [
   {
@@ -88,25 +41,9 @@ const features = [
     background: (
       <div className="absolute inset-0 flex items-center justify-center opacity-10">
         <svg className="w-64 h-64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#ECA72C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 2 12C6.47715 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#ECA72C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           <path d="M2 12H22" stroke="#EE5622" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           <path d="M12 2C14.5013 4.73835 15.9228 8.29203 16 12C15.9228 15.708 14.5013 19.2616 12 22C9.49872 19.2616 8.07725 15.708 8 12C8.07725 8.29203 9.49872 4.73835 12 2V2Z" stroke="#EE5622" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-      </div>
-    ),
-  },
-  {
-    Icon: ChatBubbleIcon,
-    name: "All Messages Saved",
-    description: "Every conversation is securely stored, allowing you to reference past discussions and decisions at any time.",
-    href: "#",
-    cta: "Explore history",
-    className: "col-span-1",
-    background: (
-      <div className="absolute inset-0 flex items-center justify-center opacity-10">
-        <svg className="w-64 h-64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2ZM20 16H6L4 18V4H20V16Z" fill="#ECA72C"/>
-          <path d="M6 12H18V14H6V12ZM6 9H18V11H6V9ZM6 6H18V8H6V6Z" fill="#EE5622"/>
         </svg>
       </div>
     ),
