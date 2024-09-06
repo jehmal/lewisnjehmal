@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
 import { BoxReveal } from "@/components/magicui/box-reveal";
@@ -29,6 +29,14 @@ export function CardDemo() {
   const [conversation, setConversation] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const conversationEndRef = useRef<HTMLDivElement>(null);
+  const chatHistoryRef = useRef<HTMLDivElement>(null);
+
+  const scrollToBottom = () => {
+    if (chatHistoryRef.current) {
+      chatHistoryRef.current.scrollTop = chatHistoryRef.current.scrollHeight;
+    }
+  };
 
   useEffect(() => {
     const savedConversation = localStorage.getItem('conversation');
@@ -36,6 +44,10 @@ export function CardDemo() {
       setConversation(JSON.parse(savedConversation));
     }
   }, []);
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [conversation]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -56,7 +68,10 @@ export function CardDemo() {
     try {
       const response = await fetch('/api/chat', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${process.env.NEXT_PUBLIC_API_KEY}` // Add this line
+        },
         body: JSON.stringify({ message: inputValue }),
       });
 
@@ -120,7 +135,18 @@ export function CardDemo() {
         </div>
         <div className="md:w-1/2 mt-4 md:mt-0">
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Conversation History</h3>
-          <div className="mt-4 max-h-80 overflow-y-auto space-y-4">
+          <ShimmerButton
+            onClick={clearConversation}
+            shimmerColor="#eca72c"
+            background="#44355B"
+            className="mb-4"
+          >
+            Clear Conversation
+          </ShimmerButton>
+          <div 
+            ref={chatHistoryRef}
+            className="mt-4 max-h-80 overflow-y-auto space-y-4"
+          >
             {conversation.map((message, index) => (
               <BoxReveal key={index} width="100%" boxColor="#eca72c" duration={0.5}>
                 <div className={cn(
@@ -132,27 +158,15 @@ export function CardDemo() {
                   </span>
                   <p className="font-bold mt-4">{message.role === 'user' ? 'You' : 'TradeGuru'}:</p>
                   {message.role === 'assistant' ? (
-                    <>
-                      <div className="whitespace-pre-wrap">{message.content}</div>
-                    </>
+                    <div className="whitespace-pre-wrap">{message.content}</div>
                   ) : (
                     <p>{message.content}</p>
                   )}
                 </div>
               </BoxReveal>
             ))}
+            <div ref={conversationEndRef} />
           </div>
-          {conversation.length > 0 && (
-            <div className="mt-4">
-              <ShimmerButton
-                onClick={clearConversation}
-                shimmerColor="#eca72c"
-                background="#44355B"
-              >
-                Clear Conversation
-              </ShimmerButton>
-            </div>
-          )}
         </div>
       </div>
     </div>

@@ -3,13 +3,14 @@
 import { useState, useEffect } from 'react';
 import { FadeText } from "@/components/magicui/fade-text";
 import TypingAnimation from "@/components/magicui/typing-animation";
-import { FileTextIcon, BarChartIcon, GlobeIcon, ChatBubbleIcon } from "@radix-ui/react-icons";
+import { FileTextIcon, GlobeIcon, ChatBubbleIcon } from "@radix-ui/react-icons";
 import { BentoGrid, BentoCard } from "@/components/magicui/bento-grid";
 import { Dock, DockIcon } from "@/components/magicui/dock";
 import { AnimatedSubscribeButton } from "@/components/magicui/animated-subscribe-button";
 import Globe from "@/components/magicui/globe";
 import { CardDemo } from "@/components/feature-block-animated-card";
 import DotPattern from "@/components/magicui/dot-pattern";
+import BlurFade from "@/components/magicui/blur-fade";
 
 const features = [
   {
@@ -87,6 +88,7 @@ export default function Home() {
   };
 
   if (hasError) {
+    setHasError(true); // Use setHasError
     return <div>Something went wrong. Please refresh the page.</div>;
   }
 
@@ -131,21 +133,23 @@ export default function Home() {
       </section>
 
       {/* CardDemo Section */}
-      {showCardDemo && (
-        <section className="py-12 bg-gray-100 dark:bg-gray-900 relative overflow-hidden">
-          <DotPattern
-            width={32}
-            height={32}
-            cx={1}
-            cy={1}
-            cr={1}
-            className="absolute inset-0 h-full w-full text-gray-300 dark:text-gray-700 [mask-image:radial-gradient(white,transparent_85%)]"
-          />
-          <div className="container mx-auto relative z-10">
-            <CardDemo />
-          </div>
-        </section>
-      )}
+      <BlurFade delay={0.25} inView={showCardDemo}>
+        {showCardDemo && (
+          <section className="py-12 bg-gray-100 dark:bg-gray-900 relative overflow-hidden">
+            <DotPattern
+              width={32}
+              height={32}
+              cx={1}
+              cy={1}
+              cr={1}
+              className="absolute inset-0 h-full w-full text-gray-300 dark:text-gray-700 [mask-image:radial-gradient(white,transparent_85%)]"
+            />
+            <div className="container mx-auto relative z-10">
+              <CardDemo />
+            </div>
+          </section>
+        )}
+      </BlurFade>
 
       {/* Features Section */}
       <section id="features" className="py-24 bg-white bg-opacity-90 relative">
