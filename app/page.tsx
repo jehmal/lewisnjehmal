@@ -11,12 +11,14 @@ import Globe from "@/components/magicui/globe";
 import { CardDemo } from "@/components/feature-block-animated-card";
 import DotPattern from "@/components/magicui/dot-pattern";
 import BlurFade from "@/components/magicui/blur-fade";
+import Meteors from "@/components/magicui/meteors";
+import { ExpandableMessageProvider } from '@/components/ExpandableMessageProvider';
 
 const features = [
   {
     Icon: FileTextIcon,
-    name: "Electrical Standards Expertise",
-    description: "Access up-to-date information on electrical standards and regulations, ensuring your work is always compliant.",
+    name: "AUS/NZ Standards Expertise",
+    description: "Access up-to-date information on Australian and New Zealand electrical standards and regulations, ensuring your work is always compliant.",
     href: "#",
     cta: "Explore standards",
     className: "col-span-1",
@@ -34,8 +36,8 @@ const features = [
   },
   {
     Icon: GlobeIcon,
-    name: "Made by Tradies, for Tradies",
-    description: "Our platform is built by experienced electricians who understand your daily challenges and needs.",
+    name: "Built by Tradies, for Tradies",
+    description: "Our platform is built by experienced electricians who understand the daily challenges and needs of tradies in Australia and New Zealand.",
     href: "#",
     cta: "Learn more",
     className: "col-span-1",
@@ -53,11 +55,14 @@ const features = [
 
 function BentoDemo() {
   return (
-    <BentoGrid className="grid-cols-1 md:grid-cols-3 gap-4">
-      {features.map((feature, idx) => (
-        <BentoCard key={idx} {...feature} />
-      ))}
-    </BentoGrid>
+    <div className="relative overflow-hidden">
+      <Meteors number={40} color="hunyadi-yellow" />
+      <BentoGrid className="grid-cols-1 md:grid-cols-3 gap-4 relative z-10">
+        {features.map((feature, idx) => (
+          <BentoCard key={idx} {...feature} />
+        ))}
+      </BentoGrid>
+    </div>
   );
 }
 
@@ -93,104 +98,106 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-white text-gray-800 relative overflow-hidden">
-      {/* Header */}
-      <header className="bg-white bg-opacity-90 text-gray-800 p-4 border-b border-gray-200">
-        <div className="container mx-auto flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-hunyadi-yellow">TradeGuru</h1>
-        </div>
-      </header>
-
-      {/* Hero Section */}
-      <section className="py-24 bg-white bg-opacity-80 relative">
-        <div className="absolute inset-0 z-0">
-          <Globe />
-        </div>
-        <div className="container mx-auto text-center relative z-10 flex flex-col items-center">
-          <FadeText
-            text="Master Your Trades with TradeGuru"
-            className="text-5xl font-extrabold mb-6 text-hunyadi-yellow font-sans"
-            direction="up"
-            framerProps={{
-              hidden: { opacity: 0, y: 20 },
-              show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
-            }}
-          />
-          <TypingAnimation
-            text="AI-powered insights for smarter trading decisions"
-            duration={30}
-            className="text-xl mb-10 font-sans text-gray-600"
-          />
-          <AnimatedSubscribeButton
-            buttonColor="#ee5622"
-            buttonTextColor="#000000"
-            subscribeStatus={showCardDemo}
-            initialText="Try Demo"
-            changeText={showCardDemo ? "Hide Demo" : "Try Demo"}
-            onClick={handleToggleCardDemo}
-          />
-        </div>
-      </section>
-
-      {/* CardDemo Section */}
-      <BlurFade delay={0.25} inView={showCardDemo}>
-        {showCardDemo && (
-          <section className="py-12 bg-gray-100 dark:bg-gray-900 relative overflow-hidden">
-            <DotPattern
-              width={32}
-              height={32}
-              cx={1}
-              cy={1}
-              cr={1}
-              className="absolute inset-0 h-full w-full text-gray-300 dark:text-gray-700 [mask-image:radial-gradient(white,transparent_85%)]"
-            />
-            <div className="container mx-auto relative z-10">
-              <CardDemo />
-            </div>
-          </section>
-        )}
-      </BlurFade>
-
-      {/* Features Section */}
-      <section id="features" className="py-24 bg-white bg-opacity-90 relative">
-        <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-16 text-hunyadi-yellow">Key Features</h2>
-          <div className="max-w-4xl mx-auto">
-            <BentoDemo />
+    <ExpandableMessageProvider>
+      <div className="min-h-screen flex flex-col bg-white text-gray-800 relative overflow-hidden">
+        {/* Header */}
+        <header className="bg-white bg-opacity-90 text-gray-800 p-4 border-b border-gray-200">
+          <div className="container mx-auto flex justify-between items-center">
+            <h1 className="text-2xl font-bold text-hunyadi-yellow">TradeGuru</h1>
           </div>
-        </div>
-      </section>
+        </header>
 
-      {/* CTA Section */}
-      <section className="bg-gray-100 bg-opacity-90 text-gray-800 py-24 border-t border-gray-200">
-        <div className="container mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6 text-hunyadi-yellow">Ready to Elevate Your Trading?</h2>
-          <p className="text-xl mb-10 text-gray-600">Join TradeGuru today and start making smarter trades.</p>
-          <div className="flex flex-col items-center gap-6">
-            <button className="bg-flame text-black px-8 py-4 rounded-full text-lg font-semibold hover:bg-hunyadi-yellow hover:text-black transition duration-300">
-              Sign Up Now
-            </button>
+        {/* Hero Section */}
+        <section className="py-24 bg-white bg-opacity-80 relative">
+          <div className="absolute inset-0 z-0">
+            <Globe />
+          </div>
+          <div className="container mx-auto text-center relative z-10 flex flex-col items-center">
+            <FadeText
+              text="Master Your Trades with TradeGuru"
+              className="text-5xl font-extrabold mb-6 text-hunyadi-yellow font-sans"
+              direction="up"
+              framerProps={{
+                hidden: { opacity: 0, y: 20 },
+                show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+              }}
+            />
+            <TypingAnimation
+              text="AI-powered insights for smarter trading decisions"
+              duration={30}
+              className="text-xl mb-10 font-sans text-gray-600"
+            />
             <AnimatedSubscribeButton
-              buttonColor="#eca72c"
+              buttonColor="#ee5622"
               buttonTextColor="#000000"
-              subscribeStatus={false}
-              initialText="Subscribe to Updates"
-              changeText="Subscribed!"
+              subscribeStatus={showCardDemo}
+              initialText="Try Demo"
+              changeText={showCardDemo ? "Hide Demo" : "Try Demo"}
+              onClick={handleToggleCardDemo}
             />
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Footer */}
-      <footer className="bg-white bg-opacity-90 text-gray-600 py-8 border-t border-gray-200 relative z-10">
-        <div className="container mx-auto text-center">
-          <p>&copy; 2024 TradeGuru. All rights reserved.</p>
-        </div>
-      </footer>
+        {/* CardDemo Section */}
+        <BlurFade delay={0.25} inView={showCardDemo}>
+          {showCardDemo && (
+            <section className="py-12 bg-gray-100 dark:bg-gray-900 relative overflow-hidden">
+              <DotPattern
+                width={32}
+                height={32}
+                cx={1}
+                cy={1}
+                cr={1}
+                className="absolute inset-0 h-full w-full text-gray-300 dark:text-gray-700 [mask-image:radial-gradient(white,transparent_85%)]"
+              />
+              <div className="container mx-auto relative z-10">
+                <CardDemo />
+              </div>
+            </section>
+          )}
+        </BlurFade>
 
-      {/* Dock */}
-      <DockDemo onChatToggle={handleToggleCardDemo} />
-    </div>
+        {/* Features Section */}
+        <section id="features" className="py-24 bg-white bg-opacity-90 relative overflow-hidden">
+          <div className="container mx-auto relative">
+            <h2 className="text-3xl font-bold text-center mb-16 text-hunyadi-yellow relative z-10">Key Features</h2>
+            <div className="max-w-4xl mx-auto relative">
+              <BentoDemo />
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="bg-gray-100 bg-opacity-90 text-gray-800 py-24 border-t border-gray-200">
+          <div className="container mx-auto text-center">
+            <h2 className="text-3xl font-bold mb-6 text-hunyadi-yellow">Ready to Elevate Your Trading?</h2>
+            <p className="text-xl mb-10 text-gray-600">Join TradeGuru today and start making smarter trades.</p>
+            <div className="flex flex-col items-center gap-6">
+              <button className="bg-flame text-black px-8 py-4 rounded-full text-lg font-semibold hover:bg-hunyadi-yellow hover:text-black transition duration-300">
+                Sign Up Now
+              </button>
+              <AnimatedSubscribeButton
+                buttonColor="#eca72c"
+                buttonTextColor="#000000"
+                subscribeStatus={false}
+                initialText="Subscribe to Updates"
+                changeText="Subscribed!"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* Footer */}
+        <footer className="bg-white bg-opacity-90 text-gray-600 py-8 border-t border-gray-200 relative z-10">
+          <div className="container mx-auto text-center">
+            <p>&copy; 2024 TradeGuru. All rights reserved.</p>
+          </div>
+        </footer>
+
+        {/* Dock */}
+        <DockDemo onChatToggle={handleToggleCardDemo} />
+      </div>
+    </ExpandableMessageProvider>
   );
 }
 

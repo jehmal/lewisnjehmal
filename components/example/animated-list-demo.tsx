@@ -13,33 +13,33 @@ interface Question {
 
 const questions: Question[] = [
   {
-    name: "Load Calculations",
-    description: "What are the specific load calculations required for this installation?",
-    icon: "🔢",
+    name: "Earthing Requirements",
+    description: "What are the requirements for earthing submersible pumps?",
+    icon: "⚡",
     color: "#00C9A7",
   },
   {
-    name: "Earthing System Design",
-    description: "What are the requirements for earthing system design and supporting calculations for this project?",
-    icon: "⚡",
+    name: "Hazardous Areas",
+    description: "What are the classification responsibilities for hazardous areas involving explosive gas or combustible dust?",
+    icon: "☢️",
     color: "#FFB800",
   },
   {
-    name: "Network Connection",
-    description: "Are there any specific network operator requirements for the connection of this installation?",
+    name: "Protective Earthing",
+    description: "How should protective earthing conductors be connected at a distribution board?",
     icon: "🔌",
     color: "#FF3D71",
   },
   {
-    name: "Safe Operating Procedures",
-    description: "What are the safe operating procedures and maintenance schedules for the equipment being installed?",
-    icon: "🛡️",
+    name: "Testing Requirements",
+    description: "What tests are mandatory for verifying that a low voltage electrical installation complies with standards?",
+    icon: "🔬",
     color: "#1E86FF",
   },
   {
-    name: "SPD Requirements",
-    description: "What are the requirements for the Service Protection Device (SPD) and its location in this installation?",
-    icon: "🔒",
+    name: "Main Earthing Conductor",
+    description: "What are the requirements for the main earthing conductor arrangement?",
+    icon: "🔧",
     color: "#8A2BE2",
   },
 ];
