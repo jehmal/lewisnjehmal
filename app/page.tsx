@@ -13,6 +13,17 @@ import DotPattern from "@/components/magicui/dot-pattern";
 import BlurFade from "@/components/magicui/blur-fade";
 import Meteors from "@/components/magicui/meteors";
 import { ExpandableMessageProvider } from '@/components/ExpandableMessageProvider';
+import { Sidebar, SidebarBody, SidebarLink } from "@/components/ui/sidebar";
+import {
+  IconArrowLeft,
+  IconBrandTabler,
+  IconSettings,
+  IconUserBolt,
+} from "@tabler/icons-react";
+import Link from "next/link";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 const features = [
   {
@@ -83,6 +94,7 @@ function DockDemo({ onChatToggle }: { onChatToggle: () => void }) {
 export default function Home() {
   const [hasError, setHasError] = useState(false);
   const [showCardDemo, setShowCardDemo] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   useEffect(() => {
     console.log('Home component mounted');
@@ -92,112 +104,195 @@ export default function Home() {
     setShowCardDemo(prev => !prev);
   };
 
+  const links = [
+    {
+      label: "Home",
+      href: "#",
+      icon: <IconBrandTabler className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />,
+    },
+    {
+      label: "Profile",
+      href: "#",
+      icon: <IconUserBolt className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />,
+    },
+    {
+      label: "Settings",
+      href: "#",
+      icon: <IconSettings className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />,
+    },
+    {
+      label: "Logout",
+      href: "#",
+      icon: <IconArrowLeft className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />,
+    },
+  ];
+
   if (hasError) {
-    setHasError(true); // Use setHasError
+    setHasError(true);
     return <div>Something went wrong. Please refresh the page.</div>;
   }
 
   return (
     <ExpandableMessageProvider>
-      <div className="min-h-screen flex flex-col bg-white text-gray-800 relative overflow-hidden">
-        {/* Header */}
-        <header className="bg-white bg-opacity-90 text-gray-800 p-4 border-b border-gray-200">
-          <div className="container mx-auto flex justify-between items-center">
-            <h1 className="text-2xl font-bold text-hunyadi-yellow">TradeGuru</h1>
-          </div>
-        </header>
-
-        {/* Hero Section */}
-        <section className="py-24 bg-white bg-opacity-80 relative">
-          <div className="absolute inset-0 z-0">
-            <Globe />
-          </div>
-          <div className="container mx-auto text-center relative z-10 flex flex-col items-center">
-            <FadeText
-              text="Master Your Trades with TradeGuru"
-              className="text-5xl font-extrabold mb-6 text-hunyadi-yellow font-sans"
-              direction="up"
-              framerProps={{
-                hidden: { opacity: 0, y: 20 },
-                show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
-              }}
-            />
-            <TypingAnimation
-              text="AI-powered insights for smarter trading decisions"
-              duration={30}
-              className="text-xl mb-10 font-sans text-gray-600"
-            />
-            <AnimatedSubscribeButton
-              buttonColor="#ee5622"
-              buttonTextColor="#000000"
-              subscribeStatus={showCardDemo}
-              initialText="Try Demo"
-              changeText={showCardDemo ? "Hide Demo" : "Try Demo"}
-              onClick={handleToggleCardDemo}
-            />
-          </div>
-        </section>
-
-        {/* CardDemo Section */}
-        <BlurFade delay={0.25} inView={showCardDemo}>
-          {showCardDemo && (
-            <section className="py-12 bg-gray-100 dark:bg-gray-900 relative overflow-hidden">
-              <DotPattern
-                width={32}
-                height={32}
-                cx={1}
-                cy={1}
-                cr={1}
-                className="absolute inset-0 h-full w-full text-gray-300 dark:text-gray-700 [mask-image:radial-gradient(white,transparent_85%)]"
+      <div className={cn(
+        "flex flex-col md:flex-row bg-gray-100 dark:bg-neutral-800 w-full min-h-screen",
+      )}>
+        <Sidebar open={sidebarOpen} setOpen={setSidebarOpen}>
+          <SidebarBody className="justify-between gap-10">
+            <div className="flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
+              {sidebarOpen ? <Logo /> : <LogoIcon />}
+              <div className="mt-8 flex flex-col gap-2">
+                {links.map((link, idx) => (
+                  <SidebarLink key={idx} link={link} />
+                ))}
+              </div>
+            </div>
+            <div>
+              <SidebarLink
+                link={{
+                  label: "User",
+                  href: "#",
+                  icon: (
+                    <Image
+                      src="/path-to-avatar-image.png"
+                      className="h-7 w-7 flex-shrink-0 rounded-full"
+                      width={50}
+                      height={50}
+                      alt="Avatar"
+                    />
+                  ),
+                }}
               />
-              <div className="container mx-auto relative z-10">
-                <CardDemo />
+            </div>
+          </SidebarBody>
+        </Sidebar>
+        <div className="flex-1 overflow-y-auto">
+          <div className="min-h-screen flex flex-col bg-white text-gray-800 relative overflow-hidden">
+            {/* Header */}
+        
+
+            {/* Hero Section */}
+            <section className="py-24 bg-white bg-opacity-80 relative">
+              <div className="absolute inset-0 z-0">
+                <Globe />
+              </div>
+              <div className="container mx-auto text-center relative z-10 flex flex-col items-center">
+                <FadeText
+                  text="Master Your Trade with TradeGuru"
+                  className="text-5xl font-extrabold mb-6 text-hunyadi-yellow font-sans"
+                  direction="up"
+                  framerProps={{
+                    hidden: { opacity: 0, y: 20 },
+                    show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+                  }}
+                />
+                <TypingAnimation
+                  text="Always have an answer on the job."
+                  duration={30}
+                  className="text-xl mb-10 font-sans text-gray-600"
+                />
+                <AnimatedSubscribeButton
+                  buttonColor="#ee5622"
+                  buttonTextColor="#000000"
+                  subscribeStatus={showCardDemo}
+                  initialText="Try Demo"
+                  changeText={showCardDemo ? "Hide Demo" : "Try Demo"}
+                  onClick={handleToggleCardDemo}
+                />
               </div>
             </section>
-          )}
-        </BlurFade>
 
-        {/* Features Section */}
-        <section id="features" className="py-24 bg-white bg-opacity-90 relative overflow-hidden">
-          <div className="container mx-auto relative">
-            <h2 className="text-3xl font-bold text-center mb-16 text-hunyadi-yellow relative z-10">Key Features</h2>
-            <div className="max-w-4xl mx-auto relative">
-              <BentoDemo />
-            </div>
+            {/* CardDemo Section */}
+            <BlurFade delay={0.25} inView={showCardDemo}>
+              {showCardDemo && (
+                <section className="py-12 bg-gray-100 dark:bg-gray-900 relative overflow-hidden">
+                  <DotPattern
+                    width={32}
+                    height={32}
+                    cx={1}
+                    cy={1}
+                    cr={1}
+                    className="absolute inset-0 h-full w-full text-gray-300 dark:text-gray-700 [mask-image:radial-gradient(white,transparent_85%)]"
+                  />
+                  <div className="container mx-auto relative z-10">
+                    <CardDemo />
+                  </div>
+                </section>
+              )}
+            </BlurFade>
+
+            {/* Features Section */}
+            <section id="features" className="py-24 bg-white bg-opacity-90 relative overflow-hidden">
+              <div className="container mx-auto relative">
+                <h2 className="text-3xl font-bold text-center mb-16 text-hunyadi-yellow relative z-10">Key Features</h2>
+                <div className="max-w-4xl mx-auto relative">
+                  <BentoDemo />
+                </div>
+              </div>
+            </section>
+
+            {/* CTA Section */}
+            <section className="bg-gray-100 bg-opacity-90 text-gray-800 py-24 border-t border-gray-200">
+              <div className="container mx-auto text-center">
+                <h2 className="text-3xl font-bold mb-6 text-hunyadi-yellow">Ready to Elevate Your Trading?</h2>
+                <p className="text-xl mb-10 text-gray-600">Join TradeGuru today and start making smarter trades.</p>
+                <div className="flex flex-col items-center gap-6">
+                  <button className="bg-flame text-black px-8 py-4 rounded-full text-lg font-semibold hover:bg-hunyadi-yellow hover:text-black transition duration-300">
+                    Sign Up Now
+                  </button>
+                  <AnimatedSubscribeButton
+                    buttonColor="#eca72c"
+                    buttonTextColor="#000000"
+                    subscribeStatus={false}
+                    initialText="Subscribe to Updates"
+                    changeText="Subscribed!"
+                  />
+                </div>
+              </div>
+            </section>
+
+            {/* Footer */}
+            <footer className="bg-white bg-opacity-90 text-gray-600 py-8 border-t border-gray-200 relative z-10">
+              <div className="container mx-auto text-center">
+                <p>&copy; 2024 TradeGuru. All rights reserved.</p>
+              </div>
+            </footer>
+
+            {/* Dock */}
+            <DockDemo onChatToggle={handleToggleCardDemo} />
           </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="bg-gray-100 bg-opacity-90 text-gray-800 py-24 border-t border-gray-200">
-          <div className="container mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-6 text-hunyadi-yellow">Ready to Elevate Your Trading?</h2>
-            <p className="text-xl mb-10 text-gray-600">Join TradeGuru today and start making smarter trades.</p>
-            <div className="flex flex-col items-center gap-6">
-              <button className="bg-flame text-black px-8 py-4 rounded-full text-lg font-semibold hover:bg-hunyadi-yellow hover:text-black transition duration-300">
-                Sign Up Now
-              </button>
-              <AnimatedSubscribeButton
-                buttonColor="#eca72c"
-                buttonTextColor="#000000"
-                subscribeStatus={false}
-                initialText="Subscribe to Updates"
-                changeText="Subscribed!"
-              />
-            </div>
-          </div>
-        </section>
-
-        {/* Footer */}
-        <footer className="bg-white bg-opacity-90 text-gray-600 py-8 border-t border-gray-200 relative z-10">
-          <div className="container mx-auto text-center">
-            <p>&copy; 2024 TradeGuru. All rights reserved.</p>
-          </div>
-        </footer>
-
-        {/* Dock */}
-        <DockDemo onChatToggle={handleToggleCardDemo} />
+        </div>
       </div>
     </ExpandableMessageProvider>
   );
 }
+
+const Logo = () => {
+  return (
+    <Link
+      href="#"
+      className="font-normal flex space-x-2 items-center text-sm text-black py-1 relative z-20"
+    >
+      <div className="h-5 w-6 bg-black dark:bg-white rounded-br-lg rounded-tr-sm rounded-tl-lg rounded-bl-sm flex-shrink-0" />
+      <motion.span
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className="font-medium text-black dark:text-white whitespace-pre"
+      >
+        TradeGuru
+      </motion.span>
+    </Link>
+  );
+};
+
+const LogoIcon = () => {
+  return (
+    <Link
+      href="#"
+      className="font-normal flex space-x-2 items-center text-sm text-black py-1 relative z-20"
+    >
+      <div className="h-5 w-6 bg-black dark:bg-white rounded-br-lg rounded-tr-sm rounded-tl-lg rounded-bl-sm flex-shrink-0" />
+    </Link>
+  );
+};
 

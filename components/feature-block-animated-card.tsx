@@ -8,12 +8,13 @@ import AnimatedListDemo from "@/components/example/animated-list-demo";
 import { Button } from "@/components/ui/button";
 import ReactMarkdown from 'react-markdown';
 import NumberTicker from "@/components/magicui/number-ticker";
-import { ThumbsUp, ThumbsDown, Maximize2 } from 'lucide-react';
+import { ThumbsUp, ThumbsDown, Maximize2, MessageSquare, History } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useExpandableMessage } from '@/components/ExpandableMessageProvider';
 import AnimatedCircularProgressBar from "@/components/magicui/animated-circular-progress-bar";
 import SparklesText from "@/components/magicui/sparkles-text";
-
+import { ChatSidebar, ChatSidebarBody, ChatSidebarTab } from "@/components/ui/chatsidebar";
+import { Timeline } from "@/components/ui/timeline";
 
 interface Message {
   role: 'user' | 'assistant';
@@ -47,6 +48,19 @@ export function CardDemo() {
   const [badAnswers, setBadAnswers] = useState(0);
   const { showExpandedMessage } = useExpandableMessage();
   const [progressValue, setProgressValue] = useState(0);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState<'ask' | 'history'>('ask');
+
+  const tabs = [
+    {
+      label: "Ask",
+      icon: <MessageSquare className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />,
+    },
+    {
+      label: "History",
+      icon: <History className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />,
+    },
+  ];
 
   useEffect(() => {
     let interval: NodeJS.Timeout;
@@ -176,166 +190,245 @@ export function CardDemo() {
     showExpandedMessage(message.content);
   };
 
-  return (
-    <div className="w-full max-w-4xl mx-auto p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg relative">
-      {/* Remove the debug button */}
-      
-      <div className="absolute top-2 right-2 flex items-center space-x-4">
-        <span className="text-sm font-semibold text-gray-600 dark:text-gray-300">Response Ratings:</span>
-        <div className="flex items-center">
-          <ThumbsUp className="w-4 h-4 mr-1 text-green-500" />
-          <NumberTicker value={goodAnswers} className="text-sm" />
-        </div>
-        <div className="flex items-center">
-          <ThumbsDown className="w-4 h-4 mr-1 text-red-500" />
-          <NumberTicker value={badAnswers} className="text-sm" />
-        </div>
-      </div>
-      <div className="flex flex-col md:flex-row gap-4">
-        <div className="md:w-1/2">
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Ask 
-            <SparklesText
-              text="TradeGuru"
-              colors={{ first: "#ee5622", second: "#eca72c" }}
-              className="ml-2 inline-block"
-              sparklesCount={3}
-              updateInterval={2000}
-            />
-          </h3>
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <Input
-              type="text"
-              placeholder="Type your question here..."
-              value={inputValue}
-              onChange={(e) => setInputValue(e.target.value)}
-              className="w-full bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600"
-            />
-            <div className="flex items-center space-x-4">
-              <ShimmerButton
-                type="submit"
-                disabled={isLoading}
-                shimmerColor="#eca72c"
-                background="#ee5622"
-                className="flex items-center justify-center px-4 py-2"
-              >
-                {isLoading ? (
-                  <span className="text-base text-white">Thinking...</span>
-                ) : (
-                  'Send'
-                )}
-              </ShimmerButton>
-              {isLoading && (
-                <div className="flex items-center">
-                  <AnimatedCircularProgressBar
-                    max={100}
-                    min={0}
-                    value={progressValue}
-                    gaugePrimaryColor="#ee5622"
-                    gaugeSecondaryColor="rgba(238, 86, 34, 0.2)"
-                    className="w-8 h-8"
-                  />
-                  <span className="ml-2 text-sm font-medium text-gray-700 dark:text-gray-300">
-                    {progressValue}%
-                  </span>
-                </div>
+  const timelineData = conversation.map((message, index) => ({
+    title: message.timestamp,
+    content: (
+      <div className={cn(
+        "p-3 rounded-lg relative",
+        message.role === 'user' ? "bg-gray-100 dark:bg-gray-700" : "bg-white/70 dark:bg-gray-600"
+      )}>
+        <p className="font-bold mb-2">{message.role === 'user' ? 'You' : 'TradeGuru'}:</p>
+        <ReactMarkdown className="whitespace-pre-wrap prose dark:prose-invert max-w-none">
+          {message.content}
+        </ReactMarkdown>
+        {message.role === 'assistant' && (
+          <div className="mt-2 flex items-center space-x-2 flex-wrap">
+            <Button
+              onClick={() => handleExpand(message)}
+              className="text-xs bg-gray-500 hover:bg-gray-600 mt-2"
+            >
+              <Maximize2 className="w-4 h-4 mr-1" /> Expand
+            </Button>
+            <Button
+              onClick={() => handleFactCheck(index)}
+              disabled={isFactChecking[index]}
+              className={cn(
+                "text-xs mt-2",
+                factCheckResults[index] 
+                  ? (factCheckResults[index].isCorrect ? "bg-green-500" : "bg-red-500") 
+                  : "bg-blue-500"
               )}
+            >
+              {isFactChecking[index] ? 'Checking...' : (factCheckResults[index] ? 'View Fact-Check' : 'Fact Check')}
+            </Button>
+            <Button
+              onClick={() => handleRating(index, 'up')}
+              className={cn("p-2 mt-2", ratings[index] === 'up' ? "bg-green-500" : "bg-gray-200")}
+            >
+              <ThumbsUp className="w-4 h-4" />
+            </Button>
+            <Button
+              onClick={() => handleRating(index, 'down')}
+              className={cn("p-2 mt-2", ratings[index] === 'down' ? "bg-red-500" : "bg-gray-200")}
+            >
+              <ThumbsDown className="w-4 h-4" />
+            </Button>
+          </div>
+        )}
+      </div>
+    ),
+  }));
+
+  const handleTabChange = (tab: string) => {
+    console.log('Tab changed to:', tab);
+    setActiveTab(tab.toLowerCase() as 'ask' | 'history');
+    setSidebarOpen(false);
+  };
+
+  console.log('Current active tab:', activeTab);
+
+  const lastUserMessage = conversation.filter(msg => msg.role === 'user').pop();
+  const lastAssistantMessage = conversation.filter(msg => msg.role === 'assistant').pop();
+
+  return (
+    <div className="w-full max-w-6xl mx-auto bg-white dark:bg-gray-800 rounded-xl shadow-lg relative flex">
+      <ChatSidebar open={sidebarOpen} setOpen={setSidebarOpen} activeTab={activeTab} setActiveTab={handleTabChange}>
+        <ChatSidebarBody className="justify-between gap-10 bg-gray-200 dark:bg-gray-700">
+          <div className="flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
+            <div className="mt-8 flex flex-col gap-2">
+              {tabs.map((tab, idx) => (
+                <ChatSidebarTab 
+                  key={idx} 
+                  tab={tab}
+                />
+              ))}
             </div>
-          </form>
-          {error && (
-            <div className="mt-4 p-4 bg-red-100 text-red-700 rounded-lg">
-              <p>{error}</p>
+          </div>
+        </ChatSidebarBody>
+      </ChatSidebar>
+
+      <div className="flex-1 p-6 overflow-y-auto max-h-[90vh]">
+        <div className="flex flex-col md:flex-row gap-6">
+          {activeTab === 'ask' && (
+            <div className="w-full md:w-1/4 space-y-6">
+              <div>
+                <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Example Questions:</h4>
+                <AnimatedListDemo className="h-40" />
+              </div>
+              <div className="space-y-2">
+                <span className="text-sm font-semibold text-gray-600 dark:text-gray-300">Response Ratings:</span>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center">
+                    <ThumbsUp className="w-4 h-4 mr-1 text-green-500" />
+                    <NumberTicker value={goodAnswers} className="text-sm" />
+                  </div>
+                  <div className="flex items-center">
+                    <ThumbsDown className="w-4 h-4 mr-1 text-red-500" />
+                    <NumberTicker value={badAnswers} className="text-sm" />
+                  </div>
+                </div>
+              </div>
             </div>
           )}
-          <div className="mt-6">
-            <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Example Questions:</h4>
-            <AnimatedListDemo className="h-24" />
-          </div>
-        </div>
-        <div className="md:w-1/2 mt-4 md:mt-0">
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Conversation History</h3>
-          <ShimmerButton
-            onClick={clearConversation}
-            shimmerColor="#eca72c"
-            background="#44355B"
-            className="mb-4"
-          >
-            Clear Conversation
-          </ShimmerButton>
-          <div 
-            ref={chatHistoryRef}
-            className="mt-4 max-h-80 overflow-y-auto space-y-4"
-          >
-            {conversation.map((message, index) => (
-              <BoxReveal key={index} width="100%" boxColor="#eca72c" duration={0.5}>
-                <div className={cn(
-                  "p-3 rounded-lg relative",
-                  message.role === 'user' ? "bg-gray-100 dark:bg-gray-700" : "bg-white/70 dark:bg-gray-600"
-                )}>
-                  <span className="absolute top-1 right-2 text-xs text-gray-500 dark:text-gray-400">
-                    {message.timestamp}
-                  </span>
-                  <p className="font-bold mt-4">{message.role === 'user' ? 'You' : 'TradeGuru'}:</p>
-                  {message.role === 'assistant' ? (
-                    <>
+
+          <div className={cn("w-full", activeTab === 'ask' ? "md:w-3/4" : "md:w-full")}>
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+              {activeTab === 'ask' ? (
+                <>
+                  Ask 
+                  <SparklesText
+                    text="TradeGuru"
+                    colors={{ first: "#ee5622", second: "#eca72c" }}
+                    className="ml-2 inline-block"
+                    sparklesCount={3}
+                  />
+                </>
+              ) : (
+                "Conversation History"
+              )}
+            </h3>
+            
+            {activeTab === 'ask' ? (
+              <div className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div className="flex items-start space-x-4">
+                    <div className="flex-grow">
+                      <Input
+                        type="text"
+                        placeholder="Type your question here..."
+                        value={inputValue}
+                        onChange={(e) => setInputValue(e.target.value)}
+                        className="w-full bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600"
+                      />
+                    </div>
+                    <div className="flex-shrink-0 flex items-center">
+                      <ShimmerButton
+                        type="submit"
+                        disabled={isLoading}
+                        shimmerColor="#eca72c"
+                        background="#ee5622"
+                        className="flex items-center justify-center px-4 py-2"
+                      >
+                        {isLoading ? (
+                          <span className="text-base text-white">Thinking...</span>
+                        ) : (
+                          'Send'
+                        )}
+                      </ShimmerButton>
+                      {isLoading && (
+                        <div className="ml-2 relative">
+                          <AnimatedCircularProgressBar
+                            max={100}
+                            min={0}
+                            value={progressValue}
+                            gaugePrimaryColor="#ee5622"
+                            gaugeSecondaryColor="rgba(238, 86, 34, 0.2)"
+                            className="w-10 h-10"
+                          />
+                          <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-xs font-semibold">
+                            {progressValue}%
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </form>
+                {lastUserMessage && (
+                  <BoxReveal width="100%" boxColor="#eca72c" duration={0.5}>
+                    <div className="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
+                      <p className="font-bold">You:</p>
                       <ReactMarkdown className="whitespace-pre-wrap prose dark:prose-invert max-w-none">
-                        {message.content}
+                        {lastUserMessage.content}
+                      </ReactMarkdown>
+                    </div>
+                  </BoxReveal>
+                )}
+                {lastAssistantMessage && (
+                  <BoxReveal width="100%" boxColor="#eca72c" duration={0.5}>
+                    <div className="bg-white/70 dark:bg-gray-600 p-3 rounded-lg">
+                      <p className="font-bold">TradeGuru:</p>
+                      <ReactMarkdown className="whitespace-pre-wrap prose dark:prose-invert max-w-none">
+                        {lastAssistantMessage.content}
                       </ReactMarkdown>
                       <div className="mt-2 flex items-center space-x-2 flex-wrap">
                         <Button
-                          onClick={() => {
-                            console.log("Expand button clicked for message:", message);
-                            handleExpand(message);
-                          }}
+                          onClick={() => handleExpand(lastAssistantMessage)}
                           className="text-xs bg-gray-500 hover:bg-gray-600 mt-2"
                         >
                           <Maximize2 className="w-4 h-4 mr-1" /> Expand
                         </Button>
                         <Button
-                          onClick={() => handleFactCheck(index)}
-                          disabled={isFactChecking[index]}
+                          onClick={() => handleFactCheck(conversation.length - 1)}
+                          disabled={isFactChecking[conversation.length - 1]}
                           className={cn(
                             "text-xs mt-2",
-                            factCheckResults[index] ? (factCheckResults[index].isCorrect ? "bg-green-500" : "bg-red-500") : "bg-blue-500"
+                            factCheckResults[conversation.length - 1] 
+                              ? (factCheckResults[conversation.length - 1].isCorrect ? "bg-green-500" : "bg-red-500") 
+                              : "bg-blue-500"
                           )}
                         >
-                          {isFactChecking[index] ? 'Checking...' : (factCheckResults[index] ? 'View Fact-Check' : 'Fact Check')}
+                          {isFactChecking[conversation.length - 1] ? 'Checking...' : (factCheckResults[conversation.length - 1] ? 'View Fact-Check' : 'Fact Check')}
                         </Button>
                         <Button
-                          onClick={() => handleRating(index, 'up')}
-                          className={cn("p-2 mt-2", ratings[index] === 'up' ? "bg-green-500" : "bg-gray-200")}
+                          onClick={() => handleRating(conversation.length - 1, 'up')}
+                          className={cn("p-2 mt-2", ratings[conversation.length - 1] === 'up' ? "bg-green-500" : "bg-gray-200")}
                         >
                           <ThumbsUp className="w-4 h-4" />
                         </Button>
                         <Button
-                          onClick={() => handleRating(index, 'down')}
-                          className={cn("p-2 mt-2", ratings[index] === 'down' ? "bg-red-500" : "bg-gray-200")}
+                          onClick={() => handleRating(conversation.length - 1, 'down')}
+                          className={cn("p-2 mt-2", ratings[conversation.length - 1] === 'down' ? "bg-red-500" : "bg-gray-200")}
                         >
                           <ThumbsDown className="w-4 h-4" />
                         </Button>
                       </div>
-                      {factCheckResults[index] && (
-                        <div className={cn(
-                          "mt-2 p-2 rounded",
-                          factCheckResults[index].isCorrect ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"
-                        )}>
-                          <p className="font-bold mb-2">
-                            {factCheckResults[index].isCorrect ? "Correct" : "Incorrect"}
-                          </p>
-                          <ReactMarkdown className="whitespace-pre-wrap prose dark:prose-invert max-w-none">
-                            {factCheckResults[index].result}
-                          </ReactMarkdown>
-                        </div>
-                      )}
-                    </>
-                  ) : (
-                    <ReactMarkdown className="whitespace-pre-wrap prose dark:prose-invert max-w-none">
-                      {message.content}
-                    </ReactMarkdown>
-                  )}
-                </div>
-              </BoxReveal>
-            ))}
-            <div ref={conversationEndRef} />
+                    </div>
+                  </BoxReveal>
+                )}
+              </div>
+            ) : (
+              <div className="space-y-4">
+                <ShimmerButton
+                  onClick={clearConversation}
+                  shimmerColor="#eca72c"
+                  background="#44355B"
+                  className="mb-4"
+                >
+                  Clear Conversation
+                </ShimmerButton>
+                {conversation.length > 0 ? (
+                  <Timeline data={timelineData} />
+                ) : (
+                  <p className="text-gray-600 dark:text-gray-400">No conversation history yet.</p>
+                )}
+              </div>
+            )}
+            
+            {error && (
+              <div className="mt-4 p-4 bg-red-100 text-red-700 rounded-lg">
+                <p>{error}</p>
+              </div>
+            )}
           </div>
         </div>
       </div>
