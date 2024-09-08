@@ -15,6 +15,8 @@ import AnimatedCircularProgressBar from "@/components/magicui/animated-circular-
 import SparklesText from "@/components/magicui/sparkles-text";
 import { ChatSidebar, ChatSidebarBody, ChatSidebarTab } from "@/components/ui/chatsidebar";
 import { Timeline } from "@/components/ui/timeline";
+import { MovingBorder } from "@/components/ui/moving-border";
+import ShinyButton from "@/components/magicui/shiny-button";
 
 interface Message {
   role: 'user' | 'assistant';
@@ -50,6 +52,7 @@ export function CardDemo() {
   const [progressValue, setProgressValue] = useState(0);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<'ask' | 'history'>('ask');
+  const [expandedAnswerIndex, setExpandedAnswerIndex] = useState<number | null>(null);
 
   const tabs = [
     {
@@ -190,54 +193,65 @@ export function CardDemo() {
     showExpandedMessage(message.content);
   };
 
-  const timelineData = conversation.map((message, index) => ({
-    title: message.timestamp,
-    content: (
-      <div className={cn(
-        "p-3 rounded-lg relative",
-        message.role === 'user' ? "bg-gray-100 dark:bg-gray-700" : "bg-white/70 dark:bg-gray-600"
-      )}>
-        <p className="font-bold mb-2">{message.role === 'user' ? 'You' : 'TradeGuru'}:</p>
-        <ReactMarkdown className="whitespace-pre-wrap prose dark:prose-invert max-w-none">
-          {message.content}
-        </ReactMarkdown>
-        {message.role === 'assistant' && (
-          <div className="mt-2 flex items-center space-x-2 flex-wrap">
-            <Button
-              onClick={() => handleExpand(message)}
-              className="text-xs bg-gray-500 hover:bg-gray-600 mt-2"
-            >
-              <Maximize2 className="w-4 h-4 mr-1" /> Expand
-            </Button>
-            <Button
-              onClick={() => handleFactCheck(index)}
-              disabled={isFactChecking[index]}
-              className={cn(
-                "text-xs mt-2",
-                factCheckResults[index] 
-                  ? (factCheckResults[index].isCorrect ? "bg-green-500" : "bg-red-500") 
-                  : "bg-blue-500"
-              )}
-            >
-              {isFactChecking[index] ? 'Checking...' : (factCheckResults[index] ? 'View Fact-Check' : 'Fact Check')}
-            </Button>
-            <Button
-              onClick={() => handleRating(index, 'up')}
-              className={cn("p-2 mt-2", ratings[index] === 'up' ? "bg-green-500" : "bg-gray-200")}
-            >
-              <ThumbsUp className="w-4 h-4" />
-            </Button>
-            <Button
-              onClick={() => handleRating(index, 'down')}
-              className={cn("p-2 mt-2", ratings[index] === 'down' ? "bg-red-500" : "bg-gray-200")}
-            >
-              <ThumbsDown className="w-4 h-4" />
-            </Button>
+  const timelineData = conversation
+    .filter(message => message.role === 'user')
+    .map((message, index) => ({
+      title: message.timestamp,
+      content: (
+        <div className="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg flex-grow relative min-h-[100px]">
+          <p className="font-bold mb-2">You:</p>
+          <ReactMarkdown className="whitespace-pre-wrap prose dark:prose-invert max-w-none pr-24">
+            {message.content}
+          </ReactMarkdown>
+          <div className="mt-3">
+            <ShinyButton
+              text="View Answer"
+              className="text-xs"
+              onClick={() => setExpandedAnswerIndex(index * 2 + 1)}
+              shimmerColor="#eca72c"
+              background="#ee5622"
+            />
           </div>
-        )}
-      </div>
-    ),
-  }));
+        </div>
+      ),
+    }));
+
+  const ExpandableAnswer = ({ answer, onClose }: { answer: Message, onClose: () => void }) => (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 backdrop-blur-sm"
+      onClick={onClose}
+    >
+      <motion.div 
+        className="bg-white dark:bg-gray-800 p-6 rounded-lg max-w-2xl w-full max-h-[80vh] overflow-y-auto relative"
+        onClick={(e) => e.stopPropagation()}
+        initial={{ scale: 0.9, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0.9, opacity: 0 }}
+      >
+        <MovingBorder duration={3000} rx="25" ry="25">
+          <div className="absolute inset-0 bg-white dark:bg-gray-800 rounded-lg" />
+        </MovingBorder>
+        <div className="relative z-10">
+          <h3 className="text-lg font-bold mb-4">TradeGuru's Answer:</h3>
+          <ReactMarkdown className="whitespace-pre-wrap prose dark:prose-invert max-w-none">
+            {answer.content}
+          </ReactMarkdown>
+          <div className="mt-4 flex justify-end">
+            <ShinyButton
+              text="Close"
+              className="bg-gray-500 hover:bg-gray-600"
+              onClick={onClose}
+              shimmerColor="#eca72c"
+              background="#ee5622"
+            />
+          </div>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
 
   const handleTabChange = (tab: string) => {
     console.log('Tab changed to:', tab);
@@ -372,12 +386,6 @@ export function CardDemo() {
                       </ReactMarkdown>
                       <div className="mt-2 flex items-center space-x-2 flex-wrap">
                         <Button
-                          onClick={() => handleExpand(lastAssistantMessage)}
-                          className="text-xs bg-gray-500 hover:bg-gray-600 mt-2"
-                        >
-                          <Maximize2 className="w-4 h-4 mr-1" /> Expand
-                        </Button>
-                        <Button
                           onClick={() => handleFactCheck(conversation.length - 1)}
                           disabled={isFactChecking[conversation.length - 1]}
                           className={cn(
@@ -414,13 +422,21 @@ export function CardDemo() {
                   background="#44355B"
                   className="mb-4"
                 >
-                  Clear Conversation
+                  Clear Conversation History
                 </ShimmerButton>
                 {conversation.length > 0 ? (
-                  <Timeline data={timelineData} />
+                  <Timeline data={timelineData} lineColor="#ee5622" />
                 ) : (
                   <p className="text-gray-600 dark:text-gray-400">No conversation history yet.</p>
                 )}
+                <AnimatePresence>
+                  {expandedAnswerIndex !== null && (
+                    <ExpandableAnswer 
+                      answer={conversation[expandedAnswerIndex]} 
+                      onClose={() => setExpandedAnswerIndex(null)}
+                    />
+                  )}
+                </AnimatePresence>
               </div>
             )}
             
