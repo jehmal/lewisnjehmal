@@ -277,7 +277,7 @@ export function CardDemo() {
               </div>
               <div className="space-y-2">
                 <span className="text-sm font-semibold text-gray-600 dark:text-gray-300">Response Ratings:</span>
-                <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-4">
                   <div className="flex items-center">
                     <ThumbsUp className="w-4 h-4 mr-1 text-green-500" />
                     <NumberTicker value={goodAnswers} className="text-sm" />
@@ -291,7 +291,7 @@ export function CardDemo() {
             </div>
           )}
 
-          <div className={cn("w-full", activeTab === 'ask' ? "md:w-3/4" : "md:w-full")}>
+          <div className={cn("w-full transition-all duration-300", activeTab === 'ask' ? "md:w-3/4" : "md:w-full")}>
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
               {activeTab === 'ask' ? (
                 <>
