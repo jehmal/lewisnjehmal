@@ -11,6 +11,9 @@ import NumberTicker from "@/components/magicui/number-ticker";
 import { ThumbsUp, ThumbsDown, Maximize2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useExpandableMessage } from '@/components/ExpandableMessageProvider';
+import AnimatedCircularProgressBar from "@/components/magicui/animated-circular-progress-bar";
+import SparklesText from "@/components/magicui/sparkles-text";
+
 
 interface Message {
   role: 'user' | 'assistant';
@@ -43,6 +46,20 @@ export function CardDemo() {
   const [goodAnswers, setGoodAnswers] = useState(0);
   const [badAnswers, setBadAnswers] = useState(0);
   const { showExpandedMessage } = useExpandableMessage();
+  const [progressValue, setProgressValue] = useState(0);
+
+  useEffect(() => {
+    let interval: NodeJS.Timeout;
+    if (isLoading) {
+      setProgressValue(0);
+      interval = setInterval(() => {
+        setProgressValue((prev) => (prev >= 90 ? 90 : prev + 10));
+      }, 500);
+    } else {
+      setProgressValue(100);
+    }
+    return () => clearInterval(interval);
+  }, [isLoading]);
 
   const scrollToBottom = () => {
     if (chatHistoryRef.current) {
@@ -176,7 +193,15 @@ export function CardDemo() {
       </div>
       <div className="flex flex-col md:flex-row gap-4">
         <div className="md:w-1/2">
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Ask TradeGuru</h3>
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Ask 
+            <SparklesText
+              text="TradeGuru"
+              colors={{ first: "#ee5622", second: "#eca72c" }}
+              className="ml-2 inline-block"
+              sparklesCount={3}
+              updateInterval={2000}
+            />
+          </h3>
           <form onSubmit={handleSubmit} className="space-y-4">
             <Input
               type="text"
@@ -185,14 +210,36 @@ export function CardDemo() {
               onChange={(e) => setInputValue(e.target.value)}
               className="w-full bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600"
             />
-            <ShimmerButton
-              type="submit"
-              disabled={isLoading}
-              shimmerColor="#eca72c"
-              background="#ee5622"
-            >
-              {isLoading ? 'Thinking...' : 'Send'}
-            </ShimmerButton>
+            <div className="flex items-center space-x-4">
+              <ShimmerButton
+                type="submit"
+                disabled={isLoading}
+                shimmerColor="#eca72c"
+                background="#ee5622"
+                className="flex items-center justify-center px-4 py-2"
+              >
+                {isLoading ? (
+                  <span className="text-base text-white">Thinking...</span>
+                ) : (
+                  'Send'
+                )}
+              </ShimmerButton>
+              {isLoading && (
+                <div className="flex items-center">
+                  <AnimatedCircularProgressBar
+                    max={100}
+                    min={0}
+                    value={progressValue}
+                    gaugePrimaryColor="#ee5622"
+                    gaugeSecondaryColor="rgba(238, 86, 34, 0.2)"
+                    className="w-8 h-8"
+                  />
+                  <span className="ml-2 text-sm font-medium text-gray-700 dark:text-gray-300">
+                    {progressValue}%
+                  </span>
+                </div>
+              )}
+            </div>
           </form>
           {error && (
             <div className="mt-4 p-4 bg-red-100 text-red-700 rounded-lg">
