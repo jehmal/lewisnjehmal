@@ -78,14 +78,47 @@ export default function Particles({
   const canvasSize = useRef<{ w: number; h: number }>({ w: 0, h: 0 });
   const dpr = typeof window !== "undefined" ? window.devicePixelRatio : 1;
 
+  const clearContext = () => {
+    if (context.current) {
+      context.current.clearRect(
+        0,
+        0,
+        canvasSize.current.w,
+        canvasSize.current.h,
+      );
+    }
+  };
+
+  const drawParticles = useCallback(() => {
+    clearContext();
+    const particleCount = quantity;
+    for (let i = 0; i < particleCount; i++) {
+      const circle = circleParams();
+      drawCircle(circle);
+    }
+  }, [clearContext, quantity]);
+
+  const resizeCanvas = () => {
+    if (canvasContainerRef.current && canvasRef.current && context.current) {
+      circles.current.length = 0;
+      canvasSize.current.w = canvasContainerRef.current.offsetWidth;
+      canvasSize.current.h = canvasContainerRef.current.offsetHeight;
+      canvasRef.current.width = canvasSize.current.w * dpr;
+      canvasRef.current.height = canvasSize.current.h * dpr;
+      canvasRef.current.style.width = `${canvasSize.current.w}px`;
+      canvasRef.current.style.height = `${canvasSize.current.h}px`;
+      context.current.scale(dpr, dpr);
+    }
+  };
+
   const initCanvas = useCallback(() => {
     resizeCanvas();
     drawParticles();
-  }, [quantity, maxSize, minSize, color]);
+  }, [resizeCanvas, drawParticles]); // Include missing dependencies
 
   const mousePosition = MousePosition();
 
-  const onMouseMove = useCallback((e: MouseEvent) => {
+  const onMouseMove = useCallback(() => { // Remove unused variable 'e'
     if (canvasRef.current) {
       const rect = canvasRef.current.getBoundingClientRect();
       const { w, h } = canvasSize.current;
@@ -148,7 +181,7 @@ export default function Particles({
       }
     });
     window.requestAnimationFrame(animate);
-  }, [ease, staticity, vx, vy]); // Add vx and vy to dependencies
+  }, [ease, staticity, vx, vy, clearContext, circles]); // Add missing dependencies
 
   useEffect(() => {
     initCanvas();
@@ -171,19 +204,6 @@ export default function Particles({
   useEffect(() => {
     initCanvas();
   }, [refresh, initCanvas]);
-
-  const resizeCanvas = () => {
-    if (canvasContainerRef.current && canvasRef.current && context.current) {
-      circles.current.length = 0;
-      canvasSize.current.w = canvasContainerRef.current.offsetWidth;
-      canvasSize.current.h = canvasContainerRef.current.offsetHeight;
-      canvasRef.current.width = canvasSize.current.w * dpr;
-      canvasRef.current.height = canvasSize.current.h * dpr;
-      canvasRef.current.style.width = `${canvasSize.current.w}px`;
-      canvasRef.current.style.height = `${canvasSize.current.h}px`;
-      context.current.scale(dpr, dpr);
-    }
-  };
 
   type Circle = {
     x: number;
@@ -238,26 +258,6 @@ export default function Particles({
       if (!update) {
         circles.current.push(circle);
       }
-    }
-  };
-
-  const clearContext = () => {
-    if (context.current) {
-      context.current.clearRect(
-        0,
-        0,
-        canvasSize.current.w,
-        canvasSize.current.h,
-      );
-    }
-  };
-
-  const drawParticles = () => {
-    clearContext();
-    const particleCount = quantity;
-    for (let i = 0; i < particleCount; i++) {
-      const circle = circleParams();
-      drawCircle(circle);
     }
   };
 

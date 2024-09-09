@@ -47,7 +47,7 @@ export function CardDemo() {
   const [ratings, setRatings] = useState<{[key: number]: 'up' | 'down' | null}>({});
   const [goodAnswers, setGoodAnswers] = useState(0);
   const [badAnswers, setBadAnswers] = useState(0);
-  const { showExpandedMessage } = useExpandableMessage();
+
   const [progressValue, setProgressValue] = useState(0);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<'ask' | 'history'>('ask');
