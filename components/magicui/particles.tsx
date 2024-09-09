@@ -38,6 +38,8 @@ interface ParticlesProps {
   color?: string;
   vx?: number;
   vy?: number;
+  maxSize?: number; // Add maxSize
+  minSize?: number; // Add minSize
 }
 function hexToRgb(hex: string): number[] {
   hex = hex.replace("#", "");
@@ -65,6 +67,8 @@ export default function Particles({
   color = "#ffffff",
   maxSize = 5,
   minSize = 2,
+  vx = 0, // Add default value for vx
+  vy = 0, // Add default value for vy
 }: ParticlesProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const canvasContainerRef = useRef<HTMLDivElement>(null);
@@ -78,6 +82,8 @@ export default function Particles({
     resizeCanvas();
     drawParticles();
   }, [quantity, maxSize, minSize, color]);
+
+  const mousePosition = MousePosition();
 
   const onMouseMove = useCallback((e: MouseEvent) => {
     if (canvasRef.current) {
@@ -142,7 +148,7 @@ export default function Particles({
       }
     });
     window.requestAnimationFrame(animate);
-  }, [ease, staticity]);
+  }, [ease, staticity, vx, vy]); // Add vx and vy to dependencies
 
   useEffect(() => {
     initCanvas();
@@ -197,7 +203,7 @@ export default function Particles({
     const y = Math.floor(Math.random() * canvasSize.current.h);
     const translateX = 0;
     const translateY = 0;
-    const pSize = Math.floor(Math.random() * 2) + size;
+    const pSize = Math.floor(Math.random() * (maxSize - minSize + 1)) + minSize; // Use minSize and maxSize
     const alpha = 0;
     const targetAlpha = parseFloat((Math.random() * 0.6 + 0.1).toFixed(1));
     const dx = (Math.random() - 0.5) * 0.1;

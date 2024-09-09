@@ -22,12 +22,12 @@ export function Button({
 }: {
   borderRadius?: string;
   children: React.ReactNode;
-  as?: any;
+  as?: React.ElementType; // Specify a more specific type
   containerClassName?: string;
   borderClassName?: string;
   duration?: number;
   className?: string;
-  [key: string]: any;
+  [key: string]: any; // Adjust this if you know the specific types of otherProps
 }) {
   return (
     <Component
@@ -37,7 +37,7 @@ export function Button({
       )}
       style={{
         borderRadius: borderRadius,
-      }}
+      } as React.CSSProperties} // Specify a more specific type
       {...otherProps}
     >
       <div
