@@ -45,7 +45,7 @@ export const ExpandableMessage: React.FC<ExpandableMessageProps> = ({ message, o
         <div className="bg-white/90 dark:bg-gray-800/90 p-8 rounded-xl relative h-full flex flex-col"
              onClick={(e) => e.stopPropagation()}>
           <div className="relative z-10">
-            <h2 className="text-2xl font-bold mb-4 text-black dark:text-white">TradeGuru's Response</h2>
+          <h2 className="text-2xl font-bold mb-4 text-black dark:text-white">TradeGuru&apos;s Response</h2>
             <Button
               onClick={onClose}
               className="absolute top-2 right-2 bg-transparent hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-full p-2"

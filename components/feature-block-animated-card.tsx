@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
 import { BoxReveal } from "@/components/magicui/box-reveal";
@@ -8,7 +8,7 @@ import AnimatedListDemo from "@/components/example/animated-list-demo";
 import { Button } from "@/components/ui/button";
 import ReactMarkdown from 'react-markdown';
 import NumberTicker from "@/components/magicui/number-ticker";
-import { ThumbsUp, ThumbsDown, Maximize2, MessageSquare, History } from 'lucide-react';
+import { ThumbsUp, ThumbsDown, MessageSquare, History } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useExpandableMessage } from '@/components/ExpandableMessageProvider';
 import AnimatedCircularProgressBar from "@/components/magicui/animated-circular-progress-bar";
@@ -41,8 +41,7 @@ export function CardDemo() {
   const [conversation, setConversation] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const conversationEndRef = useRef<HTMLDivElement>(null);
-  const chatHistoryRef = useRef<HTMLDivElement>(null);
+  const chatHistoryRef = React.useRef<HTMLDivElement>(null);
   const [factCheckResults, setFactCheckResults] = useState<{[key: number]: { result: string, isCorrect: boolean } }>({});
   const [isFactChecking, setIsFactChecking] = useState<{[key: number]: boolean}>({});
   const [ratings, setRatings] = useState<{[key: number]: 'up' | 'down' | null}>({});
@@ -188,10 +187,16 @@ export function CardDemo() {
     });
   };
 
-  const handleExpand = (message: Message) => {
-    console.log("handleExpand called with message:", message);
-    showExpandedMessage(message.content);
+  const handleTabChange = (tab: string) => {
+    console.log('Tab changed to:', tab);
+    setActiveTab(tab.toLowerCase() as 'ask' | 'history');
+    setSidebarOpen(false);
   };
+
+  console.log('Current active tab:', activeTab);
+
+  const lastUserMessage = conversation.filter(msg => msg.role === 'user').pop();
+  const lastAssistantMessage = conversation.filter(msg => msg.role === 'assistant').pop();
 
   const timelineData = conversation
     .filter(message => message.role === 'user')
@@ -235,7 +240,7 @@ export function CardDemo() {
           <div className="absolute inset-0 bg-white dark:bg-gray-800 rounded-lg" />
         </MovingBorder>
         <div className="relative z-10">
-          <h3 className="text-lg font-bold mb-4">TradeGuru's Answer:</h3>
+          <h3 className="text-lg font-bold mb-4">TradeGuru&apos;s Answer:</h3>
           <ReactMarkdown className="whitespace-pre-wrap prose dark:prose-invert max-w-none">
             {answer.content}
           </ReactMarkdown>
@@ -252,17 +257,6 @@ export function CardDemo() {
       </motion.div>
     </motion.div>
   );
-
-  const handleTabChange = (tab: string) => {
-    console.log('Tab changed to:', tab);
-    setActiveTab(tab.toLowerCase() as 'ask' | 'history');
-    setSidebarOpen(false);
-  };
-
-  console.log('Current active tab:', activeTab);
-
-  const lastUserMessage = conversation.filter(msg => msg.role === 'user').pop();
-  const lastAssistantMessage = conversation.filter(msg => msg.role === 'assistant').pop();
 
   return (
     <div className="w-full max-w-6xl mx-auto bg-white dark:bg-gray-800 rounded-xl shadow-lg relative flex">
