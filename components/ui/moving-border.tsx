@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { ButtonHTMLAttributes } from "react";
 import {
   motion,
   useAnimationFrame,
@@ -27,8 +27,7 @@ export function Button({
   borderClassName?: string;
   duration?: number;
   className?: string;
-  [key: string]: any; // Adjust this if you know the specific types of otherProps
-}) {
+} & ButtonHTMLAttributes<HTMLButtonElement>) {
   return (
     <Component
       className={cn(

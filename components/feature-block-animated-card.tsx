@@ -10,7 +10,7 @@ import ReactMarkdown from 'react-markdown';
 import NumberTicker from "@/components/magicui/number-ticker";
 import { ThumbsUp, ThumbsDown, MessageSquare, History } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useExpandableMessage } from '@/components/ExpandableMessageProvider';
+
 import AnimatedCircularProgressBar from "@/components/magicui/animated-circular-progress-bar";
 import SparklesText from "@/components/magicui/sparkles-text";
 import { ChatSidebar, ChatSidebarBody, ChatSidebarTab } from "@/components/ui/chatsidebar";
