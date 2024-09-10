@@ -189,7 +189,7 @@ export const ChatSidebarTab = ({
         }}
         className="text-sm group-hover/sidebar:translate-x-1 transition duration-150 whitespace-pre inline-block !p-0 !m-0"
       >
-        {tab.label}
+        {tab.label !== "Ask" ? tab.label : ""}
       </motion.span>
     </button>
   );
