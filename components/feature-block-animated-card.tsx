@@ -193,8 +193,6 @@ export function CardDemo() {
     setSidebarOpen(false);
   };
 
-  console.log('Current active tab:', activeTab);
-
   const lastUserMessage = conversation.filter(msg => msg.role === 'user').pop();
   const lastAssistantMessage = conversation.filter(msg => msg.role === 'assistant').pop();
 
@@ -279,29 +277,20 @@ export function CardDemo() {
         <div className="flex flex-col gap-6">
           {activeTab === 'ask' && (
             <div className="w-full space-y-6">
-              <div className="flex justify-between items-start">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                  <SparklesText
-                    text="TradeGuru"
-                    colors={{ first: "#ee5622", second: "#eca72c" }}
-                    className="inline-block"
-                    sparklesCount={3}
-                  />
-                </h3>
-                <div className="space-y-2">
-                  <span className="text-sm font-semibold text-gray-600 dark:text-gray-300">Response Ratings:</span>
-                  <div className="flex items-center space-x-4">
-                    <div className="flex items-center">
-                      <ThumbsUp className="w-4 h-4 mr-1 text-green-500" />
-                      <NumberTicker value={goodAnswers} className="text-sm" />
-                    </div>
-                    <div className="flex items-center">
-                      <ThumbsDown className="w-4 h-4 mr-1 text-red-500" />
-                      <NumberTicker value={badAnswers} className="text-sm" />
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <div className="flex items-center space-x-1">
+  <text className="text-sm font-semibold text-gray-900 dark:text-white">
+    Ask
+  </text>
+  <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+    <SparklesText
+      text="TradeGuru"
+      colors={{ first: "#ee5622", second: "#eca72c" }}
+      className="inline-block"
+      sparklesCount={3}
+    />
+  </h3>
+</div>
+
 
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="flex flex-col md:flex-row items-start space-y-2 md:space-y-0 md:space-x-4">

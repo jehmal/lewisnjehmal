@@ -106,7 +106,7 @@ const SparklesText: React.FC<SparklesTextProps> = ({
 
   return (
     <div
-      className={cn("text-6xl font-bold", className)}
+      className={cn("font-bold", className)}
       {...props}
       style={
         {
@@ -115,7 +115,10 @@ const SparklesText: React.FC<SparklesTextProps> = ({
         } as CSSProperties
       }
     >
-      <span className="relative inline-block">
+      <span
+        className="relative inline-block"
+        style={{ transform: "scale(1)", fontSize: "3rem" }} // Maintain font size and apply scaling
+      >
         {sparkles.map((sparkle) => (
           <Sparkle key={sparkle.id} {...sparkle} />
         ))}
