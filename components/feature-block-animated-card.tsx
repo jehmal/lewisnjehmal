@@ -7,7 +7,7 @@ import ShimmerButton from "@/components/magicui/shimmer-button";
 import AnimatedListDemo from "@/components/example/animated-list-demo";
 import { Button } from "@/components/ui/button";
 import ReactMarkdown from 'react-markdown';
-import NumberTicker from "@/components/magicui/number-ticker";
+
 import { ThumbsUp, ThumbsDown, MessageSquare, History } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -45,8 +45,7 @@ export function CardDemo() {
   const [factCheckResults, setFactCheckResults] = useState<{[key: number]: { result: string, isCorrect: boolean } }>({});
   const [isFactChecking, setIsFactChecking] = useState<{[key: number]: boolean}>({});
   const [ratings, setRatings] = useState<{[key: number]: 'up' | 'down' | null}>({});
-  const [goodAnswers, setGoodAnswers] = useState(0);
-  const [badAnswers, setBadAnswers] = useState(0);
+
 
   const [progressValue, setProgressValue] = useState(0);
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -179,10 +178,8 @@ export function CardDemo() {
   const handleRating = (index: number, rating: 'up' | 'down') => {
     setRatings(prev => {
       const newRatings = { ...prev, [index]: rating };
-      const goodCount = Object.values(newRatings).filter(r => r === 'up').length;
-      const badCount = Object.values(newRatings).filter(r => r === 'down').length;
-      setGoodAnswers(goodCount);
-      setBadAnswers(badCount);
+ 
+ 
       return newRatings;
     });
   };
