@@ -274,20 +274,19 @@ export function CardDemo() {
         <div className="flex flex-col gap-6">
           {activeTab === 'ask' && (
             <div className="w-full space-y-6">
-              <div className="flex items-center space-x-1">
-  <text className="text-sm font-semibold text-gray-900 dark:text-white">
-    Ask
-  </text>
-  <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-    <SparklesText
-      text="TradeGuru"
-      colors={{ first: "#ee5622", second: "#eca72c" }}
-      className="inline-block"
-      sparklesCount={3}
-    />
-  </h3>
-</div>
-
+              <div className="flex flex-col md:flex-row items-center space-y-1 md:space-y-0 md:space-x-1">
+                <text className="text-sm font-semibold text-gray-900 dark:text-white">
+                  Ask
+                </text>
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                  <SparklesText
+                    text="TradeGuru"
+                    colors={{ first: "#ee5622", second: "#eca72c" }}
+                    className="inline-block"
+                    sparklesCount={3}
+                  />
+                </h3>
+              </div>
 
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="flex flex-col md:flex-row items-start space-y-2 md:space-y-0 md:space-x-4">

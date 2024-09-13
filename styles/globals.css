@@ -15,3 +15,16 @@
 .animate-meteor-effect {
   animation: meteor linear;
 }
+
+/* Add this CSS to your global styles or a relevant CSS file */
+@media (max-width: 768px) {
+    .flex-col.md\:flex-row {
+        flex-direction: column !important;
+    }
+    .space-y-1.md\:space-y-0 {
+        margin-bottom: 0.25rem !important;
+    }
+    .space-x-1.md\:space-x-0 {
+        margin-right: 0 !important;
+    }
+}
