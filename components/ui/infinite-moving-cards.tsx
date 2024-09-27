@@ -6,7 +6,8 @@ import Image from "next/image";
 
 export const InfiniteMovingCards = ({
   items,
-  pauseOnHover = true,
+  // Remove pauseOnHover if it's not being used
+  // pauseOnHover = true,
   className,
 }: {
   items: {
@@ -15,7 +16,8 @@ export const InfiniteMovingCards = ({
     title: string;
     image: string;
   }[];
-  pauseOnHover?: boolean;
+  // Remove this line if pauseOnHover is not being used
+  // pauseOnHover?: boolean;
   className?: string;
 }) => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -27,10 +29,7 @@ export const InfiniteMovingCards = ({
         <ul className="flex gap-4 py-4">
           {items.map((item, idx) => (
             <li
-              className="w-[250px] flex-shrink-0 rounded-2xl border border-slate-700 px-6 py-4"
-              style={{
-                background: "linear-gradient(180deg, #2a2a2a, #1a1a1a)",
-              }}
+              className="w-[250px] flex-shrink-0 rounded-2xl border border-slate-700 px-6 py-4 bg-gray-100 dark:bg-gray-700"
               key={item.name + idx}
             >
               <blockquote className="relative h-full flex flex-col justify-between">
@@ -51,15 +50,15 @@ export const InfiniteMovingCards = ({
                       </div>
                     )}
                   </div>
-                  <p className="text-sm leading-[1.6] text-gray-100 font-normal">
+                  <p className="text-sm leading-[1.6] text-gray-800 dark:text-gray-100 font-normal">
                     {item.quote}
                   </p>
                 </div>
                 <footer className="relative z-20 mt-4">
-                  <div className="text-sm text-gray-300 font-semibold">
+                  <div className="text-sm text-gray-700 dark:text-gray-300 font-semibold">
                     {item.name}
                   </div>
-                  <div className="text-xs text-gray-400">
+                  <div className="text-xs text-gray-600 dark:text-gray-400">
                     {item.title}
                   </div>
                 </footer>

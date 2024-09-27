@@ -20,7 +20,7 @@ import ShinyButton from "@/components/magicui/shiny-button";
 import CableSizeCalculator from "@/components/cable-size-calculator";
 import MaximumDemandCalculator from "@/components/maximum-demand-calculator";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
-import Image from "next/image";
+
 
 interface Message {
   role: 'user' | 'assistant';
@@ -103,8 +103,6 @@ export function CardDemo() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const chatHistoryRef = React.useRef<HTMLDivElement>(null);
-  const [factCheckResults, setFactCheckResults] = useState<{[key: number]: { result: string, isCorrect: boolean } }>({});
-  const [isFactChecking, setIsFactChecking] = useState<{[key: number]: boolean}>({});
   const [ratings, setRatings] = useState<{[key: number]: 'up' | 'down' | null}>({});
 
 
@@ -113,6 +111,7 @@ export function CardDemo() {
   const [activeTab, setActiveTab] = useState<'ask' | 'history' | 'calculators'>('ask');
   const [expandedAnswerIndex, setExpandedAnswerIndex] = useState<number | null>(null);
   const [searchKeyword, setSearchKeyword] = useState('');
+  const [isNewRequestPending, setIsNewRequestPending] = useState(false);
 
   const filteredConversation = conversation.filter(message =>
     message.content.toLowerCase().includes(searchKeyword.toLowerCase())
@@ -192,6 +191,7 @@ export function CardDemo() {
 
     setIsLoading(true);
     setError(null);
+    setIsNewRequestPending(true);
     
     const userMessage: Message = { 
       role: 'user', 
@@ -230,42 +230,13 @@ export function CardDemo() {
     } finally {
       setIsLoading(false);
       setInputValue('');
+      setIsNewRequestPending(false);
     }
   };
 
   const clearConversation = () => {
     setConversation([]);
     localStorage.removeItem('conversation');
-  };
-
-  const handleFactCheck = async (index: number) => {
-    const message = conversation[index - 1];
-    const assistantResponse = conversation[index];
-    
-    if (message.role !== 'user' || assistantResponse.role !== 'assistant') return;
-
-    setIsFactChecking({...isFactChecking, [index]: true});
-
-    try {
-      const response = await fetch('/api/fact-check', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
-          message: message.content, 
-          assistantResponse: assistantResponse.content
-        }),
-      });
-
-      if (!response.ok) throw new Error('Failed to get fact-check response');
-
-      const data = await response.json();
-      setFactCheckResults({...factCheckResults, [index]: data});
-    } catch (error) {
-      console.error('Fact-check error:', error);
-      setError('An error occurred during fact-checking.');
-    } finally {
-      setIsFactChecking({...isFactChecking, [index]: false});
-    }
   };
 
   const handleRating = (index: number, rating: 'up' | 'down') => {
@@ -331,52 +302,6 @@ export function CardDemo() {
     );
   };
 
-  const renderMessage = (message: Message, index: number) => {
-    const figures = extractFigureReferences(message.content);
-  
-    return (
-      <div key={index} className={cn(
-        "p-4 rounded-lg mb-4",
-        message.role === 'user' ? 'bg-gray-100 dark:bg-gray-700' : 'bg-white/70 dark:bg-gray-600'
-      )}>
-        <p className="font-bold mb-2">{message.role === 'user' ? 'You:' : 'TradeGuru:'}</p>
-        <ReactMarkdown className="whitespace-pre-wrap prose dark:prose-invert max-w-none">
-          {message.content}
-        </ReactMarkdown>
-        {message.role === 'assistant' && (
-          <>
-            <div className="mt-4 flex items-center space-x-2 flex-wrap">
-              <Button
-                onClick={() => handleFactCheck(index)}
-                disabled={isFactChecking[index]}
-                className={cn(
-                  "text-xs mt-2",
-                  factCheckResults[index] 
-                    ? (factCheckResults[index].isCorrect ? "bg-green-500" : "bg-red-500") 
-                    : "bg-blue-500"
-                )}
-              >
-                {isFactChecking[index] ? 'Checking...' : (factCheckResults[index] ? 'View Fact-Check' : 'Fact Check')}
-              </Button>
-              <Button
-                onClick={() => handleRating(index, 'up')}
-                className={cn("p-2 mt-2", ratings[index] === 'up' ? "bg-green-500" : "bg-gray-200")}
-              >
-                <ThumbsUp className="w-4 h-4" />
-              </Button>
-              <Button
-                onClick={() => handleRating(index, 'down')}
-                className={cn("p-2 mt-2", ratings[index] === 'down' ? "bg-red-500" : "bg-gray-200")}
-              >
-                <ThumbsDown className="w-4 h-4" />
-              </Button>
-            </div>
-            {figures.length > 0 && <FigureDisplay figures={figures} />}
-          </>
-        )}
-      </div>
-    );
-  };
 
   return (
     <div className="w-full max-w-6xl mx-auto bg-white dark:bg-gray-800 rounded-xl shadow-lg relative flex flex-col md:flex-row">
@@ -485,40 +410,39 @@ export function CardDemo() {
                 )}
                 {lastAssistantMessage && (
                   <BoxReveal width="100%" boxColor="#eca72c" duration={0.5}>
-                    <div className="bg-white/70 dark:bg-gray-600 p-3 rounded-lg">
+                    <motion.div
+                      className="bg-white/70 dark:bg-gray-600 p-3 rounded-lg"
+                      animate={{
+                        filter: isNewRequestPending ? 'blur(4px)' : 'blur(0px)',
+                      }}
+                      transition={{ duration: 0.3 }}
+                    >
                       <p className="font-bold">TradeGuru:</p>
                       <ReactMarkdown className="whitespace-pre-wrap prose dark:prose-invert max-w-none">
                         {lastAssistantMessage.content}
                       </ReactMarkdown>
-                      <div className="mt-2 flex items-center space-x-2 flex-wrap">
-                        <Button
-                          onClick={() => handleFactCheck(conversation.length - 1)}
-                          disabled={isFactChecking[conversation.length - 1]}
-                          className={cn(
-                            "text-xs mt-2",
-                            factCheckResults[conversation.length - 1] 
-                              ? (factCheckResults[conversation.length - 1].isCorrect ? "bg-green-500" : "bg-red-500") 
-                              : "bg-blue-500"
-                          )}
-                        >
-                          {isFactChecking[conversation.length - 1] ? 'Checking...' : (factCheckResults[conversation.length - 1] ? 'View Fact-Check' : 'Fact Check')}
-                        </Button>
+                      <FigureDisplay figures={extractFigureReferences(lastAssistantMessage.content)} />
+                      <div className="mt-4 flex items-center justify-center space-x-4">
                         <Button
                           onClick={() => handleRating(conversation.length - 1, 'up')}
-                          className={cn("p-2 mt-2", ratings[conversation.length - 1] === 'up' ? "bg-green-500" : "bg-gray-200")}
+                          className={cn("p-2", ratings[conversation.length - 1] === 'up' ? "bg-green-500" : "bg-gray-200")}
                         >
                           <ThumbsUp className="w-4 h-4" />
                         </Button>
                         <Button
                           onClick={() => handleRating(conversation.length - 1, 'down')}
-                          className={cn("p-2 mt-2", ratings[conversation.length - 1] === 'down' ? "bg-red-500" : "bg-gray-200")}
+                          className={cn("p-2", ratings[conversation.length - 1] === 'down' ? "bg-red-500" : "bg-gray-200")}
                         >
                           <ThumbsDown className="w-4 h-4" />
                         </Button>
                       </div>
-                      <FigureDisplay figures={extractFigureReferences(lastAssistantMessage.content)} />
-                    </div>
+                    </motion.div>
                   </BoxReveal>
+                )}
+                {isNewRequestPending && (
+                  <div className="text-center text-gray-500 dark:text-gray-400">
+                    Generating response...
+                  </div>
                 )}
               </div>
             </div>
