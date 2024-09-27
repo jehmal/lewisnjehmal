@@ -154,7 +154,7 @@ export default function Home() {
                   href: "#",
                   icon: (
                     <Image
-                      src="/path-to-avatar-image.png"
+                      src="/images/default-avatar.png" // Ensure this file exists in the public folder
                       className="h-7 w-7 flex-shrink-0 rounded-full"
                       width={50}
                       height={50}

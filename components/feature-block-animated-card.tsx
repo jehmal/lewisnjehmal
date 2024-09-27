@@ -8,7 +8,7 @@ import AnimatedListDemo from "@/components/example/animated-list-demo";
 import { Button } from "@/components/ui/button";
 import ReactMarkdown from 'react-markdown';
 
-import { ThumbsUp, ThumbsDown, MessageSquare, History } from 'lucide-react';
+import { ThumbsUp, ThumbsDown, MessageSquare, History, Calculator } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import AnimatedCircularProgressBar from "@/components/magicui/animated-circular-progress-bar";
@@ -17,6 +17,10 @@ import { ChatSidebar, ChatSidebarBody, ChatSidebarTab } from "@/components/ui/ch
 import { Timeline } from "@/components/ui/timeline";
 import { MovingBorder } from "@/components/ui/moving-border";
 import ShinyButton from "@/components/magicui/shiny-button";
+import CableSizeCalculator from "@/components/cable-size-calculator";
+import MaximumDemandCalculator from "@/components/maximum-demand-calculator";
+import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
+import Image from "next/image";
 
 interface Message {
   role: 'user' | 'assistant';
@@ -36,6 +40,63 @@ const formatDate = (date: Date) => {
   }).format(date);
 };
 
+// Function to extract figure references
+const extractFigureReferences = (text: string): { quote: string; name: string; title: string; image: string }[] => {
+  const figureRegex = /figure\s+(\d+(\.\d+)*(\([a-z]\))?)/gi;
+  const matches = Array.from(new Set(text.match(figureRegex) || [])); // Remove duplicates
+  return matches.map(match => {
+    const figureName = match.split(' ')[1];
+    let formattedFigureName = figureName
+      .replace(/\./g, '_')
+      .replace(/\(([a-z])\)/, '($1)')
+      .toUpperCase();
+    
+    // Special case for figures like 3.3(h) and 3.3(i) which are lowercase in the file names
+    if (formattedFigureName.includes('(H)') || formattedFigureName.includes('(I)')) {
+      formattedFigureName = formattedFigureName.toLowerCase();
+    }
+
+    const imagePath = `/WA - Electrical standards Fig/Figure_${formattedFigureName}.jpg`;
+    console.log(`Extracted figure: ${match}, Image path: ${imagePath}`); // Add this line for debugging
+    return {
+      quote: `Reference to ${match}`,
+      name: match,
+      title: "Referenced Figure",
+      image: imagePath
+    };
+  });
+};
+
+// Component to display figures
+const FigureDisplay = ({ figures }: { figures: { quote: string; name: string; title: string; image: string }[] }) => {
+  if (figures.length === 0) return null;
+
+  console.log('Figures to display:', figures); // Keep this line for debugging
+
+  return (
+    <div className="mt-6 relative">
+      <div className="overflow-x-auto scrollbar-hide">
+        <div className="flex space-x-4 pb-4" style={{ minWidth: 'max-content' }}>
+          {figures.map((figure, index) => (
+            <div key={index} className="flex-shrink-0 w-[250px]">
+              <InfiniteMovingCards
+                items={[figure]}
+                className="w-full"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+      {figures.length > 1 && (
+        <>
+          <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-white to-transparent dark:from-gray-800 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-white to-transparent dark:from-gray-800 pointer-events-none" />
+        </>
+      )}
+    </div>
+  );
+};
+
 export function CardDemo() {
   const [inputValue, setInputValue] = useState('');
   const [conversation, setConversation] = useState<Message[]>([]);
@@ -49,8 +110,36 @@ export function CardDemo() {
 
   const [progressValue, setProgressValue] = useState(0);
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState<'ask' | 'history'>('ask');
+  const [activeTab, setActiveTab] = useState<'ask' | 'history' | 'calculators'>('ask');
   const [expandedAnswerIndex, setExpandedAnswerIndex] = useState<number | null>(null);
+  const [searchKeyword, setSearchKeyword] = useState('');
+
+  const filteredConversation = conversation.filter(message =>
+    message.content.toLowerCase().includes(searchKeyword.toLowerCase())
+  );
+
+  const filteredTimelineData = filteredConversation
+    .filter(message => message.role === 'user')
+    .map((message, index) => ({
+      title: message.timestamp,
+      content: (
+        <div className="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg flex-grow relative min-h-[100px]">
+          <p className="font-bold mb-2">You:</p>
+          <ReactMarkdown className="whitespace-pre-wrap prose dark:prose-invert max-w-none pr-24">
+            {message.content}
+          </ReactMarkdown>
+          <div className="mt-3">
+            <ShinyButton
+              text="View Answer"
+              className="text-xs"
+              onClick={() => setExpandedAnswerIndex(index * 2 + 1)}
+              shimmerColor="#eca72c"
+              background="#ee5622"
+            />
+          </div>
+        </div>
+      ),
+    }));
 
   const tabs = [
     {
@@ -60,6 +149,10 @@ export function CardDemo() {
     {
       label: "History",
       icon: <History className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />,
+    },
+    {
+      label: "Calculators",
+      icon: <Calculator className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />,
     },
   ];
 
@@ -178,80 +271,112 @@ export function CardDemo() {
   const handleRating = (index: number, rating: 'up' | 'down') => {
     setRatings(prev => {
       const newRatings = { ...prev, [index]: rating };
- 
- 
       return newRatings;
     });
   };
 
   const handleTabChange = (tab: string) => {
     console.log('Tab changed to:', tab);
-    setActiveTab(tab.toLowerCase() as 'ask' | 'history');
+    setActiveTab(tab.toLowerCase() as 'ask' | 'history' | 'calculators');
     setSidebarOpen(false);
   };
 
   const lastUserMessage = conversation.filter(msg => msg.role === 'user').pop();
   const lastAssistantMessage = conversation.filter(msg => msg.role === 'assistant').pop();
 
-  const timelineData = conversation
-    .filter(message => message.role === 'user')
-    .map((message, index) => ({
-      title: message.timestamp,
-      content: (
-        <div className="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg flex-grow relative min-h-[100px]">
-          <p className="font-bold mb-2">You:</p>
-          <ReactMarkdown className="whitespace-pre-wrap prose dark:prose-invert max-w-none pr-24">
-            {message.content}
-          </ReactMarkdown>
-          <div className="mt-3">
-            <ShinyButton
-              text="View Answer"
-              className="text-xs"
-              onClick={() => setExpandedAnswerIndex(index * 2 + 1)}
-              shimmerColor="#eca72c"
-              background="#ee5622"
-            />
-          </div>
-        </div>
-      ),
-    }));
+  const ExpandableAnswer = ({ answer, onClose }: { answer: Message, onClose: () => void }) => {
+    const figures = extractFigureReferences(answer.content);
 
-  const ExpandableAnswer = ({ answer, onClose }: { answer: Message, onClose: () => void }) => (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 backdrop-blur-sm"
-      onClick={onClose}
-    >
-      <motion.div 
-        className="bg-white dark:bg-gray-800 p-6 rounded-lg max-w-2xl w-full max-h-[80vh] overflow-y-auto relative"
-        onClick={(e) => e.stopPropagation()}
-        initial={{ scale: 0.9, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        exit={{ scale: 0.9, opacity: 0 }}
+    return (
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 backdrop-blur-sm"
+        onClick={onClose}
       >
-        <MovingBorder duration={3000} rx="25" ry="25">
-          <div className="absolute inset-0 bg-white dark:bg-gray-800 rounded-lg" />
-        </MovingBorder>
-        <div className="relative z-10">
-          <h3 className="text-lg font-bold mb-4">TradeGuru&apos;s Answer:</h3>
-          <ReactMarkdown className="whitespace-pre-wrap prose dark:prose-invert max-w-none">
-            {answer.content}
-          </ReactMarkdown>
-          <div className="mt-4 flex justify-end">
-            <ShinyButton
-              text="Close"
-              className="bg-gray-500 hover:bg-gray-600"
-              onClick={onClose}
-              shimmerColor="#eca72c"
-              background="#ee5622"
-            />
+        <motion.div 
+          className="bg-white dark:bg-gray-800 p-6 rounded-lg max-w-2xl w-full max-h-[80vh] overflow-y-auto relative"
+          onClick={(e) => e.stopPropagation()}
+          initial={{ scale: 0.9, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          exit={{ scale: 0.9, opacity: 0 }}
+        >
+          <MovingBorder duration={3000} rx="25" ry="25">
+            <div className="absolute inset-0 bg-white dark:bg-gray-800 rounded-lg" />
+          </MovingBorder>
+          <div className="relative z-10 p-6">
+            <h3 className="text-lg font-bold mb-4">TradeGuru&apos;s Answer:</h3>
+            <ReactMarkdown className="whitespace-pre-wrap prose dark:prose-invert max-w-none">
+              {answer.content}
+            </ReactMarkdown>
+            <div className="mt-4 flex justify-end">
+              <ShinyButton
+                text="Close"
+                className="bg-gray-500 hover:bg-gray-600"
+                onClick={onClose}
+                shimmerColor="#eca72c"
+                background="#ee5622"
+              />
+            </div>
+            {figures.length > 0 && (
+              <div className="mt-6">
+                <h4 className="text-md font-semibold mb-2">Referenced Figures:</h4>
+                <FigureDisplay figures={figures} />
+              </div>
+            )}
           </div>
-        </div>
+        </motion.div>
       </motion.div>
-    </motion.div>
-  );
+    );
+  };
+
+  const renderMessage = (message: Message, index: number) => {
+    const figures = extractFigureReferences(message.content);
+  
+    return (
+      <div key={index} className={cn(
+        "p-4 rounded-lg mb-4",
+        message.role === 'user' ? 'bg-gray-100 dark:bg-gray-700' : 'bg-white/70 dark:bg-gray-600'
+      )}>
+        <p className="font-bold mb-2">{message.role === 'user' ? 'You:' : 'TradeGuru:'}</p>
+        <ReactMarkdown className="whitespace-pre-wrap prose dark:prose-invert max-w-none">
+          {message.content}
+        </ReactMarkdown>
+        {message.role === 'assistant' && (
+          <>
+            <div className="mt-4 flex items-center space-x-2 flex-wrap">
+              <Button
+                onClick={() => handleFactCheck(index)}
+                disabled={isFactChecking[index]}
+                className={cn(
+                  "text-xs mt-2",
+                  factCheckResults[index] 
+                    ? (factCheckResults[index].isCorrect ? "bg-green-500" : "bg-red-500") 
+                    : "bg-blue-500"
+                )}
+              >
+                {isFactChecking[index] ? 'Checking...' : (factCheckResults[index] ? 'View Fact-Check' : 'Fact Check')}
+              </Button>
+              <Button
+                onClick={() => handleRating(index, 'up')}
+                className={cn("p-2 mt-2", ratings[index] === 'up' ? "bg-green-500" : "bg-gray-200")}
+              >
+                <ThumbsUp className="w-4 h-4" />
+              </Button>
+              <Button
+                onClick={() => handleRating(index, 'down')}
+                className={cn("p-2 mt-2", ratings[index] === 'down' ? "bg-red-500" : "bg-gray-200")}
+              >
+                <ThumbsDown className="w-4 h-4" />
+              </Button>
+            </div>
+            {figures.length > 0 && <FigureDisplay figures={figures} />}
+          </>
+        )}
+      </div>
+    );
+  };
 
   return (
     <div className="w-full max-w-6xl mx-auto bg-white dark:bg-gray-800 rounded-xl shadow-lg relative flex flex-col md:flex-row">
@@ -275,9 +400,9 @@ export function CardDemo() {
           {activeTab === 'ask' && (
             <div className="w-full space-y-6">
               <div className="flex flex-col md:flex-row items-center space-y-1 md:space-y-0 md:space-x-1">
-                <text className="text-sm font-semibold text-gray-900 dark:text-white">
+                <span className="text-sm font-semibold text-gray-900 dark:text-white">
                   Ask
-                </text>
+                </span>
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
                   <SparklesText
                     text="TradeGuru"
@@ -391,6 +516,7 @@ export function CardDemo() {
                           <ThumbsDown className="w-4 h-4" />
                         </Button>
                       </div>
+                      <FigureDisplay figures={extractFigureReferences(lastAssistantMessage.content)} />
                     </div>
                   </BoxReveal>
                 )}
@@ -400,18 +526,33 @@ export function CardDemo() {
 
           {activeTab === 'history' && (
             <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <SparklesText
+                  text="Ask TradeGuru"
+                  colors={{ first: "#ee5622", second: "#eca72c" }}
+                  className="text-lg font-semibold"
+                  sparklesCount={3}
+                />
+              </div>
+              <Input
+                type="text"
+                placeholder="Search what you've spoken about before..."
+                value={searchKeyword}
+                onChange={(e) => setSearchKeyword(e.target.value)}
+                className="w-full bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600 mb-4"
+              />
               <ShimmerButton
                 onClick={clearConversation}
                 shimmerColor="#eca72c"
-                background="#44355B"
-                className="mb-4"
+                background="#ee5622"
+                className="px-4 py-2"
               >
                 Clear Conversation History
               </ShimmerButton>
-              {conversation.length > 0 ? (
-                <Timeline data={timelineData} lineColor="#ee5622" />
+              {filteredConversation.length > 0 ? (
+                <Timeline data={filteredTimelineData} lineColor="#ee5622" />
               ) : (
-                <p className="text-gray-600 dark:text-gray-400">No conversation history yet.</p>
+                <p className="text-gray-600 dark:text-gray-400">No conversation history found for the keyword.</p>
               )}
               <AnimatePresence>
                 {expandedAnswerIndex !== null && (
@@ -421,6 +562,13 @@ export function CardDemo() {
                   />
                 )}
               </AnimatePresence>
+            </div>
+          )}
+
+          {activeTab === 'calculators' && (
+            <div className="space-y-4">
+              <CableSizeCalculator />
+              <MaximumDemandCalculator />
             </div>
           )}
           
