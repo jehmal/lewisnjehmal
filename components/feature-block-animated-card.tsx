@@ -51,8 +51,8 @@ const extractFigureReferences = (text: string): { quote: string; name: string; t
       .replace(/\(([a-z])\)/, '_$1')
       .toLowerCase();
     
-    // Keep lowercase for all figures
-    formattedFigureName = formattedFigureName.toLowerCase();
+    // Ensure all figures use underscore format
+    formattedFigureName = formattedFigureName.replace(/\(([a-z])\)/, '_$1');
 
     const imagePath = `/figures/Figure_${formattedFigureName}.jpg`;
     console.log(`Extracted figure: ${match}, Image path: ${imagePath}`);
