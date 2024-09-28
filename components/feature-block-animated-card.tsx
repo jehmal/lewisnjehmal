@@ -49,11 +49,13 @@ const extractFigureReferences = (text: string): { quote: string; name: string; t
     let formattedFigureName = figureName
       .replace(/\./g, '_')
       .replace(/\(([a-z])\)/, '($1)')
-      .toUpperCase();
+      .toLowerCase(); // Convert to lowercase
     
-    // Special case for figures like 3.3(h) and 3.3(i) which are lowercase in the file names
-    if (formattedFigureName.includes('(H)') || formattedFigureName.includes('(I)')) {
+    // Special case for figures like 3.3(h) and 3.3(i) which are already lowercase
+    if (formattedFigureName.includes('(h)') || formattedFigureName.includes('(i)')) {
       formattedFigureName = formattedFigureName.toLowerCase();
+    } else {
+      formattedFigureName = formattedFigureName.toUpperCase();
     }
 
     const imagePath = `/WA - Electrical standards Fig/Figure_${formattedFigureName}.jpg`;
