@@ -40,7 +40,7 @@ const formatDate = (date: Date) => {
   }).format(date);
 };
 
-// Function to extract figure references
+// Function to extract figure references i love the world
 const extractFigureReferences = (text: string): { quote: string; name: string; title: string; image: string }[] => {
   const figureRegex = /figure\s+(\d+(\.\d+)*(\([a-z]\))?)/gi;
   const matches = Array.from(new Set(text.match(figureRegex) || [])); // Remove duplicates
