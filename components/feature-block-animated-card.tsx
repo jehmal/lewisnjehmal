@@ -48,18 +48,14 @@ const extractFigureReferences = (text: string): { quote: string; name: string; t
     const figureName = match.split(' ')[1];
     let formattedFigureName = figureName
       .replace(/\./g, '_')
-      .replace(/\(([a-z])\)/, '($1)')
-      .toLowerCase(); // Convert to lowercase
+      .replace(/\(([a-z])\)/, '_$1')
+      .toLowerCase();
     
-    // Special case for figures like 3.3(h) and 3.3(i) which are already lowercase
-    if (formattedFigureName.includes('(h)') || formattedFigureName.includes('(i)')) {
-      formattedFigureName = formattedFigureName.toLowerCase();
-    } else {
-      formattedFigureName = formattedFigureName.toUpperCase();
-    }
+    // Keep lowercase for all figures
+    formattedFigureName = formattedFigureName.toLowerCase();
 
-    const imagePath = `/WA - Electrical standards Fig/Figure_${formattedFigureName}.jpg`;
-    console.log(`Extracted figure: ${match}, Image path: ${imagePath}`); // Add this line for debugging
+    const imagePath = `/figures/Figure_${formattedFigureName}.jpg`;
+    console.log(`Extracted figure: ${match}, Image path: ${imagePath}`);
     return {
       quote: `Reference to ${match}`,
       name: match,

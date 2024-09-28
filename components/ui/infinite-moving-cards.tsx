@@ -6,8 +6,6 @@ import Image from "next/image";
 
 export const InfiniteMovingCards = ({
   items,
-  // Remove pauseOnHover if it's not being used
-  // pauseOnHover = true,
   className,
 }: {
   items: {
@@ -16,12 +14,15 @@ export const InfiniteMovingCards = ({
     title: string;
     image: string;
   }[];
-  // Remove this line if pauseOnHover is not being used
-  // pauseOnHover?: boolean;
   className?: string;
 }) => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [imageError, setImageError] = useState<{[key: string]: boolean}>({});
+
+  const handleImageError = (image: string) => {
+    console.error(`Failed to load image: ${image}`);
+    setImageError(prev => ({...prev, [image]: true}));
+  };
 
   return (
     <>
@@ -39,10 +40,10 @@ export const InfiniteMovingCards = ({
                       <Image
                         src={item.image}
                         alt={`Figure ${item.name}`}
-                        fill
-                        sizes="250px"
+                        width={250}
+                        height={128}
                         style={{ objectFit: "contain" }}
-                        onError={() => setImageError(prev => ({...prev, [item.image]: true}))}
+                        onError={() => handleImageError(item.image)}
                       />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center bg-gray-200 text-gray-500">
