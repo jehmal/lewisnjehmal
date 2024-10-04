@@ -1,191 +1,121 @@
 "use client";
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import Link, { LinkProps } from "next/link";
-import React, { useState, createContext, useContext } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import { IconMenu2, IconX } from "@tabler/icons-react";
+import { useUser } from '@/contexts/UserContext';
+import { Menu as IconMenu2 } from 'lucide-react';
 
 interface Links {
-  label: string;
   href: string;
-  icon: React.JSX.Element | React.ReactNode;
-  onClick?: () => void;  // Add this line
+  icon: React.ReactNode;
+  label: string;
+  isActive?: boolean;
 }
 
-interface SidebarContextProps {
+interface SidebarProps {
   open: boolean;
-  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  animate: boolean;
+  setOpen: (open: boolean) => void;
+  children: React.ReactNode;
 }
 
-const SidebarContext = createContext<SidebarContextProps | undefined>(
-  undefined
-);
+export function Sidebar({ open, setOpen, children }: SidebarProps) {
+  const [isHovered, setIsHovered] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
-export const useSidebar = () => {
-  const context = useContext(SidebarContext);
-  if (!context) {
-    throw new Error("useSidebar must be used within a SidebarProvider");
-  }
-  return context;
-};
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
-export const SidebarProvider = ({
-  children,
-  open: openProp,
-  setOpen: setOpenProp,
-  animate = true,
-}: {
-  children: React.ReactNode;
-  open?: boolean;
-  setOpen?: React.Dispatch<React.SetStateAction<boolean>>;
-  animate?: boolean;
-}) => {
-  const [openState, setOpenState] = useState(false);
-
-  const open = openProp !== undefined ? openProp : openState;
-  const setOpen = setOpenProp !== undefined ? setOpenProp : setOpenState;
-
-  return (
-    <SidebarContext.Provider value={{ open, setOpen, animate: animate }}>
-      {children}
-    </SidebarContext.Provider>
-  );
-};
-
-export const Sidebar = ({
-  children,
-  open,
-  setOpen,
-  animate,
-}: {
-  children: React.ReactNode;
-  open?: boolean;
-  setOpen?: React.Dispatch<React.SetStateAction<boolean>>;
-  animate?: boolean;
-}) => {
-  return (
-    <SidebarProvider open={open} setOpen={setOpen} animate={animate}>
-      {children}
-    </SidebarProvider>
-  );
-};
-
-export const SidebarBody = (props: React.ComponentProps<typeof motion.div>) => {
   return (
     <>
-      <DesktopSidebar {...props} />
-      <MobileSidebar {...(props as React.ComponentProps<"div">)} />
-    </>
-  );
-};
-
-export const DesktopSidebar = ({
-  className,
-  children,
-  ...props
-}: React.ComponentProps<typeof motion.div>) => {
-  const { open, setOpen, animate } = useSidebar();
-  return (
-    <>
+      {isMobile && (
+        <button
+          onClick={() => setOpen(!open)}
+          className="fixed top-4 left-4 z-50 p-2 bg-gray-100 dark:bg-neutral-800 rounded-md"
+        >
+          <IconMenu2 className="w-6 h-6" />
+        </button>
+      )}
       <motion.div
         className={cn(
-          "h-full px-4 py-4 hidden  md:flex md:flex-col bg-neutral-100 dark:bg-neutral-800 w-[300px] flex-shrink-0",
-          className
+          "fixed left-0 top-0 bottom-0 z-40 flex flex-col bg-gray-100 dark:bg-neutral-800 shadow-xl transition-all duration-300 ease-in-out",
+          isMobile ? (open ? "w-64" : "w-0") : (open || isHovered ? "w-64" : "w-12")
         )}
-        animate={{
-          width: animate ? (open ? "300px" : "60px") : "300px",
-        }}
-        onMouseEnter={() => setOpen(true)}
-        onMouseLeave={() => setOpen(false)}
-        {...props}
+        onMouseEnter={() => !isMobile && setIsHovered(true)}
+        onMouseLeave={() => !isMobile && setIsHovered(false)}
+        initial={false}
+        animate={{ width: isMobile ? (open ? 256 : 0) : (open || isHovered ? 256 : 48) }}
       >
         {children}
       </motion.div>
     </>
   );
-};
+}
 
-export const MobileSidebar = ({
-  className,
-  children,
-  ...props
-}: React.ComponentProps<"div">) => {
-  const { open, setOpen } = useSidebar();
-  return (
-    <>
-      <div
-        className={cn(
-          "h-10 px-4 py-4 flex flex-row md:hidden  items-center justify-between bg-neutral-100 dark:bg-neutral-800 w-full"
-        )}
-        {...props}
-      >
-        <div className="flex justify-end z-20 w-full">
-          <IconMenu2
-            className="text-neutral-800 dark:text-neutral-200"
-            onClick={() => setOpen(!open)}
-          />
-        </div>
-        <AnimatePresence>
-          {open && (
-            <motion.div
-              initial={{ x: "-100%", opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              exit={{ x: "-100%", opacity: 0 }}
-              transition={{
-                duration: 0.3,
-                ease: "easeInOut",
-              }}
-              className={cn(
-                "fixed h-full w-full inset-0 bg-white dark:bg-neutral-900 p-10 z-[100] flex flex-col justify-between",
-                className
-              )}
-            >
-              <div
-                className="absolute right-10 top-10 z-50 text-neutral-800 dark:text-neutral-200"
-                onClick={() => setOpen(!open)}
-              >
-                <IconX />
-              </div>
-              {children}
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-    </>
-  );
-};
+export function SidebarBody({ className, children }: { className?: string; children: React.ReactNode }) {
+  return <div className={cn("flex flex-col flex-1 overflow-y-auto", className)}>{children}</div>;
+}
 
-export const SidebarLink = ({
-  link,
-  className,
-  ...props
-}: {
-  link: Links;
-  className?: string;
-  props?: LinkProps;
-}) => {
-  const { open, animate } = useSidebar();
+export function SidebarLink({ link }: { link: Links }) {
+  const { logout } = useUser();
+
+  const handleClick = async (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (link.label.toLowerCase() === 'logout') {
+      e.preventDefault();
+      await logout();
+    }
+  };
+
   return (
     <Link
       href={link.href}
+      onClick={handleClick}
       className={cn(
-        "flex items-center justify-start gap-2  group/sidebar py-2",
-        className
+        "flex items-center gap-4 px-3 py-2 text-neutral-700 dark:text-neutral-200 hover:bg-neutral-200 dark:hover:bg-neutral-700 rounded-lg transition-colors duration-150",
+        link.isActive && "bg-neutral-200 dark:bg-neutral-700"
       )}
-      {...props}
     >
-      {link.icon}
-
+      <div className="w-6 h-6 flex items-center justify-center flex-shrink-0">{link.icon}</div>
       <motion.span
-        animate={{
-          display: animate ? (open ? "inline-block" : "none") : "inline-block",
-          opacity: animate ? (open ? 1 : 0) : 1,
-        }}
-        className="text-neutral-700 dark:text-neutral-200 text-sm group-hover/sidebar:translate-x-1 transition duration-150 whitespace-pre inline-block !p-0 !m-0"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.2 }}
+        className="font-medium whitespace-nowrap overflow-hidden"
       >
         {link.label}
       </motion.span>
     </Link>
   );
-};
+}
+
+export function Logo() {
+  return (
+    <Link
+      href="#"
+      className="font-normal flex space-x-2 items-center text-sm text-black dark:text-white py-1 px-3 mb-4"
+    >
+      <div className="h-5 w-6 bg-black dark:bg-white rounded-br-lg rounded-tr-sm rounded-tl-lg rounded-bl-sm flex-shrink-0" />
+      <motion.span
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className="font-medium whitespace-nowrap overflow-hidden"
+      >
+        TradeGuru
+      </motion.span>
+    </Link>
+  );
+}
+
+export function LogoIcon() {
+  return (
+    <div className="font-normal flex items-center text-sm text-black dark:text-white py-1 px-3 mb-4">
+      <div className="h-5 w-6 bg-black dark:bg-white rounded-br-lg rounded-tr-sm rounded-tl-lg rounded-bl-sm flex-shrink-0" />
+    </div>
+  );
+}

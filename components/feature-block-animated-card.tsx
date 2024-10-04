@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
 import { BoxReveal } from "@/components/magicui/box-reveal";
@@ -17,9 +17,13 @@ import { ChatSidebar, ChatSidebarBody, ChatSidebarTab } from "@/components/ui/ch
 import { Timeline } from "@/components/ui/timeline";
 import { MovingBorder } from "@/components/ui/moving-border";
 import ShinyButton from "@/components/magicui/shiny-button";
-import CableSizeCalculator from "@/components/cable-size-calculator";
-import MaximumDemandCalculator from "@/components/maximum-demand-calculator";
+import MaximumDemandCalculator from "@/components/MaximumDemandCalculator";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
+import { useUser } from '@/contexts/UserContext';
+import { supabase } from '@/lib/supabase';
+import { SupabaseClient } from '@supabase/supabase-js';
+import AuthUI from '@/components/AuthUI';
+import { debounce } from 'lodash';
 
 
 interface Message {
@@ -96,6 +100,7 @@ const FigureDisplay = ({ figures }: { figures: { quote: string; name: string; ti
 };
 
 export function CardDemo() {
+  const { user, loading } = useUser();
   const [inputValue, setInputValue] = useState('');
   const [conversation, setConversation] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -172,12 +177,56 @@ export function CardDemo() {
     }
   };
 
-  useEffect(() => {
-    const savedConversation = localStorage.getItem('conversation');
-    if (savedConversation) {
-      setConversation(JSON.parse(savedConversation));
+  const fetchLatestConversation = useCallback(async () => {
+    if (!user) return;
+
+    try {
+      const { data, error } = await supabase
+        .from('conversations')
+        .select('*')
+        .eq('user_id', user.id)
+        .order('timestamp', { ascending: false })
+        .limit(2);  // Fetch the last question and answer
+
+      if (error) throw error;
+
+      if (data && data.length > 0) {
+        setConversation(data.reverse());
+      }
+    } catch (error) {
+      console.error('Error fetching latest conversation:', error);
+      setError('Failed to fetch latest conversation');
     }
-  }, []);
+  }, [user]);
+
+  useEffect(() => {
+    if (user) {
+      fetchLatestConversation();
+    }
+  }, [user, fetchLatestConversation]);
+
+  const saveConversation = debounce(async (newConversation: Message[]) => {
+    if (!user) return;
+
+    try {
+      const { error } = await (supabase as SupabaseClient)
+        .from('conversations')
+        .upsert(
+          newConversation.map(message => ({
+            user_id: user.id,
+            role: message.role,
+            content: message.content,
+            context: message.context,
+            timestamp: message.timestamp
+          }))
+        );
+
+      if (error) throw error;
+    } catch (error) {
+      console.error('Error saving conversation:', error);
+      setError('Failed to save conversation');
+    }
+  }, 1000);
 
   useEffect(() => {
     scrollToBottom();
@@ -185,7 +234,7 @@ export function CardDemo() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!inputValue.trim()) return;
+    if (!inputValue.trim() || !user) return;
 
     setIsLoading(true);
     setError(null);
@@ -198,7 +247,7 @@ export function CardDemo() {
     };
     const updatedConversation = [...conversation, userMessage];
     setConversation(updatedConversation);
-    localStorage.setItem('conversation', JSON.stringify(updatedConversation));
+    saveConversation(updatedConversation);
     
     try {
       const response = await fetch('/api/chat', {
@@ -221,7 +270,7 @@ export function CardDemo() {
       };
       const newConversation = [...updatedConversation, assistantMessage];
       setConversation(newConversation);
-      localStorage.setItem('conversation', JSON.stringify(newConversation));
+      saveConversation(newConversation);
     } catch (error) {
       console.error('Error:', error);
       setError('An unexpected error occurred. Please try again later.');
@@ -234,7 +283,7 @@ export function CardDemo() {
 
   const clearConversation = () => {
     setConversation([]);
-    localStorage.removeItem('conversation');
+    // Note: We're not deleting from Supabase, just clearing the local state
   };
 
   const handleRating = (index: number, rating: 'up' | 'down') => {
@@ -300,6 +349,13 @@ export function CardDemo() {
     );
   };
 
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (!user) {
+    return <AuthUI />;
+  }
 
   return (
     <div className="w-full max-w-6xl mx-auto bg-white dark:bg-gray-800 rounded-xl shadow-lg relative flex flex-col md:flex-row">
@@ -489,8 +545,8 @@ export function CardDemo() {
 
           {activeTab === 'calculators' && (
             <div className="space-y-4">
-              <CableSizeCalculator />
               <MaximumDemandCalculator />
+              {/* You can add more calculators here */}
             </div>
           )}
           

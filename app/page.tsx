@@ -13,16 +13,14 @@ import DotPattern from "@/components/magicui/dot-pattern";
 import BlurFade from "@/components/magicui/blur-fade";
 import Meteors from "@/components/magicui/meteors";
 import { ExpandableMessageProvider } from '@/components/ExpandableMessageProvider';
-import { Sidebar, SidebarBody, SidebarLink } from "@/components/ui/sidebar";
+import { Sidebar, SidebarBody, SidebarLink, Logo, LogoIcon } from "@/components/ui/sidebar";
 import {
   IconArrowLeft,
   IconBrandTabler,
   IconSettings,
   IconUserBolt,
 } from "@tabler/icons-react";
-import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 const features = [
@@ -55,7 +53,7 @@ const features = [
     background: (
       <div className="absolute inset-0 flex items-center justify-center opacity-10">
         <svg className="w-64 h-64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 2 12C6.47715 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#ECA72C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#ECA72C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           <path d="M2 12H22" stroke="#EE5622" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           <path d="M12 2C14.5013 4.73835 15.9228 8.29203 16 12C15.9228 15.708 14.5013 19.2616 12 22C9.49872 19.2616 8.07725 15.708 8 12C8.07725 8.29203 9.49872 4.73835 12 2V2Z" stroke="#EE5622" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
@@ -107,23 +105,27 @@ export default function Home() {
   const links = [
     {
       label: "Home",
-      href: "#",
+      href: "/",
       icon: <IconBrandTabler className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />,
+      isActive: true, // Set this based on the current route
     },
     {
       label: "Profile",
       href: "#",
       icon: <IconUserBolt className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />,
+      isActive: false,
     },
     {
       label: "Settings",
       href: "#",
       icon: <IconSettings className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />,
+      isActive: false,
     },
     {
       label: "Logout",
       href: "#",
       icon: <IconArrowLeft className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />,
+      isActive: false,
     },
   ];
 
@@ -139,13 +141,11 @@ export default function Home() {
       )}>
         <Sidebar open={sidebarOpen} setOpen={setSidebarOpen}>
           <SidebarBody className="justify-between gap-10">
-            <div className="flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
-              {sidebarOpen ? <Logo /> : <LogoIcon />}
-              <div className="mt-8 flex flex-col gap-2">
-                {links.map((link, idx) => (
-                  <SidebarLink key={idx} link={link} />
-                ))}
-              </div>
+            {sidebarOpen ? <Logo /> : <LogoIcon />}
+            <div className="mt-8 flex flex-col gap-2">
+              {links.map((link, idx) => (
+                <SidebarLink key={idx} link={link} />
+              ))}
             </div>
             <div>
               <SidebarLink
@@ -154,7 +154,7 @@ export default function Home() {
                   href: "#",
                   icon: (
                     <Image
-                      src="/images/default-avatar.png" // Ensure this file exists in the public folder
+                      src="/images/default-avatar.png"
                       className="h-7 w-7 flex-shrink-0 rounded-full"
                       width={50}
                       height={50}
@@ -166,20 +166,17 @@ export default function Home() {
             </div>
           </SidebarBody>
         </Sidebar>
-        <div className="flex-1 overflow-y-auto">
+        <div className="flex-1 overflow-y-auto p-4 md:p-8">
           <div className="min-h-screen flex flex-col bg-white text-gray-800 relative overflow-hidden">
-            {/* Header */}
-        
-
             {/* Hero Section */}
-            <section className="py-24 bg-white bg-opacity-80 relative">
+            <section className="py-12 md:py-24 bg-white bg-opacity-80 relative">
               <div className="absolute inset-0 z-0">
                 <Globe />
               </div>
               <div className="container mx-auto text-center relative z-10 flex flex-col items-center">
                 <FadeText
                   text="Master Your Trade with TradeGuru"
-                  className="text-5xl font-extrabold mb-6 text-hunyadi-yellow font-sans"
+                  className="text-3xl md:text-5xl font-extrabold mb-6 text-hunyadi-yellow font-sans"
                   direction="up"
                   framerProps={{
                     hidden: { opacity: 0, y: 20 },
@@ -189,7 +186,7 @@ export default function Home() {
                 <TypingAnimation
                   text="Always have an answer on the job."
                   duration={30}
-                  className="text-xl mb-10 font-sans text-gray-600"
+                  className="text-lg md:text-xl mb-10 font-sans text-gray-600"
                 />
                 <AnimatedSubscribeButton
                   buttonColor="#ee5622"
@@ -222,9 +219,9 @@ export default function Home() {
             </BlurFade>
 
             {/* Features Section */}
-            <section id="features" className="py-24 bg-white bg-opacity-90 relative overflow-hidden">
+            <section id="features" className="py-12 md:py-24 bg-white bg-opacity-90 relative overflow-hidden">
               <div className="container mx-auto relative">
-                <h2 className="text-3xl font-bold text-center mb-16 text-hunyadi-yellow relative z-10">Key Features</h2>
+                <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-16 text-hunyadi-yellow relative z-10">Key Features</h2>
                 <div className="max-w-4xl mx-auto relative">
                   <BentoDemo />
                 </div>
@@ -232,12 +229,12 @@ export default function Home() {
             </section>
 
             {/* CTA Section */}
-            <section className="bg-gray-100 bg-opacity-90 text-gray-800 py-24 border-t border-gray-200">
-              <div className="container mx-auto text-center">
-                <h2 className="text-3xl font-bold mb-6 text-hunyadi-yellow">Ready to Elevate Your Trading?</h2>
-                <p className="text-xl mb-10 text-gray-600">Join TradeGuru today and start making smarter trades.</p>
-                <div className="flex flex-col items-center gap-6">
-                  <button className="bg-flame text-black px-8 py-4 rounded-full text-lg font-semibold hover:bg-hunyadi-yellow hover:text-black transition duration-300">
+            <section className="bg-gray-100 bg-opacity-90 text-gray-800 py-12 md:py-24 border-t border-gray-200">
+              <div className="container mx-auto text-center px-4">
+                <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-hunyadi-yellow">Ready to Elevate Your Trading?</h2>
+                <p className="text-lg md:text-xl mb-6 md:mb-10 text-gray-600">Join TradeGuru today and start making smarter trades.</p>
+                <div className="flex flex-col items-center gap-4 md:gap-6">
+                  <button className="bg-flame text-black px-6 py-3 md:px-8 md:py-4 rounded-full text-base md:text-lg font-semibold hover:bg-hunyadi-yellow hover:text-black transition duration-300">
                     Sign Up Now
                   </button>
                   <AnimatedSubscribeButton
@@ -252,7 +249,7 @@ export default function Home() {
             </section>
 
             {/* Footer */}
-            <footer className="bg-white bg-opacity-90 text-gray-600 py-8 border-t border-gray-200 relative z-10">
+            <footer className="bg-white bg-opacity-90 text-gray-600 py-6 md:py-8 border-t border-gray-200 relative z-10">
               <div className="container mx-auto text-center">
                 <p>&copy; 2024 TradeGuru. All rights reserved.</p>
               </div>
@@ -266,33 +263,3 @@ export default function Home() {
     </ExpandableMessageProvider>
   );
 }
-
-const Logo = () => {
-  return (
-    <Link
-      href="#"
-      className="font-normal flex space-x-2 items-center text-sm text-black py-1 relative z-20"
-    >
-      <div className="h-5 w-6 bg-black dark:bg-white rounded-br-lg rounded-tr-sm rounded-tl-lg rounded-bl-sm flex-shrink-0" />
-      <motion.span
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        className="font-medium text-black dark:text-white whitespace-pre"
-      >
-        TradeGuru
-      </motion.span>
-    </Link>
-  );
-};
-
-const LogoIcon = () => {
-  return (
-    <Link
-      href="#"
-      className="font-normal flex space-x-2 items-center text-sm text-black py-1 relative z-20"
-    >
-      <div className="h-5 w-6 bg-black dark:bg-white rounded-br-lg rounded-tr-sm rounded-tl-lg rounded-bl-sm flex-shrink-0" />
-    </Link>
-  );
-};
-
