@@ -24,6 +24,7 @@ import { supabase } from '@/lib/supabase';
 import { SupabaseClient } from '@supabase/supabase-js';
 import AuthUI from '@/components/AuthUI';
 import { debounce } from 'lodash';
+import Image from "next/image";
 
 
 interface Message {
@@ -33,23 +34,26 @@ interface Message {
   timestamp: string;
 }
 
-const formatDate = (date: Date) => {
+const formatDate = (dateString: string) => {
+  const date = new Date(dateString);
   return new Intl.DateTimeFormat('en-AU', {
-    day: '2-digit',
-    month: '2-digit',
-    year: 'numeric',
     hour: '2-digit',
     minute: '2-digit',
-    hour12: false
-  }).format(date);
+    hour12: true,
+    day: '2-digit',
+    month: '2-digit',
+    year: '2-digit'
+  }).format(date).replace(',', '');
 };
 
-// Function to extract figure references i love the world
+// Updated extractFigureReferences function
 const extractFigureReferences = (text: string): { quote: string; name: string; title: string; image: string }[] => {
-  const figureRegex = /figure\s+(\d+(\.\d+)*(\([a-z]\))?)/gi;
+  const figureRegex = /(WAES |WA |ASNZ3000 )?(?:Figure|Table)\s+(\d+(\.\d+)*(\([a-z]\))?)/gi;
   const matches = Array.from(new Set(text.match(figureRegex) || [])); // Remove duplicates
   return matches.map(match => {
-    const figureName = match.split(' ')[1];
+    const isWA = match.toLowerCase().startsWith('wa') || match.toLowerCase().startsWith('waes');
+    const isASNZ = match.toLowerCase().includes('asnz3000');
+    const figureName = match.split(' ').slice(-1)[0];
     let formattedFigureName = figureName
       .replace(/\./g, '_')
       .replace(/\(([a-z])\)/, '_$1')
@@ -58,7 +62,10 @@ const extractFigureReferences = (text: string): { quote: string; name: string; t
     // Ensure all figures use underscore format
     formattedFigureName = formattedFigureName.replace(/\(([a-z])\)/, '_$1');
 
-    const imagePath = `/figures/Figure_${formattedFigureName}.jpg`;
+    const prefix = isWA ? 'WA_' : 'AN3000_'; // Changed ASNZ3000_ to AN3000_
+    const extension = isWA ? '.jpg' : '.png';
+    const type = match.toLowerCase().includes('table') ? 'Table' : 'Figure';
+    const imagePath = `/All Tables & Figures/${prefix}${type}_${formattedFigureName}${extension}`;
     console.log(`Extracted figure: ${match}, Image path: ${imagePath}`);
     return {
       quote: `Reference to ${match}`,
@@ -69,8 +76,10 @@ const extractFigureReferences = (text: string): { quote: string; name: string; t
   });
 };
 
-// Component to display figures
+// Updated FigureDisplay component
 const FigureDisplay = ({ figures }: { figures: { quote: string; name: string; title: string; image: string }[] }) => {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
   if (figures.length === 0) return null;
 
   console.log('Figures to display:', figures); // Keep this line for debugging
@@ -80,7 +89,7 @@ const FigureDisplay = ({ figures }: { figures: { quote: string; name: string; ti
       <div className="overflow-x-auto scrollbar-hide">
         <div className="flex space-x-4 pb-4" style={{ minWidth: 'max-content' }}>
           {figures.map((figure, index) => (
-            <div key={index} className="flex-shrink-0 w-[250px]">
+            <div key={index} className="flex-shrink-0 w-[250px] cursor-pointer" onClick={() => setSelectedImage(figure.image)}>
               <InfiniteMovingCards
                 items={[figure]}
                 className="w-full"
@@ -94,6 +103,29 @@ const FigureDisplay = ({ figures }: { figures: { quote: string; name: string; ti
           <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-white to-transparent dark:from-gray-800 pointer-events-none" />
           <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-white to-transparent dark:from-gray-800 pointer-events-none" />
         </>
+      )}
+      {selectedImage && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50" onClick={() => setSelectedImage(null)}>
+          <div className="relative max-w-4xl max-h-[90vh] overflow-auto bg-white dark:bg-gray-800 p-2 rounded-lg">
+            <Image
+              src={selectedImage}
+              alt="Full size figure"
+              width={800}
+              height={600}
+              layout="responsive"
+              objectFit="contain"
+            />
+            <button
+              className="absolute top-2 right-2 text-white bg-gray-800 rounded-full p-2"
+              onClick={(e) => {
+                e.stopPropagation();
+                setSelectedImage(null);
+              }}
+            >
+              Close
+            </button>
+          </div>
+        </div>
       )}
     </div>
   );
@@ -186,12 +218,26 @@ export function CardDemo() {
         .select('*')
         .eq('user_id', user.id)
         .order('timestamp', { ascending: false })
-        .limit(2);  // Fetch the last question and answer
+        .limit(10);
 
       if (error) throw error;
 
       if (data && data.length > 0) {
-        setConversation(data.reverse());
+        // Remove duplicates based on content and timestamp
+        const uniqueMessages = data.reduce((acc, current) => {
+          const x = acc.find((item: typeof current) => item.content === current.content && item.timestamp === current.timestamp);
+          if (!x) {
+            return acc.concat([current]);
+          } else {
+            return acc;
+          }
+        }, []);
+
+        const formattedData = uniqueMessages.map((message: Message) => ({
+          ...message,
+          timestamp: formatDate(message.timestamp)
+        }));
+        setConversation(formattedData.reverse());
       }
     } catch (error) {
       console.error('Error fetching latest conversation:', error);
@@ -200,16 +246,16 @@ export function CardDemo() {
   }, [user]);
 
   useEffect(() => {
-    if (user) {
+    if (user && conversation.length === 0) {
       fetchLatestConversation();
     }
-  }, [user, fetchLatestConversation]);
+  }, [user, fetchLatestConversation, conversation.length]);
 
-  const saveConversation = debounce(async (newConversation: Message[]) => {
+  const saveConversation = useCallback(async (newConversation: Message[]) => {
     if (!user) return;
 
     try {
-      const { error } = await (supabase as SupabaseClient)
+      const { error } = await supabase
         .from('conversations')
         .upsert(
           newConversation.map(message => ({
@@ -222,11 +268,12 @@ export function CardDemo() {
         );
 
       if (error) throw error;
+      console.log('Conversation saved successfully');
     } catch (error) {
       console.error('Error saving conversation:', error);
       setError('Failed to save conversation');
     }
-  }, 1000);
+  }, [user]);
 
   useEffect(() => {
     scrollToBottom();
@@ -243,11 +290,11 @@ export function CardDemo() {
     const userMessage: Message = { 
       role: 'user', 
       content: inputValue, 
-      timestamp: formatDate(new Date())
+      timestamp: formatDate(new Date().toISOString()) // Format the timestamp here
     };
     const updatedConversation = [...conversation, userMessage];
     setConversation(updatedConversation);
-    saveConversation(updatedConversation);
+    await saveConversation(updatedConversation);
     
     try {
       const response = await fetch('/api/chat', {
@@ -256,21 +303,34 @@ export function CardDemo() {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${process.env.NEXT_PUBLIC_API_KEY}`
         },
-        body: JSON.stringify({ message: inputValue }),
+        body: JSON.stringify({ 
+          message: inputValue,
+          assistantId: 'asst_sljG2pcKWrSaQY3aWIsDFObe',
+          conversation: updatedConversation
+        }),
       });
 
-      if (!response.ok) throw new Error('Failed to get response from server');
+      if (!response.ok) {
+        throw new Error('Failed to get response from server');
+      }
 
       const data = await response.json();
       const assistantMessage: Message = { 
         role: 'assistant', 
         content: data.response,
         context: data.context,
-        timestamp: formatDate(new Date())
+        timestamp: formatDate(new Date().toISOString()) // Format the timestamp here
       };
       const newConversation = [...updatedConversation, assistantMessage];
-      setConversation(newConversation);
-      saveConversation(newConversation);
+      setConversation(prevConversation => {
+        // Check if the last message is already in the conversation
+        if (prevConversation.length > 0 && 
+            prevConversation[prevConversation.length - 1].content === assistantMessage.content) {
+          return prevConversation;
+        }
+        return newConversation;
+      });
+      await saveConversation(newConversation);
     } catch (error) {
       console.error('Error:', error);
       setError('An unexpected error occurred. Please try again later.');
@@ -281,9 +341,23 @@ export function CardDemo() {
     }
   };
 
-  const clearConversation = () => {
-    setConversation([]);
-    // Note: We're not deleting from Supabase, just clearing the local state
+  const clearConversation = async () => {
+    if (!user) return;
+
+    try {
+      const { error } = await supabase
+        .from('conversations')
+        .delete()
+        .eq('user_id', user.id);
+
+      if (error) throw error;
+
+      setConversation([]);
+      setError(null);
+    } catch (error) {
+      console.error('Error clearing conversation:', error);
+      setError('Failed to clear conversation history');
+    }
   };
 
   const handleRating = (index: number, rating: 'up' | 'down') => {
@@ -348,6 +422,29 @@ export function CardDemo() {
       </motion.div>
     );
   };
+
+  // Update the rendering of conversation in the chat tab
+  const renderChatTab = () => (
+    <div className="space-y-4">
+      {conversation.slice(-2).map((message, index) => (
+        <BoxReveal key={index} width="100%" boxColor="#eca72c" duration={0.5}>
+          <div className={cn(
+            "p-3 rounded-lg",
+            message.role === 'user' ? "bg-gray-100 dark:bg-gray-700" : "bg-white/70 dark:bg-gray-600"
+          )}>
+            <p className="font-bold">{message.role === 'user' ? 'You:' : 'TradeGuru:'}</p>
+            <p className="text-xs text-gray-500 mb-2">{formatDate(message.timestamp)}</p>
+            <ReactMarkdown className="whitespace-pre-wrap prose dark:prose-invert max-w-none">
+              {message.content}
+            </ReactMarkdown>
+            {message.role === 'assistant' && (
+              <FigureDisplay figures={extractFigureReferences(message.content)} />
+            )}
+          </div>
+        </BoxReveal>
+      ))}
+    </div>
+  );
 
   if (loading) {
     return <div>Loading...</div>;

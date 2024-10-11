@@ -6,17 +6,23 @@ const openai = new OpenAI({
 });
 
 export async function POST(req: Request) {
-  const { message, assistantId, conversation } = await req.json();
-
   try {
+    const { message, assistantId, conversation } = await req.json();
+
+    if (!Array.isArray(conversation)) {
+      return NextResponse.json({ error: 'Conversation must be an array' }, { status: 400 });
+    }
+
     const thread = await openai.beta.threads.create();
 
     // Add all previous messages to the thread
     for (const msg of conversation) {
-      await openai.beta.threads.messages.create(thread.id, {
-        role: msg.role,
-        content: msg.content
-      });
+      if (typeof msg.role === 'string' && typeof msg.content === 'string') {
+        await openai.beta.threads.messages.create(thread.id, {
+          role: msg.role as 'user' | 'assistant',
+          content: msg.content
+        });
+      }
     }
 
     // Add the new user message

@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import React, { useState } from "react";
 import Image from "next/image";
+import ShinyButton from "@/components/magicui/shiny-button";
 
 export const InfiniteMovingCards = ({
   items,
@@ -40,8 +41,8 @@ export const InfiniteMovingCards = ({
                       <Image
                         src={item.image}
                         alt={`Figure ${item.name}`}
-                        width={250}
-                        height={128}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         style={{ objectFit: "contain" }}
                         onError={() => handleImageError(item.image)}
                       />
@@ -78,6 +79,14 @@ export const InfiniteMovingCards = ({
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               style={{ objectFit: "contain" }}
             />
+            <div className="absolute top-4 right-4">
+              <ShinyButton
+                text="Close"
+                onClick={() => setSelectedImage(null)}
+                shimmerColor="#eca72c"
+                background="#ee5622"
+              />
+            </div>
           </div>
         </div>
       )}
