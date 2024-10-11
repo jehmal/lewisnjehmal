@@ -21,9 +21,7 @@ import MaximumDemandCalculator from "@/components/MaximumDemandCalculator";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 import { useUser } from '@/contexts/UserContext';
 import { supabase } from '@/lib/supabase';
-import { SupabaseClient } from '@supabase/supabase-js';
 import AuthUI from '@/components/AuthUI';
-import { debounce } from 'lodash';
 import Image from "next/image";
 
 
@@ -62,7 +60,7 @@ const extractFigureReferences = (text: string): { quote: string; name: string; t
     // Ensure all figures use underscore format
     formattedFigureName = formattedFigureName.replace(/\(([a-z])\)/, '_$1');
 
-    const prefix = isWA ? 'WA_' : 'AN3000_'; // Changed ASNZ3000_ to AN3000_
+    const prefix = isWA ? 'WA_' : isASNZ ? 'ASNZ3000_' : 'AN3000_';
     const extension = isWA ? '.jpg' : '.png';
     const type = match.toLowerCase().includes('table') ? 'Table' : 'Figure';
     const imagePath = `/All Tables & Figures/${prefix}${type}_${formattedFigureName}${extension}`;
@@ -544,7 +542,7 @@ export function CardDemo() {
                   </div>
                 </div>
                 <div className="w-3/4">
-                  {/* Chat messages will be here */}
+                  {renderChatTab()}
                 </div>
               </div>
 
