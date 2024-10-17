@@ -30,6 +30,7 @@ interface Message {
   content: string;
   context?: string;
   timestamp: string;
+  created_at: string; // Add this line
 }
 
 const formatDate = (dateString: string) => {
@@ -171,7 +172,8 @@ export function CardDemo() {
           </div>
         </div>
       ),
-    }));
+    }))
+    .reverse(); // Reverse the array to show latest messages at the top
 
   const tabs = [
     {
@@ -215,27 +217,17 @@ export function CardDemo() {
         .from('conversations')
         .select('*')
         .eq('user_id', user.id)
-        .order('timestamp', { ascending: false })
-        .limit(10);
+        .order('created_at', { ascending: true }) // Change to created_at for more accurate ordering
+        .limit(50); // Increase the limit to get more messages
 
       if (error) throw error;
 
       if (data && data.length > 0) {
-        // Remove duplicates based on content and timestamp
-        const uniqueMessages = data.reduce((acc, current) => {
-          const x = acc.find((item: typeof current) => item.content === current.content && item.timestamp === current.timestamp);
-          if (!x) {
-            return acc.concat([current]);
-          } else {
-            return acc;
-          }
-        }, []);
-
-        const formattedData = uniqueMessages.map((message: Message) => ({
+        const formattedData = data.map((message: Message) => ({
           ...message,
-          timestamp: formatDate(message.timestamp)
+          timestamp: formatDate(message.created_at) // Use created_at instead of timestamp
         }));
-        setConversation(formattedData.reverse());
+        setConversation(formattedData);
       }
     } catch (error) {
       console.error('Error fetching latest conversation:', error);
@@ -244,34 +236,35 @@ export function CardDemo() {
   }, [user]);
 
   useEffect(() => {
-    if (user && conversation.length === 0) {
+    if (user) {
       fetchLatestConversation();
     }
-  }, [user, fetchLatestConversation, conversation.length]);
+  }, [user, fetchLatestConversation]);
 
-  const saveConversation = useCallback(async (newConversation: Message[]) => {
+  const saveConversation = useCallback(async (newMessages: Message[]) => {
     if (!user) return;
 
     try {
       const { error } = await supabase
         .from('conversations')
-        .upsert(
-          newConversation.map(message => ({
+        .insert(
+          newMessages.map(message => ({
             user_id: user.id,
             role: message.role,
             content: message.content,
             context: message.context,
-            timestamp: message.timestamp
+            timestamp: new Date().toISOString() // Use current time for consistency
           }))
         );
 
       if (error) throw error;
       console.log('Conversation saved successfully');
+      await fetchLatestConversation(); // Fetch the updated conversation after saving
     } catch (error) {
       console.error('Error saving conversation:', error);
       setError('Failed to save conversation');
     }
-  }, [user]);
+  }, [user, fetchLatestConversation]);
 
   useEffect(() => {
     scrollToBottom();
@@ -288,11 +281,11 @@ export function CardDemo() {
     const userMessage: Message = { 
       role: 'user', 
       content: inputValue, 
-      timestamp: formatDate(new Date().toISOString()) // Format the timestamp here
+      timestamp: formatDate(new Date().toISOString()),
+      created_at: new Date().toISOString()
     };
-    const updatedConversation = [...conversation, userMessage];
-    setConversation(updatedConversation);
-    await saveConversation(updatedConversation);
+    
+    setConversation(prev => [...prev, userMessage]);
     
     try {
       const response = await fetch('/api/chat', {
@@ -304,7 +297,7 @@ export function CardDemo() {
         body: JSON.stringify({ 
           message: inputValue,
           assistantId: 'asst_sljG2pcKWrSaQY3aWIsDFObe',
-          conversation: updatedConversation
+          conversation: [userMessage]
         }),
       });
 
@@ -317,18 +310,12 @@ export function CardDemo() {
         role: 'assistant', 
         content: data.response,
         context: data.context,
-        timestamp: formatDate(new Date().toISOString()) // Format the timestamp here
+        timestamp: formatDate(new Date().toISOString()),
+        created_at: new Date().toISOString()
       };
-      const newConversation = [...updatedConversation, assistantMessage];
-      setConversation(prevConversation => {
-        // Check if the last message is already in the conversation
-        if (prevConversation.length > 0 && 
-            prevConversation[prevConversation.length - 1].content === assistantMessage.content) {
-          return prevConversation;
-        }
-        return newConversation;
-      });
-      await saveConversation(newConversation);
+      
+      setConversation(prev => [...prev, assistantMessage]);
+      await saveConversation([userMessage, assistantMessage]);
     } catch (error) {
       console.error('Error:', error);
       setError('An unexpected error occurred. Please try again later.');
@@ -370,9 +357,6 @@ export function CardDemo() {
     setActiveTab(tab.toLowerCase() as 'ask' | 'history' | 'calculators');
     setSidebarOpen(false);
   };
-
-  const lastUserMessage = conversation.filter(msg => msg.role === 'user').pop();
-  const lastAssistantMessage = conversation.filter(msg => msg.role === 'assistant').pop();
 
   const ExpandableAnswer = ({ answer, onClose }: { answer: Message, onClose: () => void }) => {
     const figures = extractFigureReferences(answer.content);
@@ -421,28 +405,51 @@ export function CardDemo() {
     );
   };
 
-  // Update the rendering of conversation in the chat tab
-  const renderChatTab = () => (
-    <div className="space-y-4">
-      {conversation.slice(-2).map((message, index) => (
-        <BoxReveal key={index} width="100%" boxColor="#eca72c" duration={0.5}>
-          <div className={cn(
-            "p-3 rounded-lg",
-            message.role === 'user' ? "bg-gray-100 dark:bg-gray-700" : "bg-white/70 dark:bg-gray-600"
-          )}>
-            <p className="font-bold">{message.role === 'user' ? 'You:' : 'TradeGuru:'}</p>
-            <p className="text-xs text-gray-500 mb-2">{formatDate(message.timestamp)}</p>
-            <ReactMarkdown className="whitespace-pre-wrap prose dark:prose-invert max-w-none">
-              {message.content}
-            </ReactMarkdown>
-            {message.role === 'assistant' && (
-              <FigureDisplay figures={extractFigureReferences(message.content)} />
-            )}
+  const renderChatMessages = () => {
+    const messagesToRender = activeTab === 'ask' 
+      ? conversation.slice(-2)  // Get the last two messages
+      : conversation;
+
+    return (
+      <div className="space-y-4">
+        {messagesToRender.map((message, index) => (
+          <BoxReveal key={index} width="100%" boxColor="#eca72c" duration={0.5}>
+            <div className={`p-3 rounded-lg ${message.role === 'user' ? 'bg-gray-100 dark:bg-gray-700' : 'bg-white/70 dark:bg-gray-600'}`}>
+              <p className="font-bold">{message.role === 'user' ? 'You:' : 'TradeGuru:'}</p>
+              <p className="text-xs text-gray-500 mb-2">{message.timestamp}</p>
+              <ReactMarkdown className="whitespace-pre-wrap prose dark:prose-invert max-w-none">
+                {message.content}
+              </ReactMarkdown>
+              {message.role === 'assistant' && (
+                <>
+                  <FigureDisplay figures={extractFigureReferences(message.content)} />
+                  <div className="mt-4 flex items-center justify-center space-x-4">
+                    <Button
+                      onClick={() => handleRating(index, 'up')}
+                      className={cn("p-2", ratings[index] === 'up' ? "bg-green-500" : "bg-gray-200")}
+                    >
+                      <ThumbsUp className="w-4 h-4" />
+                    </Button>
+                    <Button
+                      onClick={() => handleRating(index, 'down')}
+                      className={cn("p-2", ratings[index] === 'down' ? "bg-red-500" : "bg-gray-200")}
+                    >
+                      <ThumbsDown className="w-4 h-4" />
+                    </Button>
+                  </div>
+                </>
+              )}
+            </div>
+          </BoxReveal>
+        ))}
+        {isNewRequestPending && (
+          <div className="text-center text-gray-500 dark:text-gray-400">
+            Generating response...
           </div>
-        </BoxReveal>
-      ))}
-    </div>
-  );
+        )}
+      </div>
+    );
+  };
 
   if (loading) {
     return <div>Loading...</div>;
@@ -527,13 +534,6 @@ export function CardDemo() {
                 </div>
               </form>
 
-              <div className="md:hidden space-y-6">
-                <div>
-                  <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Example Questions:</h4>
-                  <AnimatedListDemo className="h-40" />
-                </div>
-              </div>
-
               <div className="hidden md:flex md:space-x-6">
                 <div className="w-1/4 space-y-6">
                   <div>
@@ -542,57 +542,12 @@ export function CardDemo() {
                   </div>
                 </div>
                 <div className="w-3/4">
-                  {renderChatTab()}
+                  {renderChatMessages()}
                 </div>
               </div>
 
-              <div className="space-y-4">
-                {lastUserMessage && (
-                  <BoxReveal width="100%" boxColor="#eca72c" duration={0.5}>
-                    <div className="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
-                      <p className="font-bold">You:</p>
-                      <ReactMarkdown className="whitespace-pre-wrap prose dark:prose-invert max-w-none">
-                        {lastUserMessage.content}
-                      </ReactMarkdown>
-                    </div>
-                  </BoxReveal>
-                )}
-                {lastAssistantMessage && (
-                  <BoxReveal width="100%" boxColor="#eca72c" duration={0.5}>
-                    <motion.div
-                      className="bg-white/70 dark:bg-gray-600 p-3 rounded-lg"
-                      animate={{
-                        filter: isNewRequestPending ? 'blur(4px)' : 'blur(0px)',
-                      }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <p className="font-bold">TradeGuru:</p>
-                      <ReactMarkdown className="whitespace-pre-wrap prose dark:prose-invert max-w-none">
-                        {lastAssistantMessage.content}
-                      </ReactMarkdown>
-                      <FigureDisplay figures={extractFigureReferences(lastAssistantMessage.content)} />
-                      <div className="mt-4 flex items-center justify-center space-x-4">
-                        <Button
-                          onClick={() => handleRating(conversation.length - 1, 'up')}
-                          className={cn("p-2", ratings[conversation.length - 1] === 'up' ? "bg-green-500" : "bg-gray-200")}
-                        >
-                          <ThumbsUp className="w-4 h-4" />
-                        </Button>
-                        <Button
-                          onClick={() => handleRating(conversation.length - 1, 'down')}
-                          className={cn("p-2", ratings[conversation.length - 1] === 'down' ? "bg-red-500" : "bg-gray-200")}
-                        >
-                          <ThumbsDown className="w-4 h-4" />
-                        </Button>
-                      </div>
-                    </motion.div>
-                  </BoxReveal>
-                )}
-                {isNewRequestPending && (
-                  <div className="text-center text-gray-500 dark:text-gray-400">
-                    Generating response...
-                  </div>
-                )}
+              <div className="md:hidden">
+                {renderChatMessages()}
               </div>
             </div>
           )}
