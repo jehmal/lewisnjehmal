@@ -153,27 +153,30 @@ export function CardDemo() {
 
   const filteredTimelineData = filteredConversation
     .filter(message => message.role === 'user')
-    .map((message, index) => ({
-      title: message.timestamp,
-      content: (
-        <div className="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg flex-grow relative min-h-[100px]">
-          <p className="font-bold mb-2">You:</p>
-          <ReactMarkdown className="whitespace-pre-wrap prose dark:prose-invert max-w-none pr-24">
-            {message.content}
-          </ReactMarkdown>
-          <div className="mt-3">
-            <ShinyButton
-              text="View Answer"
-              className="text-xs"
-              onClick={() => setExpandedAnswerIndex(index * 2 + 1)}
-              shimmerColor="#eca72c"
-              background="#ee5622"
-            />
+    .map((message, index) => {
+      const userIndex = filteredConversation.indexOf(message);
+      return {
+        title: message.timestamp,
+        content: (
+          <div className="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg flex-grow relative min-h-[100px]">
+            <p className="font-bold mb-2">You:</p>
+            <ReactMarkdown className="whitespace-pre-wrap prose dark:prose-invert max-w-none pr-24">
+              {message.content}
+            </ReactMarkdown>
+            <div className="mt-3">
+              <ShinyButton
+                text="View Answer"
+                className="text-xs"
+                onClick={() => setExpandedAnswerIndex(userIndex + 1)}
+                shimmerColor="#eca72c"
+                background="#ee5622"
+              />
+            </div>
           </div>
-        </div>
-      ),
-    }))
-    .reverse(); // Reverse the array to show latest messages at the top
+        ),
+      };
+    })
+    .reverse();
 
   const tabs = [
     {
@@ -358,9 +361,10 @@ export function CardDemo() {
     setSidebarOpen(false);
   };
 
-  const ExpandableAnswer = ({ answer, onClose }: { answer: Message | undefined, onClose: () => void }) => {
-    if (!answer) {
-      return null; // or return some fallback UI
+  const ExpandableAnswer = ({ answerIndex, onClose }: { answerIndex: number, onClose: () => void }) => {
+    const answer = conversation[answerIndex];
+    if (!answer || answer.role !== 'assistant') {
+      return null;
     }
 
     const figures = extractFigureReferences(answer.content);
@@ -587,9 +591,9 @@ export function CardDemo() {
                 <p className="text-gray-600 dark:text-gray-400">No conversation history found for the keyword.</p>
               )}
               <AnimatePresence>
-                {expandedAnswerIndex !== null && conversation[expandedAnswerIndex] && (
+                {expandedAnswerIndex !== null && (
                   <ExpandableAnswer 
-                    answer={conversation[expandedAnswerIndex]} 
+                    answerIndex={expandedAnswerIndex}
                     onClose={() => setExpandedAnswerIndex(null)}
                   />
                 )}
