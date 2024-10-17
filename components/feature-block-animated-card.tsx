@@ -153,7 +153,7 @@ export function CardDemo() {
 
   const filteredTimelineData = filteredConversation
     .filter(message => message.role === 'user')
-    .map((message, index) => {
+    .map((message) => {  // Remove the 'index' parameter
       const userIndex = filteredConversation.indexOf(message);
       return {
         title: message.timestamp,
