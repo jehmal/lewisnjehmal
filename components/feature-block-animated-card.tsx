@@ -358,7 +358,11 @@ export function CardDemo() {
     setSidebarOpen(false);
   };
 
-  const ExpandableAnswer = ({ answer, onClose }: { answer: Message, onClose: () => void }) => {
+  const ExpandableAnswer = ({ answer, onClose }: { answer: Message | undefined, onClose: () => void }) => {
+    if (!answer) {
+      return null; // or return some fallback UI
+    }
+
     const figures = extractFigureReferences(answer.content);
 
     return (
@@ -583,7 +587,7 @@ export function CardDemo() {
                 <p className="text-gray-600 dark:text-gray-400">No conversation history found for the keyword.</p>
               )}
               <AnimatePresence>
-                {expandedAnswerIndex !== null && (
+                {expandedAnswerIndex !== null && conversation[expandedAnswerIndex] && (
                   <ExpandableAnswer 
                     answer={conversation[expandedAnswerIndex]} 
                     onClose={() => setExpandedAnswerIndex(null)}
