@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
 import { BoxReveal } from "@/components/magicui/box-reveal";
@@ -21,7 +21,6 @@ import MaximumDemandCalculator from "@/components/MaximumDemandCalculator";
 import { useUser } from '@/contexts/UserContext';
 import { supabase } from '@/lib/supabase';
 import AuthUI from '@/components/AuthUI';
-import Image from "next/image";
 import { ExpandableCardDemo } from '@/components/blocks/expandable-card-demo-grid';
 
 
@@ -71,63 +70,6 @@ const extractFigureReferences = (text: string): { quote: string; name: string; t
   });
 };
 
-// Updated FigureDisplay component
-const FigureDisplay = ({ figures }: { figures: { quote: string; name: string; title: string; image: string }[] }) => {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
-
-  if (figures.length === 0) return null;
-
-  return (
-    <div className="mt-4 space-y-4">
-      <h4 className="text-md font-semibold mb-2">Referenced Figures:</h4>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {figures.map((figure, index) => (
-          <div 
-            key={index} 
-            className="relative aspect-w-16 aspect-h-9 cursor-pointer transition-transform duration-300 ease-in-out transform hover:scale-105"
-            onClick={() => setSelectedImage(figure.image)}
-          >
-            <Image
-              src={figure.image}
-              alt={figure.name}
-              layout="fill"
-              objectFit="cover"
-              className="rounded-lg"
-            />
-            <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-2 rounded-b-lg">
-              <p className="text-sm text-center truncate">{figure.name}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-      {selectedImage && (
-        <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50" onClick={() => setSelectedImage(null)}>
-          <div className="relative max-w-4xl max-h-[90vh] w-full h-full">
-            <Image
-              src={selectedImage}
-              alt="Full size figure"
-              layout="fill"
-              objectFit="contain"
-              className="rounded-lg"
-            />
-            <button
-              className="absolute top-4 right-4 text-white bg-gray-800 rounded-full p-2 hover:bg-gray-700 transition-colors duration-200"
-              onClick={(e) => {
-                e.stopPropagation();
-                setSelectedImage(null);
-              }}
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-          </div>
-        </div>
-      )}
-    </div>
-  );
-};
-
 export function CardDemo() {
   const { user, loading } = useUser();
   const [inputValue, setInputValue] = useState('');
@@ -144,6 +86,7 @@ export function CardDemo() {
   const [expandedAnswerIndex, setExpandedAnswerIndex] = useState<number | null>(null);
   const [searchKeyword, setSearchKeyword] = useState('');
   const [isNewRequestPending, setIsNewRequestPending] = useState(false);
+  const chatContainerRef = useRef<HTMLDivElement>(null);
 
   const filteredConversation = conversation.filter(message =>
     message.content.toLowerCase().includes(searchKeyword.toLowerCase())
@@ -151,7 +94,7 @@ export function CardDemo() {
 
   const filteredTimelineData = filteredConversation
     .filter(message => message.role === 'user')
-    .map((message) => {  // Remove the 'index' parameter
+    .map((message) => {
       const userIndex = filteredConversation.indexOf(message);
       return {
         title: message.timestamp,
@@ -438,7 +381,7 @@ export function CardDemo() {
             {figures.length > 0 && (
               <div className="mt-6">
                 <h4 className="text-md font-semibold mb-2">Referenced Figures:</h4>
-                <FigureDisplay figures={figures} />
+                <ExpandableCardDemo figures={figures} />
               </div>
             )}
           </div>
@@ -531,135 +474,140 @@ export function CardDemo() {
         </ChatSidebarBody>
       </ChatSidebar>
 
-      <div className="flex-1 p-4 md:p-6 overflow-y-auto max-h-[90vh]">
-        <div className="flex flex-col gap-6">
-          {activeTab === 'ask' && (
-            <div className="w-full space-y-6">
-              <div className="flex flex-col md:flex-row items-center space-y-1 md:space-y-0 md:space-x-1">
-                <span className="text-sm font-semibold text-gray-900 dark:text-white">
-                  Ask
-                </span>
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                  <SparklesText
-                    text="TradeGuru"
-                    colors={{ first: "#ee5622", second: "#eca72c" }}
-                    className="inline-block"
-                    sparklesCount={3}
+      <div className="flex-1 flex flex-col">
+        {activeTab === 'ask' && (
+          <div className="sticky top-0 bg-white dark:bg-gray-800 z-10 p-4 shadow-md">
+            <div className="flex flex-col md:flex-row items-center space-y-1 md:space-y-0 md:space-x-1 mb-4">
+              <span className="text-sm font-semibold text-gray-900 dark:text-white">
+                Ask
+              </span>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                <SparklesText
+                  text="TradeGuru"
+                  colors={{ first: "#ee5622", second: "#eca72c" }}
+                  className="inline-block"
+                  sparklesCount={3}
+                />
+              </h3>
+            </div>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="flex flex-col md:flex-row items-start space-y-2 md:space-y-0 md:space-x-4">
+                <div className="w-full md:flex-grow">
+                  <Input
+                    type="text"
+                    placeholder="Type your question here..."
+                    value={inputValue}
+                    onChange={(e) => setInputValue(e.target.value)}
+                    className="w-full bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600"
                   />
-                </h3>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <ShimmerButton
+                    type="submit"
+                    disabled={isLoading}
+                    shimmerColor="#eca72c"
+                    background="#ee5622"
+                    className="flex items-center justify-center px-4 py-2"
+                  >
+                    {isLoading ? 'Thinking...' : 'Send'}
+                  </ShimmerButton>
+                  {isLoading && (
+                    <div className="relative">
+                      <AnimatedCircularProgressBar
+                        max={100}
+                        min={0}
+                        value={progressValue}
+                        gaugePrimaryColor="#ee5622"
+                        gaugeSecondaryColor="rgba(238, 86, 34, 0.2)"
+                        className="w-10 h-10"
+                      />
+                      <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-xs font-semibold">
+                        {progressValue}%
+                      </span>
+                    </div>
+                  )}
+                </div>
               </div>
+            </form>
+          </div>
+        )}
 
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="flex flex-col md:flex-row items-start space-y-2 md:space-y-0 md:space-x-4">
-                  <div className="w-full md:flex-grow">
-                    <Input
-                      type="text"
-                      placeholder="Type your question here..."
-                      value={inputValue}
-                      onChange={(e) => setInputValue(e.target.value)}
-                      className="w-full bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600"
-                    />
+        <div className="flex-1 p-4 md:p-6 overflow-y-auto max-h-[calc(90vh-140px)]" ref={chatContainerRef}>
+          <div className="flex flex-col gap-6">
+            {activeTab === 'ask' && (
+              <div className="w-full space-y-6">
+                <div className="hidden md:flex md:space-x-6">
+                  <div className="w-1/4 space-y-6">
+                    <div>
+                      <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Example Questions:</h4>
+                      <AnimatedListDemo className="h-40" />
+                    </div>
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <ShimmerButton
-                      type="submit"
-                      disabled={isLoading}
-                      shimmerColor="#eca72c"
-                      background="#ee5622"
-                      className="flex items-center justify-center px-4 py-2"
-                    >
-                      {isLoading ? 'Thinking...' : 'Send'}
-                    </ShimmerButton>
-                    {isLoading && (
-                      <div className="relative">
-                        <AnimatedCircularProgressBar
-                          max={100}
-                          min={0}
-                          value={progressValue}
-                          gaugePrimaryColor="#ee5622"
-                          gaugeSecondaryColor="rgba(238, 86, 34, 0.2)"
-                          className="w-10 h-10"
-                        />
-                        <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-xs font-semibold">
-                          {progressValue}%
-                        </span>
-                      </div>
-                    )}
+                  <div className="w-3/4">
+                    {renderChatMessages()}
                   </div>
                 </div>
-              </form>
 
-              <div className="hidden md:flex md:space-x-6">
-                <div className="w-1/4 space-y-6">
-                  <div>
-                    <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Example Questions:</h4>
-                    <AnimatedListDemo className="h-40" />
-                  </div>
-                </div>
-                <div className="w-3/4">
+                <div className="md:hidden">
                   {renderChatMessages()}
                 </div>
               </div>
+            )}
 
-              <div className="md:hidden">
-                {renderChatMessages()}
-              </div>
-            </div>
-          )}
-
-          {activeTab === 'history' && (
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <SparklesText
-                  text="Ask TradeGuru"
-                  colors={{ first: "#ee5622", second: "#eca72c" }}
-                  className="text-lg font-semibold"
-                  sparklesCount={3}
-                />
-              </div>
-              <Input
-                type="text"
-                placeholder="Search what you've spoken about before..."
-                value={searchKeyword}
-                onChange={(e) => setSearchKeyword(e.target.value)}
-                className="w-full bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600 mb-4"
-              />
-              <ShimmerButton
-                onClick={clearConversation}
-                shimmerColor="#eca72c"
-                background="#ee5622"
-                className="px-4 py-2"
-              >
-                Clear Conversation History
-              </ShimmerButton>
-              {filteredConversation.length > 0 ? (
-                <Timeline data={filteredTimelineData} lineColor="#ee5622" />
-              ) : (
-                <p className="text-gray-600 dark:text-gray-400">No conversation history found for the keyword.</p>
-              )}
-              <AnimatePresence>
-                {expandedAnswerIndex !== null && (
-                  <ExpandableAnswer 
-                    answerIndex={expandedAnswerIndex}
-                    onClose={() => setExpandedAnswerIndex(null)}
+            {activeTab === 'history' && (
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <SparklesText
+                    text="Conversation History"
+                    colors={{ first: "#ee5622", second: "#eca72c" }}
+                    className="text-lg font-semibold"
+                    sparklesCount={3}
                   />
+                </div>
+                <Input
+                  type="text"
+                  placeholder="Search what you've spoken about before..."
+                  value={searchKeyword}
+                  onChange={(e) => setSearchKeyword(e.target.value)}
+                  className="w-full bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600 mb-4"
+                />
+                <ShimmerButton
+                  onClick={clearConversation}
+                  shimmerColor="#eca72c"
+                  background="#ee5622"
+                  className="px-4 py-2"
+                >
+                  Clear Conversation History
+                </ShimmerButton>
+                {filteredConversation.length > 0 ? (
+                  <Timeline data={filteredTimelineData} lineColor="#ee5622" />
+                ) : (
+                  <p className="text-gray-600 dark:text-gray-400">No conversation history found for the keyword.</p>
                 )}
-              </AnimatePresence>
-            </div>
-          )}
+                <AnimatePresence>
+                  {expandedAnswerIndex !== null && (
+                    <ExpandableAnswer 
+                      answerIndex={expandedAnswerIndex}
+                      onClose={() => setExpandedAnswerIndex(null)}
+                    />
+                  )}
+                </AnimatePresence>
+              </div>
+            )}
 
-          {activeTab === 'calculators' && (
-            <div className="space-y-4">
-              <MaximumDemandCalculator />
-              {/* You can add more calculators here */}
-            </div>
-          )}
-          
-          {error && (
-            <div className="mt-4 p-4 bg-red-100 text-red-700 rounded-lg">
-              <p>{error}</p>
-            </div>
-          )}
+            {activeTab === 'calculators' && (
+              <div className="space-y-4">
+                <MaximumDemandCalculator />
+                {/* You can add more calculators here */}
+              </div>
+            )}
+            
+            {error && (
+              <div className="mt-4 p-4 bg-red-100 text-red-700 rounded-lg">
+                <p>{error}</p>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>
