@@ -18,7 +18,6 @@ import { Timeline } from "@/components/ui/timeline";
 import { MovingBorder } from "@/components/ui/moving-border";
 import ShinyButton from "@/components/magicui/shiny-button";
 import MaximumDemandCalculator from "@/components/MaximumDemandCalculator";
-import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 import { useUser } from '@/contexts/UserContext';
 import { supabase } from '@/lib/supabase';
 import AuthUI from '@/components/AuthUI';
@@ -27,12 +26,15 @@ import { ExpandableCardDemo } from '@/components/blocks/expandable-card-demo-gri
 
 
 interface Message {
-  id?: string; // Add this line
+  id?: string;
   role: 'user' | 'assistant';
   content: string;
   context?: string;
   timestamp: string;
   created_at: string;
+  good_response?: boolean;
+  neutral_response?: boolean;
+  bad_response?: boolean;
 }
 
 const formatDate = (dateString: string) => {
@@ -53,7 +55,7 @@ const extractFigureReferences = (text: string): { quote: string; name: string; t
   const matches = Array.from(new Set(text.match(figureRegex) || [])); // Remove duplicates
   return matches.map(match => {
     const figureName = match.split(' ').slice(-1)[0];
-    let formattedFigureName = figureName
+    const formattedFigureName = figureName
       .replace(/\./g, '_')
       .replace(/\(([a-z])\)/, '_$1');
     
@@ -133,7 +135,7 @@ export function CardDemo() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const chatHistoryRef = React.useRef<HTMLDivElement>(null);
-  const [ratings, setRatings] = useState<{[key: number]: 'up' | 'down' | 'neutral' | null}>({});
+  const [ratings, setRatings] = useState<{[key: string]: 'up' | 'down' | 'neutral' | null}>({});
   const [feedbackMessage, setFeedbackMessage] = useState<string | null>(null);
 
   const [progressValue, setProgressValue] = useState(0);
@@ -214,19 +216,19 @@ export function CardDemo() {
     try {
       const { data, error } = await supabase
         .from('conversations')
-        .select('*')
+        .select('*, good_response, neutral_response, bad_response')
         .eq('user_id', user.id)
-        .order('created_at', { ascending: true }) // Change to created_at for more accurate ordering
-        .limit(50); // Increase the limit to get more messages
+        .order('created_at', { ascending: true });
 
       if (error) throw error;
 
       if (data && data.length > 0) {
         const formattedData = data.map((message: Message) => ({
           ...message,
-          timestamp: formatDate(message.created_at) // Use created_at instead of timestamp
+          timestamp: formatDate(message.created_at)
         }));
         setConversation(formattedData);
+        console.log('Fetched conversation:', formattedData);
       }
     } catch (error) {
       console.error('Error fetching latest conversation:', error);
@@ -344,24 +346,40 @@ export function CardDemo() {
     }
   };
 
-  const handleRating = async (index: number, rating: 'up' | 'down' | 'neutral') => {
-    const message = conversation[index];
-    if (!message || message.role !== 'assistant') return;
+  const handleRating = async (messageId: string, rating: 'up' | 'down' | 'neutral') => {
+    const message = conversation.find(msg => msg.id === messageId);
+    console.log('Rating message:', message);
 
-    const newRatings = { ...ratings, [index]: rating };
-    setRatings(newRatings);
+    if (!message || message.role !== 'assistant') {
+      console.error('Invalid message for rating:', message);
+      return;
+    }
 
     try {
-      const { error } = await supabase
+      const updateData = {
+        good_response: rating === 'up',
+        neutral_response: rating === 'neutral',
+        bad_response: rating === 'down'
+      };
+      console.log('Updating database with:', updateData);
+
+      const { data, error } = await supabase
         .from('conversations')
-        .update({
-          good_response: rating === 'up',
-          neutral_response: rating === 'neutral',
-          bad_response: rating === 'down'
-        })
-        .eq('id', message.id);
+        .update(updateData)
+        .eq('id', messageId)
+        .select();
 
       if (error) throw error;
+
+      console.log('Database update result:', data);
+
+      // Update the local state
+      setRatings(prev => ({ ...prev, [messageId]: rating }));
+
+      // Update the conversation state
+      setConversation(prev => prev.map(msg => 
+        msg.id === messageId ? { ...msg, ...updateData } : msg
+      ));
 
       setFeedbackMessage("Thank you for your feedback!");
       setTimeout(() => setFeedbackMessage(null), 2000);
@@ -436,8 +454,8 @@ export function CardDemo() {
 
     return (
       <div className="space-y-4">
-        {messagesToRender.map((message, index) => (
-          <BoxReveal key={index} width="100%" boxColor="#eca72c" duration={0.5}>
+        {messagesToRender.map((message) => (
+          <BoxReveal key={message.id} width="100%" boxColor="#eca72c" duration={0.5}>
             <div className={`p-3 rounded-lg ${message.role === 'user' ? 'bg-gray-100 dark:bg-gray-700' : 'bg-white/70 dark:bg-gray-600'}`}>
               <p className="font-bold">{message.role === 'user' ? 'You:' : 'TradeGuru:'}</p>
               <p className="text-xs text-gray-500 mb-2">{message.timestamp}</p>
@@ -451,20 +469,20 @@ export function CardDemo() {
                   </div>
                   <div className="mt-4 flex items-center justify-center space-x-4">
                     <Button
-                      onClick={() => handleRating(index, 'up')}
-                      className={cn("p-2", ratings[index] === 'up' ? "bg-green-500" : "bg-gray-200")}
+                      onClick={() => handleRating(message.id!, 'up')}
+                      className={cn("p-2", ratings[message.id!] === 'up' ? "bg-green-400" : "bg-gray-200")}
                     >
                       <ThumbsUp className="w-4 h-4" />
                     </Button>
                     <Button
-                      onClick={() => handleRating(index, 'neutral')}
-                      className={cn("p-2", ratings[index] === 'neutral' ? "bg-yellow-500" : "bg-gray-200")}
+                      onClick={() => handleRating(message.id!, 'neutral')}
+                      className={cn("p-2", ratings[message.id!] === 'neutral' ? "bg-yellow-500" : "bg-gray-200")}
                     >
                       <Minus className="w-4 h-4" />
                     </Button>
                     <Button
-                      onClick={() => handleRating(index, 'down')}
-                      className={cn("p-2", ratings[index] === 'down' ? "bg-red-500" : "bg-gray-200")}
+                      onClick={() => handleRating(message.id!, 'down')}
+                      className={cn("p-2", ratings[message.id!] === 'down' ? "bg-red-500" : "bg-gray-200")}
                     >
                       <ThumbsDown className="w-4 h-4" />
                     </Button>
