@@ -223,14 +223,17 @@ export function CardDemo() {
     setIsNewRequestPending(true);
     
     const userMessage: Message = { 
+      id: Date.now().toString(),
       role: 'user', 
       content: inputValue, 
       timestamp: formatDate(new Date().toISOString()),
       created_at: new Date().toISOString()
     };
     
+    // Immediately add the user message to the conversation
     setConversation(prev => [...prev, userMessage]);
-    
+    setInputValue(''); // Clear input immediately
+
     try {
       const response = await fetch('/api/chat', {
         method: 'POST',
@@ -251,6 +254,7 @@ export function CardDemo() {
 
       const data = await response.json();
       const assistantMessage: Message = { 
+        id: (Date.now() + 1).toString(),
         role: 'assistant', 
         content: data.response,
         context: data.context,
@@ -258,6 +262,7 @@ export function CardDemo() {
         created_at: new Date().toISOString()
       };
       
+      // Add the assistant message to the conversation
       setConversation(prev => [...prev, assistantMessage]);
       await saveConversation([userMessage, assistantMessage]);
     } catch (error) {
@@ -265,7 +270,6 @@ export function CardDemo() {
       setError('An unexpected error occurred. Please try again later.');
     } finally {
       setIsLoading(false);
-      setInputValue('');
       setIsNewRequestPending(false);
     }
   };
@@ -391,14 +395,28 @@ export function CardDemo() {
   };
 
   const renderChatMessages = () => {
-    const messagesToRender = activeTab === 'ask' 
-      ? conversation.slice(-2)
-      : conversation;
+    let messagesToRender: Message[] = [];
+
+    if (activeTab === 'ask') {
+      // Find the last user message
+      const lastUserIndex = conversation.findLastIndex(msg => msg.role === 'user');
+      if (lastUserIndex !== -1) {
+        messagesToRender.push(conversation[lastUserIndex]);
+        // Get the corresponding assistant message if it exists
+        if (lastUserIndex + 1 < conversation.length && conversation[lastUserIndex + 1].role === 'assistant') {
+          messagesToRender.push(conversation[lastUserIndex + 1]);
+        }
+      }
+    } else {
+      messagesToRender = conversation;
+    }
+
+    console.log('Messages to render:', messagesToRender);
 
     return (
       <div className="space-y-4">
         {messagesToRender.map((message) => (
-          <BoxReveal key={message.id} width="100%" boxColor="#eca72c" duration={0.5}>
+          <BoxReveal key={`${message.role}-${message.id}-${message.timestamp}`} width="100%" boxColor="#eca72c" duration={0.5}>
             <div className={`p-3 rounded-lg ${message.role === 'user' ? 'bg-gray-100 dark:bg-gray-700' : 'bg-white/70 dark:bg-gray-600'}`}>
               <p className="font-bold">{message.role === 'user' ? 'You:' : 'TradeGuru:'}</p>
               <p className="text-xs text-gray-500 mb-2">{message.timestamp}</p>
@@ -441,7 +459,7 @@ export function CardDemo() {
           </BoxReveal>
         ))}
         {isNewRequestPending && (
-          <div className="text-center text-gray-500 dark:text-gray-400">
+          <div className="text-center text-gray-500 dark:text-gray-400 mt-4">
             Generating response...
           </div>
         )}
