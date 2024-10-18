@@ -8,7 +8,7 @@ import AnimatedListDemo from "@/components/example/animated-list-demo";
 import { Button } from "@/components/ui/button";
 import ReactMarkdown from 'react-markdown';
 
-import { ThumbsUp, ThumbsDown, MessageSquare, History, Calculator } from 'lucide-react';
+import { ThumbsUp, ThumbsDown, MessageSquare, History, Calculator, Minus } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import AnimatedCircularProgressBar from "@/components/magicui/animated-circular-progress-bar";
@@ -23,14 +23,16 @@ import { useUser } from '@/contexts/UserContext';
 import { supabase } from '@/lib/supabase';
 import AuthUI from '@/components/AuthUI';
 import Image from "next/image";
+import { ExpandableCardDemo } from '@/components/blocks/expandable-card-demo-grid';
 
 
 interface Message {
+  id?: string; // Add this line
   role: 'user' | 'assistant';
   content: string;
   context?: string;
   timestamp: string;
-  created_at: string; // Add this line
+  created_at: string;
 }
 
 const formatDate = (dateString: string) => {
@@ -47,24 +49,16 @@ const formatDate = (dateString: string) => {
 
 // Updated extractFigureReferences function
 const extractFigureReferences = (text: string): { quote: string; name: string; title: string; image: string }[] => {
-  const figureRegex = /(WAES |WA |ASNZ3000 )?(?:Figure|Table)\s+(\d+(\.\d+)*(\([a-z]\))?)/gi;
+  const figureRegex = /(AN3000 )?(?:Figure|Table)\s+(\d+(\.\d+)*(\([a-z]\))?)/gi;
   const matches = Array.from(new Set(text.match(figureRegex) || [])); // Remove duplicates
   return matches.map(match => {
-    const isWA = match.toLowerCase().startsWith('wa') || match.toLowerCase().startsWith('waes');
-    const isASNZ = match.toLowerCase().includes('asnz3000');
     const figureName = match.split(' ').slice(-1)[0];
     let formattedFigureName = figureName
       .replace(/\./g, '_')
-      .replace(/\(([a-z])\)/, '_$1')
-      .toLowerCase();
+      .replace(/\(([a-z])\)/, '_$1');
     
-    // Ensure all figures use underscore format
-    formattedFigureName = formattedFigureName.replace(/\(([a-z])\)/, '_$1');
-
-    const prefix = isWA ? 'WA_' : isASNZ ? 'ASNZ3000_' : 'AN3000_';
-    const extension = isWA ? '.jpg' : '.png';
-    const type = match.toLowerCase().includes('table') ? 'Table' : 'Figure';
-    const imagePath = `/All Tables & Figures/${prefix}${type}_${formattedFigureName}${extension}`;
+    const imagePath = `/All Tables & Figures/AN3000_Figure_${formattedFigureName}.png`;
+    
     console.log(`Extracted figure: ${match}, Image path: ${imagePath}`);
     return {
       quote: `Reference to ${match}`,
@@ -81,47 +75,49 @@ const FigureDisplay = ({ figures }: { figures: { quote: string; name: string; ti
 
   if (figures.length === 0) return null;
 
-  console.log('Figures to display:', figures); // Keep this line for debugging
-
   return (
-    <div className="mt-6 relative">
-      <div className="overflow-x-auto scrollbar-hide">
-        <div className="flex space-x-4 pb-4" style={{ minWidth: 'max-content' }}>
-          {figures.map((figure, index) => (
-            <div key={index} className="flex-shrink-0 w-[250px] cursor-pointer" onClick={() => setSelectedImage(figure.image)}>
-              <InfiniteMovingCards
-                items={[figure]}
-                className="w-full"
-              />
+    <div className="mt-4 space-y-4">
+      <h4 className="text-md font-semibold mb-2">Referenced Figures:</h4>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {figures.map((figure, index) => (
+          <div 
+            key={index} 
+            className="relative aspect-w-16 aspect-h-9 cursor-pointer transition-transform duration-300 ease-in-out transform hover:scale-105"
+            onClick={() => setSelectedImage(figure.image)}
+          >
+            <Image
+              src={figure.image}
+              alt={figure.name}
+              layout="fill"
+              objectFit="cover"
+              className="rounded-lg"
+            />
+            <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-2 rounded-b-lg">
+              <p className="text-sm text-center truncate">{figure.name}</p>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
-      {figures.length > 1 && (
-        <>
-          <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-white to-transparent dark:from-gray-800 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-white to-transparent dark:from-gray-800 pointer-events-none" />
-        </>
-      )}
       {selectedImage && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50" onClick={() => setSelectedImage(null)}>
-          <div className="relative max-w-4xl max-h-[90vh] overflow-auto bg-white dark:bg-gray-800 p-2 rounded-lg">
+        <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50" onClick={() => setSelectedImage(null)}>
+          <div className="relative max-w-4xl max-h-[90vh] w-full h-full">
             <Image
               src={selectedImage}
               alt="Full size figure"
-              width={800}
-              height={600}
-              layout="responsive"
+              layout="fill"
               objectFit="contain"
+              className="rounded-lg"
             />
             <button
-              className="absolute top-2 right-2 text-white bg-gray-800 rounded-full p-2"
+              className="absolute top-4 right-4 text-white bg-gray-800 rounded-full p-2 hover:bg-gray-700 transition-colors duration-200"
               onClick={(e) => {
                 e.stopPropagation();
                 setSelectedImage(null);
               }}
             >
-              Close
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
             </button>
           </div>
         </div>
@@ -137,8 +133,8 @@ export function CardDemo() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const chatHistoryRef = React.useRef<HTMLDivElement>(null);
-  const [ratings, setRatings] = useState<{[key: number]: 'up' | 'down' | null}>({});
-
+  const [ratings, setRatings] = useState<{[key: number]: 'up' | 'down' | 'neutral' | null}>({});
+  const [feedbackMessage, setFeedbackMessage] = useState<string | null>(null);
 
   const [progressValue, setProgressValue] = useState(0);
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -348,11 +344,31 @@ export function CardDemo() {
     }
   };
 
-  const handleRating = (index: number, rating: 'up' | 'down') => {
-    setRatings(prev => {
-      const newRatings = { ...prev, [index]: rating };
-      return newRatings;
-    });
+  const handleRating = async (index: number, rating: 'up' | 'down' | 'neutral') => {
+    const message = conversation[index];
+    if (!message || message.role !== 'assistant') return;
+
+    const newRatings = { ...ratings, [index]: rating };
+    setRatings(newRatings);
+
+    try {
+      const { error } = await supabase
+        .from('conversations')
+        .update({
+          good_response: rating === 'up',
+          neutral_response: rating === 'neutral',
+          bad_response: rating === 'down'
+        })
+        .eq('id', message.id);
+
+      if (error) throw error;
+
+      setFeedbackMessage("Thank you for your feedback!");
+      setTimeout(() => setFeedbackMessage(null), 2000);
+    } catch (error) {
+      console.error('Error saving rating:', error);
+      setError('Failed to save rating');
+    }
   };
 
   const handleTabChange = (tab: string) => {
@@ -415,7 +431,7 @@ export function CardDemo() {
 
   const renderChatMessages = () => {
     const messagesToRender = activeTab === 'ask' 
-      ? conversation.slice(-2)  // Get the last two messages
+      ? conversation.slice(-2)
       : conversation;
 
     return (
@@ -430,7 +446,9 @@ export function CardDemo() {
               </ReactMarkdown>
               {message.role === 'assistant' && (
                 <>
-                  <FigureDisplay figures={extractFigureReferences(message.content)} />
+                  <div className="mt-4">
+                    <ExpandableCardDemo figures={extractFigureReferences(message.content)} />
+                  </div>
                   <div className="mt-4 flex items-center justify-center space-x-4">
                     <Button
                       onClick={() => handleRating(index, 'up')}
@@ -439,12 +457,23 @@ export function CardDemo() {
                       <ThumbsUp className="w-4 h-4" />
                     </Button>
                     <Button
+                      onClick={() => handleRating(index, 'neutral')}
+                      className={cn("p-2", ratings[index] === 'neutral' ? "bg-yellow-500" : "bg-gray-200")}
+                    >
+                      <Minus className="w-4 h-4" />
+                    </Button>
+                    <Button
                       onClick={() => handleRating(index, 'down')}
                       className={cn("p-2", ratings[index] === 'down' ? "bg-red-500" : "bg-gray-200")}
                     >
                       <ThumbsDown className="w-4 h-4" />
                     </Button>
                   </div>
+                  {feedbackMessage && (
+                    <div className="mt-2 text-center text-sm text-gray-500">
+                      {feedbackMessage}
+                    </div>
+                  )}
                 </>
               )}
             </div>
