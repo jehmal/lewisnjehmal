@@ -37,7 +37,7 @@ export function Sidebar({ open, setOpen, children }: SidebarProps) {
       {isMobile && (
         <button
           onClick={() => setOpen(!open)}
-          className="fixed top-4 left-4 z-50 p-2 bg-gray-100 dark:bg-neutral-800 rounded-md"
+          className="fixed top-4 left-4 z-50 p-2 bg-[#ee5622] hover:bg-[#ff6733] text-white rounded-md transition-colors duration-200"
         >
           <IconMenu2 className="w-6 h-6" />
         </button>

@@ -34,6 +34,8 @@ interface Message {
   good_response?: boolean;
   neutral_response?: boolean;
   bad_response?: boolean;
+  user_id?: string;
+  related_question_id?: string;
 }
 
 const formatDate = (dateString: string) => {
@@ -223,18 +225,35 @@ export function CardDemo() {
     setIsNewRequestPending(true);
     
     const userMessage: Message = { 
-      id: Date.now().toString(),
       role: 'user', 
-      content: inputValue, 
+      content: inputValue.trim(),
       timestamp: formatDate(new Date().toISOString()),
-      created_at: new Date().toISOString()
+      created_at: new Date().toISOString(),
+      user_id: user.id
     };
     
-    // Immediately add the user message to the conversation
-    setConversation(prev => [...prev, userMessage]);
-    setInputValue(''); // Clear input immediately
+    console.log('Saving user message:', userMessage);
 
     try {
+      // First, save the user's question
+      const { data: savedQuestion, error: questionError } = await supabase
+        .from('conversations')
+        .insert([userMessage])
+        .select()
+        .single();
+
+      if (questionError) {
+        console.error('Error saving question:', questionError);
+        throw new Error('Failed to save question');
+      }
+
+      console.log('Question saved successfully:', savedQuestion);
+
+      // Update local state with saved question
+      setConversation(prev => [...prev, savedQuestion]);
+      setInputValue(''); // Clear input immediately
+
+      // Get AI response
       const response = await fetch('/api/chat', {
         method: 'POST',
         headers: { 
@@ -253,21 +272,57 @@ export function CardDemo() {
       }
 
       const data = await response.json();
+      
+      // Create assistant message with reference to question
       const assistantMessage: Message = { 
-        id: (Date.now() + 1).toString(),
         role: 'assistant', 
         content: data.response,
         context: data.context,
         timestamp: formatDate(new Date().toISOString()),
-        created_at: new Date().toISOString()
+        created_at: new Date().toISOString(),
+        user_id: user.id,
+        related_question_id: savedQuestion.id // Use the UUID from the saved question
       };
-      
-      // Add the assistant message to the conversation
-      setConversation(prev => [...prev, assistantMessage]);
-      await saveConversation([userMessage, assistantMessage]);
+
+      console.log('Saving assistant message:', assistantMessage);
+
+      // Save the assistant's response
+      const { data: savedResponse, error: responseError } = await supabase
+        .from('conversations')
+        .insert([assistantMessage])
+        .select()
+        .single();
+
+      if (responseError) {
+        console.error('Error saving response:', responseError);
+        throw new Error('Failed to save response');
+      }
+
+      console.log('Response saved successfully:', savedResponse);
+
+      // Verify the saved pair
+      const { data: verifiedPair, error: verifyError } = await supabase
+        .from('conversations')
+        .select('*')
+        .in('id', [savedQuestion.id, savedResponse.id])
+        .order('created_at', { ascending: true });
+
+      if (verifyError || !verifiedPair || verifiedPair.length !== 2) {
+        console.error('Verification failed:', verifyError || 'Incomplete pair');
+        throw new Error('Failed to verify message pair');
+      }
+
+      // Update local state with verified pair
+      setConversation(prev => {
+        const withoutTemp = prev.filter(msg => msg.id !== savedQuestion.id);
+        return [...withoutTemp, ...verifiedPair];
+      });
+
+      console.log('Message pair verified and saved:', verifiedPair);
+
     } catch (error) {
-      console.error('Error:', error);
-      setError('An unexpected error occurred. Please try again later.');
+      console.error('Error in submission:', error);
+      setError(error instanceof Error ? error.message : 'An unexpected error occurred');
     } finally {
       setIsLoading(false);
       setIsNewRequestPending(false);

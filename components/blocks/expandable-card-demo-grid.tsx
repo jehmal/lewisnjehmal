@@ -35,83 +35,73 @@ export function ExpandableCardDemo({ figures }: { figures: Figure[] }) {
 
   useOutsideClick(ref, () => setActive(null));
 
-  if (figures.length === 0) return null;
+  if (figures.length === 0) {
+    return null;
+  }
 
   return (
-    <>
+    <div className="relative">
       <AnimatePresence>
         {active && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm h-full w-full z-10"
-          />
-        )}
-      </AnimatePresence>
-      <AnimatePresence>
-        {active && (
-          <div className="fixed inset-0 flex items-center justify-center p-4 z-[100]">
-            <motion.button
-              key={`button-${active.name}-${id}`}
-              layout
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0, transition: { duration: 0.05 } }}
-              className="absolute top-4 right-4 z-50 flex items-center justify-center bg-white/10 backdrop-blur-sm border border-white/20 rounded-full h-8 w-8 hover:bg-white/20 transition-colors"
-              onClick={() => setActive(null)}
+          <>
+            <div 
+              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[99999]"
+              style={{ position: 'fixed', top: 0, left: 0 }}
+            />
+            <div 
+              className="fixed inset-0 flex items-center justify-center p-4 z-[100000]"
+              style={{ position: 'fixed', top: 0, left: 0 }}
             >
-              <CloseIcon />
-            </motion.button>
-            <motion.div
-              layoutId={`card-${active.name}-${id}`}
-              ref={ref}
-              className="relative w-full max-w-4xl bg-white dark:bg-neutral-900 rounded-2xl overflow-hidden shadow-2xl"
-            >
-              <div className="aspect-auto max-h-[80vh] overflow-auto">
-                <motion.div layoutId={`image-${active.name}-${id}`} className="relative">
-                  <Image
-                    priority
-                    width={1200}
-                    height={800}
-                    src={active.image}
-                    alt={active.name}
-                    className="w-full h-auto object-contain"
-                    style={{ maxHeight: 'calc(80vh - 120px)' }}
-                  />
+              <div className="relative w-full max-w-4xl">
+                <button
+                  className="absolute top-4 right-4 z-[100001] flex items-center justify-center bg-white/10 backdrop-blur-sm border border-white/20 rounded-full h-8 w-8 hover:bg-white/20 transition-colors"
+                  onClick={() => setActive(null)}
+                >
+                  <CloseIcon />
+                </button>
+                <motion.div
+                  ref={ref}
+                  className="bg-white dark:bg-neutral-900 rounded-2xl overflow-hidden shadow-2xl"
+                >
+                  <div className="aspect-auto max-h-[80vh] overflow-auto">
+                    <div className="relative">
+                      <Image
+                        priority
+                        width={1200}
+                        height={800}
+                        src={active.image}
+                        alt={active.name}
+                        className="w-full h-auto object-contain"
+                        style={{ maxHeight: 'calc(80vh - 120px)' }}
+                      />
+                    </div>
+                    <div className="p-6">
+                      <h3 className="text-xl font-bold text-neutral-700 dark:text-neutral-200">
+                        {active.name}
+                      </h3>
+                      <p className="mt-2 text-neutral-600 dark:text-neutral-400">
+                        {active.title}
+                      </p>
+                      <p className="mt-2 text-sm text-neutral-500 dark:text-neutral-400">
+                        {active.quote}
+                      </p>
+                    </div>
+                  </div>
                 </motion.div>
-                <div className="p-6">
-                  <motion.h3
-                    layoutId={`title-${active.name}-${id}`}
-                    className="text-xl font-bold text-neutral-700 dark:text-neutral-200"
-                  >
-                    {active.name}
-                  </motion.h3>
-                  <motion.p
-                    layoutId={`description-${active.title}-${id}`}
-                    className="mt-2 text-neutral-600 dark:text-neutral-400"
-                  >
-                    {active.title}
-                  </motion.p>
-                  <motion.p className="mt-2 text-sm text-neutral-500 dark:text-neutral-400">
-                    {active.quote}
-                  </motion.p>
-                </div>
               </div>
-            </motion.div>
-          </div>
+            </div>
+          </>
         )}
       </AnimatePresence>
+
       <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {figures.map((figure) => (
-          <motion.div
-            layoutId={`card-${figure.name}-${id}`}
+          <div
             key={`card-${figure.name}-${id}`}
-            onClick={() => setActive(figure)}
             className="p-4 flex flex-col justify-between items-center hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-xl cursor-pointer"
           >
             <div className="flex gap-4 items-center">
-              <motion.div layoutId={`image-${figure.name}-${id}`} className="w-20 h-20 flex-shrink-0">
+              <div className="w-20 h-20 flex-shrink-0">
                 <Image
                   width={80}
                   height={80}
@@ -119,50 +109,32 @@ export function ExpandableCardDemo({ figures }: { figures: Figure[] }) {
                   alt={figure.name}
                   className="w-full h-full rounded-lg object-cover"
                 />
-              </motion.div>
+              </div>
               <div>
-                <motion.h3
-                  layoutId={`title-${figure.name}-${id}`}
-                  className="font-medium text-neutral-800 dark:text-neutral-200"
-                >
+                <h3 className="font-medium text-neutral-800 dark:text-neutral-200">
                   {figure.name}
-                </motion.h3>
-                <motion.p
-                  layoutId={`description-${figure.title}-${id}`}
-                  className="text-sm text-neutral-600 dark:text-neutral-400"
-                >
+                </h3>
+                <p className="text-sm text-neutral-600 dark:text-neutral-400">
                   {figure.title}
-                </motion.p>
+                </p>
               </div>
             </div>
-            <motion.button
-              layoutId={`button-${figure.name}-${id}`}
+            <button
               className="mt-2 px-4 py-2 text-sm rounded-full font-bold bg-[#ee5622] hover:bg-[#ff6733] text-white transition-colors duration-200"
+              onClick={() => setActive(figure)}
             >
               View
-            </motion.button>
-          </motion.div>
+            </button>
+          </div>
         ))}
       </ul>
-    </>
+    </div>
   );
 }
 
 const CloseIcon = () => {
   return (
-    <motion.svg
-      initial={{
-        opacity: 0,
-      }}
-      animate={{
-        opacity: 1,
-      }}
-      exit={{
-        opacity: 0,
-        transition: {
-          duration: 0.05,
-        },
-      }}
+    <svg
       xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"
@@ -172,11 +144,11 @@ const CloseIcon = () => {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="h-4 w-4 text-black"
+      className="h-4 w-4 text-white"
     >
       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
       <path d="M18 6l-12 12" />
       <path d="M6 6l12 12" />
-    </motion.svg>
+    </svg>
   );
 };
