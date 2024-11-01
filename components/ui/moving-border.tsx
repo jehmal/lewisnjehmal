@@ -79,7 +79,7 @@ export const MovingBorder = ({
   duration?: number;
   rx?: string;
   ry?: string;
-  [key: string]: any;
+  [key: string]: string | number | React.ReactNode | undefined;
 }) => {
   const pathRef = useRef<SVGPathElement>(null);
   const progress = useMotionValue<number>(0);

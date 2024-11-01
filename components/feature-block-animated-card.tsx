@@ -73,22 +73,20 @@ const extractFigureReferences = (text: string): { quote: string; name: string; t
 };
 
 export function CardDemo() {
-  const { user, loading } = useUser();
   const [inputValue, setInputValue] = useState('');
   const [conversation, setConversation] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const chatHistoryRef = React.useRef<HTMLDivElement>(null);
-  const [ratings, setRatings] = useState<{[key: string]: 'up' | 'down' | 'neutral' | null}>({});
-  const [feedbackMessage, setFeedbackMessage] = useState<string | null>(null);
-
   const [progressValue, setProgressValue] = useState(0);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<'ask' | 'history' | 'calculators'>('ask');
-  const [expandedAnswerIndex, setExpandedAnswerIndex] = useState<number | null>(null);
   const [searchKeyword, setSearchKeyword] = useState('');
+  const [ratings, setRatings] = useState<{[key: string]: 'up' | 'down' | 'neutral' | null}>({});
+  const [feedbackMessage, setFeedbackMessage] = useState<string | null>(null);
   const [isNewRequestPending, setIsNewRequestPending] = useState(false);
   const chatContainerRef = useRef<HTMLDivElement>(null);
+  const { user } = useUser();
+  const [expandedAnswerIndex, setExpandedAnswerIndex] = useState<number | null>(null);
 
   const filteredConversation = conversation.filter(message =>
     message.content.toLowerCase().includes(searchKeyword.toLowerCase())
@@ -486,10 +484,6 @@ export function CardDemo() {
       </div>
     );
   };
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
 
   if (!user) {
     return <AuthUI />;
