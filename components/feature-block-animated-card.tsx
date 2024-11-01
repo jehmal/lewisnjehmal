@@ -187,35 +187,6 @@ export function CardDemo() {
     }
   }, [user, fetchLatestConversation]);
 
-  const saveConversation = useCallback(async (newMessages: Message[]) => {
-    if (!user) return;
-
-    try {
-      const { error } = await supabase
-        .from('conversations')
-        .insert(
-          newMessages.map(message => ({
-            user_id: user.id,
-            role: message.role,
-            content: message.content,
-            context: message.context,
-            timestamp: new Date().toISOString() // Use current time for consistency
-          }))
-        );
-
-      if (error) throw error;
-      console.log('Conversation saved successfully');
-      await fetchLatestConversation(); // Fetch the updated conversation after saving
-    } catch (error) {
-      console.error('Error saving conversation:', error);
-      setError('Failed to save conversation');
-    }
-  }, [user, fetchLatestConversation]);
-
-  useEffect(() => {
-    scrollToBottom();
-  }, [conversation]);
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!inputValue.trim() || !user) return;
