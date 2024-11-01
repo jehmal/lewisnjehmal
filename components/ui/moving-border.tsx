@@ -79,27 +79,38 @@ export const MovingBorder = ({
   duration?: number;
   rx?: string;
   ry?: string;
-  [key: string]: string | number | React.ReactNode | undefined;
+  [key: string]: any;
 }) => {
-  const pathRef = useRef<SVGRectElement>(null);
+  const pathRef = useRef<SVGPathElement>(null);
   const progress = useMotionValue<number>(0);
 
   useAnimationFrame((time) => {
-    const length = pathRef.current?.getTotalLength() ?? 0;
+    const length = pathRef.current?.getTotalLength();
     if (length) {
       const pxPerMillisecond = length / duration;
       progress.set((time * pxPerMillisecond) % length);
     }
   });
 
-  const x = useTransform(
-    progress,
-    (val) => pathRef.current?.getPointAtLength(val)?.x ?? 0
-  );
-  const y = useTransform(
-    progress,
-    (val) => pathRef.current?.getPointAtLength(val)?.y ?? 0
-  );
+  const x = useTransform(progress, (val) => {
+    if (pathRef.current) {
+      const length = pathRef.current.getTotalLength();
+      if (length > 0) {
+        return pathRef.current.getPointAtLength(val % length).x;
+      }
+    }
+    return 0;
+  });
+
+  const y = useTransform(progress, (val) => {
+    if (pathRef.current) {
+      const length = pathRef.current.getTotalLength();
+      if (length > 0) {
+        return pathRef.current.getPointAtLength(val % length).y;
+      }
+    }
+    return 0;
+  });
 
   const transform = useMotionTemplate`translateX(${x}px) translateY(${y}px) translateX(-50%) translateY(-50%)`;
 
@@ -113,13 +124,18 @@ export const MovingBorder = ({
         height="100%"
         {...otherProps}
       >
-        <rect
+        <path
           fill="none"
-          width="100%"
-          height="100%"
-          rx={rx}
-          ry={ry}
           ref={pathRef}
+          d={`M 0 ${ry || 0} 
+             A ${rx || 0} ${ry || 0} 0 0 1 ${rx || 0} 0 
+             H calc(100% - ${rx || 0}) 
+             A ${rx || 0} ${ry || 0} 0 0 1 100% ${ry || 0} 
+             V calc(100% - ${ry || 0}) 
+             A ${rx || 0} ${ry || 0} 0 0 1 calc(100% - ${rx || 0}) 100% 
+             H ${rx || 0} 
+             A ${rx || 0} ${ry || 0} 0 0 1 0 calc(100% - ${ry || 0}) 
+             Z`}
         />
       </svg>
       <motion.div
