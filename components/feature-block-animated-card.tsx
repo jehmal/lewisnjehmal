@@ -149,12 +149,6 @@ export function CardDemo() {
     return () => clearInterval(interval);
   }, [isLoading]);
 
-  const scrollToBottom = () => {
-    if (chatHistoryRef.current) {
-      chatHistoryRef.current.scrollTop = chatHistoryRef.current.scrollHeight;
-    }
-  };
-
   const fetchLatestConversation = useCallback(async () => {
     if (!user) return;
 
