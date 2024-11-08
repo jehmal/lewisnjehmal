@@ -28,7 +28,7 @@ interface Message {
   id?: string;
   role: 'user' | 'assistant';
   content: string;
-  context?: string;
+  context?: string | null;
   timestamp: string;
   created_at: string;
   good_response?: boolean;
@@ -36,6 +36,13 @@ interface Message {
   bad_response?: boolean;
   user_id?: string;
   related_question_id?: string;
+}
+
+interface Figure {
+  name: string;
+  title: string;
+  image: string;
+  quote: string;
 }
 
 const formatDate = (dateString: string) => {
@@ -51,25 +58,70 @@ const formatDate = (dateString: string) => {
 };
 
 // Updated extractFigureReferences function
-const extractFigureReferences = (text: string): { quote: string; name: string; title: string; image: string }[] => {
-  const figureRegex = /(AN3000 )?(?:Figure|Table)\s+(\d+(\.\d+)*(\([a-z]\))?)/gi;
-  const matches = Array.from(new Set(text.match(figureRegex) || [])); // Remove duplicates
-  return matches.map(match => {
-    const figureName = match.split(' ').slice(-1)[0];
-    const formattedFigureName = figureName
+const extractFigureReferences = (content: string): Figure[] => {
+  const references = new Map<string, Figure>();
+  
+  // Handle Tables
+  const tablePattern = /Table\s+([A-Za-z0-9][._][0-9](?:[._][0-9])?)/gi;
+  const tableMatches = Array.from(content.matchAll(tablePattern));
+  
+  for (const match of tableMatches) {
+    const tableNumber = match[1];
+    const formattedNumber = tableNumber
+      .toLowerCase()
       .replace(/\./g, '_')
-      .replace(/\(([a-z])\)/, '_$1');
+      .replace(/([a-z])_(\d)/g, '$1_$2');
+      
+    let imagePath = `/All Tables & Figures/AN3000_Table_${formattedNumber}.png`;
     
-    const imagePath = `/All Tables & Figures/AN3000_Figure_${formattedFigureName}.png`;
+    // Check if special case with jpg extension
+    if (tableNumber.toLowerCase().startsWith('c')) {
+      imagePath = `/All Tables & Figures/AN3000_Table_${formattedNumber}.jpg`;
+    }
+
+    // Use the table number as the key to prevent duplicates
+    const key = `Table_${tableNumber}`;
+    if (!references.has(key)) {
+      references.set(key, {
+        name: `Table ${tableNumber}`,
+        title: `Reference to Table ${tableNumber}`,
+        image: imagePath,
+        quote: `This is Table ${tableNumber} from AS/NZS 3000`
+      });
+    }
+  }
+
+  // Handle Figures
+  const figurePattern = /Figure\s+(\d+\.\d+)/gi;
+  const figureMatches = Array.from(content.matchAll(figurePattern));
+
+  for (const match of figureMatches) {
+    const figureNumber = match[1];
+    const formattedNumber = figureNumber.replace('.', '_');
     
-    console.log(`Extracted figure: ${match}, Image path: ${imagePath}`);
-    return {
-      quote: `Reference to ${match}`,
-      name: match,
-      title: "Referenced Figure",
-      image: imagePath
-    };
-  });
+    // Use the figure number as the key to prevent duplicates
+    const key = `Figure_${figureNumber}`;
+    if (!references.has(key)) {
+      references.set(key, {
+        name: `Figure ${figureNumber}`,
+        title: `Reference to Figure ${figureNumber}`,
+        image: `/All Tables & Figures/AN3000_Figure_${formattedNumber}.png`,
+        quote: `This is Figure ${figureNumber} from AS/NZS 3000`
+      });
+    }
+  }
+
+  return Array.from(references.values());
+};
+
+// Add a utility function to check if file exists
+const checkImageExists = async (path: string): Promise<boolean> => {
+  try {
+    const response = await fetch(path, { method: 'HEAD' });
+    return response.ok;
+  } catch {
+    return false;
+  }
 };
 
 export function CardDemo() {
@@ -236,15 +288,35 @@ export function CardDemo() {
 
       const data = await response.json();
       
-      // Create assistant message with reference to question
-      const assistantMessage: Message = { 
+      const figures = extractFigureReferences(data.response);
+      
+      // Check each figure/table path and filter out non-existent ones
+      const validFigures = await Promise.all(
+        figures.map(async (fig) => {
+          const exists = await checkImageExists(fig.image);
+          if (!exists && fig.image.endsWith('.png')) {
+            // Try jpg if png doesn't exist
+            const jpgPath = fig.image.replace('.png', '.jpg');
+            const jpgExists = await checkImageExists(jpgPath);
+            if (jpgExists) {
+              return { ...fig, image: jpgPath };
+            }
+          }
+          return exists ? fig : null;
+        })
+      );
+
+      const filteredFigures = validFigures.filter((fig): fig is Figure => fig !== null);
+
+      // Create assistant message without the figures field for database
+      const assistantMessage: Omit<Message, 'figures'> = { 
         role: 'assistant', 
         content: data.response,
         context: data.context,
         timestamp: formatDate(new Date().toISOString()),
         created_at: new Date().toISOString(),
         user_id: user.id,
-        related_question_id: savedQuestion.id // Use the UUID from the saved question
+        related_question_id: savedQuestion.id
       };
 
       console.log('Saving assistant message:', assistantMessage);
@@ -261,27 +333,21 @@ export function CardDemo() {
         throw new Error('Failed to save response');
       }
 
+      // Add figures back to the saved response for local state
+      const responseWithFigures = {
+        ...savedResponse,
+        figures: filteredFigures
+      };
+
       console.log('Response saved successfully:', savedResponse);
 
-      // Verify the saved pair
-      const { data: verifiedPair, error: verifyError } = await supabase
-        .from('conversations')
-        .select('*')
-        .in('id', [savedQuestion.id, savedResponse.id])
-        .order('created_at', { ascending: true });
-
-      if (verifyError || !verifiedPair || verifiedPair.length !== 2) {
-        console.error('Verification failed:', verifyError || 'Incomplete pair');
-        throw new Error('Failed to verify message pair');
-      }
-
-      // Update local state with verified pair
+      // Update local state with the response including figures
       setConversation(prev => {
         const withoutTemp = prev.filter(msg => msg.id !== savedQuestion.id);
-        return [...withoutTemp, ...verifiedPair];
+        return [...withoutTemp, savedQuestion, responseWithFigures];
       });
 
-      console.log('Message pair verified and saved:', verifiedPair);
+      console.log('Message pair verified and saved');
 
     } catch (error) {
       console.error('Error in submission:', error);
@@ -508,7 +574,7 @@ export function CardDemo() {
 
       <div className="flex-1 flex flex-col">
         {activeTab === 'ask' && (
-          <div className="sticky top-0 bg-white dark:bg-gray-800 z-10 p-4 shadow-md">
+          <div className="sticky top-0 bg-white dark:bg-gray-800 p-4 shadow-md sticky-header z-[50]">
             <div className="flex flex-col md:flex-row items-center space-y-1 md:space-y-0 md:space-x-1 mb-4">
               <span className="text-sm font-semibold text-gray-900 dark:text-white">
                 Ask

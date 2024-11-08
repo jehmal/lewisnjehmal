@@ -25,12 +25,21 @@ export function ExpandableCardDemo({ figures }: { figures: Figure[] }) {
 
     if (active) {
       document.body.style.overflow = "hidden";
+      document.body.classList.add('modal-open');
+      window.scrollTo({
+        top: window.innerHeight / 2,
+        behavior: 'smooth'
+      });
     } else {
       document.body.style.overflow = "auto";
+      document.body.classList.remove('modal-open');
     }
 
     window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+      document.body.classList.remove('modal-open');
+    };
   }, [active]);
 
   useOutsideClick(ref, () => setActive(null));
@@ -40,21 +49,87 @@ export function ExpandableCardDemo({ figures }: { figures: Figure[] }) {
   }
 
   return (
-    <div className="relative">
+    <div className="relative isolate">
+      <style jsx global>{`
+        .modal-open .sticky-header {
+          z-index: 50 !important;
+        }
+        
+        .modal-backdrop {
+          z-index: 9999999 !important;
+        }
+        
+        .modal-content {
+          z-index: 10000000 !important;
+        }
+
+        body.modal-open {
+          overflow: hidden;
+        }
+
+        .modal-open .sticky-header {
+          visibility: hidden;
+        }
+
+        .modal-image-container {
+          max-height: calc(85vh - 100px);
+          width: fit-content;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 0 auto;
+          padding: 1.5rem;
+        }
+
+        .modal-image-container img {
+          max-width: min(85vw, 1400px) !important;
+          min-width: 400px !important;
+          height: auto !important;
+          object-fit: contain !important;
+          width: auto !important;
+          border-radius: 0.75rem;
+        }
+
+        @media (max-width: 768px) {
+          .modal-image-container {
+            max-height: calc(85vh - 80px);
+            padding: 1rem;
+          }
+
+          .modal-image-container img {
+            min-width: unset !important;
+            width: 100% !important;
+            max-width: 90vw !important;
+          }
+        }
+      `}</style>
+
       <AnimatePresence>
         {active && (
           <>
             <div 
-              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[99999]"
-              style={{ position: 'fixed', top: 0, left: 0 }}
+              className="fixed inset-0 bg-black/50 backdrop-blur-sm modal-backdrop"
+              style={{ 
+                position: 'fixed', 
+                top: 0, 
+                left: 0,
+                pointerEvents: 'auto'
+              }}
             />
             <div 
-              className="fixed inset-0 flex items-center justify-center p-4 z-[100000]"
-              style={{ position: 'fixed', top: 0, left: 0 }}
+              className="fixed inset-0 flex items-center justify-center p-4 modal-content"
+              style={{ 
+                position: 'fixed', 
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                pointerEvents: 'auto'
+              }}
             >
-              <div className="relative w-full max-w-4xl">
+              <div className="relative w-auto">
                 <button
-                  className="absolute top-4 right-4 z-[100001] flex items-center justify-center bg-white/10 backdrop-blur-sm border border-white/20 rounded-full h-8 w-8 hover:bg-white/20 transition-colors"
+                  className="absolute -top-3 -right-3 flex items-center justify-center bg-white/10 backdrop-blur-sm border border-white/20 rounded-full h-8 w-8 hover:bg-white/20 transition-colors"
+                  style={{ zIndex: 10000001 }}
                   onClick={() => setActive(null)}
                 >
                   <CloseIcon />
@@ -62,17 +137,26 @@ export function ExpandableCardDemo({ figures }: { figures: Figure[] }) {
                 <motion.div
                   ref={ref}
                   className="bg-white dark:bg-neutral-900 rounded-2xl overflow-hidden shadow-2xl"
+                  initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.95, y: 20 }}
+                  transition={{ duration: 0.2 }}
                 >
-                  <div className="aspect-auto max-h-[80vh] overflow-auto">
-                    <div className="relative">
+                  <div className="overflow-auto">
+                    <div className="modal-image-container">
                       <Image
                         priority
-                        width={1200}
-                        height={800}
+                        width={1400}
+                        height={1000}
                         src={active.image}
                         alt={active.name}
-                        className="w-full h-auto object-contain"
-                        style={{ maxHeight: 'calc(80vh - 120px)' }}
+                        className="w-auto h-auto shadow-lg"
+                        style={{ objectFit: 'contain' }}
+                        quality={100}
+                        onLoad={(e) => {
+                          const img = e.target as HTMLImageElement;
+                          img.style.opacity = '1';
+                        }}
                       />
                     </div>
                     <div className="p-6">
@@ -95,9 +179,9 @@ export function ExpandableCardDemo({ figures }: { figures: Figure[] }) {
       </AnimatePresence>
 
       <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-        {figures.map((figure) => (
+        {figures.map((figure, index) => (
           <div
-            key={`card-${figure.name}-${id}`}
+            key={`card-${figure.name}-${index}-${id}`}
             className="p-4 flex flex-col justify-between items-center hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-xl cursor-pointer"
           >
             <div className="flex gap-4 items-center">
