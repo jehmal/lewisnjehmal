@@ -22,6 +22,7 @@ import { useUser } from '@/contexts/UserContext';
 import { supabase } from '@/lib/supabase';
 import AuthUI from '@/components/AuthUI';
 import { ExpandableCardDemo } from '@/components/blocks/expandable-card-demo-grid';
+import { formatDateForDisplay } from '@/utils/date-formatter';
 
 
 interface Message {
@@ -44,18 +45,6 @@ interface Figure {
   image: string;
   quote: string;
 }
-
-const formatDate = (dateString: string) => {
-  const date = new Date(dateString);
-  return new Intl.DateTimeFormat('en-AU', {
-    hour: '2-digit',
-    minute: '2-digit',
-    hour12: true,
-    day: '2-digit',
-    month: '2-digit',
-    year: '2-digit'
-  }).format(date).replace(',', '');
-};
 
 // Updated extractFigureReferences function
 const extractFigureReferences = (content: string): Figure[] => {
@@ -214,7 +203,7 @@ export function CardDemo() {
       if (data && data.length > 0) {
         const formattedData = data.map((message: Message) => ({
           ...message,
-          timestamp: formatDate(message.created_at)
+          timestamp: formatDateForDisplay(message.created_at)
         }));
         setConversation(formattedData);
         console.log('Fetched conversation:', formattedData);
@@ -239,21 +228,29 @@ export function CardDemo() {
     setError(null);
     setIsNewRequestPending(true);
     
+    const now = new Date();
     const userMessage: Message = { 
       role: 'user', 
       content: inputValue.trim(),
-      timestamp: formatDate(new Date().toISOString()),
-      created_at: new Date().toISOString(),
+      created_at: now.toISOString(),
+      timestamp: formatDateForDisplay(now),
       user_id: user.id
     };
     
     console.log('Saving user message:', userMessage);
 
     try {
-      // First, save the user's question
+      // When saving to Supabase, only send the necessary fields with ISO date
+      const supabaseMessage = {
+        role: userMessage.role,
+        content: userMessage.content,
+        created_at: now.toISOString(),
+        user_id: userMessage.user_id
+      };
+
       const { data: savedQuestion, error: questionError } = await supabase
         .from('conversations')
-        .insert([userMessage])
+        .insert([supabaseMessage])
         .select()
         .single();
 
@@ -264,8 +261,13 @@ export function CardDemo() {
 
       console.log('Question saved successfully:', savedQuestion);
 
-      // Update local state with saved question
-      setConversation(prev => [...prev, savedQuestion]);
+      // Update local state with display-formatted timestamp
+      const savedQuestionWithDisplay = {
+        ...savedQuestion,
+        timestamp: formatDateForDisplay(savedQuestion.created_at)
+      };
+
+      setConversation(prev => [...prev, savedQuestionWithDisplay]);
       setInputValue(''); // Clear input immediately
 
       // Get AI response
@@ -309,12 +311,12 @@ export function CardDemo() {
       const filteredFigures = validFigures.filter((fig): fig is Figure => fig !== null);
 
       // Create assistant message without the figures field for database
-      const assistantMessage: Omit<Message, 'figures'> = { 
-        role: 'assistant', 
+      const assistantNow = new Date();
+      const assistantMessage = {
+        role: 'assistant',
         content: data.response,
         context: data.context,
-        timestamp: formatDate(new Date().toISOString()),
-        created_at: new Date().toISOString(),
+        created_at: assistantNow.toISOString(),
         user_id: user.id,
         related_question_id: savedQuestion.id
       };
@@ -333,9 +335,10 @@ export function CardDemo() {
         throw new Error('Failed to save response');
       }
 
-      // Add figures back to the saved response for local state
-      const responseWithFigures = {
+      // Add display timestamp for UI
+      const savedResponseWithDisplay = {
         ...savedResponse,
+        timestamp: formatDateForDisplay(savedResponse.created_at),
         figures: filteredFigures
       };
 
@@ -343,8 +346,8 @@ export function CardDemo() {
 
       // Update local state with the response including figures
       setConversation(prev => {
-        const withoutTemp = prev.filter(msg => msg.id !== savedQuestion.id);
-        return [...withoutTemp, savedQuestion, responseWithFigures];
+        const withoutTemp = prev.filter(msg => msg.id !== savedQuestionWithDisplay.id);
+        return [...withoutTemp, savedQuestionWithDisplay, savedResponseWithDisplay];
       });
 
       console.log('Message pair verified and saved');

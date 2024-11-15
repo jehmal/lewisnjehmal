@@ -7,11 +7,13 @@ import ShimmerButton from "@/components/magicui/shimmer-button";
 import ReactMarkdown from 'react-markdown';
 import { Trash2 } from 'lucide-react';
 import AnimatedCircularProgressBar from "@/components/magicui/animated-circular-progress-bar";
+import { formatDateForDisplay } from '@/utils/date-formatter';
 
 interface Message {
   role: 'user' | 'assistant';
   content: string;
   timestamp: string;
+  created_at: string;
 }
 
 const MaximumDemandCalculator: React.FC = () => {
@@ -51,11 +53,14 @@ const MaximumDemandCalculator: React.FC = () => {
     setIsLoading(true);
     setError(null);
     
+    const now = new Date();
     const userMessage: Message = { 
       role: 'user', 
-      content: inputValue, 
-      timestamp: new Date().toISOString()
+      content: inputValue,
+      created_at: now.toISOString(),
+      timestamp: formatDateForDisplay(now)
     };
+    
     const updatedConversation = [...conversation, userMessage];
     setConversation(updatedConversation);
     setInputValue('');
@@ -74,10 +79,12 @@ const MaximumDemandCalculator: React.FC = () => {
       if (!response.ok) throw new Error('Failed to get response from server');
 
       const data = await response.json();
+      const assistantNow = new Date();
       const assistantMessage: Message = { 
         role: 'assistant', 
         content: data.response,
-        timestamp: new Date().toISOString()
+        created_at: assistantNow.toISOString(),
+        timestamp: formatDateForDisplay(assistantNow)
       };
       const newConversation = [...updatedConversation, assistantMessage];
       setConversation(newConversation);
@@ -112,10 +119,12 @@ const MaximumDemandCalculator: React.FC = () => {
       const data = await response.json();
       setCalculationResult(data.result);
       
+      const now = new Date();
       const resultMessage: Message = {
         role: 'assistant',
         content: `Calculation Result: ${data.result}`,
-        timestamp: new Date().toISOString()
+        created_at: now.toISOString(),
+        timestamp: formatDateForDisplay(now)
       };
       setConversation([...conversation, resultMessage]);
     } catch (error) {
