@@ -262,7 +262,12 @@ export default function Home() {
             {/* Dock */}
             <DockDemo onChatToggle={handleToggleCardDemo} />
 
-            <ChatSidebar activeTab={activeTab} setActiveTab={setActiveTab}>
+            <ChatSidebar 
+              activeTab={activeTab} 
+              setActiveTab={setActiveTab}
+              open={sidebarOpen}
+              setOpen={setSidebarOpen}
+            >
               <ChatSidebarBody>
                 {/* Your existing tabs */}
                 <ChatSidebarTab

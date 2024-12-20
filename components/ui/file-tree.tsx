@@ -356,31 +356,16 @@ const Folder = forwardRef<
 
 Folder.displayName = "Folder";
 
-const File = forwardRef<
-  HTMLButtonElement,
-  {
-    value: string;
-    handleSelect?: (id: string) => void;
-    isSelectable?: boolean;
-    isSelect?: boolean;
-    fileIcon?: React.ReactNode;
-  } & React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger>
->(
-  (
-    {
-      value,
-      className,
-      handleSelect,
-      isSelectable = true,
-      isSelect,
-      fileIcon,
-      children,
-      ...props
-    },
-    ref,
-  ) => {
+interface FileProps extends Omit<React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger>, 'value'> {
+  value: string;
+  isSelectable?: boolean;
+  fileIcon?: React.ReactNode;
+}
+
+const File = forwardRef<HTMLButtonElement, FileProps>(
+  ({ value, className, isSelectable = true, fileIcon, children, ...props }, ref) => {
     const { direction, selectedId, selectItem } = useTree();
-    const isSelected = isSelect ?? selectedId === value;
+    const isSelected = selectedId === value;
     return (
       <AccordionPrimitive.Item value={value} className="relative">
         <AccordionPrimitive.Trigger
@@ -390,7 +375,7 @@ const File = forwardRef<
           disabled={!isSelectable}
           aria-label="File"
           className={cn(
-            "flex items-center gap-1 cursor-pointer text-sm pr-1 rtl:pl-1 rtl:pr-0 rounded-md  duration-200 ease-in-out",
+            "flex items-center gap-1 cursor-pointer text-sm pr-1 rtl:pl-1 rtl:pr-0 rounded-md duration-200 ease-in-out",
             {
               "bg-muted": isSelected && isSelectable,
             },
@@ -418,28 +403,32 @@ const CollapseButton = forwardRef<
 >(({ className, elements, expandAll = false, children, ...props }, ref) => {
   const { expandedItems, setExpandedItems } = useTree();
 
-  const expendAllTree = useCallback((elements: TreeViewElement[]) => {
-    const expandTree = (element: TreeViewElement) => {
-      const isSelectable = element.isSelectable ?? true;
-      if (isSelectable && element.children && element.children.length > 0) {
-        setExpandedItems?.((prev) => [...(prev ?? []), element.id]);
-        element.children.forEach(expandTree);
-      }
-    };
+  const expendAllTree = useCallback(() => {
+    if (setExpandedItems) {
+      const getAllIds = (elements: TreeViewElement[]): string[] => {
+        return elements.reduce((acc: string[], element) => {
+          acc.push(element.id);
+          if (element.children) {
+            acc.push(...getAllIds(element.children));
+          }
+          return acc;
+        }, []);
+      };
+      setExpandedItems(Array.from(new Set(getAllIds(elements || []))));
+    }
+  }, [elements, setExpandedItems]);
 
-    elements.forEach(expandTree);
-  }, []);
-
-  const closeAll = useCallback(() => {
-    setExpandedItems?.([]);
-  }, []);
+  const collapseAllTree = useCallback(() => {
+    if (setExpandedItems) {
+      setExpandedItems([]);
+    }
+  }, [setExpandedItems]);
 
   useEffect(() => {
-    console.log(expandAll);
-    if (expandAll) {
-      expendAllTree(elements);
+    if (expandAll && elements) {
+      expendAllTree();
     }
-  }, [expandAll]);
+  }, [expandAll, expendAllTree, elements]);
 
   return (
     <Button
@@ -447,8 +436,8 @@ const CollapseButton = forwardRef<
       className="h-8 w-fit p-1 absolute bottom-1 right-2"
       onClick={
         expandedItems && expandedItems.length > 0
-          ? closeAll
-          : () => expendAllTree(elements)
+          ? collapseAllTree
+          : () => expendAllTree()
       }
       ref={ref}
       {...props}

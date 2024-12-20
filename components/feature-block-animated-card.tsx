@@ -7,34 +7,46 @@ import ShimmerButton from "@/components/magicui/shimmer-button";
 import AnimatedListDemo from "@/components/example/animated-list-demo";
 import { Button } from "@/components/ui/button";
 import ReactMarkdown from 'react-markdown';
-import { ThumbsUp, ThumbsDown, MessageSquare, History, Calculator, Minus, Loader2, Book } from 'lucide-react';
+import { ThumbsUp, ThumbsDown, MessageSquare, History, Calculator, Minus, Book } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import AnimatedCircularProgressBar from "@/components/magicui/animated-circular-progress-bar";
 import SparklesText from "@/components/magicui/sparkles-text";
 import { ChatSidebar, ChatSidebarBody, ChatSidebarTab } from "@/components/ui/chatsidebar";
 import { Timeline } from "@/components/ui/timeline";
+import type { TimelineEntry } from "../types/timeline";
 import { MovingBorder } from "@/components/ui/moving-border";
-import ShinyButton from "@/components/magicui/shiny-button";
 import MaximumDemandCalculator from "@/components/MaximumDemandCalculator";
 import { useUser } from '@/contexts/UserContext';
 import { supabase } from '@/lib/supabase';
 import AuthUI from '@/components/AuthUI';
 import { ExpandableCardDemo } from '@/components/blocks/expandable-card-demo-grid';
 import { formatDateForDisplay, formatDateForDatabase } from '@/utils/date-formatter';
-import { Message, Figure, TimelineEntry, DatabaseMessage } from '@/types/chat';
+import { Message, Figure } from '@/types/chat';
 import { ContinueButton } from '@/components/ui/continue-button';
 import { retry } from '@/utils/retry';
 import { formatDatabaseMessage, formatMessageForDatabase } from '@/utils/message-formatter';
-import { ClauseReference, TreeViewElement, WaClausesData } from '@/types/clauses';
-import { waClauses, findClauseById, ausnzClauses } from '@/lib/waClauses';
+import { ClauseReference, TreeViewElement, ClauseSection } from '@/types/clauses';
+import { findClauseById, waClauses } from '@/lib/waClauses';
 import { findAusnzClauseByIdSync } from '@/lib/ausnzClauses';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
-import { Tree, File, Folder } from "@/components/ui/file-tree";
 import { FileTextIcon } from 'lucide-react';
 import { ClauseSearch } from "@/components/ui/clause-search";
-import { extractFigureReferences } from '@/utils/figure-references';
+import { extractFigureReferences, extractClauseReferences } from '@/utils/figure-references';
+import ShinyButton from "./magicui/shiny-button";
+import { File, Folder } from '@/components/ui/file-tree';
+import { DatabaseMessage } from '../types/database';
 
-// Add this utility function after imports
+// Update type definitions for functions using 'any'
+interface ClauseData {
+  title: string;
+  subsections?: Record<string, unknown>;
+}
+
+interface ClausesSection {
+  sections: Record<string, ClauseData>;
+}
+
+// Add a utility function to check if file exists
 const checkImageExists = async (path: string): Promise<boolean> => {
   try {
     const response = await fetch(path, { method: 'HEAD' });
@@ -44,7 +56,6 @@ const checkImageExists = async (path: string): Promise<boolean> => {
   }
 };
 
-// Add this component at the top of your file, before CardDemo
 const FollowUpInput = ({ messageId, onSubmit, onCancel }: { 
   messageId: string, 
   onSubmit: (input: string) => void, 
@@ -104,103 +115,6 @@ const FollowUpInput = ({ messageId, onSubmit, onCancel }: {
   );
 };
 
-// Update the extractClauseReferences function to better handle clause mentions
-const extractClauseReferences = (content: string): TreeViewElement[] => {
-  const referencedClauses = new Set<string>();
-
-  // Look for clauses in the entire content with multiple patterns
-  const patterns = [
-    // Pattern for direct clause references
-    /(?:ASNZ ?3000|AS\/?NZS ?\s*3000|ASNZ)\s*(?:Clause|CL\.?)?\s*(\d+(?:\.\d+)*(?:\.\d+)*)/gi,
-    // Pattern for colon-separated references
-    /(?:ASNZ ?3000|AS\/?NZS ?\s*3000|ASNZ)\s*(?:Clause|CL\.?)?\s*:\s*(\d+(?:\.\d+)*(?:\.\d+)*)/gi,
-    // Pattern for references without ASNZ prefix in lists
-    /^(?:Clause|CL\.?)?\s*(\d+(?:\.\d+)*(?:\.\d+)*)/gim
-  ];
-
-  // Use Array.from to handle the iterator
-  patterns.forEach(pattern => {
-    const matches = Array.from(content.matchAll(pattern));
-    
-    matches.forEach(match => {
-      let clauseNumber = match[1].trim();
-      console.debug('Found clause reference:', clauseNumber);
-
-      // Normalize clause number (remove leading/trailing dots and spaces)
-      clauseNumber = clauseNumber.replace(/^\.+|\.+$/g, '').trim();
-      
-      // Try to find the clause in ausnzClauses
-      const clause = findAusnzClauseByIdSync(clauseNumber);
-      if (clause) {
-        console.debug(`Found clause ${clauseNumber}: ${clause.title}`);
-        referencedClauses.add(`ASNZ:${clauseNumber}`);
-      } else {
-        console.warn(`Clause ${clauseNumber} not found in ASNZ clauses:`, clauseNumber);
-      }
-    });
-  });
-
-  // Also look specifically in the "List of Related Clauses" section
-  const relatedClausesSection = content.match(/List of Related Clauses([\s\S]*?)(?:\n\n|$)/i);
-  if (relatedClausesSection) {
-    const lines = relatedClausesSection[1].split('\n');
-    lines.forEach(line => {
-      const cleanLine = line.trim();
-      if (!cleanLine) return;
-
-      // Extract numbers from the line
-      const numbers = cleanLine.match(/\d+(?:\.\d+)*(?:\.\d+)*/g);
-      if (numbers) {
-        numbers.forEach(number => {
-          const clauseNumber = number.trim();
-          const clause = findAusnzClauseByIdSync(clauseNumber);
-          if (clause) {
-            console.debug(`Found clause ${clauseNumber} in related clauses list`);
-            referencedClauses.add(`ASNZ:${clauseNumber}`);
-          }
-        });
-      }
-    });
-  }
-
-  // Convert the Set to TreeViewElements and sort them
-  const tree: TreeViewElement[] = Array.from(referencedClauses)
-    .map(clauseId => {
-      const [standard, number] = clauseId.split(':');
-      const clause = findAusnzClauseByIdSync(number);
-      
-      if (!clause) {
-        return {
-          id: clauseId,
-          name: `${standard} Clause ${number}`,
-          isSelectable: true,
-          children: []
-        };
-      }
-
-      return {
-        id: clauseId,
-        name: `${standard} Clause ${number} - ${clause.title}`,
-        isSelectable: true,
-        children: []
-      };
-    })
-    .sort((a, b) => {
-      const aNum = a.id.split(':')[1].split('.').map(Number);
-      const bNum = b.id.split(':')[1].split('.').map(Number);
-      
-      // Compare each segment
-      for (let i = 0; i < Math.max(aNum.length, bNum.length); i++) {
-        const aVal = aNum[i] || 0;
-        const bVal = bNum[i] || 0;
-        if (aVal !== bVal) return aVal - bVal;
-      }
-      return 0;
-    });
-
-  return tree;
-};
-
 // Update the findClause function
 const findClause = (id: string): ClauseReference | null => {
   console.log('Finding clause with id:', id); // Debug log
@@ -250,6 +164,137 @@ const convertClausesToTreeView = (clauses: any): TreeViewElement[] => {
   return treeData;
 };
 
+const ClauseDisplay = ({ clause }: { clause: TreeViewElement }) => {
+  const [fullClause, setFullClause] = useState<ClauseSection | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const loadClause = async () => {
+      try {
+        const [standard, number] = clause.id.split(':');
+        const clauseData = standard === 'WA' ? 
+          findClauseById(number) : 
+          await findAusnzClauseByIdSync(number);
+        
+        setFullClause(clauseData);
+      } catch (error) {
+        console.error('Error loading clause:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    loadClause();
+  }, [clause.id]);
+
+  if (isLoading) {
+    return (
+      <div className="p-4 rounded-lg bg-gray-50 dark:bg-gray-900/50 animate-pulse">
+        <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-3/4 mb-2"></div>
+        <div className="h-20 bg-gray-200 dark:bg-gray-700 rounded"></div>
+      </div>
+    );
+  }
+
+  if (!fullClause) return null;
+
+  return (
+    <BoxReveal
+      key={clause.id}
+      width="100%"
+      boxColor="#eca72c"
+      duration={0.5}
+    >
+      <div className="p-4 rounded-lg bg-gray-50 dark:bg-gray-900/50">
+        <h5 className="font-semibold text-gray-900 dark:text-white mb-2">
+          {clause.name}
+        </h5>
+        <p className="text-gray-700 dark:text-gray-300 text-sm">
+          {fullClause.fullText}
+        </p>
+      </div>
+    </BoxReveal>
+  );
+};
+
+const ExpandableAnswer = ({ 
+  answerIndex, 
+  onClose,
+  conversation 
+}: { 
+  answerIndex: number, 
+  onClose: () => void,
+  conversation: Message[]
+}) => {
+  const answer = conversation[answerIndex];
+  if (!answer || answer.role !== 'assistant') {
+    return null;
+  }
+
+  // Extract both clauses and figures
+  const referencedClauses = extractClauseReferences(answer.content);
+  const figures = extractFigureReferences(answer.content);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 backdrop-blur-sm"
+      onClick={onClose}
+    >
+      <motion.div 
+        className="bg-white dark:bg-gray-800 p-6 rounded-lg max-w-2xl w-full max-h-[80vh] overflow-y-auto relative"
+        onClick={(e) => e.stopPropagation()}
+        initial={{ scale: 0.9, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0.9, opacity: 0 }}
+      >
+        <MovingBorder duration={3000} rx="25" ry="25">
+          <div className="absolute inset-0 bg-white dark:bg-gray-800 rounded-lg" />
+        </MovingBorder>
+        <div className="relative z-10 p-6">
+          <ReactMarkdown className="whitespace-pre-wrap prose dark:prose-invert max-w-none">
+            {answer.content}
+          </ReactMarkdown>
+          
+          {/* Display Figures and Tables */}
+          {figures.length > 0 && (
+            <div className="mt-6">
+              <h4 className="text-md font-semibold mb-2">Referenced Figures:</h4>
+              <ExpandableCardDemo figures={figures} />
+            </div>
+          )}
+
+          {/* Referenced Clauses Section */}
+          {referencedClauses.length > 0 && (
+            <div className="mt-6 border-t border-gray-200 dark:border-gray-700 pt-4">
+              <h4 className="text-lg font-semibold bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent mb-3">
+                Referenced Clauses
+              </h4>
+              <div className="space-y-4">
+                {referencedClauses.map((clause: TreeViewElement) => (
+                  <ClauseDisplay key={clause.id} clause={clause} />
+                ))}
+              </div>
+            </div>
+          )}
+
+          <div className="mt-4 flex justify-end">
+            <ShinyButton
+              text="Close"
+              className="bg-gray-500 hover:bg-gray-600"
+              onClick={onClose}
+              shimmerColor="#eca72c"
+              background="#ee5622"
+            />
+          </div>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+};
+
 export function CardDemo() {
   const [inputValue, setInputValue] = useState('');
   const [conversation, setConversation] = useState<Message[]>([]);
@@ -266,15 +311,13 @@ export function CardDemo() {
   const { user } = useUser();
   const [expandedAnswerIndex, setExpandedAnswerIndex] = useState<number | null>(null);
   const [isContinuing, setIsContinuing] = useState(false);
-  const [continuationError, setContinuationError] = useState<string | null>(null);
   const [continuationProgress, setContinuationProgress] = useState(0);
+  const [continuationError, setContinuationError] = useState<string | null>(null);
   const [showFollowUpInput, setShowFollowUpInput] = useState<string | null>(null);
-  const [followUpInput, setFollowUpInput] = useState('');
   const [showClauseTree, setShowClauseTree] = useState(false);
   const [selectedClause, setSelectedClause] = useState<ClauseReference | null>(null);
   const [referencedClauses, setReferencedClauses] = useState<TreeViewElement[]>([]);
-  const [currentMessage, setCurrentMessage] = useState<Message | null>(null);
-  const [referencedFigures, setReferencedFigures] = useState<Figure[]>([]);
+  const [loadedClauses, setLoadedClauses] = useState<Record<string, ClauseSection>>({});
   const [clausesTree, setClausesTree] = useState<TreeViewElement[]>([]);
 
   const filteredConversation = conversation.filter(message =>
@@ -552,63 +595,6 @@ export function CardDemo() {
         }
       }
 
-      // If response is not complete, automatically continue generating
-      if (!data.isComplete) {
-        let continuedResponse = data.response;
-        let isComplete = false;
-        let currentThreadId = data.threadId;
-        let currentRunId = data.runId;
-
-        while (!isComplete) {
-          try {
-            const continuationResponse = await fetch('/api/chat/continue', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify({
-                threadId: currentThreadId,
-                runId: currentRunId,
-                previousContent: continuedResponse,
-                assistantId: data.assistantId
-              }),
-            });
-
-            if (!continuationResponse.ok) {
-              throw new Error('Failed to continue generation');
-            }
-
-            const continuationData = await continuationResponse.json();
-            continuedResponse += continuationData.response;
-            isComplete = continuationData.isComplete;
-            currentThreadId = continuationData.threadId;
-            currentRunId = continuationData.runId;
-
-            // Update UI with continued response
-            const updatedMessage = {
-              ...savedResponse,
-              content: continuedResponse,
-              figures: extractFigureReferences(continuedResponse)
-            };
-
-            setConversation(prev => {
-              const withoutTemp = prev.filter(msg => msg.id !== savedQuestionWithDisplay.id);
-              return [...withoutTemp, savedQuestionWithDisplay, updatedMessage];
-            });
-
-          } catch (error) {
-            console.error('Error in continuation:', error);
-            break;
-          }
-        }
-
-        // Final update to database with complete response
-        await supabase
-          .from('conversations')
-          .update({ content: continuedResponse })
-          .eq('id', savedResponse.id);
-      }
-
     } catch (error) {
       console.error('Error in submission:', error);
       setError(error instanceof Error ? error.message : 'An unexpected error occurred');
@@ -684,99 +670,6 @@ export function CardDemo() {
     console.log('Tab changed to:', tab);
     setActiveTab(tab.toLowerCase() as 'chat' | 'history' | 'calculator' | 'clauses');
     setSidebarOpen(false);
-  };
-
-  const ExpandableAnswer = ({ answerIndex, onClose }: { answerIndex: number, onClose: () => void }) => {
-    const answer = conversation[answerIndex];
-    if (!answer || answer.role !== 'assistant') {
-      return null;
-    }
-
-    // Extract both clauses and figures
-    const referencedClauses = extractClauseReferences(answer.content);
-    const figures = extractFigureReferences(answer.content);
-
-    return (
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 backdrop-blur-sm"
-        onClick={onClose}
-      >
-        <motion.div 
-          className="bg-white dark:bg-gray-800 p-6 rounded-lg max-w-2xl w-full max-h-[80vh] overflow-y-auto relative"
-          onClick={(e) => e.stopPropagation()}
-          initial={{ scale: 0.9, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          exit={{ scale: 0.9, opacity: 0 }}
-        >
-          <MovingBorder duration={3000} rx="25" ry="25">
-            <div className="absolute inset-0 bg-white dark:bg-gray-800 rounded-lg" />
-          </MovingBorder>
-          <div className="relative z-10 p-6">
-            <ReactMarkdown className="whitespace-pre-wrap prose dark:prose-invert max-w-none">
-              {answer.content}
-            </ReactMarkdown>
-            
-            {/* Display Figures and Tables */}
-            {figures.length > 0 && (
-              <div className="mt-6">
-                <h4 className="text-md font-semibold mb-2">Referenced Figures:</h4>
-                <ExpandableCardDemo figures={figures} />
-              </div>
-            )}
-
-            {/* Referenced Clauses Section */}
-            {referencedClauses.length > 0 && (
-              <div className="mt-6 border-t border-gray-200 dark:border-gray-700 pt-4">
-                <h4 className="text-lg font-semibold bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent mb-3">
-                  Referenced Clauses
-                </h4>
-                <div className="space-y-4">
-                  {referencedClauses.map((clause) => {
-                    const [standard, number] = clause.id.split(':');
-                    const fullClause = standard === 'WA' ? 
-                      findClauseById(number) : 
-                      findAusnzClauseByIdSync(number);
-                      
-                    return (
-                      <BoxReveal
-                        key={clause.id}
-                        width="100%"
-                        boxColor="#eca72c"
-                        duration={0.5}
-                      >
-                        <div className="p-4 rounded-lg bg-gray-50 dark:bg-gray-900/50">
-                          <h5 className="font-semibold text-gray-900 dark:text-white mb-2">
-                            {clause.name}
-                          </h5>
-                          {fullClause && (
-                            <p className="text-gray-700 dark:text-gray-300 text-sm">
-                              {fullClause.fullText}
-                            </p>
-                          )}
-                        </div>
-                      </BoxReveal>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
-
-            <div className="mt-4 flex justify-end">
-              <ShinyButton
-                text="Close"
-                className="bg-gray-500 hover:bg-gray-600"
-                onClick={onClose}
-                shimmerColor="#eca72c"
-                background="#ee5622"
-              />
-            </div>
-          </div>
-        </motion.div>
-      </motion.div>
-    );
   };
 
   const handleContinueGeneration = async (message: Message) => {
@@ -861,93 +754,60 @@ export function CardDemo() {
   };
 
   const handleFollowUp = async (messageId: string, followUpQuestion: string) => {
-    if (!user) return;
-    
-    setIsContinuing(true);
-    setContinuationProgress(0);
-    
+    const originalMessage = conversation.find(msg => msg.id === messageId);
+    if (!originalMessage || !user) return;
+
+    setIsLoading(true);
+    setError(null);
+
     try {
-      const originalMessage = conversation.find(msg => msg.id === messageId);
-      if (!originalMessage) throw new Error('Message not found');
-
-      // First update UI to show the follow-up question
-      const followUpUserSection = `
-
--------------------
-**Follow-up Question:**
-${followUpQuestion}
-
-*Generating response...*`;
-
-      // Immediately update UI with the follow-up question
-      setConversation(prev => prev.map(msg => 
-        msg.id === messageId ? {
-          ...msg,
-          content: msg.content + followUpUserSection
-        } : msg
-      ));
-
+      // Get AI response for follow-up
       const response = await fetch('/api/chat', {
         method: 'POST',
-        headers: {
+        headers: { 
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${process.env.NEXT_PUBLIC_API_KEY}`
         },
-        body: JSON.stringify({
+        body: JSON.stringify({ 
           message: followUpQuestion,
-          conversation: conversation
+          conversation: [originalMessage]
         }),
       });
 
-      if (!response.ok) throw new Error('Failed to get response');
+      if (!response.ok) {
+        throw new Error('Failed to get response');
+      }
 
       const data = await response.json();
-
-      // Format the complete follow-up Q&A
-      const followUpSection = `
-
--------------------
-**Follow-up Question:**
-${followUpQuestion}
-
-**TradeGuru's Answer:**
-${data.response}`;
 
       // Create updated message with follow-up
       const updatedMessage = {
         ...originalMessage,
-        content: originalMessage.content + followUpSection,
-        figures: [
-          ...(originalMessage.figures || []),
-          ...extractFigureReferences(data.response)
-        ]
+        content: originalMessage.content + 
+          '\n\n**Follow-up Question:** ' + followUpQuestion + 
+          '\n\n**Answer:** ' + data.response
       };
 
-      // Update conversation with the complete response
+      // Update conversation
       setConversation(prev => prev.map(msg => 
         msg.id === messageId ? updatedMessage : msg
       ));
 
-      // Update in database with the combined content
+      // Update in database
       const { error: updateError } = await supabase
         .from('conversations')
-        .update({ 
-          content: updatedMessage.content,
-          updated_at: new Date().toISOString()
-        })
+        .update({ content: updatedMessage.content })
         .eq('id', messageId);
 
       if (updateError) throw updateError;
-      
-      // Clear the follow-up input
+
       setShowFollowUpInput(null);
 
     } catch (error) {
       console.error('Error in follow-up:', error);
       setError(error instanceof Error ? error.message : 'An error occurred');
     } finally {
-      setIsContinuing(false);
-      setContinuationProgress(0);
+      setIsLoading(false);
     }
   };
 
@@ -1001,7 +861,7 @@ ${data.response}`;
           value={element.id}
           isSelectable={element.isSelectable}
           fileIcon={<FileTextIcon className="size-4" />}
-          handleSelect={() => handleClauseSelect(element.id)}
+          onClick={() => handleClauseSelect(element.id)}
         >
           {element.name}
         </File>
@@ -1038,79 +898,53 @@ ${data.response}`;
               <ReactMarkdown className="whitespace-pre-wrap prose dark:prose-invert max-w-none">
                 {message.content}
               </ReactMarkdown>
-              {message.role === 'assistant' && !message.isComplete && (
-                <div className="mt-4">
-                  <div className="flex items-center gap-2">
-                    <ContinueButton
-                      onClick={() => handleContinueGeneration(message)}
-                      isLoading={isContinuing}
-                      progress={continuationProgress}
-                      text={showFollowUpInput === message.id && followUpInput.trim() ? "Follow Up" : "Continue Generating"}
-                    />
-                    <ShimmerButton
-                      onClick={() => setShowFollowUpInput(message.id!)}
-                      shimmerColor="#eca72c"
-                      background="#ee5622"
-                      className="px-4 py-2"
-                    >
-                      Ask Follow-up
-                    </ShimmerButton>
-                  </div>
-                  {showFollowUpInput === message.id && (
-                    <FollowUpInput
-                      messageId={message.id!}
-                      onSubmit={(input) => handleFollowUp(message.id!, input)}
-                      onCancel={() => setShowFollowUpInput(null)}
-                    />
-                  )}
-                </div>
-              )}
               {message.role === 'assistant' && (
                 <>
+                  <div className="mt-4">
+                    <div className="flex items-center gap-2">
+                      {!message.isComplete && (
+                        <ContinueButton
+                          onClick={() => handleContinueGeneration(message)}
+                          isLoading={isContinuing}
+                          progress={continuationProgress}
+                          text="Continue Generating"
+                        />
+                      )}
+                      <ShimmerButton
+                        onClick={() => setShowFollowUpInput(message.id!)}
+                        shimmerColor="#eca72c"
+                        background="#ee5622"
+                        className="px-4 py-2"
+                      >
+                        Ask Follow-up
+                      </ShimmerButton>
+                    </div>
+                    {showFollowUpInput === message.id && (
+                      <FollowUpInput
+                        messageId={message.id!}
+                        onSubmit={(input) => handleFollowUp(message.id!, input)}
+                        onCancel={() => setShowFollowUpInput(null)}
+                      />
+                    )}
+                  </div>
+
                   <div className="mt-4">
                     <ExpandableCardDemo figures={extractFigureReferences(message.content)} />
                   </div>
                   
-                  {/* Add Referenced Clauses Section - Same style as history tab */}
-                  {(() => {
-                    const referencedClauses = extractClauseReferences(message.content);
-                    return referencedClauses.length > 0 && (
-                      <div className="mt-6 border-t border-gray-200 dark:border-gray-700 pt-4">
-                        <h4 className="text-lg font-semibold bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent mb-3">
-                          Referenced Clauses
-                        </h4>
-                        <div className="space-y-4">
-                          {referencedClauses.map((clause) => {
-                            const [standard, number] = clause.id.split(':');
-                            const fullClause = standard === 'WA' ? 
-                              findClauseById(number) : 
-                              findAusnzClauseByIdSync(number);
-                              
-                            return (
-                              <BoxReveal
-                                key={clause.id}
-                                width="100%"
-                                boxColor="#eca72c"
-                                duration={0.5}
-                              >
-                                <div className="p-4 rounded-lg bg-gray-50 dark:bg-gray-900/50">
-                                  <h5 className="font-semibold text-gray-900 dark:text-white mb-2">
-                                    {clause.name}
-                                  </h5>
-                                  {fullClause && (
-                                    <p className="text-gray-700 dark:text-gray-300 text-sm">
-                                      {fullClause.fullText}
-                                    </p>
-                                  )}
-                                </div>
-                              </BoxReveal>
-                            );
-                          })}
-                        </div>
-                      </div>
-                    );
-                  })()}
+                  {/* Referenced Clauses Section */}
+                  <div className="mt-6 border-t border-gray-200 dark:border-gray-700 pt-4">
+                    <h4 className="text-lg font-semibold bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent mb-3">
+                      Referenced Clauses
+                    </h4>
+                    <div className="space-y-4">
+                      {extractClauseReferences(message.content).map((clause: TreeViewElement) => (
+                        <ClauseDisplay key={clause.id} clause={clause} />
+                      ))}
+                    </div>
+                  </div>
 
+                  {/* Feedback buttons only for assistant messages */}
                   <div className="mt-4 flex items-center justify-center space-x-4">
                     <Button
                       onClick={() => handleRating(message.id!, 'up')}
@@ -1131,165 +965,146 @@ ${data.response}`;
                       <ThumbsDown className="w-4 h-4" />
                     </Button>
                   </div>
-                  <div className="mt-4 flex items-center justify-center">
-                    <ShimmerButton
-                      onClick={() => setShowFollowUpInput(message.id!)}
-                      shimmerColor="#eca72c"
-                      background="#ee5622"
-                      className="px-4 py-2"
-                    >
-                      Ask Follow-up
-                    </ShimmerButton>
-                  </div>
-                  
-                  {showFollowUpInput === message.id && (
-                    <FollowUpInput
-                      messageId={message.id!}
-                      onSubmit={(input) => handleFollowUp(message.id!, input)}
-                      onCancel={() => setShowFollowUpInput(null)}
-                    />
-                  )}
-
                   {feedbackMessage && (
                     <div className="mt-2 text-center text-sm text-gray-500">
                       {feedbackMessage}
                     </div>
                   )}
-                  <div className="mt-4 flex gap-2">
-                  
-                  </div>
-
-                  <Dialog open={showClauseTree} onOpenChange={setShowClauseTree}>
-                    <DialogContent 
-                      className="max-w-4xl max-h-[80vh] overflow-y-auto bg-white dark:bg-gray-800 p-6"
-                      aria-describedby="clause-dialog-description"
-                    >
-                      <DialogHeader className="border-b border-gray-200 dark:border-gray-700 pb-4">
-                        <DialogTitle className="flex items-center justify-between">
-                          <div className="text-2xl font-bold text-gray-900 dark:text-white">
-                            <SparklesText
-                              text={selectedClause ? `${selectedClause.standard} Clause ${selectedClause.id.split(':')[1]}` : "Referenced Clauses"}
-                              colors={{ first: "#ee5622", second: "#eca72c" }}
-                              className="text-2xl font-bold"
-                              sparklesCount={3}
-                            />
-                          </div>
-                          {selectedClause && (
-                            <Button
-                              onClick={() => setSelectedClause(null)}
-                              className="flex items-center gap-2 text-sm bg-gray-900 text-white dark:bg-white dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors"
-                            >
-                              <FileTextIcon className="w-4 h-4" />
-                              Back to Clauses
-                            </Button>
-                          )}
-                        </DialogTitle>
-                        <DialogDescription id="clause-dialog-description" className="sr-only">
-                          View and navigate through referenced clauses from the Standards
-                        </DialogDescription>
-                      </DialogHeader>
-                      <div className="mt-6">
-                        {referencedClauses.length > 0 ? (
-                          <div className="space-y-6">
-                            {referencedClauses.map((clause) => {
-                              const [standard, number] = clause.id.split(':');
-                              const fullClause = standard === 'WA' ? 
-                                findClauseById(number) : 
-                                findAusnzClauseByIdSync(number);
-                                
-                              return (
-                                <BoxReveal
-                                  key={clause.id}
-                                  width="100%"
-                                  boxColor="#eca72c"
-                                  duration={0.5}
-                                >
-                                  <div
-                                    className={cn(
-                                      "p-6 rounded-lg border border-gray-200 dark:border-gray-700",
-                                      "hover:border-orange-500 dark:hover:border-amber-500 transition-all",
-                                      "bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm",
-                                      "shadow-lg hover:shadow-orange-500/20",
-                                      selectedClause?.id === clause.id ? "border-orange-500 dark:border-amber-500" : ""
-                                    )}
-                                    onClick={() => handleClauseSelect(clause.id)}
-                                  >
-                                    <h3 className="text-xl font-bold text-gray-900 dark:text-white">
-                                      {clause.name}
-                                    </h3>
-                                    
-                                    <AnimatePresence>
-                                      {selectedClause?.id === clause.id && fullClause && (
-                                        <motion.div
-                                          initial={{ opacity: 0, height: 0 }}
-                                          animate={{ opacity: 1, height: "auto" }}
-                                          exit={{ opacity: 0, height: 0 }}
-                                          className="mt-4"
-                                        >
-                                          <div className="p-4 rounded-lg bg-gray-50 dark:bg-gray-900/50 backdrop-blur-sm">
-                                            <p className="text-gray-700 dark:text-gray-300 whitespace-pre-wrap leading-relaxed">
-                                              {fullClause.fullText}
-                                            </p>
-                                            
-                                            {fullClause.requirements && fullClause.requirements.length > 0 && (
-                                              <div className="mt-6 border-t border-gray-200 dark:border-gray-700 pt-4">
-                                                <h4 className="text-lg font-semibold bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent mb-3">
-                                                  Requirements
-                                                </h4>
-                                                <ul className="space-y-2 list-disc ml-6 text-gray-600 dark:text-gray-400">
-                                                  {fullClause.requirements.map((req, index) => (
-                                                    <li key={index} className="leading-relaxed">{req}</li>
-                                                  ))}
-                                                </ul>
-                                              </div>
-                                            )}
-                                            
-                                            {fullClause.references && Object.keys(fullClause.references).length > 0 && (
-                                              <div className="mt-6 border-t border-gray-200 dark:border-gray-700 pt-4">
-                                                <h4 className="text-lg font-semibold bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent mb-3">
-                                                  References
-                                                </h4>
-                                                <div className="space-y-4">
-                                                  {Object.entries(fullClause.references).map(([key, value]) => (
-                                                    <div key={key} className="text-gray-600 dark:text-gray-400">
-                                                      <span className="font-medium text-gray-800 dark:text-gray-200">
-                                                        {key.charAt(0).toUpperCase() + key.slice(1)}:
-                                                      </span>
-                                                      <ul className="list-disc ml-6 mt-1 space-y-1">
-                                                        {Array.isArray(value) ? (
-                                                          value.map((item, index) => (
-                                                            <li key={index} className="leading-relaxed">{item}</li>
-                                                          ))
-                                                        ) : (
-                                                          <li className="leading-relaxed">{String(value)}</li>
-                                                        )}
-                                                      </ul>
-                                                    </div>
-                                                  ))}
-                                                </div>
-                                              </div>
-                                            )}
-                                          </div>
-                                        </motion.div>
-                                      )}
-                                    </AnimatePresence>
-                                  </div>
-                                </BoxReveal>
-                              );
-                            })}
-                          </div>
-                        ) : (
-                          <div className="text-center py-12">
-                            <p className="text-gray-500 dark:text-gray-400">
-                              No specific clauses referenced in this response.
-                            </p>
-                          </div>
-                        )}
-                      </div>
-                    </DialogContent>
-                  </Dialog>
                 </>
               )}
+              <div className="mt-4 flex gap-2">
+              
+              </div>
+
+              <Dialog open={showClauseTree} onOpenChange={setShowClauseTree}>
+                <DialogContent 
+                  className="max-w-4xl max-h-[80vh] overflow-y-auto bg-white dark:bg-gray-800 p-6"
+                  aria-describedby="clause-dialog-description"
+                >
+                  <DialogHeader className="border-b border-gray-200 dark:border-gray-700 pb-4">
+                    <DialogTitle className="flex items-center justify-between">
+                      <div className="text-2xl font-bold text-gray-900 dark:text-white">
+                        <SparklesText
+                          text={selectedClause ? `${selectedClause.standard} Clause ${selectedClause.id.split(':')[1]}` : "Referenced Clauses"}
+                          colors={{ first: "#ee5622", second: "#eca72c" }}
+                          className="text-2xl font-bold"
+                          sparklesCount={3}
+                        />
+                      </div>
+                      {selectedClause && (
+                        <Button
+                          onClick={() => setSelectedClause(null)}
+                          className="flex items-center gap-2 text-sm bg-gray-900 text-white dark:bg-white dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors"
+                        >
+                          <FileTextIcon className="w-4 h-4" />
+                          Back to Clauses
+                        </Button>
+                      )}
+                    </DialogTitle>
+                    <DialogDescription id="clause-dialog-description" className="sr-only">
+                      View and navigate through referenced clauses from the Standards
+                    </DialogDescription>
+                  </DialogHeader>
+                  <div className="mt-6">
+                    {referencedClauses.length > 0 ? (
+                      <div className="space-y-6">
+                        {referencedClauses.map((clause) => {
+                          const [standard, number] = clause.id.split(':');
+                          const fullClause = standard === 'WA' ? 
+                            findClauseById(number) : 
+                            findAusnzClauseByIdSync(number);
+                            
+                          return (
+                            <BoxReveal
+                              key={clause.id}
+                              width="100%"
+                              boxColor="#eca72c"
+                              duration={0.5}
+                            >
+                              <div
+                                className={cn(
+                                  "p-6 rounded-lg border border-gray-200 dark:border-gray-700",
+                                  "hover:border-orange-500 dark:hover:border-amber-500 transition-all",
+                                  "bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm",
+                                  "shadow-lg hover:shadow-orange-500/20",
+                                  selectedClause?.id === clause.id ? "border-orange-500 dark:border-amber-500" : ""
+                                )}
+                                onClick={() => handleClauseSelect(clause.id)}
+                              >
+                                <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                                  {clause.name}
+                                </h3>
+                                
+                                <AnimatePresence>
+                                  {selectedClause?.id === clause.id && fullClause && (
+                                    <motion.div
+                                      initial={{ opacity: 0, height: 0 }}
+                                      animate={{ opacity: 1, height: "auto" }}
+                                      exit={{ opacity: 0, height: 0 }}
+                                      className="mt-4"
+                                    >
+                                      <div className="p-4 rounded-lg bg-gray-50 dark:bg-gray-900/50 backdrop-blur-sm">
+                                        <p className="text-gray-700 dark:text-gray-300 whitespace-pre-wrap leading-relaxed">
+                                          {fullClause.fullText}
+                                        </p>
+                                        
+                                        {fullClause.requirements && fullClause.requirements.length > 0 && (
+                                          <div className="mt-6 border-t border-gray-200 dark:border-gray-700 pt-4">
+                                            <h4 className="text-lg font-semibold bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent mb-3">
+                                              Requirements
+                                            </h4>
+                                            <ul className="space-y-2 list-disc ml-6 text-gray-600 dark:text-gray-400">
+                                              {fullClause.requirements.map((req, index) => (
+                                                <li key={index} className="leading-relaxed">{req}</li>
+                                              ))}
+                                            </ul>
+                                          </div>
+                                        )}
+                                        
+                                        {fullClause.references && Object.keys(fullClause.references).length > 0 && (
+                                          <div className="mt-6 border-t border-gray-200 dark:border-gray-700 pt-4">
+                                            <h4 className="text-lg font-semibold bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent mb-3">
+                                              References
+                                            </h4>
+                                            <div className="space-y-4">
+                                              {Object.entries(fullClause.references).map(([key, value]) => (
+                                                <div key={key} className="text-gray-600 dark:text-gray-400">
+                                                  <span className="font-medium text-gray-800 dark:text-gray-200">
+                                                    {key.charAt(0).toUpperCase() + key.slice(1)}:
+                                                  </span>
+                                                  <ul className="list-disc ml-6 mt-1 space-y-1">
+                                                    {Array.isArray(value) ? (
+                                                      value.map((item, index) => (
+                                                        <li key={index} className="leading-relaxed">{item}</li>
+                                                      ))
+                                                    ) : (
+                                                      <li className="leading-relaxed">{String(value)}</li>
+                                                    )}
+                                                  </ul>
+                                                </div>
+                                              ))}
+                                            </div>
+                                          </div>
+                                        )}
+                                      </div>
+                                    </motion.div>
+                                  )}
+                                </AnimatePresence>
+                              </div>
+                            </BoxReveal>
+                          );
+                        })}
+                      </div>
+                    ) : (
+                      <div className="text-center py-12">
+                        <p className="text-gray-500 dark:text-gray-400">
+                          No specific clauses referenced in this response.
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                </DialogContent>
+              </Dialog>
             </div>
           </BoxReveal>
         ))}
@@ -1303,25 +1118,31 @@ ${data.response}`;
   };
 
   useEffect(() => {
-    if (currentMessage?.content) {
-      const figures = extractFigureReferences(currentMessage.content);
-      const clauses = extractClauseReferences(currentMessage.content);
-      
-      if (figures.length > 0) {
-        setReferencedFigures(figures);
-      }
-      
-      if (clauses.length > 0) {
-        setReferencedClauses(clauses);
-      }
-    }
-  }, [currentMessage]);
-
-  useEffect(() => {
     console.log('Loaded clauses data:', waClauses);
     const treeData = convertClausesToTreeView(waClauses);
     setClausesTree(treeData);
   }, []);
+
+  useEffect(() => {
+    const loadClauses = async () => {
+      const loadedClauseData: Record<string, ClauseSection> = {};
+      
+      for (const clause of referencedClauses) {
+        const [standard, number] = clause.id.split(':');
+        const fullClause = standard === 'WA' ? 
+          findClauseById(number) : 
+          await findAusnzClauseByIdSync(number);
+          
+        if (fullClause) {
+          loadedClauseData[clause.id] = fullClause;
+        }
+      }
+      
+      setLoadedClauses(loadedClauseData);
+    };
+    
+    loadClauses();
+  }, [referencedClauses]);
 
   if (!user) {
     return <AuthUI />;
@@ -1464,6 +1285,7 @@ ${data.response}`;
                     <ExpandableAnswer 
                       answerIndex={expandedAnswerIndex}
                       onClose={() => setExpandedAnswerIndex(null)}
+                      conversation={conversation}
                     />
                   )}
                 </AnimatePresence>

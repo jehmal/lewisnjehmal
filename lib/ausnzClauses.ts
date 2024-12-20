@@ -124,16 +124,13 @@ export async function findAusnzClauseById(id: string): Promise<ClauseSection | n
 
 export function findAusnzClauseByIdSync(id: string): ClauseSection | null {
   try {
-    // Preprocess the ID to handle various formats
     const preprocessClauseId = (rawId: string): string => {
-      // Remove common prefixes and clean the string
       let processedId = rawId
-        .replace(/^(ASNZ|AS\/NZS|AS|NZS)\s*\d*\s*/i, '') // Remove standards prefix
-        .replace(/^(clause|section|part|appendix)\s*/i, '') // Remove type prefix
-        .replace(/^:\s*/, '') // Remove leading colons
+        .replace(/^(ASNZ|AS\/NZS|AS|NZS)\s*\d*\s*/i, '')
+        .replace(/^(clause|section|part|appendix)\s*/i, '')
+        .replace(/^:\s*/, '')
         .trim();
 
-      // Extract just the numeric part if it's a reference
       const numericMatch = processedId.match(/\d+(\.\d+)*/);
       if (numericMatch) {
         processedId = numericMatch[0];
@@ -142,15 +139,12 @@ export function findAusnzClauseByIdSync(id: string): ClauseSection | null {
       return processedId;
     };
 
-    // Normalize the id
     const normalizedId = preprocessClauseId(id);
     
-    // Only proceed if the clause exists in our list
     if (CLAUSE_IDS.includes(normalizedId)) {
       try {
         const clauseData = require(`@/components/clauses/${normalizedId}.json`);
 
-        // Process references to ensure proper structure
         let references = {
           documents: [] as string[],
           sections: [] as string[]
@@ -158,10 +152,8 @@ export function findAusnzClauseByIdSync(id: string): ClauseSection | null {
 
         if (clauseData.references) {
           if (Array.isArray(clauseData.references)) {
-            // If references is an array, treat them as section references
             references.sections = clauseData.references;
           } else {
-            // If it's an object, use its structure
             references = {
               documents: clauseData.references.documents || [],
               sections: clauseData.references.sections || []
@@ -169,10 +161,8 @@ export function findAusnzClauseByIdSync(id: string): ClauseSection | null {
           }
         }
 
-        // Process subsections
         const processedSubsections = clauseData.subsections && Array.isArray(clauseData.subsections) 
           ? clauseData.subsections.reduce((acc: Record<string, ClauseSection>, id: string) => {
-              // Only include subsections that exist in CLAUSE_IDS
               if (CLAUSE_IDS.includes(id)) {
                 acc[id] = { 
                   id, 
@@ -185,7 +175,6 @@ export function findAusnzClauseByIdSync(id: string): ClauseSection | null {
             }, {})
           : (clauseData.subsections || {});
 
-        // Create a properly structured ClauseSection object
         return {
           id: normalizedId,
           title: clauseData.title || '',
@@ -200,7 +189,6 @@ export function findAusnzClauseByIdSync(id: string): ClauseSection | null {
       }
     }
 
-    // Return null for non-existent clauses instead of creating temporary ones
     return null;
   } catch (error) {
     console.error(`Error processing clause ${id}:`, error);

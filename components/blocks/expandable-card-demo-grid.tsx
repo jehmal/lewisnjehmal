@@ -1,10 +1,9 @@
 "use client";
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { Figure } from '@/types/chat';
 import { cn } from '@/lib/utils';
-import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { MovingBorder } from '@/components/ui/moving-border';
 import Meteors from '@/components/magicui/meteors';

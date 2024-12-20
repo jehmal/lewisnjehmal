@@ -1,15 +1,15 @@
 "use client";
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, createContext } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Menu as IconMenu2 } from 'lucide-react';
 
-interface Tab {
+export interface Tab {
   label: string;
-  icon: React.JSX.Element | React.ReactNode;
+  icon: JSX.Element;
 }
 
-interface ChatSidebarProps {
+export interface ChatSidebarProps {
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   activeTab: string;
@@ -47,10 +47,9 @@ export function ChatSidebar({ open, setOpen, activeTab, setActiveTab, children }
           </button>
         )}
         <motion.div
-          className={cn(
-            "h-full flex flex-col bg-gray-100 dark:bg-neutral-800 shadow-xl transition-all duration-300 ease-in-out",
-            isMobile ? (open ? "w-64" : "w-0") : (open || isHovered ? "w-64" : "w-12")
-          )}
+          className={`h-full flex flex-col bg-gray-100 dark:bg-neutral-800 shadow-xl transition-all duration-300 ease-in-out ${
+            isMobile ? (open ? "w-64" : "w-0") : (open || isHovered) ? "w-64" : "w-12"
+          }`}
           onMouseEnter={() => !isMobile && setIsHovered(true)}
           onMouseLeave={() => !isMobile && setIsHovered(false)}
           initial={false}
@@ -67,8 +66,8 @@ export function ChatSidebarBody({ className, children }: { className?: string; c
   return <div className={cn("flex flex-col flex-1 overflow-y-auto", className)}>{children}</div>;
 }
 
-export function ChatSidebarTab({ tab }: { tab: Tab }) {
-  const { open, animate, activeTab, setActiveTab } = useChatSidebar();
+export function ChatSidebarTab({ tab }: { tab: { label: string; icon: JSX.Element } }) {
+  const { open, activeTab, setActiveTab } = useChatSidebar();
 
   return (
     <button
@@ -90,13 +89,12 @@ export function ChatSidebarTab({ tab }: { tab: Tab }) {
 
 interface ChatSidebarContextProps {
   open: boolean;
-  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  animate: boolean;
+  setOpen: (open: boolean) => void;
   activeTab: string;
   setActiveTab: (tab: string) => void;
 }
 
-const ChatSidebarContext = React.createContext<ChatSidebarContextProps | undefined>(undefined);
+const ChatSidebarContext = createContext<ChatSidebarContextProps | null>(null);
 
 export const useChatSidebar = () => {
   const context = useContext(ChatSidebarContext);
@@ -110,7 +108,6 @@ interface ChatSidebarProviderProps {
   children: React.ReactNode;
   open?: boolean;
   setOpen?: React.Dispatch<React.SetStateAction<boolean>>;
-  animate?: boolean;
   activeTab: string;
   setActiveTab: (tab: string) => void;
 }
@@ -119,7 +116,6 @@ export const ChatSidebarProvider = ({
   children,
   open: openProp,
   setOpen: setOpenProp,
-  animate = true,
   activeTab: activeTabProp,
   setActiveTab: setActiveTabProp,
 }: ChatSidebarProviderProps) => {
@@ -129,7 +125,7 @@ export const ChatSidebarProvider = ({
   const setOpen = setOpenProp || setOpenState;
 
   return (
-    <ChatSidebarContext.Provider value={{ open, setOpen, animate, activeTab: activeTabProp, setActiveTab: setActiveTabProp }}>
+    <ChatSidebarContext.Provider value={{ open, setOpen, activeTab: activeTabProp, setActiveTab: setActiveTabProp }}>
       {children}
     </ChatSidebarContext.Provider>
   );
