@@ -1,0 +1,12 @@
+{
+    "section": "7.4.6",
+    "title": "Supply to Multiple Items of Electrical Equipment",
+    "parent": "7.4",
+    "type": "clause",
+    "content": {
+        "id": "7.4.6",
+        "title": "Supply to Multiple Items of Electrical Equipment",
+        "fullText": "Where a separated circuit supplies more than one item of electrical equipment, the following requirements apply: (a) Any exposed conductive parts of the separated circuit shall be connected together by an insulated equipotential bonding conductor that is not connected to: (i) earth; (ii) a protective earthing conductor or exposed conductive parts of another circuit, including another separated circuit; or (iii) any extraneous conductive parts. (b) The designated earthing contact of any socket-outlet installed on the separated circuit shall be connected to the equipotential bonding conductor. (c) The designated protective earthing conductor in any supply cable or flexible cord to electrical equipment [other than Class II (double or reinforced insulation) equipment] connected to the separated circuit shall be connected to the equipotential bonding conductor. (d) Exposed conductive parts of the source of supply that are earthed shall not be simultaneously accessible with any exposed conductive part of the separated circuit. (e) A protective device shall operate to disconnect the separated circuit automatically in the event of two faults resulting in exposed conductive parts being connected to live parts of different polarity. If the protective device is a circuit-breaker, the protective device shall open in all unearthed conductors substantially together.",
+        "references": []
+    }
+} 

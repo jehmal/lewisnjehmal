@@ -1,0 +1,8 @@
+{
+  "id": "4.13.4.2",
+  "title": "Electricity converters incorporating batteries",
+  "fullText": "Where batteries are incorporated in an electricity converter, a switch capable of interrupting the supply from such batteries shall be installed adjacent to the batteries and shall be clearly identified to indicate its purpose.\nA single switch that incorporates both a.c. and d.c. switching functions outlined in Clause 4.12.4.1 and this Clause may be used.",
+  "references": {
+    "clauses": ["4.12.4.1"]
+  }
+} 

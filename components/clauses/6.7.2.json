@@ -1,0 +1,20 @@
+{
+  "id": "6.7.2",
+  "title": "Classification of Zone",
+  "fullText": "The classified zone is based on the dimensions and limits of any location likely to be affected by hosing, as follows:",
+  "zones": [
+    {
+      "condition": "Where the area is to be sanitized or hosed down throughout",
+      "definition": "The classified zone consists of the whole of the space between the floor, walls, and ceiling, including any recess therein, enclosing the area."
+    },
+    {
+      "condition": "Where hosing-down is limited to the floor and walls",
+      "definition": "(i) Any location within the space from the floor, or the base of a recess in the floor, to a horizontal plane 2.0 m above the floor; (ii) Any wall within the area; and (iii) Any location on a ceiling that is within 1.0 m of a wall within the area."
+    },
+    {
+      "condition": "Where hosing-down is limited to the floor only",
+      "definition": "The classified zone consists of any location within the space from the floor, or the base of a recess in the floor, to a horizontal plane 1.0 m above the floor."
+    }
+  ],
+  "references": []
+} 

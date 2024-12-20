@@ -1,0 +1,8 @@
+{
+  "id": "3.3.2.3",
+  "title": "Water or high humidity",
+  "fullText": "Wiring systems shall be selected and installed so that high humidity or the entry of water does not cause damage.\nWhere water may collect or condensation may form in a wiring system, to the extent that it creates a hazard, provision shall be made for its harmless escape through suitably located drainage points.\nWhere a wiring system may be subjected to wave action (water), protection against excessive flexing and mechanical damage shall be provided in accordance with Clauses 3.3.2.6, 3.3.2.7 and 3.3.2.8.",
+  "references": {
+    "sections": ["3.3.2.6", "3.3.2.7", "3.3.2.8"]
+  }
+} 

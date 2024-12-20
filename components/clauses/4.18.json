@@ -1,0 +1,8 @@
+{
+  "id": "4.18",
+  "title": "BATTERIES",
+  "fullText": "Information on the selection and installation of batteries is contained in AS 3011.1 and AS 3011.2.",
+  "references": {
+    "standards": ["AS 3011.1", "AS 3011.2"]
+  }
+} 

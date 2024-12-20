@@ -1,0 +1,8 @@
+{
+  "id": "3.7.2.8",
+  "title": "Flexible cords",
+  "fullText": "Joints in flexible cords used as installation wiring shall be made in accordance with the requirements of Clauses 3.7.2.2 to 3.7.2.7 or by means of suitable cable couplers.\nConnections between a flexible cord used as equipment wiring to installation wiring shall be made in a purpose-made device containing suitable screwed or crimped terminals.\nNOTE: Requirements for conductor identification are detailed in 3.8.1.\nAny flexible cord shall be installed so that undue stress on its connections because of a pull on the cord is alleviated by a pillar, post, grip, tortuous path, or other effective means. Knotting of the flexible cord shall not be acceptable for this purpose.",
+  "references": {
+    "sections": ["3.7.2.2", "3.7.2.3", "3.7.2.4", "3.7.2.5", "3.7.2.6", "3.7.2.7", "3.8.1"]
+  }
+} 

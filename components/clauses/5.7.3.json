@@ -1,0 +1,14 @@
+{
+  "id": "5.7.3",
+  "title": "Earth Fault-Loop",
+  "fullText": "The path for the circulation of fault current, the earth fault-loop, in a MEN system comprises the following parts:",
+  "components": [
+    "The active conductor as far as the point of the fault, including supply mains, service line, consumer mains, submains (if any) and the final subcircuit.",
+    "The protective earthing conductor (PE), including the main earthing terminal/connection or bar and MEN connection.",
+    "The neutral-return path, consisting of the neutral conductor (N) between the main neutral terminal or bar and the neutral point at the transformer, including supply mains, service line and consumer mains.",
+    "The path through the neutral point of the transformer and the transformer winding."
+  ],
+  "notes": [
+    "See Appendix B, Figure B5."
+  ]
+} 

@@ -1,0 +1,10 @@
+{
+  "id": "6.7.3.2",
+  "title": "Prohibited Measures",
+  "fullText": "The following measures of protection against electric shock are prohibited and shall not be used:",
+  "prohibitedMeasures": [
+    "Protection by means of obstacles, in accordance with Clause 1.5.4.5.",
+    "Protection by placing out of reach, in accordance with Clause 1.5.4.6."
+  ],
+  "references": ["1.5.4.5", "1.5.4.6"]
+} 

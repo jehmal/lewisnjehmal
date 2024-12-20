@@ -1,0 +1,8 @@
+{
+  "id": "3.3.2.1",
+  "title": "Ambient temperature",
+  "fullText": "Wiring systems shall be selected and installed so as to be suitable for the highest and lowest local ambient temperatures.\nWhere materials subject to temperature limitations are used above 60°C, or below 0°C, manufacturer's instructions shall be followed.\nAllowance shall be made for expansion of materials because of temperature variations that may occur in normal conditions of use.\nWhere current-carrying capacity is selected in accordance with the AS/NZS 3008.1 series, the reference ambient temperatures shall be as follows:\n(a) For cables in air, irrespective of the method of installation—\n(i) for Australia, 40°C; and\n(ii) for New Zealand, 30°C.\n(b) For cables buried direct in the ground or installed in underground enclosures—\n(i) for Australia, 25°C; and\n(ii) for New Zealand, 15°C",
+  "references": {
+    "standards": ["AS/NZS 3008.1"]
+  }
+} 

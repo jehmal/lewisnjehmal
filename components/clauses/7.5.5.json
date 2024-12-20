@@ -1,0 +1,12 @@
+{
+    "section": "7.5.5",
+    "title": "Arrangement of SELV Circuits",
+    "parent": "7.5",
+    "type": "clause",
+    "content": {
+        "id": "7.5.5",
+        "title": "Arrangement of SELV Circuits",
+        "fullText": "Live parts of SELV circuits shall not be connected to earth or protective earthing conductors that are part of other circuits or to other live parts. SELV circuits shall not be connected to: (a) Other circuits; (b) Earth; (c) Earthing conductors or exposed conductive parts of another system; or (d) Extraneous conductive parts. Exception: Connection to extraneous conductive parts may be made where electrical equipment is inherently required to be so connected and it is ensured that the extraneous conductive parts cannot attain a voltage exceeding that of the SELV circuit. NOTE: If SELV circuits are liable to come into contact, either fortuitously or intentionally, with the exposed conductive parts of other circuits, protection against electric shock no longer depends solely on protection by SELV but on the protective measure to which the latter exposed conductive parts are subject. Where the nominal voltage exceeds 25 V a.c. or 60 V ripple-free d.c., protection against electric shock in normal service (direct contact) shall be provided by: (i) Barriers or enclosures with a degree of protection of at least IPXXB or IP2X; or (ii) Insulation capable of withstanding a test voltage of 500 V a.c. for 1 min. NOTES: 1. Basic protection is not necessary for voltages not exceeding 25 V a.c. or 60 V ripple-free d.c., in dry indoor conditions. 2. Insulation is capable of withstanding the test voltage for the required period when the insulation resistance after the test voltage has been applied for the specified period remains above the required minimum value.",
+        "references": []
+    }
+} 

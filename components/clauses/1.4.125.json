@@ -1,0 +1,5 @@
+{
+  "id": "1.4.125",
+  "title": "Touch voltage",
+  "fullText": "Voltage appearing between simultaneously accessible parts.\nNOTES:\n1. This term is used only in connection with fault protection.\n2. In certain cases the value of the touch voltage may be appreciably influenced by the impedance of the person or livestock in contact with these parts."
+} 

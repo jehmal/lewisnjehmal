@@ -1,0 +1,12 @@
+{
+    "section": "7.3.8.3.3",
+    "title": "Connection",
+    "parent": "7.3.8.3",
+    "type": "clause",
+    "content": {
+        "id": "7.3.8.3.3",
+        "title": "Connection",
+        "fullText": "The method of connection of a stand-alone system shall be in accordance with the AS/NZS 4509 series of Standards. NOTE: A typical stand-alone connection is shown in Figure 7.4 for an installation with a switchboard including a local MEN connection.",
+        "references": []
+    }
+} 

@@ -1,0 +1,9 @@
+{
+  "id": "3.9.2",
+  "title": "Methods of installation",
+  "fullText": "Installation methods for typical types of wiring systems are depicted in Table 3.1.\nThe effect of external influences at the installation shall be considered in accordance with Clause 3.3 and manufacturer's instructions.\nInstallation methods and wiring systems that are not depicted in Table 3.1 may be used provided that compliance is maintained with the general requirements of this Section.",
+  "references": {
+    "tables": ["Table 3.1"],
+    "sections": ["3.3"]
+  }
+} 

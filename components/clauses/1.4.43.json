@@ -1,0 +1,5 @@
+{
+  "id": "1.4.43",
+  "title": "Current, Short-Circuit",
+  "fullText": "A fault current resulting from a fault of negligible impedance between live conductors having a difference in potential under normal operating conditions. The fault path may include the path from active via earth to the neutral.\nNOTE: This current is also referred to as 'prospective short-circuit current' or a 'bolted fault'. It is the maximum value, at the relevant points for the existing installation. Unless otherwise stated, it is the three-phase r.m.s. value."
+} 

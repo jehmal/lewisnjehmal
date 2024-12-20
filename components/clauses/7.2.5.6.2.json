@@ -1,0 +1,6 @@
+{
+  "id": "7.2.5.6.2",
+  "title": "Overcurrent Protection for Fire-Pump Motors",
+  "fullText": "The overload characteristics of overcurrent protective devices provided on circuits supplying fire-pump motors shall: (a) have an inverse time characteristic; and (b) be rated, or in the case of circuit-breakers be set to: (i) carry 125% of the full-load motor current continuously; and (ii) open the circuit in not less than 20 s at 600% of the full-load motor current.\n\nNo other overload protective device shall be inserted between the pump motor controller and the motor. Where more than one motor is provided on the same circuit, the overcurrent protective device may be rated or set to: (A) carry 125% of the sum of the full-load current of all motors operating simultaneously; and (B) open the circuit in not less than 20 s at 600% of the full-load current of the largest motor supplied.",
+  "references": []
+} 

@@ -1,0 +1,6 @@
+{
+    "id": "6.3.4.5.5",
+    "title": "Zone 2 Luminaires, Appliances, and Other Electrical Equipment",
+    "fullText": "Luminaires, appliances, and other electrical equipment installed in Zone 2 shall be provided with the required degree of protection and:\n(a) Supplied as an SELV or a PELV system, in accordance with Clause 7.5.\n(b) Supplied individually as a separated circuit, in accordance with Clause 7.4.\n(c) Of Class II construction (double or reinforced insulation).\n(d) Of Class I construction (earthed conductive parts) and supplied from a circuit protected by an RCD with a fixed rated residual current not exceeding 30 mA.\n\nNOTES:\n1. Heating cable systems in Zones 1 and 2 intended for heating the location and that are embedded in the floor and protected in accordance with Clause 4.10 may be installed.\n2. The use of a purpose-made pump and installation to the manufacturer's instructions complying with the requirements of AS/NZS 60335.2.41 for each zone is deemed to comply with the requirements of this Clause.",
+    "references": ["7.5", "7.4", "4.10", "AS/NZS 60335.2.41"]
+} 

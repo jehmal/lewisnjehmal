@@ -1,0 +1,8 @@
+{
+  "id": "4.5.1.2",
+  "title": "Edison screw lampholders",
+  "fullText": "Every low voltage Edison screw lampholder shall be connected to the supply so that, where a neutral conductor is required, it is connected to the outer contact.\nException: This requirement need not apply where an Edison screw lampholder is incorporated in an appliance in a manner permitted by the AS/NZS 60335 series or the AS/NZS 3350 series, or the luminaire and the lampholder is provided with a shroud or skirt that prevents contact with the outer contact.",
+  "references": {
+    "standards": ["AS/NZS 60335", "AS/NZS 3350"]
+  }
+} 

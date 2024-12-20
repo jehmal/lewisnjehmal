@@ -1,0 +1,8 @@
+{
+  "id": "3.10.3.4",
+  "title": "Bending",
+  "fullText": "The radius of every bend in a wiring system shall be such that conductors and cables will not suffer damage.\nBends in rigid conduit shall be such that the internal diameter is not significantly reduced.\nChanges of direction in trunking, ducts or similar applications shall permit the bending of cables laid therein, so as to comply with the requirements of this Clause.\nNOTE: See Clause 3.9.6 for cable-bending requirements.",
+  "references": {
+    "sections": ["3.9.6"]
+  }
+} 

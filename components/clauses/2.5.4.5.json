@@ -1,0 +1,5 @@
+{
+  "id": "2.5.4.5",
+  "title": "Omission of devices for short-circuit protection",
+  "fullText": "Devices for protection against short-circuit current may be omitted under the following conditions:\n(a)\tWhere unexpected opening of the circuit could cause a danger greater than short-circuit, devices for protection against short-circuit shall be omitted, in accordance with Clause 2.5.1.4.\n(b)\tConsumer mains constructed in accordance with Clause 3.9.7.1 need not be provided with short-circuit protection.\n(c)\tConductors connecting generators, transformers, rectifiers or batteries to their associated switchboards need not be provided with short- circuit protection provided that—\n(i)\tthe wiring is carried out in such a way as to reduce the risk of a short-circuit to a minimum; and\n(ii)\tthe wiring is not placed close to flammable material; and\n(iii)\tthe short-circuit protective devices for the remainder of the circuit are placed on the associated switchboard.\nNOTE: Examples of the omission of devices for short-circuit protection are shown in Figures 2.3 and 2.2."
+} 

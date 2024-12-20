@@ -1,0 +1,8 @@
+{
+  "id": "3.8.3.2",
+  "title": "Protective earthing and equipotential conductors",
+  "fullText": "An earthing conductor need not be coloured green/yellow in the following situations:\n(a) A bare or aerial conductor used as a protective earthing conductor.\n(b) Where a suitable screen of a multi-core cable is used as a protective earthing conductor, it shall be acceptable to identify the portion of the screen, from the point of separation of the cores to the conductor termination, as the earthing conductor.\nNOTE: Clause 5.3.2.4 sets out insulation requirements for earthing conductors.\n(c) An insulated protective earthing conductor is not normally manufactured in the green/yellow colour combination, e.g. silicon compounds.\n(d) A multi-core cable that has a green earth.\nIn such installations, sleeving should be used at terminations where it is otherwise not obvious that the conductor is being used for earthing purposes.",
+  "references": {
+    "sections": ["5.3.2.4"]
+  }
+} 

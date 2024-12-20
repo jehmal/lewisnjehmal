@@ -1,0 +1,15 @@
+{
+  "id": "6.2.4.3",
+  "title": "Switches and Other Accessories",
+  "generalRequirement": "Switches and other accessories shall not be installed within 0.3 m of the floor of a bathroom, laundry, or other similar location where the floor is likely to become wet.",
+  "zoneRequirements": [
+    {
+      "zone": "0",
+      "requirement": "Switches and other accessories shall not be installed in Zone 0."
+    },
+    {
+      "zones": ["1", "2"],
+      "requirement": "Only switches and accessories with at least the required degree of protection shall be installed in Zones 1 and 2."
+    }
+  ]
+} 

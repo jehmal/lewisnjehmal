@@ -1,0 +1,12 @@
+{
+    "section": "7.4.3",
+    "title": "Arrangement of Circuits",
+    "parent": "7.4",
+    "type": "clause",
+    "content": {
+        "id": "7.4.3",
+        "title": "Arrangement of Circuits",
+        "fullText": "Separated circuits shall comply with the following requirements: (a) Circuit voltage shall not exceed 500 V. (b) All live parts of a separated circuit shall be reliably and effectively electrically separated from all other circuits, including other separated circuits and earth. This requirement shall also apply to live parts of relays, contactors, and similar electrical equipment installed in the separated circuit. NOTES: 1. This requirement can be satisfied by insulation of the live parts to Class II (double or reinforced insulation) or measures that are equivalent to the input and output transformer winding isolation provisions of AS/NZS 61558. 2. Each separated circuit should comprise a separate cable or wiring system. However, multi-core cables or a common non-conductive wiring enclosure may be used where the segregation requirements of Clause 3.9.8 are satisfied. (c) Exposed conductive parts of electrical equipment supplied by a separated circuit shall not be connected to the protective earthing conductor, or the exposed conductive parts, of the source of supply. (d) Cables and supply flexible cords to electrical equipment shall be protected against mechanical damage or otherwise arranged to ensure that any damage that might occur is readily visible.",
+        "references": []
+    }
+} 

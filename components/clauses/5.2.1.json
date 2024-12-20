@@ -1,0 +1,5 @@
+{
+  "id": "5.2.1",
+  "title": "Protective Earthing",
+  "fullText": "When a fault occurs between a live part and an exposed conductive part or parts of the protective earthing system, a prospective touch voltage may arise between simultaneously accessible conductive parts. Fault protection by means of automatic disconnection of supply is intended to limit this voltage.\nAutomatic disconnection is achieved by:\n•\t(a) the provision of a protective earthing system in which exposed conductive parts are connected via conductors or similar medium to the earthed neutral of the distribution system; and\n•\t(b) in the event of a fault current or excessive earth leakage current flowing in the protective earthing system, overcurrent or earth leakage current protective devices operate to disconnect the affected part of the installation within the specified maximum duration of the prospective touch voltage."
+} 

@@ -1,0 +1,8 @@
+{
+    "section": "7.9.3.3",
+    "title": "Facilities for Mode 3 and 4 Charging",
+    "content": {
+        "title": "Facilities for Mode 3 and 4 Charging",
+        "fullText": "The supply for Mode 3 and 4 electric vehicle charging systems shall comply with all of the following:\n(a) Single-phase final subcircuits shall have a minimum current-carrying capacity of 32 A.\nNote: Where electric vehicle charging equipment that is greater than 20 A single phase is installed, consideration should be given to upgrading mains and/or the installation of a load management device to ensure continuity of supply and avoid excessive voltage drop.\n(b) The final subcircuit shall not supply any other point in wiring.\n(c) The final subcircuit shall be protected by a separate residual current device (RCD) of Type B complying with IEC 62423, with a maximum rated residual current of 30 mA which operates in all live (active and neutral) conductors. Combined RCD and overcurrent circuit-breakers (RCBOs) may be used.\nException: For Mode 3 charging facilities, a Type A RCD with a maximum rated residual current of 30 mA, in conjunction with a residual direct current-detecting device (RDC-DD) conforming to IEC 62955 may be used.\nNote: The RDC-DD disconnects supply where residual d.c. currents of 6 mA or greater are detected.\n(d) The charging equipment shall be connected by direct connection in accordance with Clause 4.3.2.1.\n(e) An isolating switch complying with Clause 2.3.2.2.1, with a minimum current rating of 32 A, shall be provided for the final subcircuit adjacent to the charging facility.\n(f) The socket-outlet or cable of the charging equipment shall be installed at a minimum height of 800 mm from the floor or ground."
+    }
+} 

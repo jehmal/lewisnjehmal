@@ -1,0 +1,9 @@
+{
+  "id": "4.13.8",
+  "title": "Electrical equipment connected to output",
+  "fullText": "All electrical equipment connected to the output side of an electricity converter shall be suitable for the voltage, current and frequency of the output of the unit.\nNOTES:\n1 The values of current-carrying capacity and voltage drop specified in the AS/NZS 3008.1 series are only valid for conductors operating at 50 Hz.\n2 For the type of RCD to be used where additional protection is required for circuits or equipment supplied by an electricity converter, refer to Clause 2.6.2.2.",
+  "references": {
+    "standards": ["AS/NZS 3008.1"],
+    "clauses": ["2.6.2.2"]
+  }
+} 

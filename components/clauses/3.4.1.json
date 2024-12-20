@@ -1,0 +1,9 @@
+{
+  "id": "3.4.1",
+  "title": "General",
+  "fullText": "Every conductor shall have a current-carrying capacity in accordance with the AS/NZS 3008.1 series, not less than the current to be carried by the conductor.\nIn determining the required current-carrying capacity, provision shall be made for reasonably foreseeable changes to external influences, such as the installation of thermal insulation in ceiling spaces and walls.\nWiring systems in domestic installations shall be installed on the assumption that thermal insulation in ceilings, walls and under floors, if not currently installed, will be installed in the future.\n\nNOTES:\n1 Appendix C, Paragraph C3 provides a set of current ratings that may be assigned to circuits in typical simple installations as an alternative to compliance with the AS/NZS 3008.1 series. The ratings assign cable current-carrying capacities that are aligned with the current rating of protective devices.\n2 National building codes contain mandatory requirements for the thermal insulation of ceilings and walls in certain situations.\n3 The AS/NZS 5000 series of cable standards provide higher operating temperature materials for some cable insulation than was the case with their predecessors.\n4 Current-carrying capacities for busbars and busways should be obtained from the manufacturer. Information relating to busways is given in AS/NZS 3439.2 or AS/NZS 61439.6.",
+  "references": {
+    "standards": ["AS/NZS 3008.1", "AS/NZS 5000", "AS/NZS 3439.2", "AS/NZS 61439.6"],
+    "sections": ["Appendix C", "Paragraph C3"]
+  }
+} 

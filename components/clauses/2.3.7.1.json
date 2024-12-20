@@ -1,0 +1,5 @@
+{
+  "id": "2.3.7.1",
+  "title": "General",
+  "fullText": "Functional switching may be used where switching of electrical equipment, or part of an electrical installation, is required for operational control only and not for safety reasons.\nNOTE: Functional  switching  devices  may  be  switches,  semiconductor (solid-state) devices, or contactors.\nA functional switching device shall be provided for each part of a circuit or item of apparatus that may be required to be controlled independently of other parts of the electrical installation or apparatus.\nA single functional switching device may control several items of apparatus intended to operate simultaneously.\nNOTE: The switching device may form part of the apparatus."
+} 

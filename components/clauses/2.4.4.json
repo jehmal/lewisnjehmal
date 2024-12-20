@@ -1,0 +1,5 @@
+{
+  "id": "2.4.4",
+  "title": "Auto-reclose devices",
+  "fullText": "A device may be of the auto-reclose type provided that the following conditions are met:\n(a)\tThe device shall not be installed to meet the requirements of Clause 1.5.6.\n(b)\tThe automatic reclose function cannot be engaged after manually switching off.\n(c)\tA warning notice is clearly displayed indicating that the automatic reclose function of the device must be disengaged, the device manually switched off, and the requirements of Clause 2.3.2 applied before performing any work on the electrical installation.\n(d)\tThere is a time delay before the first automatic reclose (e.g. 3 min).\n(e)\tThe number of reclosing operations is limited (e.g. to 3).\nException: Item (a) need not apply if the device is of a type that automatically verifies the insulation is satisfactory before the device recloses."
+} 

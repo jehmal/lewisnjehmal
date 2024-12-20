@@ -1,0 +1,5 @@
+{
+  "id": "5.3.4",
+  "title": "Main Earthing Terminal/Connection or Bar",
+  "fullText": "In every electrical installation, a main earthing terminal/connection or bar must be provided at the main switchboard. The following conductors should be connected, either directly or indirectly, to form an equipotential bonding network with such conductors connected to the main earthing terminal/connection or bar:\n\n• (a) Protective earthing conductors.\n• (b) Main earthing conductor.\n• (c) MEN connection.\n• (d) Equipotential bonding conductors.\n• (e) Functional earthing conductors, if required.\n\nNote: A main earthing terminal/connection can be a soldered connection."
+} 

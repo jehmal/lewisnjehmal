@@ -1,0 +1,8 @@
+{
+  "id": "4.11.4",
+  "title": "Functional switches",
+  "fullText": "Cables or groups of cables that comprise the heating system shall be provided with a functional switch or switches, in accordance with Clause 2.3.7.\nFunctional switches shall be installed in a readily accessible position immediately adjacent to an entrance to, or within, the room or area in which the heating system is located.\nA functional switch may be an isolating switch in accordance with Clause 4.10.3(a).\nException: Where the heating system is provided for trace heating applications, the functional switch need not be located as specified in this Clause.",
+  "references": {
+    "clauses": ["2.3.7", "4.10.3"]
+  }
+} 

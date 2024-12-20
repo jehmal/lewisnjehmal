@@ -1,0 +1,5 @@
+{
+  "id": "2.10.3.3",
+  "title": "Minimum Clearances and Creepage Distances",
+  "fullText": "All bare conductors and bare live parts of a switchboard shall be rigidly fixed so that a minimum clearance or creepage distance in air, in accordance with the AS/NZS 3439 or AS/NZS 61439 series, is maintained between such conductors or parts of opposite polarity or phase and between such conductors or parts and earth.\nSmaller values of clearances and creepage distances may be used:\n(a) for individual items of manufactured electrical equipment complying with the relevant standard; or\n(b) between a neutral bar and earth, provided that the neutral bar is insulated from earth."
+} 

@@ -1,0 +1,10 @@
+{
+  "id": "3.12.4",
+  "title": "Distance between supports (spans)",
+  "fullText": "The length of span of aerial conductors shall not exceed the values specified in Table 3.9 for the appropriate type and size of conductor.\nException: Spans greater than the values specified in Table 3.9 may be used, provided that the design is in accordance with sound engineering practice.\nNOTES:\n1 An indication of acceptable stringing practice is given in Table D2 of Appendix D.\n2 More detailed information is available in AS/NZS 7000.",
+  "references": {
+    "tables": ["3.9", "D2"],
+    "appendices": ["D"],
+    "standards": ["AS/NZS 7000"]
+  }
+} 

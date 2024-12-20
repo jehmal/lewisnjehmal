@@ -1,0 +1,5 @@
+{
+  "id": "2.4.3",
+  "title": "Types of devices",
+  "fullText": "A device used for protection by automatic disconnection of supply shall not be capable of automatically re-closing. The following types of devices may be employed to provide automatic disconnection of supply:\n(a)\tEnclosed fuse-links complying with the appropriate part(s) of the IEC 60269 series.\n(b)\tMiniature overcurrent circuit-breakers complying with AS/NZS 60898 series or AS/NZS 3111.\n(c)\tMoulded-case circuit-breakers complying with AS/NZS IEC 60947.2.\n(d)\tFixed setting RCDs complying with AS/NZS 3190, AS/NZS 61008.1 or AS/NZS 61009.1.\n(e)\tOther devices, with no automatic reclose function, having characteristics similar to any of the devices listed in Items (a) to (d).\nSemi-enclosed rewireable fuses shall not be used.\nException: Devices with an automatic reclose function of the type that automatically verifies the insulation is satisfactory before the device recloses are permitted."
+} 

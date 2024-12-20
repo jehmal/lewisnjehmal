@@ -1,0 +1,6 @@
+{
+    "id": "6.3.4.5.2",
+    "title": "Zone 0 Luminaires",
+    "fullText": "Luminaires installed in Zone 0 shall:\n(a) be compliant with AS/NZS 60598.1 and AS/NZS 60598.2.18; and\n(b) be supplied by SELV at an output nominal voltage not exceeding 12 VAC or 30 V ripple-free d.c.; and\n(c) not be provided with a protective earthing conductor, in accordance with Clause 5.4.3.",
+    "references": ["AS/NZS 60598.1", "AS/NZS 60598.2.18", "5.4.3"]
+} 

@@ -1,0 +1,17 @@
+{
+  "id": "5.8",
+  "title": "Other Earthing Arrangements",
+  "fullText": "Where it is intended to provide fault protection by the method of electrical separation, protective earthing conductors and equipotential bonding conductors shall be arranged in accordance with the requirements of Clause 7.4.",
+  "additionalRequirement": "The earthing arrangements of the following systems should be independent systems; however, if they are connected to the electrical installation earthing system they should not reduce the integrity of the electrical installation protective earthing system.",
+  "examples": [
+    "Lightning protection",
+    "Static electricity protection",
+    "Radio frequency interference (RFI)-screened installations",
+    "Information technology installations",
+    "Explosion protection systems",
+    "Cathodic protection systems"
+  ],
+  "notes": [
+    "Requirements for the installation of protective earthing and bonding conductors for the above systems may be contained in other Standards."
+  ]
+} 

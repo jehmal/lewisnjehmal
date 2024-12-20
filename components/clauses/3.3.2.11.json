@@ -1,0 +1,9 @@
+{
+  "id": "3.3.2.11",
+  "title": "Solar radiation (direct sunlight)",
+  "fullText": "Where a wiring system is, or may be, exposed to direct sunlight, either a wiring system suitable for the conditions shall be selected and installed, or adequate shielding shall be provided, in accordance with Clause 3.3.2.2.\nNOTES:\n1 Sheathed cables exposed to direct sunlight do not require further protection from UV radiation, unless otherwise advised by the manufacturer, as the sheath is considered to provide the necessary protection.\nBlack insulated unsheathed cables, e.g. aerial conductors, with UV-resistant insulation complying with AS/NZS 3808, do not require further protection.\nFor insulated unsheathed cables with insulation colours other than black, the manufacturer's recommendation should be sought, or the cable should be provided with a physical barrier to prevent exposure to direct sunlight.\n2 Guidance on the effect of direct sunlight on the current-carrying capacity of cables is given in the AS/NZS 3008.1 series. A correction factor for a temperature 20°C higher than the ambient air temperature may be applied.",
+  "references": {
+    "sections": ["3.3.2.2"],
+    "standards": ["AS/NZS 3808", "AS/NZS 3008.1"]
+  }
+} 

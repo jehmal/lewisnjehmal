@@ -1,0 +1,8 @@
+{
+  "id": "3.9.9.2",
+  "title": "Precautions",
+  "fullText": "(a) The risk of spread of fire shall be minimized by the selection of appropriate materials and installation.\n(b) Wiring systems shall be installed so that the general building structural performance and fire safety are not reduced.\n(c) Cables and products having the necessary fire-rating for wiring systems, in accordance with AS/NZS 3013, may be installed without special precautions.\n(d) Cables not having the necessary fire-rating for wiring systems shall be limited to short lengths for connection of appliances to permanent wiring systems and shall not pass from one fire-segregated compartment to another.",
+  "references": {
+    "standards": ["AS/NZS 3013"]
+  }
+} 

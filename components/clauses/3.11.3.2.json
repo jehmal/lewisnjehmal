@@ -1,0 +1,9 @@
+{
+  "id": "3.11.3.2",
+  "title": "Category B underground wiring systems",
+  "fullText": "Category B underground wiring systems recognized by this Standard comprise one of the following arrangements:\n(a) A system where cables are enclosed in medium-duty insulating conduit with additional mechanical protection.\n(b) A system where sheathed cables are buried direct in the ground with mechanical protection.\nMechanical protection for a Category B underground wiring system is detailed in Clause 3.11.4.3.\nNOTE: Examples of Category B underground wiring systems are given in Figures 3.13 to 3.15.",
+  "references": {
+    "sections": ["3.11.4.3"],
+    "figures": ["3.13", "3.14", "3.15"]
+  }
+} 

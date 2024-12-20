@@ -1,0 +1,14 @@
+{
+  "id": "6.3.1",
+  "title": "Scope",
+  "fullText": "The particular requirements of this Clause (Clause 6.3) apply to electrical installations in locations containing swimming pools, paddling (wading) pools and spa pools or tubs and their surrounding zones, where the risk of electric shock is increased by a reduction in body resistance and the likelihood of contact of the body with the water and conductive structure(s) in contact with the general mass of earth.",
+  "notes": [
+    "For swimming pools for medical or large commercial use, special requirements may be necessary."
+  ],
+  "zoneClassification": {
+    "basis": "These requirements are based on the classification of zones surrounding the water container.",
+    "limits": "Ceilings, walls with or without windows, doors, floors, barriers, and fixed partitions (e.g., a 1.8 m solid fence) that limit the extent of a room or area containing a swimming pool, paddling pool, spa pool or tub, and fixed partitions that provide effective protection against spraying or splashing water, limit the associated zones."
+  },
+  "protectionRestriction": "Due to the nature of these locations, certain methods of protection against electric shock are not permitted. Refer to Clause 6.3.3.1.",
+  "additionalScope": "The requirements for swimming pools also apply to electrical installations in areas of natural waters, lakes in gravel pits, and coastal and similar areas, especially those intended to be occupied by persons for swimming, paddling, and similar purposes."
+} 

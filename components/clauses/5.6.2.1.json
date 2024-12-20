@@ -1,0 +1,5 @@
+{
+  "id": "5.6.2.1",
+  "title": "General",
+  "fullText": "Equipotential bonding arrangements shall be provided in accordance with Clauses 5.6.2.2 to 5.6.2.6 to avoid any potential differences that may occur between electrical equipment connected to the electrical installation earthing system and any conductive piping (including taps etc.) that may independently be in contact with the mass of earth (see Figures 5.7 and 5.8 for arrangement details).\n\nAdditional equipotential bonding requirements apply for:\n(a) Patient areas of hospitals, medical and dental practices and dialyzing locations, in accordance with AS/NZS 3003.\n(b) Explosive atmospheres, in accordance with Clause 7.7.\n(c) Telecommunications installations, in accordance with AS/NZS 3015.\n(d) Film, video and television sites, in accordance with AS/NZS 4249.\n(e) Photovoltaic arrays, in accordance with AS/NZS 5033.\n(f) Grid connected inverters, in accordance with AS/NZS 4777.1.\n(g) Generating systems, in accordance with Clause 7.3.\n(h) Separated circuits, in accordance with Clause 7.4."
+} 

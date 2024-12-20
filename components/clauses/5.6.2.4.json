@@ -1,0 +1,9 @@
+{
+  "id": "5.6.2.4",
+  "title": "Conductive Cable Sheaths and Conductive Wiring Enclosures",
+  "fullText": "The conductive sheath, armour, or conductive wiring enclosure of conductors operating at above extra-low voltage shall comply with one of the following:",
+  "methods": [
+    "(a) The conductive sheath, armour, or conductive wiring enclosure of conductors shall be bonded to any conductive pipes containing flammable agents, such as gas or oil, with which they are in contact. The bonding shall be arranged to prevent appreciable voltage differences at points of contact.",
+    "(b) Where it is impracticable to achieve the bonding specified in Item (a), the conductive cable sheath, armour, or conductive wiring enclosures shall be separated from any non-earthed conductive pipes containing flammable agents. This separation shall overlap the points of crossing by 25 mm in all directions and be:\n(i) a rigid spacing of 25 mm in air; or\n(ii) a 6 mm thickness of durable insulating material."
+  ]
+} 

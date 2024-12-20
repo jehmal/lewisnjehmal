@@ -1,0 +1,9 @@
+{
+  "id": "3.12.6",
+  "title": "Poles and posts (including supports, struts and extensions to structures)",
+  "fullText": "Poles and posts shall be constructed of materials suitable for the conditions of use, taking account of the following:\n(a) Size.\n(b) Depth in ground.\nNOTES:\n1 Guidance on the size of a typical range of poles and posts is given in Appendix D.\n2 Guidance on the depth in ground for a typical range of poles and posts of lengths up to 7 m above the ground is given in Appendix D.\nThe depth in ground may be reduced if the pole or post is set in solid rock, provided that the arrangement is not inferior to installation in accordance with the above requirements.\nIf the support of the soil is poor, the pole or post shall be sunk to a greater depth or other means used to stabilize it.\nNOTE: More detailed information is available in AS/NZS 7000.",
+  "references": {
+    "appendices": ["D"],
+    "standards": ["AS/NZS 7000"]
+  }
+} 

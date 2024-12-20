@@ -1,0 +1,5 @@
+{
+  "id": "2.5.3.3",
+  "title": "Alternative position of overload protective device",
+  "fullText": "A device providing protection of a conductor against overload current may be placed at a point other than the origin of the circuit provided that—\n(a)\tthe conductor has no branch circuits or socket-outlets connected between the origin of the conductor and the overload protective device; or\n(b)\tthe conductor supplies one or more circuits that are individually protected against overload, such as within a switchboard or busway, and the sum of the current ratings of the circuit protective devices supplied by the conductor does not exceed the current-carrying capacity of the conductor.\nNOTE: Examples of alternative positions of overload protective devices are shown in Figures 2.4 and 2.5."
+} 

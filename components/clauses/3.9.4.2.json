@@ -1,0 +1,9 @@
+{
+  "id": "3.9.4.2",
+  "title": "Wiring systems near building surfaces",
+  "fullText": "Wiring systems that are fixed in position by fasteners, or held in position by thermal insulation, or by passing through an opening in a structural member, shall be protected by one of the methods outlined in Clause 3.9.4.4 if they are concealed within 50 mm from the surface of a wall, floor, ceiling or roof.\nException: This requirement need not apply to wiring systems that can move freely to a point not less than 50 mm from the surface in the event of a nail or screw penetrating the cavity at the location of the wiring system.\nFigures 3.3, 3.4 and 3.5 provide examples of protection of wiring systems near building surfaces.",
+  "references": {
+    "sections": ["3.9.4.4"],
+    "figures": ["Figure 3.3", "Figure 3.4", "Figure 3.5"]
+  }
+} 

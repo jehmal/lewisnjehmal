@@ -1,0 +1,5 @@
+{
+  "id": "1.5.6.3",
+  "title": "Where required",
+  "fullText": "RCDs for the limitation of earth leakage current shall be capable of interrupting the part of the circuit protected by the RCD when an earth leakage current reaches a predetermined value.\nRCDs shall be installed for additional protection of the following:\n• (a) Circuits, socket-outlets, lighting points, and hand-held equipment, as specified in Part 2, Clause 2.6.\n• (b) Wiring systems, as specified in Part 2, Clause 3.9.4.4.\n• (c) Electric heating cables, as specified in Part 2, Clause 4.10.5.\n• (d) Electrical equipment, including socket-outlets, installed in damp situations, as specified in Part 2, Section 6.\n• (e) Specific electrical installations, as specified in AS/NZS 3001, AS/NZS 3002, AS/NZS 3003, AS/NZS 3004, AS/NZS 3012, and AS/NZS 4249.\nNOTE: In areas where excessive earth leakage current could present a significant risk in the event of failure of other measures of protection or carelessness by users, RCDs are designed to provide additional protection against the effects of electric shock by automatically disconnecting supply before serious physical injury can occur."
+} 

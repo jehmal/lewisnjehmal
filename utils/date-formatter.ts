@@ -36,4 +36,8 @@ export const formatDateForDisplay = (date: Date | string): string => {
     minute: '2-digit',
     hour12: true
   }).replace(',', '').toLowerCase();
-}; 
+};
+
+export function formatDateForDatabase(date: Date): string {
+  return date.toISOString();
+} 

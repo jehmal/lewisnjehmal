@@ -1,0 +1,9 @@
+{
+  "id": "3.9.4.3.2",
+  "title": "Protection required",
+  "fullText": "Wiring systems shall be protected by one of the methods outlined in Clause 3.9.4.4 if they pass through a structural member, or are fixed in position, within 50 mm from the face of the supporting member to which the lining or roofing material is attached (see Figure 3.7).",
+  "references": {
+    "sections": ["3.9.4.4"],
+    "figures": ["Figure 3.7"]
+  }
+} 

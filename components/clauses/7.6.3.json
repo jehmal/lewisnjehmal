@@ -1,0 +1,11 @@
+{"section": "7.6.3",
+    "title": "Issues Relevant to High Voltage Installations",
+    "parent": "7.6",
+    "type": "clause",
+    "content": {
+        "id": "7.6.3",
+        "title": "Issues Relevant to High Voltage Installations",
+        "fullText": "For the design of electrical installations with voltage 1 kV or more, the issues that shall be taken into account include the following: (a) Insulation levels to withstand highest voltage and/or impulse withstand voltages. (b) Minimum clearances to live parts taking into account electrode configurations and impulse withstand voltages. (c) Minimum clearances under special conditions. (d) The application of various devices connected to the system. (e) The methods of installation of equipment, cables and accessories. (f) General requirements of installations regarding choice of circuit arrangement, documentation, transport routes, lighting, operational safety and labelling. (g) Special requirements with respect to buildings. (h) Protection measures with respect to access. (i) Protection measures with respect to fire. (j) Provision of earthing such that the system operates under all conditions and ensures safety of human life where there is legitimate access. (k) Testing.",
+        "references": []
+    }
+} 

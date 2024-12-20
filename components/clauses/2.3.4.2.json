@@ -1,0 +1,5 @@
+{
+  "id": "2.3.4.2",
+  "title": "Submains and final subcircuits greater than 100 A",
+  "fullText": "Every submain and final subcircuit having a rating exceeding 100 A per phase shall be controlled by a separate isolating switch on the switchboard at which the circuit originates.\nException: This requirement need not apply where fault-current limiters or fuses protect small submains that are teed off larger submains, e.g. teeing off large rising submains at each floor."
+} 

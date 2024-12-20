@@ -1,0 +1,8 @@
+{
+  "id": "4.14.3.1",
+  "title": "General",
+  "fullText": "Electric motors shall be provided with overtemperature protective devices complying with Clause 4.13.3.3 where they—\n(a) may be required to run unattended (see Note) and have a rating greater than—\n(i) for shaded-pole type motors .................................................. 480 VA; or\n(ii) for other unattended motors ........................................................ 240 VA.\n(b) have a rating greater than 2250 W.\nException: This Clause does not apply where overtemperature protection is not permitted or required in accordance with Clause 4.13.3.2.\nNOTE: A continuously running motor or a motor under automatic control in non-domestic premises, where no person is normally in attendance in the vicinity of the motor, is deemed to be unattended. Consideration should be given to the presence of a caretaker, or other person who may be responsible for the inspection of motors, in which case it may be appropriate not to regard motors as unattended.\nExamples of unattended motors are motors that—\n(a) operate refrigerators in shops; or\n(b) are in a remote portion of a building, such as a drainage sump in a basement; or\n(c) operate a communal refrigerator in a block of flats.",
+  "references": {
+    "clauses": ["4.13.3.3", "4.13.3.2"]
+  }
+} 

@@ -1,0 +1,11 @@
+{"section": "7.7.2.4.2",
+    "title": "Installation",
+    "parent": "7.7.2.4",
+    "type": "clause",
+    "content": {
+        "id": "7.7.2.4.2",
+        "title": "Installation",
+        "fullText": "Electrical equipment shall be installed in accordance with the installation requirements of AS/NZS 60079.14.\n\nNOTES:\n1.\tAS/NZS 60079.14 includes requirements for the competency of persons.\n2.\tAS/NZS 60079.17 includes requirements for inspection and maintenance.",
+        "references": ["AS/NZS 60079.14", "AS/NZS 60079.17"]
+    }
+} 

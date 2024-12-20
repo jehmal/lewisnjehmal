@@ -1,0 +1,17 @@
+{
+  "id": "6.2.3",
+  "title": "Protection Against Electric Shock - Prohibited Measures",
+  "introduction": "The following measures of protection against electric shock are prohibited and shall not be used:",
+  "prohibitedMeasures": [
+    {
+      "id": "a",
+      "measure": "Protection by means of obstacles",
+      "reference": "in accordance with Clause 1.5.4.5"
+    },
+    {
+      "id": "b",
+      "measure": "Protection by placing out of reach",
+      "reference": "in accordance with Clause 1.5.4.6"
+    }
+  ]
+} 

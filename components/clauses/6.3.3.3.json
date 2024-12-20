@@ -1,0 +1,6 @@
+{
+    "id": "6.3.3.3",
+    "title": "Voltage Gradients",
+    "fullText": "Where electrical equipment is in contact with pool or tub water, failure of insulation may result in a hazardous voltage appearing across or through the water. A very low voltage is sufficient to present a hazard to persons immersed in the water. Protective measures for such equipment shall include: (a) use of RCDs with a fixed rated residual current not exceeding 30 mA to protect circuits supplying Class I (earthed conductive parts) equipment; or (b) electrical separation, in accordance with Clauses 1.5.5.5 and 7.4.",
+    "references": ["1.5.5.5", "7.4"]
+} 

@@ -1,0 +1,8 @@
+{
+  "id": "3.6.3",
+  "title": "Conductors in parallel",
+  "fullText": "The voltage drop for a circuit in which conductors are connected in parallel shall be taken as the voltage drop in one of the conductors when that conductor is carrying the current determined by dividing the value of the current of the circuit determined in accordance with Clause 3.6.2 by the number of conductors in parallel.",
+  "references": {
+    "sections": ["3.6.2"]
+  }
+} 

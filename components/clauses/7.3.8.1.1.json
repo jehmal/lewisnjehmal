@@ -1,0 +1,9 @@
+{
+    "section": "7.3.8.1.1",
+    "title": "General",
+    "parent": "7.3.8.1",
+    "type": "clause",
+    "content": {
+        "fullText": "The following shall apply to the connection of an alternative (stand-by) supply to an installation: (a) The incoming neutral to a MEN switchboard shall not be switched. (b) The neutral-earth connection (MEN connection) shall be made within the installation at the main switchboard. This may require disconnection of any neutral-earth connection within an electricity generation system, such as an engine-driven generating set. This requirement applies to any switchboard fitted with an MEN connection and may be the main switchboard or a switchboard in an outbuilding, regarded as a main switchboard for earthing purposes within the outbuilding. (c) Neutral and earth conductors shall not operate in parallel. Exception: 1. In Australia only, when connected to a distribution switchboard and operating on the alternative supply, the distribution board submain neutral and protective earthing conductors may be operated in parallel through a remote MEN connection within the installation provided that: • conductors are not overloaded by current sharing; • conductors are suitable for the maximum calculated fault current; • the nominal size of copper earthing conductors complies with the requirements of Clause 5.3.3; and • the current-carrying capacity of neutral conductors shall be not less than that of their associated active conductor. 2. In New Zealand only, where the generating set is connected to a switchboard without a N-E link and when the electrical installation is operating from the alternative supply, a N-E connection and a connection to the mass of earth are required to be made in the distribution switchboard in accordance with AS/NZS 3010. This N-E connection and connection to the mass of earth are not required when the electrical installation is operating from a normal supply."
+    }
+} 

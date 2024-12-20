@@ -1,0 +1,6 @@
+{
+  "id": "5.3.3.2",
+  "title": "Main Earthing Conductor",
+  "fullText": "Where the main earthing conductor connects the main earth terminal to an electrode (as depicted in Figure 5.1), the conductor shall be determined from Table 5.1 in relation to the cross-sectional area of the largest active conductor of the consumer mains. The cross-sectional area of such a copper main earthing conductor shall be not less than 4 mm² and need not be greater than 120 mm².\n\nExceptions:\n1. Where double insulation is maintained between the point of supply and the load terminals of the protective devices for the submains and final subcircuits outgoing from the main switchboard. The minimum size of the main earthing conductor may be determined in relation to the cross-sectional area of the largest active conductor of the largest outgoing submain or final subcircuit.\n2. Where the cross-sectional area of the consumer mains is larger than that required to carry the maximum demand of the installation because of voltage-drop limitations. The minimum size of the main earthing conductor may be determined in relation to the cross-sectional area of the minimum cable size required to carry the maximum demand.",
+  "references": ["5.1"]
+} 

@@ -1,0 +1,11 @@
+{"section": "7.5.12.2",
+    "title": "Protection by SELV",
+    "parent": "7.5.12",
+    "type": "clause",
+    "content": {
+        "id": "7.5.12.2",
+        "title": "Protection by SELV",
+        "fullText": "The separation of live parts from those of other circuits and from earth shall be confirmed by a measurement of the insulation resistance.",
+        "references": []
+    }
+} 

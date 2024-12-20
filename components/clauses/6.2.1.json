@@ -1,0 +1,23 @@
+{
+  "id": "6.2.1",
+  "title": "Scope",
+  "fullText": "The particular requirements of this Clause (Clause 6.2) apply to electrical installations in locations containing a bath, shower or other fixed water containers and their surrounding zones, where the risk of electric shock is increased by a reduction in body resistance and the likelihood of the body making contact with the water and with conductive structure(s) in contact with the general mass of earth.",
+  "definitions": {
+    "other_fixed_water_containers": "Those designed to contain water in normal use and do not include fortuitous containers or areas not intended to contain water for normal operations or water containers into which persons do not normally put a part or all of their body."
+  },
+  "specialCases": {
+    "chemical_safety_washdown": "A full chemical safety washdown facility, such as a deluge shower, in which a person can stand, shall be treated as a shower under Clause 6.2.2.1.",
+    "eyewash_facility": "A self-contained eyewash facility with a fixed or flexible hose shall be treated as a fixed water container under Clause 6.2.2.2."
+  },
+  "zoneClassification": {
+    "basis": "The requirements of this Clause are based on the classification of zones surrounding the water container.",
+    "barriers": "Barriers, such as screens, doors, curtains, and fixed partitions that provide effective protection against spraying water may be used to limit the extent of a classified zone.",
+    "limits": "Ceilings, walls with or without windows, doors, and floors that limit the extent of rooms containing a bath, shower or other water container also limit the associated zones."
+  },
+  "protectionRestriction": "Due to the nature of these locations, certain methods of protection against electric shock are not permitted. Refer to Clause 6.2.3.",
+  "notes": [
+    "For locations containing baths for medical treatment, special requirements may be necessary.",
+    "Electrical equipment installed behind a fixed panel that provides a degree of protection not less than IPX4 and to which access may only be gained by the use of a tool would not be considered to be in a classified zone.",
+    "Electrical equipment recessed into a ceiling such that all live parts are above the lower surface of the ceiling is considered to be outside any zone immediately below the ceiling."
+  ]
+} 

@@ -1,0 +1,8 @@
+{
+  "id": "4.13.4.1",
+  "title": "General",
+  "fullText": "Each electricity converter shall be provided with an independent isolating switch in accordance with Clause 2.3.2.2.\nThe isolating switch shall—\n(a) be installed adjacent to or on the electricity converter so that a person operating the switch has a clear view of any person working on the converter;\n(b) be provided with a means of securing the device in the isolated position that requires a deliberate action to engage or disengage it;\n(c) comply with Clause 4.13 when the electricity converter incorporates an electric motor;\n(d) be under manual control only; and\n(e) not be capable of being overridden or bypassed by programmable control systems or the like.",
+  "references": {
+    "clauses": ["2.3.2.2", "4.13"]
+  }
+} 

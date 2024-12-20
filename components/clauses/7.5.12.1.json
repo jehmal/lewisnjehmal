@@ -1,0 +1,11 @@
+{"section": "7.5.12.1",
+    "title": "General",
+    "parent": "7.5.12",
+    "type": "clause",
+    "content": {
+        "id": "7.5.12.1",
+        "title": "General",
+        "fullText": "The separation of ELV circuits shall be verified in accordance with Clause 7.5.12.2 in the case of protection by SELV, and Clause 7.5.12.3 in the case of protection by PELV. The insulation resistance value obtained in accordance with Clauses 7.5.12.2 and 7.5.12.3 shall not be less than 0.5 MΩ when tested at a voltage of 250 V d.c.",
+        "references": []
+    }
+} 

@@ -1,0 +1,6 @@
+{
+  "id": "7.2.4.6",
+  "title": "Fire Separated Portions of a Building",
+  "fullText": "Any switch for the control of safety services installed in a fire-separated portion of a building and provided on the switchboard within the fire-separated portions of a building shall be regarded as a main switch and shall be arranged in accordance with Clause 7.2.4. Portions of a structure that are separated from any other part of the building by a fire-resistance level (FRL) of at least 120/120/120, in accordance with national building codes, may be regarded as a separate building for the purposes of this Clause.\n\nAny switch installed for the control of safety services in a fire-separated portion of a building or structure that is regarded as a separate building shall be separate from switches used to control: (a) any part of the general electrical installation; and (b) other types of safety services.",
+  "references": ["7.2.4"]
+} 

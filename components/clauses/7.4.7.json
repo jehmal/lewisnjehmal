@@ -1,0 +1,12 @@
+{
+    "section": "7.4.7",
+    "title": "Variable Speed Drive (VSD) EMI Filters",
+    "parent": "7.4",
+    "type": "clause",
+    "content": {
+        "id": "7.4.7",
+        "title": "Variable Speed Drive (VSD) EMI Filters",
+        "fullText": "Where a variable speed drive uses an EMI filter it shall not reference the frame of the system. Optimally, only one EMI filter should be used on an isolated supply where multiple VSDs are used. NOTE: EMI filters referenced to the frame produce harmful capacitive coupled currents.",
+        "references": []
+    }
+} 

@@ -1,0 +1,8 @@
+{
+  "id": "4.15.1",
+  "title": "General",
+  "fullText": "Transformers  shall  be  installed  in  accordance  with  Clauses 4.14.2 to 4.14.5.\nException: The following transformers need not comply with this Clause:\n1\tAn instrument transformer.\n2\tAn extra-low voltage transformer.\n3\tA luminous discharge tube transformer.\n4\tA transformer incorporated in a motor starter or other similar electrical equipment.",
+  "references": {
+    "clauses": ["4.14.2", "4.14.3", "4.14.4", "4.14.5"]
+  }
+} 

@@ -1,0 +1,8 @@
+{
+  "id": "4.10.2",
+  "title": "Isolating switches",
+  "fullText": "Protection shall be provided by means of an appropriate non-self- resetting device, functioning independently of the thermostat.\nIn accordance with Clause 2.3.2.2, isolating switches shall be—\n(a) installed immediately adjacent to an entrance to, or within, the room where the room heater is located; or\n(b) installed on the switchboard at which the room heater final subcircuit originates.\nIsolating switches may be incorporated in temperature-control devices, provided that they have a definite 'OFF' position.",
+  "references": {
+    "clauses": ["2.3.2.2"]
+  }
+} 

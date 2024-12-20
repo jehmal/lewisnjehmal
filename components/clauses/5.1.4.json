@@ -1,0 +1,8 @@
+{
+  "id": "5.1.4",
+  "title": "Other Earthing Systems",
+  "fullText": "Alternatives to the MEN system may be permitted, provided that the requirements of Part 1 of this Standard are satisfied, taking into account any effects on the distribution system supplying the installation.\nExamples:\n1.\tElectrical installations and supply systems, in accordance with the descriptions and compliance conditions permitted by IEC 60364 series.\n2.\tElectrical installations in surface mines complying with AS/NZS 3007 which permits the use of TN, TT, and IT systems.\n3.\tExisting installations may still remain connected under former direct earthing or voltage-operated earth leakage circuit breaker (ELCB) systems permitted by superseded editions of this Standard.\n4.\tEarthing/bonding arrangements for installations that are not supplied from a distribution system.\n5.\tElectrical installations complying with IEC 60364 series which permits the use of TN, TT, and IT systems as alternatives to the MEN system.",
+  "references": {
+    "standards": ["Part 1", "IEC 60364", "AS/NZS 3007"]
+  }
+} 

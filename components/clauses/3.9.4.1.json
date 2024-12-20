@@ -1,0 +1,8 @@
+{
+  "id": "3.9.4.1",
+  "title": "General",
+  "fullText": "Wiring systems installed in positions where they may reasonably be expected to be subject to mechanical damage shall be adequately protected in accordance with Clause 3.3.2.6 and the applicable requirements of Clauses 3.9.4.2 to 3.9.4.4.\nNOTE: Guide to adequacy and WS classification is provided in Appendix H.",
+  "references": {
+    "sections": ["3.3.2.6", "3.9.4.2", "3.9.4.3", "3.9.4.4", "Appendix H"]
+  }
+} 

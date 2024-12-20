@@ -1,0 +1,8 @@
+{
+  "id": "3.7.2.7",
+  "title": "Soldered connections",
+  "fullText": "Where a soldered connection is used, the design shall take account of creep, mechanical stress and temperature rise under fault conditions.\nSoft-soldered connections shall not be clamped under a screw or between metal surfaces.\nNOTE: Soldered connections are not permitted for aerial conductors in tension. (See Clause 3.7.2.9.1.)",
+  "references": {
+    "sections": ["3.7.2.9.1"]
+  }
+} 

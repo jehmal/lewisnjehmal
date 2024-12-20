@@ -1,0 +1,32 @@
+{
+  "id": "6.5.2",
+  "title": "Classification of Zones",
+  "zones": [
+    {
+      "zone": "Zone 1",
+      "description": "The area containing the sauna heater limited by:",
+      "limits": [
+        "(i) The vertical plane 0.5 m from the external edge of the sauna heater.",
+        "(ii) The floor, or surface expected to be occupied by persons, and the cold side of the thermal insulation of the ceiling."
+      ]
+    },
+    {
+      "zone": "Zone 2",
+      "description": "The area limited by:",
+      "limits": [
+        "(i) The vertical plane limiting Zone 1 and the cold side of the thermal insulation of the walls of the sauna room or enclosure.",
+        "(ii) The floor, or surface expected to be occupied by persons, and the horizontal plane 1.0 m above the floor."
+      ]
+    },
+    {
+      "zone": "Zone 3",
+      "description": "The area limited by:",
+      "limits": [
+        "(i) The vertical plane limiting Zone 1 and the cold side of the thermal insulation of the walls of the sauna room or enclosure.",
+        "(ii) The horizontal plane 1.0 m above the floor and the cold side of the thermal insulation of the ceiling."
+      ]
+    }
+  ],
+  "note": "Zone 3 is directly above Zone 2. Examples of these zones are given in Figure 6.22.",
+  "references": ["6.22"]
+} 

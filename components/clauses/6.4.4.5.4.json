@@ -1,0 +1,6 @@
+{
+    "id": "6.4.4.5.4",
+    "title": "Zone 1 Luminaires, Appliances, and Other Electrical Equipment",
+    "fullText": "Luminaires, appliances, and other electrical equipment installed in Zone 1 shall be provided with the required degree of protection and: (a) supplied as an SELV or a PELV system, in accordance with Clause 7.5; or (b) of Class II construction (double or reinforced insulation) and fixed in position; or (c) of Class I construction (earthed conductive parts), fixed in position and supplied from a circuit protected by an RCD with a fixed rated residual current not exceeding 30 mA.",
+    "references": ["7.5"]
+} 

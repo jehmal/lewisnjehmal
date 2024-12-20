@@ -1,0 +1,8 @@
+{
+  "id": "3.9.7.4",
+  "title": "Flexible cords used as installation wiring",
+  "fullText": "Flexible cords used as installation wiring shall be of the heavy-duty sheathed type and installed in the same manner as insulated and sheathed cables.\nException: Flexible cords need not be of the heavy-duty type if—\n(a) used for the connection of pendant socket-outlets;\n(b) installed in a suitable wiring enclosure; or\nNOTE: See Clause 3.10.1 for requirements for enclosure of cables.\n(c) installed for the connection of equipment, in accordance with the equipment wiring provisions of Clause 4.3.\nFlexible cords installed as follows shall be regarded as installation wiring and shall comply with this Clause (3.9.7.4):\n(a) Permanently connected flexible cords, including flexible cords used as pendants for socket-outlets and those connected to an installation coupler.\n(b) Flexible cords not open to view.\nExceptions:\n1 Flexible cords used as pendants for lamps, luminaires or provided with, and permanently connected to, an appliance shall not be regarded as installation wiring.\n2 Flexible cords installed for the connection of a single appliance or luminaire shall not be regarded as installation wiring, provided that they—\n• do not exceed 2.5 m in length; and\n• have a current-carrying capacity of not less than—\n— the current rating or setting of the circuit protective device; or\n— the actual load of the appliance or luminaire, subject to the minimum cross-sectional area of any conductor being not less than 0.75 mm2.",
+  "references": {
+    "sections": ["3.10.1", "4.3"]
+  }
+} 

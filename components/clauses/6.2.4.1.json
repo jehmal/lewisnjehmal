@@ -1,0 +1,20 @@
+{
+  "id": "6.2.4.1",
+  "title": "Degree of Protection Required",
+  "introduction": "Electrical equipment permitted to be installed in a classified zone shall have at least the following degree of protection:",
+  "requirements": [
+    {
+      "zone": "0",
+      "protection": "IPX7"
+    },
+    {
+      "zone": "1 and 2",
+      "protection": "IPX4"
+    },
+    {
+      "zone": "3",
+      "protection": "no specific degree of protection"
+    }
+  ],
+  "reference": "The requirements for selection and installation of electrical equipment are provided in Table 6.1."
+} 

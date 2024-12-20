@@ -1,0 +1,9 @@
+{
+  "id": "4.3.2.2",
+  "title": "Installation coupler",
+  "fullText": "An installation coupler, enclosed or unenclosed, that meets the requirements of AS/NZS 61535 is a suitable method for the electrical connection of cables, including flexible cords, flexible cables and rigid (solid or stranded) cables.\nNOTES:\n1 Installation couplers are intended for permanent connection between sections of wiring, particularly in 'soft' wiring systems, in which case they are treated in the same manner as a junction box.\n2 Installation couplers require a deliberate act to disengage the latching mechanism and are not intended to be engaged or disconnected under load or to be used as socket-outlets.\nWiring from an installation coupler to electrical equipment is regarded as installation wiring (see Figure 4.4).\nException: Where the manufacturer of an item of electrical equipment provides supply terminals for the equipment at a plug designed for connection to an installation coupler, the wiring between the plug and the equipment is regarded as equipment wiring (see Figure 4.5).",
+  "references": {
+    "standards": ["AS/NZS 61535"],
+    "figures": ["4.4", "4.5"]
+  }
+} 

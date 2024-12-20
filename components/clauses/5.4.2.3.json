@@ -1,0 +1,5 @@
+{
+  "id": "5.4.2.3",
+  "title": "Socket-outlet Earthing Conductor",
+  "fullText": "The protective earthing conductor of a final subcircuit supplying a socket-outlet shall be connected to the earthing terminal or connection of the socket-outlet.\n\nException: The protective earthing conductor need not be connected to the earthing terminal or connection if the socket-outlet is—\n• (a) supplied at extra-low voltage; or\n• (b) supplied by a separated extra-low voltage system."
+} 

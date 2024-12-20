@@ -1,0 +1,5 @@
+{
+  "id": "1.4.112",
+  "title": "Socket residual current device (SRCD)",
+  "fullText": "An SRCD is either a fixed socket-outlet:\n• (a) with an integral RCD; or\n• (b) with a separate RCD intended to be associated with the socket-outlet and mounted adjacent to the socket-outlet.\nThe RCD may be with or without overcurrent protection. An SRCD may have feed-through facility to enable RCD protection of downstream socket-outlets. Refer to IEC 62640 or the requirements of AS/NZS 3190 and AS/NZS 3112."
+} 

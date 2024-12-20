@@ -1,0 +1,6 @@
+{
+  "id": "7.2.4.1",
+  "title": "General",
+  "fullText": "A safety service shall be controlled by a main switch that is separate from main switches used to control: (a) any part of the general electrical installation; and (b) other types of safety services.\n\nMain switches shall be selected such that: (i) a fault on one safety service will not result in loss of supply to other safety services; and (ii) a fault on the general electrical installation will not result in loss of supply to safety services.\n\nThere is no limit to the number of main switches installed for the control of safety services. An auto transfer switch (ATS) may be used as a main switch provided the ATS meets the requirements of Clause 2.3.3. Fault-current limiters used to protect safety services shall not be used to provide protection to any part of the general electrical installation.",
+  "references": ["2.3.3"]
+} 

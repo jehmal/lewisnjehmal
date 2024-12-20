@@ -1,0 +1,51 @@
+{
+  "id": "7.1.2",
+  "title": "Selection and Installation",
+  "fullText": "The particular requirements for each special electrical installation replace or modify the general requirements of the other Sections of this standard. Where this Section does not specify a requirement, the relevant requirements of other Sections of this Standard apply.",
+  "applicableInstallations": [
+    {
+      "category": "a",
+      "installation": "Electrical systems for safety services"
+    },
+    {
+      "category": "b",
+      "installation": "Electricity generation systems"
+    },
+    {
+      "category": "c",
+      "installation": "Protection by electrical separation"
+    },
+    {
+      "category": "d",
+      "installation": "Extra-low voltage electrical installations"
+    },
+    {
+      "category": "e",
+      "installation": "High voltage electrical installations"
+    },
+    {
+      "category": "f",
+      "installation": "Installations in areas where an explosive hazard may arise"
+    },
+    {
+      "category": "g",
+      "installation": "Electrical installations of:",
+      "subInstallations": [
+        "construction and demolition sites",
+        "electromedical treatment areas",
+        "transportable structures and vehicles and the sites from which they are supplied",
+        "marinas and recreational boats",
+        "shows and carnivals",
+        "cold cathode illumination systems",
+        "telecommunication networks power supplies",
+        "cranes and hoists",
+        "lifts",
+        "generating sets",
+        "outdoor sites under heavy conditions",
+        "electric fences",
+        "film, video, and television sites"
+      ]
+    }
+  ],
+  "references": []
+} 

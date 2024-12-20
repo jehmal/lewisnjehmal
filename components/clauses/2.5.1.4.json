@@ -1,0 +1,5 @@
+{
+  "id": "2.5.1.4",
+  "title": "Omission of protective device for safety reasons",
+  "fullText": "Devices for protection against overcurrent shall not be provided for circuits where unexpected opening of the circuit could cause a danger greater than overcurrent.\nNOTES:\n1\tExamples of such circuits are certain safety system supplies, lifting magnets, exciter circuits of machines and the secondary circuits of current transformers. In such cases, the provision of an overload alarm is strongly recommended.\n2\tThe omission of protective devices is shown in Figure 2.3."
+} 

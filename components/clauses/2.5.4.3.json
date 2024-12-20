@@ -1,0 +1,5 @@
+{
+  "id": "2.5.4.3",
+  "title": "Position of devices for short-circuit protection",
+  "fullText": "In accordance with Clause 2.5.1.3, a device providing protection against short-circuit shall be installed at the origin of every circuit and at each point where a reduction occurs in the current-carrying capacity of the conductors.\nException: In accordance with the conditions set out in Clauses 2.5.4.4 and 2.5.4.5, a short-circuit protective device may be located in another position or may be omitted.\nNOTE: Such devices may be circuit-breakers with a short-circuit release or HRC fuses."
+} 

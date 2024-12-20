@@ -1,0 +1,5 @@
+{
+  "id": "2.5.6.1",
+  "title": "Protection Afforded by One Device",
+  "fullText": "An overload protective device that complies with Clause 2.5.3 and has a breaking capacity not less than the value of the prospective short-circuit current at its point of installation may be deemed to protect the conductor on the load side of that point against short-circuit currents and overload currents.\n\nNOTE: This consideration may not be valid for short-circuit currents lower than the prospective value, or for certain types of circuit-breakers, especially non-current-limiting types. Its validity should be checked, in accordance with the requirements of Clause 2.5.4.2."
+} 

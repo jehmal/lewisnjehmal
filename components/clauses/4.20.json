@@ -1,0 +1,8 @@
+{
+  "id": "4.20",
+  "title": "AIRCONDITIONING AND HEAT PUMP SYSTEMS",
+  "fullText": "Airconditioning and heat pump systems incorporating a compressor shall be provided  with  an  isolating  switch  (lockable)  in  accordance  with Clause 2.3.2.2, installed adjacent to but not on the unit, which isolates all parts of the system, including ancillary equipment, such as head units, from the same location.\nFor split system airconditioning units, where the manufacturer requires the airconditioning system to be connected to the electricity supply by means of a plug and socket at the internal unit, the isolating switch installed at the external unit shall control the socket-outlet located at the internal unit.\n*\tFor airconditioning systems (including room heaters incorporating a compressor) where the internal unit (or units) are supplied from a circuit separate to that of the compressor, a warning sign shall be permanently fixed on or adjacent to the compressor isolator indicating that the isolator does not isolate the ancillary equipment. Where the internal unit (or units) are not connected by plug and socket, an independent isolating switch (lockable) in accordance with Clause 2.3.2.2 shall also be installed adjacent to each separately supplied internal unit (or units).\nExceptions:\n1 The isolating switch may be installed at the switchboard supplying the system if the switchboard is dedicated to the equipment (e.g. an airconditioning plant room).\n*\t2 This Clause need not apply to unitary window or through-wall airconditioners, nor to heat pump hot water services that are supplied by a plug and socket-outlet installed adjacent to the unit.",
+  "references": {
+    "clauses": ["2.3.2.2"]
+  }
+} 

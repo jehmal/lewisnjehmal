@@ -1,0 +1,11 @@
+{"section": "7.6.1",
+    "title": "Scope",
+    "parent": "7.6",
+    "type": "clause",
+    "content": {
+        "id": "7.6.1",
+        "title": "Scope",
+        "fullText": "The particular requirements of this Clause (Clause 7.6) apply to electrical installations and those portions of electrical installations operating at high voltage. For protection and earthing purposes, this Clause also applies to all the electrical equipment up to and including any low voltage cables and switchgear associated with high voltage transformers.\n\nThis Clause (Clause 7.6) does not apply to the following: (a) Electric discharge illumination systems. (b) X-ray equipment. (c) High frequency equipment. (d) High voltage wiring and electrical equipment enclosed within self-contained electrical equipment and supplied at low voltage where precautions have been taken to prevent contact with high voltage conductors.",
+        "references": []
+    }
+} 

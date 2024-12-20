@@ -1,0 +1,8 @@
+{
+  "id": "4.14.3.2",
+  "title": "Protection prohibited",
+  "fullText": "Overtemperature protection shall not be provided in either of the following circumstances:\n(a) In accordance with Clause 7.2.9, protection shall not be provided for motors associated with a fire-protection service.\n(b) Protection shall not be provided where the opening of the motor circuit could create a hazard.\nOvertemperature protection need not be provided for unattended submersible pump motors immersed in water that have a rating not greater than 2250 W.",
+  "references": {
+    "clauses": ["7.2.9"]
+  }
+} 

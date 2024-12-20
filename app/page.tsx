@@ -19,9 +19,12 @@ import {
   IconBrandTabler,
   IconSettings,
   IconUserBolt,
+  IconSearch,
 } from "@tabler/icons-react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import { ChatSidebar, ChatSidebarBody, ChatSidebarTab } from "@/components/ui/chatsidebar";
+import { ClauseSearch } from "@/components/ui/clause-search";
 
 const features = [
   {
@@ -93,6 +96,7 @@ export default function Home() {
   const [hasError, setHasError] = useState(false);
   const [showCardDemo, setShowCardDemo] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState("Ask");
 
   useEffect(() => {
     console.log('Home component mounted');
@@ -257,6 +261,27 @@ export default function Home() {
 
             {/* Dock */}
             <DockDemo onChatToggle={handleToggleCardDemo} />
+
+            <ChatSidebar activeTab={activeTab} setActiveTab={setActiveTab}>
+              <ChatSidebarBody>
+                {/* Your existing tabs */}
+                <ChatSidebarTab
+                  tab={{
+                    label: "Search Clauses",
+                    icon: <IconSearch className="h-5 w-5" />,
+                  }}
+                />
+              </ChatSidebarBody>
+            </ChatSidebar>
+
+            <main className="flex-1 overflow-auto">
+              {activeTab === "Search Clauses" ? (
+                <ClauseSearch />
+              ) : (
+                // Your existing content
+                <div>Other content</div>
+              )}
+            </main>
           </div>
         </div>
       </div>

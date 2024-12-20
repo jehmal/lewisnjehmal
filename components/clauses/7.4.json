@@ -1,0 +1,22 @@
+{
+    "section": "7.4",
+    "title": "Protection by Electrical Separation (Isolated Supply)",
+    "parent": "7",
+    "type": "clause",
+    "content": {
+        "id": "7.4",
+        "title": "Protection by Electrical Separation (Isolated Supply)",
+        "fullText": "NOTE: The expression 'electrical separation' has the same meaning as 'isolated supply'. 'Electrical separation' is used throughout this Clause.",
+        "references": []
+    },
+    "subsections": [
+        "7.4.1",
+        "7.4.2",
+        "7.4.3",
+        "7.4.4",
+        "7.4.5",
+        "7.4.6",
+        "7.4.7",
+        "7.4.8"
+    ]
+} 

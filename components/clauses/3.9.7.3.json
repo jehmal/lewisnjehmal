@@ -1,0 +1,8 @@
+{
+  "id": "3.9.7.3",
+  "title": "Mineral insulated metal sheathed (MIMS) cable",
+  "fullText": "MIMS cable shall comply with the following:\n(a) Protection against corrosion The type of MIMS cable shall be selected to suit the environmental conditions it is installed in where the cable is—\n(i) buried in concrete or plaster containing corrosive agents;\n(ii) installed underground, in accordance with Clause 3.11; or\n(iii) in other locations where corrosion is likely to occur.\n(b) Protection against vibration Movement caused by vibration shall be provided for by introducing a loop in the cable immediately before the termination.\nThe size of the loop shall be determined by the cable size and severity of the vibration.\n(c) Support and fixing MIMS cable shall be supported and, if necessary, fixed in position so as to provide adequate protection against damage.\nThe supports and fixings shall be suitable for use at the highest temperature attained by the cable according to the circumstances of its use.\nNOTE: See Clause 4.2.2.3 for requirements concerning the effect of elevated temperatures on adjacent materials.",
+  "references": {
+    "sections": ["3.11", "4.2.2.3"]
+  }
+} 

@@ -1,0 +1,5 @@
+{
+  "id": "1.5.9",
+  "title": "Protection against overcurrent",
+  "fullText": "Protection shall be provided against injury or property damage because of excessive temperatures or electromechanical stresses caused by any overcurrents likely to arise in live conductors.\nProtection may be provided by one of the following methods:\n• (a) Automatic disconnection on the occurrence of an overcurrent, before this overcurrent attains a dangerous value, taking into account its duration.\n• (b) Limiting the maximum overcurrent to a safe value and duration."
+} 

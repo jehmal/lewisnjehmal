@@ -1,0 +1,8 @@
+{
+  "id": "4.16.1",
+  "title": "General",
+  "fullText": "Capacitors shall be installed in accordance with Clauses 4.15.2 and 4.15.3.\nException: The requirements of this Standard do not apply to capacitors that are fitted as an integral part of other electrical equipment, such as luminaires.",
+  "references": {
+    "clauses": ["4.15.2", "4.15.3"]
+  }
+} 

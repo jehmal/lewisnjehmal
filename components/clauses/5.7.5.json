@@ -1,0 +1,8 @@
+{
+  "id": "5.7.5",
+  "title": "Supplementary Equipotential Bonding",
+  "fullText": "In the event that a reduction in earth fault-loop impedance is required in order to ensure that the disconnection time of the protective device is sufficient to satisfy the requirements of Clause 5.7.2, bonding of extraneous conductive parts and their connection to the earthing system may be used.",
+  "notes": [
+    "Other measures, such as selection of an alternative protective device, e.g. an RCD that has a lower automatic operating current, i.e., within the required disconnection time, may also be used to satisfy the requirements of Clause 5.7.2."
+  ]
+} 

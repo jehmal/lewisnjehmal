@@ -1,0 +1,8 @@
+{
+  "id": "4.14.1.3",
+  "title": "Devices for starting and stopping",
+  "fullText": "Starting-and-stopping devices shall be so located as to be easily operated by the person in charge of the motor.\nA stopping device or isolating switch shall be provided where danger is likely to occur because of the presence of moving parts.\nThe stopping device shall remain effective in the event of a fault in a motor-control circuit.\nWhere electrical equipment is remotely controlled, devices shall be provided for stopping the motors at all points where danger is likely to occur.\nNOTE: Arrangements for emergency stopping of motors should comply with Clause 2.3.5.",
+  "references": {
+    "clauses": ["2.3.5"]
+  }
+} 

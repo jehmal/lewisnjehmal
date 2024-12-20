@@ -1,0 +1,9 @@
+{
+    "section": "7.3.8.2.3",
+    "title": "Connection",
+    "parent": "7.3.8.2",
+    "type": "clause",
+    "content": {
+        "fullText": "The method of connection of a grid-connected inverter system shall be in accordance with the AS/NZS 4777 series of Standards in conjunction with the requirements of the electricity distributor. The electricity generation system shall not impose a voltage on the electrical installation measured at the point of supply between the electricity distributor's network and the electrical installation outside the limits specified by Clause 1.6.2(c). NOTE: A typical interactive inverter a.c. connection and main switch (solar supply) is shown in Figure 7.7."
+    }
+} 

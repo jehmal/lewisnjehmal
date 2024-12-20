@@ -1,0 +1,6 @@
+{
+  "id": "5.3.6.1",
+  "title": "General",
+  "fullText": "The connection of the electrical installation earthing system to the general mass of earth shall be achieved by means of an earth electrode.\n\nNote: No specific value of resistance to earth is required by this Standard for the earth electrode at an electrical installation connected to a MEN system. However, the impedance of the combined earthing system of the electrical installation connected to an MEN system is required to meet the earth fault-loop impedance requirements specified in Clause 5.7. AS/NZS 3017 provides guidance on methods of measurement of resistance to earth and earth fault-loop impedance.",
+  "references": ["5.7"]
+} 

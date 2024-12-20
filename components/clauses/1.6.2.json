@@ -1,0 +1,5 @@
+{
+  "id": "1.6.2",
+  "title": "Supply characteristics",
+  "fullText": "The following characteristics of the electricity supply shall be determined:\n• (a) Nature of current, a.c. or d.c.\n• (b) Nature and number of conductors, as follows:\no (i) Active (phase), neutral, and protective earthing conductors for a.c.\no (ii) Equivalent conductors for d.c.\n• (c) Voltage and voltage tolerances.\nNOTE: The nominal voltage and tolerances for low voltage supply systems and electrical installations are:\no (a) for Australia, 230/400 V + 10% to -6% (in accordance with AS 60038); [A] and\no (b) for New Zealand, 230/400 V + 6% to -6% (in accordance with [NZ] IEC 60038).\n• (d) Frequency and frequency tolerances.\n• (e) Maximum current that can be supplied.\n• (f) Prospective short-circuit current.\nNOTE: Information regarding prospective short-circuit and fault currents at the point of supply may be obtained from the local electricity distributor.\n• (g) Protective measures inherent in the supply, e.g., MEN earthing system.\n• (h) Limits on the use of equipment.\n• (i) Harmonic current or other limitations."
+} 

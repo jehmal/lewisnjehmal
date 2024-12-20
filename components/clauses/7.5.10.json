@@ -1,0 +1,12 @@
+{
+    "section": "7.5.10",
+    "title": "Connecting Devices",
+    "parent": "7.5",
+    "type": "clause",
+    "content": {
+        "id": "7.5.10",
+        "title": "Connecting Devices",
+        "fullText": "Plug and socket-outlet devices, including installation couplers, for SELV and PELV shall comply with the following: (a) Plugs shall not be able to enter sockets of other voltage systems. (b) Sockets shall not accept plugs of other voltage systems. (c) Sockets shall not have a contact for a protective earthing conductor.",
+        "references": []
+    }
+} 

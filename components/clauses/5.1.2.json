@@ -1,0 +1,5 @@
+{
+  "id": "5.1.2",
+  "title": "Selection and Installation",
+  "fullText": "Earthing arrangements shall be selected and installed to perform the following functions, or have the following features:\n•\t(a) Enable automatic disconnection of supply in the event of a short-circuit to earth fault or excessive earth leakage current in the protected part of the installation through protective earthing arrangements.\n•\t(b) Enable equipment requiring an earth reference to function correctly through functional earth (FE) arrangements.\n•\t(c) Mitigate voltage differences appearing between exposed conductive parts of equipment and extraneous conductive parts through equipotential bonding arrangements.\n•\t(d) Provide an effective and reliable low impedance fault path capable of carrying earth fault and earth leakage currents without danger or failure from thermal, electromechanical, mechanical, environmental, and other external influences.\n•\t(e) Provide measures for the connection of exposed conductive parts and extraneous conductive parts."
+} 

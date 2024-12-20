@@ -1,0 +1,8 @@
+{
+  "id": "4.3.3.2",
+  "title": "Socket-outlets",
+  "fullText": "Socket-outlets supplied by installation couplers shall meet the following requirements:\n(a) The socket-outlet shall be suitable for the intended application and comply with Clause 4.4.\n(b) The socket-outlet shall be secured in position and installed in accordance with Clauses 4.4.2.1 and 4.4.2.2.\n(c) When installed on a horizontal surface, socket-outlets shall be designed or arranged to prevent the accumulation of dust or water in accordance with Clause 1.5.4.\n(d) Where installed in a location that is not readily accessible, the socket-outlet shall be securely fixed to a structure or support to ensure that no mechanical strain is placed on the installation wiring connections when inserting or removing a plug from the socket-outlet.",
+  "references": {
+    "sections": ["4.4", "4.4.2.1", "4.4.2.2", "1.5.4"]
+  }
+} 

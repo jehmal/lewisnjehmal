@@ -1,0 +1,6 @@
+{
+  "id": "5.5.2.2.2",
+  "title": "Earthing of Equipment",
+  "fullText": "A protective earthing conductor that originates at a distribution board, in accordance with Clause 5.5.2.1, Item (c) or (d), shall not be used for the earthing of electrical equipment that is supplied from another switchboard.",
+  "references": ["5.5.2.1"]
+} 

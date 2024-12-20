@@ -1,0 +1,8 @@
+{
+  "id": "3.8.3.4",
+  "title": "Alternative and European cable identification colours",
+  "fullText": "Figure 3.1 demonstrates the coordination of conductor insulation colours of single-phase cables manufactured to current and superseded Australian and New Zealand Standards and typical European practices.\nFigures 3.2 demonstrates the coordination of conductor insulation colours of multiphase cables manufactured to current Australian and New Zealand Standards and typical European practices.\nNOTES:\n1 Effective March 2006, British wiring practices were harmonized with Europe in relation to installation wiring and equipment wiring.\n2 Care should be exercised when connecting imported equipment that does not use AS/NZS conductor colour codes. Detailed testing should be performed to verify the function and connection of wiring within the equipment.\nNOTES TO FIGURES 3.1 AND 3.2:\n1 The neutral core may or may not be included in multi-core cables and cords.\n2 The alternative European active colour for multiphase flexible cords and cables on all phases is brown.",
+  "references": {
+    "figures": ["Figure 3.1", "Figure 3.2"]
+  }
+} 

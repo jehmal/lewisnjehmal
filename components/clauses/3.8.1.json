@@ -1,0 +1,10 @@
+{
+  "id": "3.8.1",
+  "title": "General",
+  "fullText": "Installation wiring conductors shall be clearly identified to indicate their intended function as active, neutral, earthing or equipotential bonding conductors.\nWhere identification is achieved using the colour of the conductor insulation, the colours specified in Table 3.4 shall be used.\nConductors with green, yellow or green/yellow combination coloured insulation or sheathing shall not be used as active or neutral conductors in installation wiring. In New Zealand, use of these colours is restricted for conductors but not for sheathing.\nException: The colour identification provisions of Table 3.4 need not apply to the special applications listed in Clause 3.8.3.\nIn New Zealand, there is no restriction on sheathing colour.\nNOTES:\n1 Internal wiring of equipment is not regarded as installation wiring but may be subject to particular equipment standards.\n2 Switchboard wiring is not regarded as installation wiring but the AS/NZS 3439 series and AS/NZS 61439 series restrict the green/yellow combination to the identification of earthing conductors.",
+  "references": {
+    "tables": ["Table 3.4"],
+    "sections": ["3.8.3"],
+    "standards": ["AS/NZS 3439", "AS/NZS 61439"]
+  }
+} 

@@ -1,0 +1,7 @@
+{"section": "8.3.9.3",
+    "title": "Results",
+    "content": {
+        "title": "Results",
+        "fullText": "The values obtained shall satisfy the requirements of Clause 5.7.4. This requirement is deemed to be satisfied if:\n(a) The earth fault-loop impedance, measured in accordance with Clause 8.3.9.2.2, does not exceed the value shown in Table 8.1 for the applicable type and rating of the protective device; or\n(b) The total resistance (Rpne) of the active and protective earthing conductors, measured in accordance with Clause 8.3.9.2.3 does not exceed the value shown in Table 8.2 for the applicable circuit protection rating and required disconnection time.\nNotes:\n1. The values of Zs in Table 8.1 were calculated as shown in Paragraph B4.5.\n2. The values in Table 8.2 were calculated using the d.c. resistance values for conductors at 20°C, as specified in AS/NZS 1125, and the maximum circuit lengths given in Table B1."
+    }
+} 

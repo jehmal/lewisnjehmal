@@ -1,0 +1,5 @@
+{
+  "id": "5.4.2.1",
+  "title": "Socket-outlet Earthing Requirements",
+  "fullText": "Socket-outlets shall be provided with an earthing terminal or connection that is connected to the protective earthing conductor of the final subcircuit supplying the socket-outlet.\n\nException: Socket-outlets need not be provided with an earthing terminal or connection if they are—\n• (a) supplied at extra-low voltage; or\n• (b) supplied by a separated extra-low voltage system."
+} 

@@ -1,0 +1,8 @@
+{
+  "id": "3.5.1",
+  "title": "General",
+  "fullText": "The nominal cross-sectional area of conductors shall be not less than the values given in Table 3.3.\nExceptions:\n1 Smaller conductors may be used on subcircuits supplying socket-outlets, based on their suitability, in accordance with this Standard, and taking account of voltage drop, current-carrying capacity and reliability of connections.\n2 Table 3.3 does not limit cable sizes for extra-low voltage or switchboard wiring.\nNOTE: The size of unprotected consumer mains should be coordinated with the electricity distributor.",
+  "references": {
+    "tables": ["Table 3.3"]
+  }
+} 

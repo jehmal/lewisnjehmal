@@ -1,0 +1,9 @@
+{
+    "section": "7.3.8.1.2",
+    "title": "Switching",
+    "parent": "7.3.8.1",
+    "type": "clause",
+    "content": {
+        "fullText": "The changeover device for an alternative supply shall be selected to maintain the function of, and prevent damage to, the electrical installation being supplied. Functions to be maintained include the maintenance of the continuity of the neutral conductor (overlapping of neutrals), the operation of RCDs, or the continued operation of uninterruptible power supplies. The changeover device shall open all active conductors of the normal supply when the alternative supply is connected. Where the operation of a switch automatically brings into service an alternative supply, the purpose of the switch shall be marked accordingly. Switching arrangements in accordance with AS/NZS 3010 are deemed to satisfy these requirements. NOTE: Typical switching arrangements are shown in Figures 7.3, 7.4, 7.5, and 7.6."
+    }
+} 

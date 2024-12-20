@@ -1,0 +1,8 @@
+{
+    "section": "8.3.3.2",
+    "title": "Extra-Low Voltage",
+    "content": {
+        "title": "Extra-Low Voltage",
+        "fullText": "Testing shall be carried out on parts of electrical installations designed to operate at extra-low voltage as follows:\n(a) Continuity of the earthing system for PELV circuits in accordance with Clause 8.3.5.\n(b) Insulation resistance in accordance with Clause 7.5.12.\n(c) Polarity for PELV circuits in accordance with Clause 8.3.7.\n(d) Correct circuit connections in accordance with Clause 8.3.8."
+    }
+} 

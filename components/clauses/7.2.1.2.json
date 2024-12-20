@@ -1,0 +1,19 @@
+{
+  "id": "7.2.1.2",
+  "title": "General",
+  "fullText": "These requirements are intended to ensure that electricity supply is not inadvertently disconnected from electrical equipment that is required to operate during emergency conditions.",
+  "exceptions": [
+    "Escalators or moving walkways (travelators).",
+    "A lift in a single private residence that is installed in accordance with AS/NZS 1735.18 need not comply with the requirements of this Clause (Clause 7.2).",
+    "Lifts that are not defined as emergency lifts in the National Construction Code (NCC) or New Zealand Building Code (NZBC).",
+    "Pumps for 'jacking' or water pressure maintenance, the failure of which does not deprive the fire hydrant or sprinkler pump of adequate water supply.",
+    "Text deleted.",
+    "Smoke alarms installed in single private residences (see Clause 4.6 for information relating to smoke alarms)."
+  ],
+  "notes": [
+    "AS/NZS 3009 provides guidance for emergency power supplies in hospitals.",
+    "The term 'safety services' incorporates equipment: (a) described, and which could be labelled, as 'emergency systems' under the previous edition of this Standard; and (b) determined as 'emergency equipment' in the NCC and 'essential service' in the NZBC.",
+    "Fire-resistance level (FRL) is the grading periods in minutes determined in accordance with NCC for the following criteria: (i) Structural adequacy - 1st 120 = FRL-structural adequacy: The ability to maintain stability and adequate load-bearing capacity as determined by AS 1530.4. (ii) Integrity - 2nd 120 = FRL-structural integrity: The ability to resist the passage of flames and hot gases as specified by AS 1530.4. (iii) Insulation - 3rd 120 = FRL-structural insulation: The ability to maintain a temperature over the whole of the unexposed surface below that specified by AS 1530.4."
+  ],
+  "references": ["AS/NZS 1735.18", "4.6", "AS/NZS 3009", "AS 1530.4"]
+}

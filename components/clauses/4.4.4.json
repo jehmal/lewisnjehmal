@@ -1,0 +1,13 @@
+{
+  "id": "4.4.4",
+  "title": "Switching device",
+  "references": {
+    "standards": ["AS/NZS 3133", "AS/NZS 60669.1", "AS/NZS 60947.3"]
+  },
+  "subsections": {
+    "4.4.4.1": "General",
+    "4.4.4.2": "Rating", 
+    "4.4.4.3": "Location and marking",
+    "4.4.4.4": "Pendant-type socket-outlet"
+  }
+} 

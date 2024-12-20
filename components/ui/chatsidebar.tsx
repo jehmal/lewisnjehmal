@@ -1,12 +1,91 @@
 "use client";
+import React, { useState, useEffect, useContext } from "react";
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import React, { useState, createContext, useContext } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import { IconMenu2, IconX } from "@tabler/icons-react";
+import { Menu as IconMenu2 } from 'lucide-react';
 
 interface Tab {
   label: string;
   icon: React.JSX.Element | React.ReactNode;
+}
+
+interface ChatSidebarProps {
+  open: boolean;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  activeTab: string;
+  setActiveTab: (tab: string) => void;
+  children: React.ReactNode;
+}
+
+export function ChatSidebar({ open, setOpen, activeTab, setActiveTab, children }: ChatSidebarProps) {
+  const [isHovered, setIsHovered] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  return (
+    <ChatSidebarProvider 
+      open={open} 
+      setOpen={setOpen} 
+      activeTab={activeTab} 
+      setActiveTab={setActiveTab}
+    >
+      <div className="relative">
+        {isMobile && (
+          <button
+            onClick={() => setOpen(!open)}
+            className="absolute top-4 left-4 z-50 p-2 bg-[#ee5622] hover:bg-[#ff6733] text-white rounded-md transition-colors duration-200"
+          >
+            <IconMenu2 className="w-6 h-6" />
+          </button>
+        )}
+        <motion.div
+          className={cn(
+            "h-full flex flex-col bg-gray-100 dark:bg-neutral-800 shadow-xl transition-all duration-300 ease-in-out",
+            isMobile ? (open ? "w-64" : "w-0") : (open || isHovered ? "w-64" : "w-12")
+          )}
+          onMouseEnter={() => !isMobile && setIsHovered(true)}
+          onMouseLeave={() => !isMobile && setIsHovered(false)}
+          initial={false}
+          animate={{ width: isMobile ? (open ? 256 : 0) : (open || isHovered ? 256 : 48) }}
+        >
+          {children}
+        </motion.div>
+      </div>
+    </ChatSidebarProvider>
+  );
+}
+
+export function ChatSidebarBody({ className, children }: { className?: string; children: React.ReactNode }) {
+  return <div className={cn("flex flex-col flex-1 overflow-y-auto", className)}>{children}</div>;
+}
+
+export function ChatSidebarTab({ tab }: { tab: Tab }) {
+  const { open, animate, activeTab, setActiveTab } = useChatSidebar();
+
+  return (
+    <button
+      onClick={() => setActiveTab(tab.label)}
+      className={cn(
+        "flex items-center gap-4 px-3 py-2 text-neutral-700 dark:text-neutral-200 hover:bg-neutral-200 dark:hover:bg-neutral-700 rounded-lg transition-colors duration-150",
+        activeTab === tab.label && "bg-neutral-200 dark:bg-neutral-700"
+      )}
+    >
+      <div className="w-6 h-6 flex items-center justify-center flex-shrink-0">
+        {tab.icon}
+      </div>
+      <span className="font-medium whitespace-nowrap">
+        {tab.label}
+      </span>
+    </button>
+  );
 }
 
 interface ChatSidebarContextProps {
@@ -17,9 +96,7 @@ interface ChatSidebarContextProps {
   setActiveTab: (tab: string) => void;
 }
 
-const ChatSidebarContext = createContext<ChatSidebarContextProps | undefined>(
-  undefined
-);
+const ChatSidebarContext = React.createContext<ChatSidebarContextProps | undefined>(undefined);
 
 export const useChatSidebar = () => {
   const context = useContext(ChatSidebarContext);
@@ -29,6 +106,15 @@ export const useChatSidebar = () => {
   return context;
 };
 
+interface ChatSidebarProviderProps {
+  children: React.ReactNode;
+  open?: boolean;
+  setOpen?: React.Dispatch<React.SetStateAction<boolean>>;
+  animate?: boolean;
+  activeTab: string;
+  setActiveTab: (tab: string) => void;
+}
+
 export const ChatSidebarProvider = ({
   children,
   open: openProp,
@@ -36,161 +122,15 @@ export const ChatSidebarProvider = ({
   animate = true,
   activeTab: activeTabProp,
   setActiveTab: setActiveTabProp,
-}: {
-  children: React.ReactNode;
-  open?: boolean;
-  setOpen?: React.Dispatch<React.SetStateAction<boolean>>;
-  animate?: boolean;
-  activeTab: string;
-  setActiveTab: (tab: string) => void;
-}) => {
+}: ChatSidebarProviderProps) => {
   const [openState, setOpenState] = useState(false);
 
   const open = openProp !== undefined ? openProp : openState;
-  const setOpen = setOpenProp !== undefined ? setOpenProp : setOpenState;
+  const setOpen = setOpenProp || setOpenState;
 
   return (
     <ChatSidebarContext.Provider value={{ open, setOpen, animate, activeTab: activeTabProp, setActiveTab: setActiveTabProp }}>
       {children}
     </ChatSidebarContext.Provider>
-  );
-};
-
-export const ChatSidebar = ({
-  children,
-  open,
-  setOpen,
-  animate,
-  activeTab,
-  setActiveTab,
-}: {
-  children: React.ReactNode;
-  open?: boolean;
-  setOpen?: React.Dispatch<React.SetStateAction<boolean>>;
-  animate?: boolean;
-  activeTab: string;
-  setActiveTab: (tab: string) => void;
-}) => {
-  return (
-    <ChatSidebarProvider open={open} setOpen={setOpen} animate={animate} activeTab={activeTab} setActiveTab={setActiveTab}>
-      {children}
-    </ChatSidebarProvider>
-  );
-};
-
-export const ChatSidebarBody = (props: React.ComponentProps<typeof motion.div>) => {
-  return (
-    <>
-      <DesktopChatSidebar {...props} />
-      <MobileChatSidebar {...(props as React.ComponentProps<"div">)} />
-    </>
-  );
-};
-
-export const DesktopChatSidebar = ({
-  className,
-  children,
-  ...props
-}: React.ComponentProps<typeof motion.div>) => {
-  const { open, setOpen, animate } = useChatSidebar();
-  return (
-    <>
-      <motion.div
-        className={cn(
-          "h-full px-4 py-4 hidden md:flex md:flex-col bg-neutral-100 dark:bg-neutral-800 w-[300px] flex-shrink-0",
-          className
-        )}
-        animate={{
-          width: animate ? (open ? "300px" : "60px") : "300px",
-        }}
-        onMouseEnter={() => setOpen(true)}
-        onMouseLeave={() => setOpen(false)}
-        {...props}
-      >
-        {children}
-      </motion.div>
-    </>
-  );
-};
-
-export const MobileChatSidebar = ({
-  className,
-  children,
-  ...props
-}: React.ComponentProps<"div">) => {
-  const { open, setOpen } = useChatSidebar();
-  return (
-    <>
-      <div
-        className={cn(
-          "h-10 px-4 py-4 flex flex-row md:hidden items-center justify-between bg-neutral-100 dark:bg-neutral-800 w-full"
-        )}
-        {...props}
-      >
-        <div className="flex justify-end z-20 w-full">
-          <IconMenu2
-            className="text-neutral-800 dark:text-neutral-200"
-            onClick={() => setOpen(!open)}
-          />
-        </div>
-        <AnimatePresence>
-          {open && (
-            <motion.div
-              initial={{ x: "-100%", opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              exit={{ x: "-100%", opacity: 0 }}
-              transition={{
-                duration: 0.3,
-                ease: "easeInOut",
-              }}
-              className={cn(
-                "fixed h-full w-full inset-0 bg-white dark:bg-neutral-900 p-10 z-[100] flex flex-col justify-between",
-                className
-              )}
-            >
-              <div
-                className="absolute right-10 top-10 z-50 text-neutral-800 dark:text-neutral-200"
-                onClick={() => setOpen(!open)}
-              >
-                <IconX />
-              </div>
-              {children}
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-    </>
-  );
-};
-
-export const ChatSidebarTab = ({
-  tab,
-  className,
-}: {
-  tab: Tab;
-  className?: string;
-}) => {
-  const { open, animate, activeTab, setActiveTab } = useChatSidebar();
-  return (
-    <button
-      onClick={() => setActiveTab(tab.label)}
-      className={cn(
-        "flex items-center justify-start gap-2 group/sidebar py-2",
-        className,
-        activeTab === tab.label ? "text-blue-500" : "text-neutral-700 dark:text-neutral-200"
-      )}
-    >
-      {tab.icon}
-
-      <motion.span
-        animate={{
-          display: animate ? (open ? "inline-block" : "none") : "inline-block",
-          opacity: animate ? (open ? 1 : 0) : 1,
-        }}
-        className="text-sm group-hover/sidebar:translate-x-1 transition duration-150 whitespace-pre inline-block !p-0 !m-0"
-      >
-        {tab.label !== "Ask" ? tab.label : ""}
-      </motion.span>
-    </button>
   );
 };

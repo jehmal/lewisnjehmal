@@ -1,0 +1,5 @@
+{
+  "id": "1.4.115",
+  "title": "Subcircuit, final",
+  "fullText": "A circuit originating at a switchboard and to which only consuming devices or points will be connected. The origin of a final subcircuit is deemed to be at the connecting devices of the neutral bar or link or at the load terminals of the circuit protective devices provided within or on a switchboard specifically for the connection of the circuit. The termination of a final subcircuit is deemed to be at the supply terminals of consuming devices or points."
+} 

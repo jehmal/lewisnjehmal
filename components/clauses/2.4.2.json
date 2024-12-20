@@ -1,0 +1,5 @@
+{
+  "id": "2.4.2",
+  "title": "Protection by automatic disconnection of supply",
+  "fullText": "Protection by means of automatic disconnection of supply is intended to limit the prospective touch voltage arising between simultaneously accessible conductive parts in the event of a fault between a live part and exposed conductive parts or a protective earthing conductor.\nThis protection shall be achieved by—\n(a)\tprovision of a system of earthing in which exposed conductive parts are connected to a protective earthing conductor, in accordance with Section 5; and\n(b)\tdisconnection of the fault by an overcurrent protective device or an RCD."
+} 

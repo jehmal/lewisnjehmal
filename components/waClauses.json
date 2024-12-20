@@ -1,0 +1,774 @@
+{
+  "sections": {
+    "3.1": {
+  "id": "3.1",
+  "title": "Supply Arrangements",
+  "fullText": "Supply arrangements for consumers shall comply with this document and other statutory requirements. Designers and electrical contractors are encouraged to familiarise themselves with the WASIR concerning the connection of consumer installations to Western Power or Horizon Power networks and to ascertain the particular requirements of BHP Iron Ore, Rio Tinto Iron Ore, and Peel Renewable Energy concerning connections to their networks. For illustrative purposes, typical supply arrangements for small consumers connecting to low-voltage networks are shown in the following figures.",
+  "references": {
+    "documents": ["WASIR"],
+    "organizations": [
+      "Western Power",
+      "Horizon Power",
+      "BHP Iron Ore",
+      "Rio Tinto Iron Ore",
+      "Peel Renewable Energy"
+    ]
+  }
+},
+    "3.2": {
+      "id": "3.2",
+      "title": "On-site Generation and Storage Systems",
+      "fullText": "Where sources of electricity generation are installed in a consumer's premises, the generator electrical installation shall comply with the latest version of relevant technical standards published by Standards Australia including:\n•\tAS/NZS: 3010, Electrical installations – generating sets;\n•\tAS 4509 parts 1 and 2, Stand-alone power systems – safety and installation;\n•\tAS 4777 parts 1 and 2, Grid connection of energy systems via inverters;\n•\tAS/NZS 5033, Installation of photo-voltaic (PV) arrays;\n•\tAS/NZS 5139, Safety of battery systems for use with power conversion equipment; and\n•\tAS/NZS 3000, Wiring Rules\n\nFurther requirements of network operators may be found in their connection requirements. Where an installation has multiple alternative sources of supply (incorporating either automatic or manual switching), all associated circuits and equipment, including isolating switches, shall have signage and labelling as required by the relevant standards. Further detailed labelling requirements are provided in section 3.5 (below). Installation or modification of on-site power generation is 'notifiable work' as defined in the Electricity (Licensing) Regulations 1991 and a Preliminary Notice and Notice of Completion shall be submitted to the relevant network operator as required by Regulations 51 and 52.",
+      "references": {
+        "standards": [
+          "AS/NZS: 3010",
+          "AS 4509 parts 1 and 2",
+          "AS 4777 parts 1 and 2",
+          "AS/NZS 5033",
+          "AS/NZS 5139",
+          "AS/NZS 3000"
+        ],
+        "sections": ["3.5"],
+        "regulations": [
+          "Electricity (Licensing) Regulations 1991",
+          "Regulations 51",
+          "Regulations 52"
+        ]
+      }
+    },
+    "3.3": {
+      "id": "3.3",
+      "title": "Point of Supply (Underground Low Voltage)",
+      "subsections": {
+        "3.3.1": {
+          "id": "3.3.1",
+          "title": "Standard Domestic Connection",
+          "fullText": "Typical point of supply arrangements for domestic connections are illustrated in the figures below but it is essential to refer to the relevant network operator's specific connection requirements (WASIR for Western Power and Horizon Power). The following principles apply to standard domestic connections:\n1.\tA network operator's service pillar on a lot is the point of supply for that lot and (in most cases) for the adjacent lot (Figures 3.3(a) & (b)).\n2.\tWhere a service pillar is installed on a lot, the premise on that lot must be connected to that pillar (Figure 3.3(b)).\n3.\tIf there is no service pillar provided or intended to be provided on a lot, the consumer mains of the domestic connection can be connected to a pillar on an adjacent lot provided that the pillar:\n•\tis correctly positioned as per section 5.3; and\n•\thas designated available terminals for that connection.\n4.\tA network operator's transformer or LV kiosk located on a lot or adjacent road reserve or public open space is not a point of supply for a lot unless the consumer's mains for the lot are connected to it (see Figures 3.3(c) & 3.3(d)).",
+          "relatedFigures": ["3.3(a)", "3.3(b)", "3.3(c)", "3.3(d)"],
+          "references": {
+            "sections": ["5.3"],
+            "documents": ["WASIR"]
+          }
+        },
+        "3.3.2": {
+          "id": "3.3.2",
+          "title": "Strata Connections",
+          "fullText": "Network operators may have varied or alternative arrangements for strata connections and associated service and installation requirements. Specific details of these arrangements can be found in the network operator's connection requirements inclusive of the WASIR.",
+          "references": {
+            "documents": ["WASIR"]
+          }
+        },
+        "3.3.3": {
+          "id": "3.3.3",
+          "title": "Redundant Connection Assets",
+          "fullText": "The redevelopment or enhancement of existing properties incorporating either a new underground connection or conversion of an overhead connection to underground may result in parts of the existing connection assets becoming redundant. In such cases, the property owner must arrange to have the redundant assets removed at their expense."
+        },
+        "3.3.4": {
+          "id": "3.3.4",
+          "title": "Commercial Connection",
+          "fullText": "Each lot shall have its own point of supply. This shall be a service pillar, transformer, or LV kiosk located on the lot, or a transformer or LV kiosk located in the immediately adjacent road reserve or public open space, as determined by the network operator."
+        },
+        "3.3.5": {
+          "id": "3.3.5",
+          "title": "Non-standard Connection",
+          "fullText": "Network operators will determine whether the connection is to be to a service pillar, transformer, LV kiosk, or other means, such as a stand-alone power supply. The relevant network operator must be contacted before commencing any on-site installation works."
+        }
+      }
+    },
+    "4": {
+      "id": "4",
+      "title": "Low Voltage Overhead Connections",
+      "subsections": {
+        "4.1": {
+          "id": "4.1",
+          "title": "Connection",
+          "fullText": "Network operators shall determine the method of connection in areas serviced by an overhead distribution network."
+        },
+        "4.2": {
+          "id": "4.2",
+          "title": "Service Cable Route and Point of Attachment",
+          "fullText": "The following factors should be taken into consideration in determining the route of the network operator's service cable and the position of the point of attachment:\n•\tThe location of the network operator's poles in the street used for supplying the new connection and adjacent properties.\n•\tGeographic features, structures, large vegetation, and water features.\n•\tThe need for, and location of, a consumer's pole to maintain correct aerial span lengths and clearances.\n•\tThe location of other utility services.\n•\tService protection requirements, especially for rural connections.\n\nThe position of the point of attachment shall ensure:\n•\tThe route of the service cable is clear of swimming pools, water features, vegetation, and building features such as windows, balconies, and entrances.\n•\tThe area directly below is clear, and can be kept clear, of obstructions.\n•\tA minimum clearance of 2.5 metres is maintained between the finished ground or floor level and the mains connection box or the service cable (up to the point of attachment).\n•\tWhere a point of attachment is on a pole, a minimum clearance of 3 metres and a maximum height of 7 metres above ground level are maintained."
+        },
+        "4.3": {
+          "id": "4.3",
+          "title": "Aerial Consumers Mains",
+          "fullText": "Aerial consumer mains are not permitted."
+        },
+        "4.4": {
+          "id": "4.4",
+          "title": "Spans and Clearances",
+          "fullText": "The network operator shall determine the maximum span for an overhead service cable. Overhead service cables shall not cross over or enter the zones of a pool or water feature as defined in the Wiring Rules.\n\nWhere compliance with this requirement cannot be achieved, the property owner shall either:\n•\tReplace the overhead service cable with underground consumers mains connected to a network operator's service pillar; or\n•\tInstall an intermediate consumer's pole (section 4.5) on the property located to divert the service cable away from the pool or water feature zones.",
+          "references": {
+            "sections": ["4.5"],
+            "standards": ["Wiring Rules"]
+          }
+        },
+        "4.5": {
+          "id": "4.5",
+          "title": "Consumer Poles",
+          "fullText": "Property owners may be required to supply and install a pole on their property to ensure that:\n•\tAerial ground clearances above both trafficable areas and property comply with the Wiring Rules.\n•\tAerial spans do not exceed acceptable limits.\n•\tAerial spans do not pass too close to pools, spas, and other buildings.\n\nThe design and installation of consumer poles shall comply with the technical requirements of the respective network operator. A network operator may elect to supply and install the consumer poles on behalf of the property owner in certain cases, but the property owner remains responsible for the continuing maintenance of such poles after installation, including their replacement when required.",
+          "references": {
+            "standards": ["Wiring Rules"]
+          }
+        }
+      }
+    },
+    "3.4": {
+      "id": "3.4",
+      "title": "Labelling",
+      "subsections": {
+        "3.4.1": {
+          "id": "3.4.1",
+          "title": "General",
+          "fullText": "Labels shall be made of material able to withstand ultraviolet radiation, extreme weather, and vandalism. They shall be indelible, durable, legible, and suitably secured for the expected life of the installation. Technical guidance should be taken from AS 1319: Safety signs for the occupational environment. Network operators shall also be consulted to ascertain labelling requirements associated with their connection arrangements.",
+          "references": {
+            "standards": ["AS 1319: Safety signs for the occupational environment"]
+          }
+        }
+      }
+        },
+        "3.4.2": {
+          "id": "3.4.2",
+          "title": "Consumer Mains",
+          "fullText": "The installer shall label all underground consumer mains at the point of supply. This shall be in addition to any Wiring Rules requirement for marking and recording underground cable locations. Labels shall be fixed to the outer sheath of the cable in a position that is visible without undue manipulation of the termination or the need for excavation. The minimum information on labels shall be:\n•\tlot or street number (e.g., lot 70);\n•\tunit number/alpha description (e.g., unit 4B); and\n•\tstreet name.",
+          "references": {
+            "standards": ["Wiring Rules"]
+          }
+        },
+        "3.4.3": {
+          "id": "3.4.3",
+          "title": "Switchboards",
+          "fullText": "Electrical contractors, before requesting or carrying out energisation of an installation, shall ensure that all switchboards are appropriately and uniquely labelled to clearly identify the board's specific point of supply."
+        },
+        "3.4.4": {
+          "id": "3.4.4",
+          "title": "Transformers and LV Kiosk",
+          "fullText": "The network operator may include a label inside the transformer enclosure warning that a lot has another point of supply where:\n•\ta network operator's transformer or LV Kiosk is situated on a lot or immediately adjacent in the road reserve;\n•\tit is the network operator's normal practice to connect a consumer directly to its transformer or distribution frame; and\n•\tthe lot is supplied by other means.\n\nWhere a service pillar is located on a lot and the supply to the consumer's installation on that lot originates from a transformer or kiosk, labelling within the service pillar shall identify the origin of the consumer's supply."
+        },
+        "3.4.5": {
+          "id": "3.4.5",
+          "title": "Multiple Sources of Supply",
+          "fullText": "Where an installation includes multiple sources of supply, the electrical contractor shall place appropriate warning labels and signage at the generation source(s), network point(s) of supply, and at the main switchboard, informing operational and emergency services staff of:\n•\tthe existence and location of each source of supply;\n•\ttype(s) of supply;\n•\tpoint(s) of isolation; and\n•\tsafe shutdown and isolation procedures."
+        },
+        "3.4.6": {
+  "id": "3.4.6",
+  "title": "External Equipment",
+  "fullText": "Any permanently installed external free-standing electrical equipment that does not form part of a single domestic installation shall be fitted with a label(s) identifying the switchboard from which it receives supply using the unique identifier of that switchboard. Example: \"Supply Origin DB1 Circuit R3\""
+},
+    "3.5": {
+      "id": "3.5",
+      "title": "Multiple Network Points of Supply",
+      "subsections": {
+        "3.5.1": {
+          "id": "3.5.1",
+          "title": "General",
+          "fullText": "A network operator shall provide only one point of supply to an individual freehold lot, where a consumer operates over adjacent lots, Crown land title, or survey strata lot unless circumstances justify more than one point of supply, network operator connection requirements are met, and safety concerns are satisfied. The following sections apply where the network operator has approved a consumer's application for more than one point of supply."
+        },
+        "3.5.2": {
+          "id": "3.5.2",
+          "title": "Standard Minimum Requirements",
+          "fullText": "A consumer may identify zones on a lot to which they require separate electricity supplies. In such cases, the network operator may approve more than one point of supply to the lot if, in addition to any specific conditions required by the network operator, the installation complies with the following:\n•\tNo low or high voltage wiring crosses zone boundaries.\n•\tZone boundaries, wherever possible, follow easily recognizable site features such as buildings, fences, or driveways and do not unnecessarily deviate from these, intermingle or crossover.\n•\tAn up-to-date zone diagram clearly identifying, both electrically and geographically, the extent of every zone and every zone main switchboard location, has been placed in every zone main switchboard and distribution board on the site.\n•\tEvery zone main switchboard has a unique identifier.\n•\tThe locations of the network operator's points of supply and service equipment in each zone are clearly identified on the relevant diagram.\n•\tCurrent copies of all zone diagrams have been provided to the network operator in an acceptable format.\n•\tThe labelling and signage requirements of section 3.5 and the Wiring Rules have been complied with, in addition to any particular identification requirements of network operators.\n•\tIn addition to the requirements of section 3.5, all items within 100 metres of the dividing zone boundaries not part of a building (for example free-standing lighting, pumps, or boom gates) have been clearly labelled with the unique identifier of the zone main switchboard supplying them.\n•\tThere is a suitable location for the network operator's point of supply equipment.\n•\tA notification under Section 70A of the Western Australian Transfer of Land Act 1893 has been placed on the property title of every and each:\n•\tfreehold lot;\n•\tsurvey strata lot;\n•\tbuilt strata lot; and\n•\tCertificate of Crown land titles, warning that the property has more than one point of electrical supply.\n•\tIn addition, a copy of the zone diagram and all revisions has been lodged with each notice.\n\nWhere required by the regulator or network operator, the locations of consumer energy generation/storage systems, including associated connection arrangements and service equipment in each zone, shall be clearly identified on the relevant diagram.",
+          "references": {
+            "sections": ["3.5"],
+            "standards": ["Wiring Rules"],
+            "acts": ["Western Australian Transfer of Land Act 1893"]
+          }
+        },
+        "3.5.3": {
+  "id": "3.5.3",
+  "title": "Commercial and Industrial Premises",
+  "fullText": "A network operator may provide more than one point of supply for commercial and industrial premises where:\n• The requirements listed in Section 3.5.2 and this Section 3.5.3, whichever is more stringent, are met.\n• Each zone has a building with a minimum four-metre-wide ground-level street frontage and contains a building with a main switchboard.\n• A current copy of all zone diagrams has been provided to DFES and the relevant local government authority in a format acceptable to them.\n• Buildings adjacent to each other but located in separate zones have sufficient separation to be deemed separate buildings under the National Construction Code (NCC).\n\nA separate zone may be provided for electrical equipment that is remote (electrically or geographically) from buildings or the main switchboard (such as pumps, lighting, boom gates, communication towers, etc.) provided:\n• Zone boundaries are a minimum of 10 metres from all associated remote equipment and the point of supply.\n• The remote equipment and associated switchboard are at least 50 metres from any building in an adjacent zone.",
+  "references": {
+    "sections": ["3.5.2", "3.5.3"],
+    "standards": ["National Construction Code (NCC)"],
+    "organizations": ["DFES"]
+  }
+},
+"3.5.4": {
+  "id": "3.5.4",
+  "title": "Built Strata Lots – Domestic",
+  "fullText": "A network operator may provide more than one supply point to a group of built strata lots if the requirements listed in Section 3.5.2 and the following are met:\n• The zones shall align with the land allocation.\n• Each zone has a minimum three-metre-wide ground-level street frontage and contains a building with a main switchboard.\n\nNetwork operators may have additional requirements for connection to their network.",
+  "references": {
+    "sections": ["3.5.2"]
+  }
+},
+
+        "3.5.5": {
+          "id": "3.5.5",
+          "title": "Survey Strata Lots – Domestic",
+          "fullText": "For a survey strata development zoned domestic and comprising up to three survey strata lots, a network operator may provide more than one point of supply provided the installation complies with section 3.5.2 and the following:\n•\tEach zone has a minimum three metre-wide ground-level street frontage and contains a building with a main switchboard.\n\nNetwork operators may have additional requirements for connection to their network.",
+          "references": {
+            "sections": ["3.5.2"]
+          }
+        },
+        "3.5.6": {
+          "id": "3.5.6",
+          "title": "Schools, Institutions, and Reserves",
+          "fullText": "A network operator may provide more than one point of supply for schools, other institutions, and reserves where:\n•\tthe requirements listed in section 3.5.2 and this section 3.5.6, whichever is the more stringent, are met;\n•\teach zone has a minimum four metre-wide ground level street frontage where there is a building or a minimum 10 metre-wide frontage where there is no building;\n•\ta current copy of all zone diagrams is provided to DFES and the relevant local government authority in a format acceptable to them; and\n•\tbuildings adjacent to each other but located in separate zones have sufficient separation to be deemed as such under the National Construction Code (NCC).\n\nA separate zone may be provided for electrical equipment that is remote (electrically or geographically) from buildings or the main switchboard (such as reserve/oval lighting, pumps, or other equipment) where:\n•\tzone boundaries are a minimum of 10 metres from the point of supply; and\n•\tthe remote equipment and associated switchboards are a minimum of 25 metres from any building in an adjacent zone.\n\nWhere a reserve/oval is part of the site and may be used for any sporting event, fete, fair, or similar gathering, requiring a temporary electricity supply, then either:\n•\ta temporary supply to the lot can be provided in accordance with section 3.5.10; or\n•\ta permanent switchboard may be established in a discrete zone with a separate permanent point of supply for the provision of temporary power supplies (which shall comply in all other respects with section 3.5.10) to such events on the site.",
+          "references": {
+            "sections": ["3.5.2", "3.5.6", "3.5.10"],
+            "standards": ["National Construction Code (NCC)"],
+            "organizations": ["DFES"]
+          }
+        },
+        "3.5.7": {
+          "id": "3.5.7",
+          "title": "Rural and Semi-rural Lots",
+          "fullText": "A network operator may provide more than one point of supply if the separation is more than 200 metres and the electrical wiring of each installation maintains a 50 metre separation at all times. Where these separation requirements cannot be achieved, the minimum requirements are as set out in section 3.5.2.",
+          "references": {
+            "sections": ["3.5.2"]
+          }
+        },
+        "3.5.8": {
+          "id": "3.5.8",
+          "title": "Rural Subdivisions Comprising Multiple Survey Strata Lots and Common Property",
+          "fullText": "For large rural subdivisions involving multiple survey strata lots and common property, a network operator may provide more than one point of supply if:\n•\tthe points of supply are more than 200 metres apart;\n•\tall equipment downstream from the network operator's point of supply is owned by the strata company;\n•\tthe site main switchboard(s) is established in accordance with the network operator's connection requirements;\n•\ta site of adequate dimension is provided by the strata company/site owner for the network operator's equipment;\n•\tservice pillars owned and installed by the strata company/site owner are readily identifiable as not being the property of the network operator; and\n•\tthe network operator's access requirements are met."
+        },
+        "3.5.9": {
+          "id": "3.5.9",
+          "title": "Temporary Builder's Supplies",
+          "fullText": "The following are the minimum requirements for the provision of a temporary builder's supply to a lot with an existing point of supply:\n•\tTemporary building supplies shall comply with the Wiring Rules. Compliance with AS/NZS 3012, Electrical installations – Construction and demolition sites also is required where relevant.\n•\tThe builder shall be responsible for both the permanent and the temporary supplies while the building site is under the builder's care.\n•\tThe temporary builder's supply shall service only the building project site and all wires and cables energised from this supply shall be within the builder's operational area, fenced or not.\n\nWhere building work takes place on an adjacent block, the network operator may provide separate temporary builder's supplies. Network operator connection requirements may also involve relevant additional criteria.",
+          "references": {
+            "standards": [
+              "Wiring Rules",
+              "AS/NZS 3012"
+            ]
+          }
+        },
+        "3.5.10": {
+          "id": "3.5.10",
+          "title": "Temporary Supplies for Short-term Events",
+          "fullText": "The following are the minimum requirements for the provision of a temporary supply to a lot with an existing point of supply:\n•\tTemporary supplies for short-term events shall comply with the current version of AS/NZS 3002.\n•\tThe event organizer or their representative shall be responsible for both the temporary and permanent supplies during all phases of the short-term event but in so doing the organizer shall not adversely interfere with or interrupt the permanent supply to the site.\n•\tThe temporary supply shall service only the event and shall be confined within the event's operational area, fenced or not.\n•\tNo wires or cables energised from the temporary event supply shall cross into adjacent land or beyond the confines of the event concerned.\n•\tOn completion of the event, the temporary supply shall be entirely removed, and the site made electrically safe.\n\nNetwork operator connection requirements may also stipulate relevant additional compliance matters.",
+          "references": {
+            "standards": ["AS/NZS 3002"]
+          }
+        },
+        "3.5.11": {
+          "id": "3.5.11",
+          "title": "Existing Multiple Supply Points",
+          "fullText": "Some developed properties have existing multiple points of supply, installed before the existence of the WAER. Some typical examples would be heritage buildings, older terrace housing, and small commercial building clusters. When new developments or renovations are proposed for such properties, network operators may require the supply arrangements to be modified so that they comply with current WAER requirements. Where a new development or renovation involves only a discrete part of such properties, so that clear separation from the remaining undisturbed portion may be achieved, its modified or upgraded supply shall comply with the relevant part of this Section 3.5. The existing point or points of supply to the undisturbed section may remain in service provided that:\n•\tthe undisturbed electrical installation is safe;\n•\tno electrical work is proposed in the undisturbed section to either the supply arrangement or switchboards;\n•\tupdated zone diagrams and labelling are placed in every main switchboard in service at the property;\n•\tcopies of the zone diagrams are provided to DFES and the relevant local authority in an acceptable format; and\n•\teach point of supply bears sufficient indelible labelling to identify clearly the location and means of isolation of supply to the whole or part of the undisturbed section to enable rapid and precise disconnection of supply in the event of fire.\n\nThe requirements of this clause shall also be applied where it is proposed to install consumer energy generation/storage systems within part or all of an existing installation with multiple points of supply.",
+          "references": {
+            "sections": ["3.5"],
+            "documents": ["WAER"],
+            "organizations": ["DFES"]
+          }
+        },
+        "3.5.12": {
+          "id": "3.5.12",
+          "title": "Electrical Safety Management Plan",
+          "fullText": "Where more than one point of supply is implemented, supply arrangements are otherwise complex, or a requirement of the Occupational Safety and Health (OSH) Regulations 1996 must be addressed, the consumer may be required to prepare and observe a site-specific OSH Management Plan. It is the responsibility of the consumer or their representative to ensure that all electrical work performed at the site complies with the Plan, which must meet OSH Regulations in addition to requirements set out herein. These requirements may affect consumers, staff, electrical and other contractors, the network operator, and DFES, and may stipulate notifications and procedures required by other local, state, or federal regulatory bodies. A copy of the Plan shall be made available on request to an authorised representative of WorkSafe, the network operator, or Building and Energy.",
+          "references": {
+            "regulations": ["Occupational Safety and Health (OSH) Regulations 1996"],
+            "organizations": ["DFES", "WorkSafe", "Building and Energy"]
+          }
+        },
+        "3.5.13": {
+          "id": "3.5.13",
+          "title": "Energisation of Multiple Points of Supply",
+          "fullText": "Prior to requesting energisation or permanently energising the installation for a particular zone, electrical contractors must satisfy the network operator that all stated requirements of this Section 3.5 have been complied with and that all applicable information has been supplied to the relevant entities.",
+          "references": {
+            "sections": ["3.5"]
+          }
+        }
+      }
+    },
+    "3.6": {
+  "id": "3.6",
+  "title": "Privately Owned Low Voltage Power Lines",
+  "fullText": "All new and replacement low voltage power lines to and between buildings within a consumer installation should be installed underground to minimize shock and fire risk and maximize reliability. Where it is not practical or cost-effective to use an underground system, an overhead (aerial) system may be used, provided that it:\n• Uses galvanized steel poles, CCA-treated timber poles, or fibre-reinforced cement poles as detailed in Section 4.6.\n• Utilizes insulated conductors.\n• Complies with the requirements of Section 3.12 of the Wiring Rules.\n• Complies with AS 3600 Concrete Structures.\n\nBuilding and Energy's publication \"Guidelines for the Safe Management of Private Power Poles and Lines\" provides information on required industry practices for the design, construction, and maintenance of privately owned low voltage power lines.",
+  "references": {
+    "sections": ["4.6", "3.12"],
+    "standards": [
+      "Wiring Rules",
+      "AS 3600 Concrete Structures"
+    ],
+    "documents": ["Guidelines for the Safe Management of Private Power Poles and Lines"],
+    "organizations": ["Building & Energy"]
+  }
+},
+
+    "5": {
+      "id": "5",
+      "title": "Low Voltage Underground Connections",
+      "subsections": {
+        "5.1": {
+          "id": "5.1",
+          "title": "Connection",
+          "fullText": "Network operators shall determine the method of connection in areas serviced by an underground distribution system. Special arrangements may apply to consumer installations supplied at high voltage or from multiple transformers. Reference should be made to the relevant network operator requirements for connection to their networks, such as the WASIR for Western Power or Horizon Power.",
+          "references": {
+            "documents": ["WASIR"],
+            "organizations": ["Western Power", "Horizon Power"]
+          }
+        },
+        "5.2": {
+          "id": "5.2",
+          "title": "Cables and Enclosures",
+          "fullText": "For multiple consumer installations on a site, common property or easements shall be created to allow consumer mains to be connected to the pillar and/or sub-mains to be connected to the site main switchboard. Cables shall run parallel to or perpendicular to the property boundary and shall be within 1.0m of those boundaries. At the network operator's discretion, a service easement may be created where a freehold or survey strata lot is established, and common property is required across the front boundary to ensure all lots have access to the connection point for their consumer and/or sub-mains cables (Figures 3.3(e), (f), (h) & (i)). The consumer is responsible for all costs associated with the creation of the easement.\n\nWith the exception of building entry arrangements described in section 9.4, consumer mains cables shall be insulated, sheathed, and installed in a heavy-duty non-metallic enclosure over their entire length. Conduit elbows or flexible conduit shall be used to facilitate cable exit from service pillars or cubicles. Consumer mains shall be installed as a Category 'A' system, as defined in Clause 3.11.2 of the Wiring Rules. Where necessary because of rock, a Category 'C' system may be used. A Category 'B' system as defined by the Wiring Rules or steel wire armoured cable shall not be used for consumer mains. Conduits for above-ground outdoor use shall be of a heavy-duty UV resistant type.",
+          "relatedFigures": ["3.3(e)", "3.3(f)", "3.3(h)", "3.3(i)"],
+          "references": {
+            "sections": ["9.4"],
+            "standards": ["Wiring Rules"],
+            "clauses": ["3.11.2"]
+          }
+        },
+        "5.3": {
+          "id": "5.3",
+          "title": "Service Connection Equipment",
+          "fullText": "Network operators will provide and install a service connection pillar, pit, CDC (cable distribution cabinet), PENDA (public electricity network distribution assembly), panel, sub-station, or frame to facilitate the connection of the consumer mains and determine the type and location of the service connection equipment to facilitate the consumer's connection.\n\nAn unimpeded vertical and 500mm horizontal exclusion zone shall be maintained around service connection equipment, providing sufficient access space to allow network operator staff, emergency personnel, and electrical contractors to work safely while completing or removing service connections, operating links, or fuses. Trees, shrubs, fences, and garden features such as fishponds, gazebos, and ornamental paths shall not be placed within the exclusion zone of service connection equipment. Where network equipment is obstructed or the safety of network personnel may be compromised, the property owner shall, as directed by the network operator, implement the required actions to correct the identified obstruction.\n\nNetwork operator connection arrangements may include additional requirements, as set out in the WASIR for Western Power and Horizon Power.",
+          "references": {
+            "documents": ["WASIR"],
+            "organizations": ["Western Power", "Horizon Power"]
+          }
+        },
+        "5.4": {
+          "id": "5.4",
+          "title": "Protection of Consumers Mains Supplied from Substations",
+          "fullText": "Where the installation main switchboard is contiguous with the network operator's substation enclosure, the consumer mains do not require over-current protection. If not contiguous, the consumer mains must have over-current protection in the substation."
+        },
+        "5.5": {
+          "id": "5.5",
+          "title": "Contractor Termination of Consumers Mains",
+          "fullText": "Network operators may authorize an electrical contractor to terminate the consumer mains at the point of supply. Where a multi-point terminal block is provided in network equipment, only one wire of a consumer mains cable shall be terminated in each tunnel of the terminal block. The network operator is to be contacted if there are insufficient vacant tunnels to complete the termination, which must not proceed until a suitable arrangement has been decided by the network operator. Doubling of active conductors in one tunnel is only permissible for street-light circuits."
+        }
+      }
+    },
+    "6": {
+      "id": "6",
+      "title": "Metering and Service Equipment",
+      "subsections": {
+        "6.1": {
+          "id": "6.1",
+          "title": "General",
+          "fullText": "Network operators shall determine the type and location of consumer connection arrangements, metering, and service equipment, which must comply with the network operator's connection requirements. Where an existing network connection or metering arrangement is altered, it shall be classified as a new connection which must comply with all relevant standards and the network operator's connection requirements. Connection of generation and storage systems (Distributed Energy Resources) to an existing connection or metering arrangement shall be classified as an alteration, requiring consultation with the relevant network operator before proceeding. This section provides particular requirements for low voltage installations only. For high voltage installations, further details shall be obtained from the relevant network operator."
+        },
+        "6.2": {
+          "id": "6.2",
+          "title": "Service Protection Device",
+          "subsections": {
+            "6.2.1": {
+              "id": "6.2.1",
+              "title": "Purpose",
+              "fullText": "The purpose of a Service Protection Device (SPD) is to:\n•\tElectrically protect the consumer mains and metering equipment from the effects of short circuit faults within an electrical installation.\n•\tProvide a point of electrical isolation for:\n•\tSafe replacement of metering equipment.\n•\tElectrical contractors to comply with Regulation 55 of the Electricity (Licensing) Regulations 1991.\n•\tThe network operator.",
+              "references": {
+                "regulations": ["Regulation 55 of the Electricity (Licensing) Regulations 1991"]
+              }
+            },
+            "6.2.2": {
+              "id": "6.2.2",
+              "title": "General Requirements",
+              "fullText": "Both a Service Protection Device (SPD) and a main switch are required in all consumer installations. For CT-connected metering installations connected to a sole-use sub-station, the network operator shall determine the need for a transformer circuit breaker. In determining the supply arrangement, network operators will provide the protection grading requirements for the purpose of SPD selection. Where an SPD has an adjustable protection range, the device shall be calibrated and sealed to comply with the network operator's connection requirements and shall not be adjusted subsequently without the network operator's approval."
+            },
+            "6.2.3": {
+              "id": "6.2.3",
+              "title": "Location",
+              "fullText": "SPDs shall be:\n•\tConnected on the supply side of meters or metering current transformers (CTs).\n•\tLocated on, or immediately adjacent to, the meter panel and be readily accessible.\n•\tClearly labelled where safety/emergency systems have been installed."
+            },
+            "6.2.4": {
+              "id": "6.2.4",
+              "title": "SPD for Whole Current Metering",
+              "subsections": {
+                "6.2.4.1": {
+                  "id": "6.2.4.1",
+                  "title": "Maximum Demand Not Exceeding 100A",
+                  "fullText": "SPDs for permanent installations with whole current metering and a maximum demand not exceeding 100A shall be a HRC fuse(s), and shall:\n•\tHave a continuous rating of 100A (base and holder).\n•\tUnless otherwise approved by the network operator, have a rated short circuit breaking capacity of not less than 25kA.\n•\tBe suitable to accept a Type IIa current limiting (HRC) fusible link (22 mm barrel) manufactured to the requirements of IEC 60269-3 Ed. 4.1.\n•\tProvide robust facilities for:\n•\tA seal to be fitted when the fuse link is in place.\n•\tA seal or a tag to be fitted when the fuse link is removed.\n\nFor builders' supplies, the SPD may be either a HRC fuse or miniature circuit breaker with the following ratings:\n•\tA continuous rating of 100A (base and holder).\n•\tA rated short circuit breaking capacity of not less than 25kA.",
+                  "references": {
+                    "standards": ["IEC 60269-3 Ed. 4.1"]
+                  }
+                },
+                "6.2.4.2": {
+                  "id": "6.2.4.2",
+                  "title": "Maximum Demand Greater Than 100A",
+                  "fullText": "For installations with whole current metering and a maximum demand exceeding 100A (such as multiple master metering or distributed master metering arrangements):\n•\tThe SPD shall be a circuit breaker or combined switch-fuse (CFS) unit of a type acceptable to the network operator, and shall:\n•\tHave a continuous current rating to accommodate the maximum demand.\n•\tUnless otherwise approved by the network operator, have a rated short circuit breaking capacity of 25kA minimum.\n•\tBe capable of discrimination with both upstream and downstream protective devices.\n•\tBe able to be locked and tagged in the 'off' position.\n\nEach individual meter shall be electrically protected with a fuse meeting the specified requirements of section 6.2.3.1.",
+                  "references": {
+                    "sections": ["6.2.3.1"]
+                  }
+                }
+              }
+            },
+            "6.2.5": {
+              "id": "6.2.5",
+              "title": "SPD for CT Metering",
+              "fullText": "The SPD for installations with CT-connected metering shall be a circuit breaker or combined switch-fuse (CFS) unit of a type acceptable to the network operator and shall:\n•\tHave a continuous rating appropriate to meet consumer requirements.\n•\tHave a minimum rated short circuit breaking capacity of 25kA unless otherwise specified or approved by the network operator.\n•\tBe capable of discrimination with both upstream and downstream protective devices.\n•\tBe able to be locked and tagged in the 'off' position."
+            }
+          }
+        },
+        "6.3": {
+  "id": "6.3",
+  "title": "Earthing of Remote Metering Enclosures",
+  "fullText": "Where a remote metering enclosure (separate from the main switchboard) is required for network operator access to metering equipment, the enclosure shall be effectively earthed by either of the two methods described in Section 5.5.3.5 of the Wiring Rules, namely:\n\nMethod 1\nThe enclosure is connected to the consumer mains neutral by a conductor of cross-sectional area not less than the neutral conductor, as shown in Figure 6.3.1.\nThe main neutral conductor must be continuous (i.e., unbroken) and connection may be made by:\n• Splicing, soldering, and taping; or\n• Using a two-screw connector and then taping.\nThis does not preclude other methods of jointing provided they comply with the Wiring Rules. This method must not be used where the metering enclosure and switchboard are mounted on the same metal-framed building structure.\n\nMethod 2\nThe enclosure is connected to the earth bar in the main switchboard via an earthing conductor of the same size as the consumer mains neutral, as shown in Figure 6.3.2\nMethod 2 must be used where the metering enclosure and switchboard are mounted on the same metal-framed building structure.",
+  "references": {
+    "sections": ["5.5.3.5"],
+    "standards": ["Wiring Rules"],
+    "relatedFigures": ["6.3.1", "6.3.2"]
+  },
+  "methods": [
+    {
+      "id": 1,
+      "description": "Connection to consumer mains neutral",
+      "figure": "6.3.1",
+      "restrictions": "Must not be used where metering enclosure and switchboard are mounted on same metal-framed building structure",
+      "connectionMethods": [
+        "Splicing, soldering, and taping",
+        "Using a two-screw connector and then taping"
+      ]
+    },
+    {
+      "id": 2,
+      "description": "Connection to earth bar in main switchboard",
+      "figure": "6.3.2",
+      "requirements": "Must be used where metering enclosure and switchboard are mounted on same metal-framed building structure"
+    }
+  ]
+},
+        "6.4": {
+          "id": "6.4",
+          "title": "Test Reports and Measurement Accuracy of LV CTs",
+          "fullText": "Copies of all CT test reports shall be collected by or forwarded to the network operator or their authorized representative (where the installation is connected to a network) or to the owner/operator for stand-alone installations, prior to a permanent supply being made available. CT type tests and routine test reports for the unit/s installed shall comply with current standards and network operator connection requirements, which include traceability to either NATA or an ILAC accredited laboratory.",
+          "references": {
+            "organizations": ["NATA", "ILAC"]
+          }
+        }
+      }
+    },
+    "7": {
+      "id": "7",
+      "title": "Large-scale Installations",
+      "subsections": {
+        "7.1": {
+          "id": "7.1",
+          "title": "General Requirements",
+          "fullText": "The following requirements apply to large-scale consumer installations for both network-connected and stand-alone cases, involving any of the following:\n•\tHigh voltage (exceeding 1000 Volts).\n•\tSolar photovoltaic installations exceeding the 200kVA and 240kW capacity ranges specified in AS/NZS 4777.1 and AS/NZS 5033, respectively.\n•\tBattery energy storage (BESS) installations exceeding the 200kWh capacity range specified in AS/NZS 5139.\n•\tWind turbine installations exceeding 200kW capacity.\n\nConsumer electrical installations listed above must be designed, constructed, maintained, and operated by competent persons, consistent with good industry practice, to ensure the safety of consumers, workers, equipment, private, public and network operator property, and the general public. The fundamental requirements specified in Regulations 49, 49A, and 49B of the Electricity (Licensing) Regulations 1991 and Section 9 of this document must be observed.\n\nThe technical requirements for the design of HV installations appear in various technical standards, including but not limited to:\n•\tAS/NZS 2067\n•\tAS/NZS 3000, Wiring Rules\n•\tAS/NZS 7000\n•\tNetwork operator connection requirements\n\nNetwork operators may also have additional requirements applicable to specific locations and to the large-scale installations listed above. A consumer's large-scale installation commences at the point of supply as designated by the network operator (where connection to a network is sought) and/or at the output terminals of on-site generating plant. The large-scale installations listed above located on mine sites are also required to comply with mines safety inspection legislation administered by the Department of Mines, Industry Regulation, and Safety.",
+          "references": {
+            "standards": [
+              "AS/NZS 4777.1",
+              "AS/NZS 5033",
+              "AS/NZS 5139",
+              "AS/NZS 2067",
+              "AS/NZS 3000",
+              "AS/NZS 7000"
+            ],
+            "regulations": [
+              "Regulations 49",
+              "Regulations 49A",
+              "Regulations 49B",
+              "Electricity (Licensing) Regulations 1991"
+            ],
+            "sections": ["9"],
+            "organizations": ["Department of Mines, Industry Regulation, and Safety"]
+          }
+        },
+        "7.2": {
+          "id": "7.2",
+          "title": "Design Requirements",
+          "subsections": {
+            "7.2.1": {
+              "id": "7.2.1",
+              "title": "Design Details",
+              "fullText": "Consumer large-scale installation design details shall include, but not be limited to, the following information:\n•\tSite plans.\n•\tSingle line diagrams.\n•\tElectrical load calculations.\n•\tControl of incoming supplies and metering arrangements.\n•\tEarthing system design and supporting calculations.\n•\tPrimary plant details:\n•\tGenerators, motors, power transformers, switchgear, current and voltage transformers.\n•\tDC and AC cabling, solar panel specification, battery type, and associated hazards.\n•\tPower conversion equipment, AC, and DC switchboards.\n•\tProtection scheme and supporting coordination study.\n•\tFinal testing, verification, and commissioning plans.\n•\tApplicable technical standards relied upon.\n•\tTime schedule for initial commissioning supply and permanent operation.\n•\tSafe operating procedures.\n•\tEquipment maintenance requirements.\n•\tManufacturer's instructions and specifications.\n•\tPrimary, secondary, and tertiary control devices.\n\nNetwork operators may also specify additional information for installations connected to their network.",
+              "designRequirements": [
+                "Site plans",
+                "Single line diagrams",
+                "Electrical load calculations",
+                "Control of incoming supplies and metering arrangements",
+                "Earthing system design and supporting calculations",
+                "Primary plant details",
+                "Protection scheme and supporting coordination study",
+                "Final testing, verification, and commissioning plans",
+                "Applicable technical standards relied upon",
+                "Time schedule",
+                "Safe operating procedures",
+                "Equipment maintenance requirements",
+                "Manufacturer's instructions and specifications",
+                "Control devices"
+              ]
+            },
+            "7.2.2": {
+              "id": "7.2.2",
+              "title": "Design Certification",
+              "fullText": "For all proposed new consumer large-scale installations and subsequent modifications or upgrades, the relevant network operator shall be consulted prior to the commencement of design work. Designs must be developed and certified in writing by a professionally qualified engineer, engaged by the installation owner, as complying with all relevant technical and network operator requirements."
+            },
+           "7.2.3": {
+  "id": "7.2.3",
+  "title": "Operation and Maintenance of Large-scale Installations",
+  "fullText": "It is the responsibility of the designer to provide the consumer large-scale installation owner/operator with:\n• A set of operating and safe working procedures to manage the safety of personnel and equipment in accordance with good electricity industry practice.\n• A maintenance schedule for all the equipment comprising the installation.\n\nThe procedures and schedule shall be designed to achieve compliance with the requirements of relevant legislation, Australian Standards, and applicable codes of practice. Further recommended requirements are provided in the Building & Energy publication \"Guidelines for the Safe Management of High Voltage Electrical Installations.\" Where the installation is to be connected to a network, the designer shall formally notify the network operator when the safe operating procedures and recommended maintenance schedule have been provided to the installation owner/operator.",
+  "references": {
+    "documents": ["Guidelines for the Safe Management of High Voltage Electrical Installations"],
+    "organizations": ["Building & Energy"]
+  },
+  "requirements": [
+    "Operating and safe working procedures",
+    "Maintenance schedule"
+  ]
+},
+            "7.2.4": {
+              "id": "7.2.4",
+              "title": "Design Submissions",
+              "fullText": "The requirements for consumer large-scale design submissions (inclusive of safety procedures and maintenance recommendations) are as follows:\n•\tSubmissions should be made prior to the finalization of designs and commencement of procurement.\n•\tWhere connection to a network is required, the certified installation details must be submitted to the network operator in reasonable time to enable review prior to the network connection proceeding.\n•\tSubmissions must comply with the network operator's connection requirements and include all design details, design certification, safety procedures, and maintenance schedule.\n•\tFor mine sites, the submission must be forwarded to the Department of Mines, Industry Regulation, and Safety, in accordance with regulation 5.18 of the Mines Safety and Inspection Regulations 1995.\n•\tFor installations not connected to a network, a submission is not required. However, the installation must otherwise comply with the relevant requirements of this Section 7.",
+              "references": {
+                "sections": ["7"],
+                "regulations": ["regulation 5.18 of the Mines Safety and Inspection Regulations 1995"],
+                "organizations": ["Department of Mines, Industry Regulation, and Safety"]
+              }
+            }
+          }
+        },
+        "7.3": {
+          "id": "7.3",
+          "title": "Commissioning Tests and Final Certification",
+          "fullText": "Final commissioning tests according to the designer's testing, verification, and commissioning plan are required to prove the satisfactory performance of the installation in meeting the design requirements. These tests shall be performed by a competent service provider acceptable to the network operator (where applicable). In the case of network connections, satisfactory test results for all electrical equipment between the point of supply and the main switch shall be recorded and submitted to the network operator prior to permanent supply being made available. All licensed electrical contractors completing electrical installation work must submit a Notice of Completion to the relevant network operator. Final certification is required from a professionally qualified engineer that the 'as commissioned' installation complies with the design and all relevant technical requirements. A copy of the final certification shall be provided to the network operator (where the installation is connected to a network) or to the owner/operator for stand-alone installations. The final certification and all items of documentation mentioned above shall be kept on file by the installation's owner/operator and be readily available for inspection by relevant regulatory bodies.",
+          "requirements": [
+            "Final commissioning tests",
+            "Test results submission",
+            "Notice of Completion",
+            "Final certification",
+            "Documentation retention"
+          ],
+          "subsections": {
+            "7.3.1": {
+              "id": "7.3.1",
+              "title": "Test Reports and Measurement Accuracy of CTs and VTs",
+              "fullText": "Copies of all CT/VT test reports shall be collected by or forwarded to the network operator or their authorized representative (where the installation is connected to a network) or to the owner/operator for stand-alone installations, prior to dispatching from the testing laboratory. CT and VT type tests and routine test reports for the unit/s installed shall comply with current standards and network operator requirements, which include traceability to either NATA or an ILAC accredited laboratory.",
+              "references": {
+                "organizations": ["NATA", "ILAC"]
+              }
+            }
+          }
+        }
+      }
+    },
+    "8": {
+      "id": "8",
+      "title": "Emergency Conditions",
+      "subsections": {
+        "8.1": {
+          "id": "8.1",
+          "title": "Emergency Disconnection",
+          "fullText": "Under emergency conditions, electrical contractors may open the Service Protection Device (SPD) or otherwise isolate the installation from the low voltage electricity supply to ensure their own, occupants', and the public's safety. Electrical contractors may also remove the SPD fuse cartridge or operate the SPD circuit breaker to achieve isolation before commencing electrical work on the consumer's installation, including the main switchboard. Contractors may be required to inform the relevant network operator before doing so and again when re-energizing the installation.\n\nElectrical contractors and their employed electricians shall exercise care:\n•\tNot to isolate unnecessarily any emergency equipment such as fire-fighting services or evacuation aids.\n•\tTo ensure that all other supply sources are isolated, including energy generation/storage systems before any electrical work is commenced.\n\nThe installation must be made electrically safe before being re-energized."
+        },
+        "8.2": {
+          "id": "8.2",
+          "title": "Repair of Damaged Installations",
+          "fullText": "Temporary repairs may be made to enable occupants to use all or designated parts of the consumer installation for a short period while permanent repairs are arranged. Electrical contractors must notify the network operator about the temporary repairs to an installation as soon as practicable after it is re-energized.\n\nAn emergency or temporary repair must only remain in service for a maximum period of 14 calendar days (21 days for isolated country districts). A Notice of Completion and Electrical Safety Certificate shall be forwarded by the electrical contractor to the network operator and the installation owner respectively on completion of the permanent repairs.",
+          "timeframes": {
+            "standard": "14 calendar days",
+            "isolatedCountry": "21 days"
+          }
+        },
+        "8.3": {
+          "id": "8.3",
+          "title": "Defective Main Switch, Service Protection Device or Boundary Fuse",
+          "fullText": "Should a consumer's main switch, service protection device, or boundary fuse become defective, the network operator, or an electrical contractor authorized by the network operator, may disconnect and later reconnect the electrical supply to enable replacement by the installation owner's electrical contractor."
+        },
+        "8.4": {
+          "id": "8.4",
+          "title": "Consumers Mains Failure",
+          "fullText": "An electrical contractor may provide emergency consumers mains to an installation to maintain electricity supply when failure or damage to the permanent consumers mains has occurred. The installation of a temporary service shall not create any additional electrical hazards. In all cases, the temporary consumer mains shall be double insulated along their entire route length and positioned so as to ensure protection from further damage. The following work shall be undertaken:\n•\tWhere the consumers mains switchboard is damaged, deemed unsafe, or is unserviceable, a panel suitable to house an emergency main switch shall be supplied and installed.\n•\tThe existing main earth electrode and conductor shall be confirmed as operational or replaced as part of the temporary repairs.\n•\tThe MEN connection for the temporary arrangement is to be re-made at the consumer's neutral link (not at the network operator's meter or neutral link).\n\nAs part of the permanent repairs, the electrical contractor shall ensure that:\n•\tConsumers mains comply with statutory and network operator connection requirements.\n•\tConsumers mains are labeled in accordance with section 3.5.\n•\tThe main switchboard complies with the statutory and network operator connection requirements.\n•\t75 mm rear clearance is provided for existing meter enclosures, provided that a consumer mains cable size of 16 square mm is not exceeded.\n•\tMain earth, installation earths, and MEN comply with statutory requirements.\n•\tThe installation is electrically safe and free from hazards.",
+          "references": {
+            "sections": ["3.5"]
+          },
+          "requirements": {
+            "temporary": [
+              "Double insulated consumer mains",
+              "Emergency main switch panel if needed",
+              "Operational main earth electrode",
+              "MEN connection at consumer's neutral link"
+            ],
+            "permanent": [
+              "Compliant consumer mains",
+              "Proper labeling",
+              "Compliant main switchboard",
+              "75mm rear clearance for meter enclosures",
+              "Compliant earthing",
+              "Electrical safety"
+            ]
+          }
+        },
+        "8.5": {
+          "id": "8.5",
+          "title": "Connection Arrangement Failures",
+          "fullText": "Network operators may carry out repairs or replacement of the:\n•\tMains connection box.\n•\tMeter board/panel and board-mounted SPD when failure or damage has occurred in a consumer's electrical installation.",
+          "repairableItems": [
+            "Mains connection box",
+            "Meter board/panel and board-mounted SPD"
+          ]
+        },
+        "8.6": {
+          "id": "8.6",
+          "title": "Warning Notices",
+          "fullText": "After installing an emergency supply or carrying out temporary repairs, the electrical contractor shall leave a warning notice in the main switchboard before leaving the site and immediately notify the network operator. The warning notice shall describe the emergency/temporary work and provide contact details should it be necessary for anyone to discuss the arrangement with the electrical contractor. The warning notice should indicate when permanent repairs to the installation are expected to be carried out. The warning notice shall only be removed by the electrical contractor on completion of the permanent repairs and submission of a Notice of Completion.",
+          "warningNoticeRequirements": [
+            "Description of emergency/temporary work",
+            "Contact details",
+            "Expected permanent repair timeline",
+            "Only removable after permanent repairs and Notice of Completion"
+          ],
+          "responsibilities": [
+            "Leave warning notice in main switchboard",
+            "Notify network operator immediately",
+            "Remove notice after permanent repairs"
+          ]
+        }
+      }
+    },
+    "9": {
+  "id": "9",
+  "title": "Special Requirements for Installations in WA",
+  "description": "Under Regulation 49 of the Electricity (Licensing) Regulations 1991, the requirements set out below, which are additional to or at variance with the Wiring Rules and other Australian Standards, are mandatory and take precedence over those appearing in the Australian Standards.",
+  "references": {
+    "regulations": ["Regulation 49 of the Electricity (Licensing) Regulations 1991"],
+    "standards": ["Wiring Rules"]
+  }
+  },
+      "subsections": {
+        "9.1": {"9.1": {
+  "id": "9.1",
+  "title": "Application of Wiring Rules Part 1",
+  "fullText": "Electrical installation designers choosing to use a Wiring Rules Part 1 design and installation solution (rather than apply the deemed-to-comply requirements of Part 2) must comply with Section 1.9.4 of the Wiring Rules and the following additional requirements. Designers must not adopt a Part 1 solution for the following types of electrical installations, which must comply with Part 2 of the Wiring Rules and the applicable standard or standards referred to in Section 9.12:\n• Domestic installations.\n• Construction and demolition sites.\n• Medical treatment areas.\n• Relocatable installations and the site installations to supply them.\n• Marinas and pleasure craft.\n• Shows and carnivals.",
+  "subsections": {
+    "designWork": {
+      "title": "Design Work",
+      "fullText": "Designers must be competent to carry out designs that depart from Part 2 of the Wiring Rules under the provisions of Section 1.9.4.1. For the purposes of this requirement, the following persons may be considered competent:\n• Currently licensed electricians with at least 10 years of experience in the design and construction of consumer electrical installations (other than domestic installations) since qualifying, including not less than 5 years of design experience in total.\n• Electrical designers holding a TAFE Advanced Diploma in Electrical Engineering (or equivalent) and having at least 5 years of experience in the design of consumer electrical installations (other than domestic installations).\n• Professionally qualified engineers.\n\nThe designer must establish and retain for at least 10 years a folder that contains:\n• The document referred to in Clause 1.9.4.2 of the Wiring Rules, which contains the installation owner's or operator's acknowledgment and acceptance that some parts of the installation do not conform to Part 2 of the Wiring Rules.\n• The specific information listed in Clause 1.9.4.3 \"Documentation\" of the Wiring Rules.\n\nThe designer is also required to provide one copy of the folder and contents to the responsible person for the installation, and a further copy to the person engaged to verify the compliance of the installation. The designer shall make their folder available for examination by an Inspector (Electricity), if requested. Additionally, the designer shall complete Section A of the \"Part 1 Design and Verification Certificate\" (appended to this document)."
+    },
+    "verificationCompliance": {
+      "title": "Verification of Compliance",
+      "fullText": "Both the design and construction of the parts of the installation that do not comply with Part 2 of the Wiring Rules are required to be independently assessed to confirm compliance with the requirements listed in Wiring Rules Clause 1.9.4.1 paragraphs (a), (b), and (c), as required by Clause 1.9.4.4. This verification assessment work may only be carried out by persons who:\n• Were not involved in the design of the installation.\n• Do not report to the designer (i.e., they may be part of the same organization, subject to these constraints).\n• Are one of the following:\n  • Currently licensed electricians with at least 10 years of experience in the design and construction of consumer electrical installations (other than domestic installations) since qualifying, including not less than 5 years of design experience in total.\n  • Electrical designers holding a TAFE Advanced Diploma in Electrical Engineering (or equivalent) and having at least 5 years of experience in the design of consumer electrical installations (other than domestic installations).\n  • Professionally qualified engineers with at least 5 years of experience in the design of consumer electrical installations (other than domestic installations).\n\nOn completion of the verification assessment, the verifier may, if satisfied, complete Section B of the \"Part 1 Design and Verification Certificate\" appended to this document. It is the designer's responsibility to ensure the verification work is carried out. When completed by both the designer and verifier, the certificate must be placed with the project folder referred to above and retained by the designer for at least 10 years. A copy of the certificate shall be provided to the network operator on request.",
+      "verifierRequirements": [
+        "Not involved in installation design",
+        "Does not report to designer",
+        "Meets competency requirements"
+      ],
+      "retentionPeriod": "10 years"
+    }
+  }
+},
+
+        "9.2": {
+          "id": "9.2",
+          "title": "Consumer Mains Cable",
+          "subsections": {
+            "9.2.1": {
+              "id": "9.2.1",
+              "title": "Design",
+              "fullText": "Single and multi-phase consumer mains shall have a minimum current-carrying capacity of 32A per phase, except for:\n•\tSingle domestic installations, where the minimum current-carrying capacity shall be:\n•\tSingle-phase: 63A\n•\tMulti-phase: 32A per phase; and\n•\tMultiple installations which incorporate a domestic installation, where the minimum current-carrying capacity shall be:\n•\tSingle-phase: 63A\n•\tMulti-phase: 63A per phase.\n\nThe cable sizes used for consumer mains to domestic premises shall be no less than:\n•\tSingle-phase: 10 square millimeters, copper conductors; or\n•\tThree-phase: 6 square millimeters, copper conductors.\n\nWhen calculating voltage drop in an installation, the component of voltage drop across the consumer mains shall be assessed using the maximum demand of the installation or 80% of the minimum current carrying capacity specified above, whichever is the greater. The maximum length permitted for consumer mains is 30 meters, where voltage drop may determine the necessary cable size.\n\nInstallation designers should bear in mind the steadily growing demand maxima imposed by domestic dwellings, especially with the increasing popularity of air conditioning and possible electric vehicle charging. To allow for demand growth, and the possibility of all-electric homes, designers and contractors should consider installing 16 and 10 square millimeter copper conductors respectively for single-phase and three-phase consumer mains.",
+              "minimumCapacity": {
+                "standard": "32A per phase",
+                "singleDomestic": {
+                  "singlePhase": "63A",
+                  "multiPhase": "32A per phase"
+                },
+                "multipleDomestic": {
+                  "singlePhase": "63A",
+                  "multiPhase": "63A per phase"
+                }
+              },
+              "minimumCableSize": {
+                "singlePhase": "10 square millimeters, copper",
+                "threePhase": "6 square millimeters, copper"
+              },
+              "recommendations": {
+                "singlePhase": "16 square millimeter copper",
+                "threePhase": "10 square millimeter copper"
+              }
+            }
+          }
+        },
+        "9.3": {
+          "id": "9.3",
+          "title": "Current-Carrying Capacity of Cables in Roof Spaces",
+          "fullText": "For the purpose of calculating current-carrying capacity, wiring systems shall be installed in the roof space of buildings on the assumption that ceiling thermal insulation, if not currently present, will be installed in the future, and must comply with the Wiring Rules on such basis.",
+          "references": {
+            "standards": ["Wiring Rules"]
+          }
+        },
+        "9.4": {
+          "id": "9.4",
+          "title": "Protection of Consumer Mains",
+          "subsections": {
+            "9.4.1": {
+              "id": "9.4.1",
+              "title": "Consumers Mains in Wall Cavities",
+              "fullText": "Insulated and sheathed consumers mains are permissible without enclosure in heavy-duty conduit when installed in the cavity of double-brick walls."
+            },
+            "9.4.2": {
+              "id": "9.4.2",
+              "title": "Building Entry",
+              "fullText": "Provision shall be made during construction of the building for the consumer mains conduit to pass through the building foundations and into either the building or the wall cavity. If such provision has not been allowed, the portion of this conduit rising up to and around the footing to the point of entry into the wall cavity shall be protected against impact damage, movement, and water ingress by a galvanized steel pipe or equivalent."
+            },
+            "9.4.3": {
+              "id": "9.4.3",
+              "title": "Connection at Point of Supply",
+              "fullText": "Underground consumer mains cables shall be protected mechanically over their entire length as required in section 5.2. Where consumer mains cables are installed on external surfaces of property owners' structures (e.g. consumer pole, external walls, under eaves), they shall be installed in a heavy-duty non-metallic enclosure to provide appropriate mechanical, waterproofing, and UV protection in accordance with the Wiring Rules.",
+              "references": {
+                "sections": ["5.2"],
+                "standards": ["Wiring Rules"]
+              }
+            }
+          }
+        },
+        "9.5": {
+          "id": "9.5",
+          "title": "Protection of PV Array DC Cables",
+          "fullText": "Insulated and sheathed DC cables may be installed in the cavity of double-brick walls without enclosure in heavy-duty conduit (reference Clause 4.3.6.3.2 of AS/NZS 5033) but shall otherwise comply with the requirements of that Standard. Such cables installed within brick veneer shall be mechanically protected by heavy-duty conduit.",
+          "references": {
+            "standards": ["AS/NZS 5033"],
+            "clauses": ["4.3.6.3.2"]
+          }
+        },
+        "9.6": {
+          "id": "9.6",
+          "title": "Equipotential Bonding in Shower Recesses and Bathrooms",
+          "fullText": "Equipotential bonding of the conducting metal reinforcing mesh within concrete floors and walls forming part of a shower recess or bathroom is not required."
+        },
+        "9.7": {
+  "id": "9.7",
+  "title": "Segregation of Electrical Installations",
+  "fullText": "Except for the following listed circumstances, no part of installation wiring or consumer mains from one lot shall cross into another lot. The exceptions are:\n• If electrical zones have been established as required under section 3.5 of this document, the consumer mains or installation wiring may cross into another lot if they remain within their zone;\n• Wiring within common property (see section 5.2 and section 9.8);\n• Consumers mains may cross into an adjacent lot in the vicinity of a service pillar or other similar network operator point of supply if the consumer mains are to be connected into that pillar; and\n• If an enterprise operates over adjacent lots and one service supplies all such lots, installation wiring may extend over the lots. Where a fire-rated barrier separates individual enterprises, the electrical services of either enterprise shall not cross such fire-rated barriers. Consumer mains may only cross or be located in road or other reserves (such as public open space) when:\n• The area they enter is the site of a network operator's substation and the consumer mains are to be connected into the substation; or\n• They are associated with a network operator-approved installation such as an unmetered supply.",
+  "references": {
+    "sections": ["3.5", "5.2", "9.8"]
+  },
+  "exceptions": [
+    "Electrical zones established under section 3.5",
+    "Wiring within common property",
+    "Consumer mains near service pillar",
+    "Enterprise operating over adjacent lots"
+  ]
+},
+
+        "9.8": {
+          "id": "9.8",
+          "title": "Supply to Shared-Use Domestic Bore Pumps",
+          "fullText": "Two or more domestic consumers may provide separate supplies to common equipment such as a bore pump installed on, or straddling, the property boundary as follows:\n•\tWiring shall be arranged so that only one supply can service the equipment at any one time and the two supplies cannot be interconnected.\n•\tAppropriately rated socket outlets may be installed on either side of the boundary and supplied from the electrical installations of the respective properties. Alternative means of supply may be submitted to the network operator for approval. A changeover switch arrangement is not acceptable.\n•\tThe pump may be connected to either socket outlet using a flexible cord and plug. An isolating switch capable of being locked open shall be located adjacent to the equipment.\n•\tA durable, easily legible notice shall be fixed on the isolating switch warning that supply may originate from either of two sources. Further details about acceptable technical standards for notices and labels are provided in section 3.4.\n\nWhere a bore pump is shared but is located within one property, its supply must originate only from the electrical installation in that property. Extra-low voltage control cabling from one property may cross into the associated adjoining property.",
+          "references": {
+            "sections": ["3.4"]
+          }
+        },
+        "9.9": {
+          "id": "9.9",
+          "title": "Reporting of Unsafe Electrical Installations",
+          "fullText": "Where an electrical worker identifies a defect in an electrical installation that renders that installation unsafe, Regulation 62 of the Electricity (Licensing) Regulations 1991 requires that person to advise the electrical contractor, who shall report the matter to the owner and the relevant network operator (or the Director). Such defects include, but are not limited to:\n•\tUnenclosed electrical joints in ceiling spaces; or\n•\tDegraded wiring insulation.\n\nWhere occurrences of unenclosed joints or degraded wiring insulation have already been rectified, no reporting is required under Regulation 62. The fitting of an RCD, while recommended, is not acceptable (on its own) as an effective remedial action for such defects.",
+          "references": {
+            "regulations": ["Regulation 62 of the Electricity (Licensing) Regulations 1991"]
+          },
+          "defectExamples": [
+            "Unenclosed electrical joints in ceiling spaces",
+            "Degraded wiring insulation"
+          ]
+        },
+        "9.10": {
+          "id": "9.10",
+          "title": "Applicable Standards",
+          "fullText": "References are made throughout this document to relevant technical standards that apply to various aspects of electrical installations. Electrical work must be carried out so as to comply (where applicable) with the latest version of those standards listed in Schedule 2 of the Electricity (Licensing) Regulations 1991. The solar panels, inverters, batteries, and other components comprising a solar PV installation intended for grid connection must be acceptable to the relevant network operator. They also must be approved by the Clean Energy Regulator if the installation owner wishes to qualify for Small Scale Renewable Energy Credits.",
+          "references": {
+            "regulations": ["Schedule 2 of the Electricity (Licensing) Regulations 1991"],
+            "organizations": ["Clean Energy Regulator"]
+          }
+        }
+        }
+      }
+    }
+  }
+        
+      
+    
+        
+

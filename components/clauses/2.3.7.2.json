@@ -1,0 +1,5 @@
+{
+  "id": "2.3.7.2",
+  "title": "Functional switching devices",
+  "fullText": "Disconnectors, fuses or links shall not be used for functional switching.\nFunctional switching devices shall be suitable for the most onerous of the duties that they might be required to perform.\nNOTE: The type of loading, the frequency of operation, and the anticipated number of operations should be taken into account when assessing the most onerous duty. (Systems of duty classification are found in the Standards relevant to the electrical equipment concerned, or in the switch manufacturer's information.)\nFunctional switching devices need not switch all live conductors of a circuit.\nFunctional switching devices controlling loads having a significantly low power factor, such as motors or fluorescent lighting, shall be subject to an appropriate de-rating factor.\nException: No de-rating factor need apply where the device has been designed for the purpose, e.g. switches having a utilization category of AC23A in accordance with AS/NZS IEC 60947.3, used to control circuits of fluorescent lighting are deemed to be designed for the purpose."
+} 

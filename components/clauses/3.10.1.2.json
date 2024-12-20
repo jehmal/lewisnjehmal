@@ -1,0 +1,9 @@
+{
+  "id": "3.10.1.2",
+  "title": "Insulated and sheathed cables",
+  "fullText": "Cables of a sheathed type need not be installed in a wiring enclosure.\nException: Cables having insulation or sheath that does not meet the combustion propagation requirements of the AS/NZS 5000 series, e.g. polyethylene-insulated unsheathed cables, shall be installed in fire-rated enclosures.\nWhere the sheath of a cable is removed, the exposed cores of the cable shall be enclosed in accordance with Clause 3.10.1.1.",
+  "references": {
+    "standards": ["AS/NZS 5000"],
+    "sections": ["3.10.1.1"]
+  }
+} 

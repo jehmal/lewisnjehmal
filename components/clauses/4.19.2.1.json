@@ -1,0 +1,9 @@
+{
+  "id": "4.19.2.1",
+  "title": "Sources of ignition",
+  "fullText": "Electrical equipment that is a source of ignition, such as socket-outlets, switches, luminaires, switchboards, meter boxes and airconditioners, shall not be installed within the hazardous areas shown in Figure 4.18 by dimensions A and B. Dimensions A and B are shown in Figure 4.18 for both exchange and in-situ fill gas cylinders.\nException: Approved combined gas and electrical meter enclosures are exempted from these requirements.\nNOTES:\n1\tElectrical\tequipment\tselected\tand\tinstalled\tin\taccordance\twith Clause 7.7.2.4 is not considered an ignition source.\n2\tRefer to Clause 7.7 for requirements in hazardous areas.",
+  "references": {
+    "clauses": ["7.7.2.4", "7.7"],
+    "figures": ["4.18"]
+  }
+} 

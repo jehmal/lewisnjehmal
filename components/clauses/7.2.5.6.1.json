@@ -1,0 +1,6 @@
+{
+  "id": "7.2.5.6.1",
+  "title": "Isolating Switches for Fire-Pump Motors",
+  "fullText": "Where fire-pump motors are automatically controlled, a manually operated isolating switch shall be connected on the supply side of the pump motor. The isolating switch shall: (a) comply with the requirements of Clauses 2.3.2 and 2.3.6; and (b) be installed adjacent to the pump motor; and (c) be provided with a device for locking the switch in the closed position.",
+  "references": ["2.3.2", "2.3.6"]
+} 

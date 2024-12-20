@@ -1,0 +1,9 @@
+{
+  "id": "3.10.2.1",
+  "title": "Types",
+  "fullText": "The following types of wiring enclosures may be used for the protection of cables requiring enclosure as specified in Clause 3.10.1:\n(a) Conduits in accordance with AS/NZS 2053 series or the AS/NZS 61386 series, including—\n(i) steel conduits or other metal tubing or conduit;\n(ii) flexible metal conduit;\n(iii) rigid and flexible insulating conduit; and\n(iv) corrugated insulating conduit.\nNOTE: Refer to Appendix N for information on compatibility of conduit classifications in the AS/NZS 2053 series and AS/NZS 61386 series.\n(b) Cable trunking systems in accordance with AS/NZS 4296, with or without compound filling.\n(c) Other wiring enclosures providing mechanical protection at least equivalent to those listed in Items (a) and (b).\nCovers of wiring enclosures containing unsheathed cables shall be effectively retained in position and, where installed in a readily accessible position, shall not be removable without the use of tools.",
+  "references": {
+    "standards": ["AS/NZS 2053", "AS/NZS 61386", "AS/NZS 4296"],
+    "sections": ["3.10.1", "Appendix N"]
+  }
+} 

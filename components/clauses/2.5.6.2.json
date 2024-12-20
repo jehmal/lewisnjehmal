@@ -1,0 +1,5 @@
+{
+  "id": "2.5.6.2",
+  "title": "Protection Afforded by Separate Devices",
+  "fullText": "The requirements of Clauses 2.5.3 and 2.5.4 apply respectively to the overload protective device and to the short-circuit protective device.\n\nThe characteristics of the devices shall be coordinated so that the energy let through by the short-circuit protective device does not exceed that which can be withstood without damage by the overload protective device in accordance with Clause 2.5.4.5(a).\n\nThe selection of protective devices shall be verified by inspection [see Clause 8.2.2(c)(ii)]."
+} 

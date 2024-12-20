@@ -1,0 +1,12 @@
+{
+    "section": "7.4.5",
+    "title": "Supply to Single Item of Electrical Equipment",
+    "parent": "7.4",
+    "type": "clause",
+    "content": {
+        "id": "7.4.5",
+        "title": "Supply to Single Item of Electrical Equipment",
+        "fullText": "Where a separated circuit supplies a single item of electrical equipment, any exposed conductive parts of the electrical equipment shall not be connected to the exposed conductive parts of any other circuit, including other separated circuits or earth.",
+        "references": []
+    }
+} 

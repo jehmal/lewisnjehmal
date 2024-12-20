@@ -1,0 +1,8 @@
+{
+    "section": "8.3.5.2",
+    "title": "Results",
+    "content": {
+        "title": "Results",
+        "fullText": "The resistance of protective earthing conductors shall be:\n(a) Low enough to permit the passage of current necessary to operate the overcurrent protective device; and\n(b) Consistent with the length, cross-sectional area, and type of conductor material.\nThe resistance of the main earthing conductor or any equipotential bonding conductor shall be not more than 0.5 Ω.\nNotes:\n1. Under the subsequent tests for earth fault-loop impedance, the maximum allowable resistance of the protective earthing conductor associated with any particular circuit depends on the type and rating of the protective device and the impedance of the live conductors that comprise the circuit.\n2. Resistance values (Rₑ) for earthing conductors are given in Table 8.2 as a function of the rating of the associated overcurrent protective device. These values may be used when testing for earth continuity."
+    }
+} 

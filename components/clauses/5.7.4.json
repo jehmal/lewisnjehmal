@@ -1,0 +1,30 @@
+{
+  "id": "5.7.4",
+  "title": "Impedance",
+  "fullText": "The earthing system impedance and characteristics of protective devices shall be such that, if a fault of negligible impedance occurs anywhere in the electrical installation between an active conductor and an exposed conductive part or protective earthing conductor, automatic disconnection of the supply will occur within the specified time.",
+  "condition": {
+    "description": "The following condition fulfills this requirement:",
+    "formula": "𝑍𝑠×𝐼𝑎≤𝑈𝑜",
+    "variables": [
+      {
+        "symbol": "𝑍𝑠",
+        "definition": "the impedance of the earth fault-loop comprising the source, the active conductor up to the point of the fault, and the return conductor between the point of the fault and the source"
+      },
+      {
+        "symbol": "𝐼𝑎",
+        "definition": "the current required to cause the automatic operation of the disconnecting protective device within the required disconnection time"
+      },
+      {
+        "symbol": "𝑈𝑜",
+        "definition": "the nominal a.c. r.m.s. voltage to earth (230 V)"
+      }
+    ]
+  },
+  "notes": [
+    "Additional earthing requirements apply in patient areas of hospitals, medical and dental practices, and dialyzing locations. Refer to AS/NZS 3003.",
+    "The return path will comprise both protective earthing and neutral conductors.",
+    "Appendix B illustrates a method of complying with the requirements of this Clause based on the determination of the maximum length of a circuit in relation to the size of circuit conductors and type of protective device.",
+    "Guidance on the measurement of the earth fault-loop impedance of each circuit is given in Appendix B.",
+    "Table B.1 contains calculated examples of the maximum values of earth fault-loop impedance, 𝑍𝑠, using approximate mean tripping currents for a limited range of miniature circuit-breakers (MCBs) (taken from AS/NZS 60898 and manufacturers' time/current characteristic curves) and fuses (taken from IEC 60269 series) and the appropriate disconnection time."
+  ]
+} 
