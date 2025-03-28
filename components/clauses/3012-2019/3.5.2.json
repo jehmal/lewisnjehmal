@@ -1,0 +1,5 @@
+{
+    "id": "3.5.2",
+    "title": "Protective earthing continuity",
+    "fullText": "All Class I (earthed conductive parts) electrical equipment shall have the continuity of the protective earthing conductor from the plug earth pin or supply point to exposed conductive parts tested in accordance with the requirements of AS/NZS 3760.\nThe measured earthing conductor resistance values shall be less than the maximum values given in AS/NZS 3760.\nNOTE: In accordance with AS/NZS 3760, equipment should not be dismantled to perform these tests."
+} 

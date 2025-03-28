@@ -1,0 +1,5 @@
+{
+    "id": "1.3.20",
+    "title": "Heating degree days",
+    "fullText": "A measure of the amount of heating required to maintain comfortable living conditions.\nIt is the product of the number of days during a given period (e.g. month) and the difference between a base comfortable temperature, and the mean temperature for the period.\nHeating degree days = (number of days) × [(comfortable temperature) − (the mean temperature for the period)]"
+} 

@@ -1,0 +1,5 @@
+{
+  "id": "4.6.7.1",
+  "title": "GENERAL",
+  "fullText": "A functionally earthed array shall not be connected to a non-separated PCE where the output is earth referenced.\n\nEarthing of a PV array for functional reasons, such as removal of surface charge from cells, shall be achieved by either of the following methods:\n(a) Direct functional earthing in which either the positive or negative of the PV array main conductor is directly connected to earth. An earth fault interrupter shall be used for this purpose, see Clause 3.5.2.\n(b) Resistive functional earthing of either the positive or negative of the PV array main conductors via a resistor. The rating of the resistor in the expected operating environment shall be as follows:\n(i) A minimum resistance of calculated PV d.c. circuit maximum voltage /0.3.\n(ii) The resistor shall be rated for a power dissipation greater than or equal to the following: (calculated PV d.c. circuit maximum voltage)2/Resistance (expressed in watts).\n(iii) Rated for full calculated PV d.c. circuit maximum voltage."
+} 

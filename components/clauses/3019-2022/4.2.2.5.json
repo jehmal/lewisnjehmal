@@ -1,0 +1,5 @@
+{
+    "id": "4.2.2.5",
+    "title": "Leakage current testing",
+    "fullText": "Due to the risks associated with insulation failure, a leakage current test may be conducted using a leakage current clamp meter. The test is conducted by simultaneously measuring the current in the active and neutral conductors of the circuit under test. If the leakage current is greater than 10 mA on any final sub-circuit with appliances connected, further testing may be required.\nNOTE Insulation resistance testing requires that the supply be disconnected. Therefore, for limited testing only, such testing is not specified."
+} 

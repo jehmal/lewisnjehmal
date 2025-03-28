@@ -1,0 +1,5 @@
+{
+    "id": "4.11.4",
+    "title": "Procedure",
+    "fullText": "The test procedure for measurement of touch voltage is shown in Figure 4.32. A high impedance voltmeter, i.e. an input impedance greater than 5 MΩ, is required.\nNOTE 1 A 2 kΩ resistor is used to simulate the body resistance of a typical person.\nNOTE 2 Numbers indicate test sequence.\nNOTE 3 The 2 kΩ resistor is a simplified version of the circuits shown in AS/NZS 60990."
+} 

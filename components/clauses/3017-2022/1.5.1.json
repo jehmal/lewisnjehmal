@@ -1,0 +1,5 @@
+{
+    "id": "1.5.1",
+    "title": "General",
+    "fullText": "Electrical inspection and testing inherently involves a degree of hazard and shall be undertaken by a competent person. It is the responsibility of the person performing the inspection and tests to ensure that safe practices are used in the performance of all inspection and testing procedures.\nThis Standard describes tests methods both for situations where the circuit under test is energized, and where it is not. Working safely on de-energized circuits requires that the circuit under test be isolated.\nTests where the circuit under test is isolated minimize the risk of electric shock; however, some types of test can only be performed with supply connected and energized."
+} 

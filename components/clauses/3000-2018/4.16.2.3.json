@@ -1,0 +1,5 @@
+{
+  "id": "4.16.2.3",
+  "title": "CURRENT-CARRYING CAPACITY OF SUPPLY CONDUCTORS",
+  "fullText": "Where a capacitor is controlled by a circuit-breaker as required by Clause 4.15.3.3(a), the conductors connected to the capacitor shall have a current-carrying capacity not less than the greater of—\n(a)\t135% of the rated current of the capacitor; or\n(b)\tthe setting of the circuit-breaker.\nWhere a capacitor is permanently connected to a motor circuit, the conductors shall have a current rating of not less than the greater of—\n(i)\tone-third of the rating of the motor-circuit conductors; or\n(ii)\t135% of the rated current of the capacitor."
+}

@@ -1,0 +1,5 @@
+{
+    "id": "4.10.2.3",
+    "title": "Method C — Clamp meter",
+    "fullText": "A proprietary earth ground clamp meter may be used to measure the loop impedance of the earth electrode.\nNOTE The meter measures the loop impedance by inducing a voltage into the circuit and measuring the corresponding current within the loop.\nThe \"ground loop to PEN\" impedance shall be measured by placing the jaws of the ground clamp meter around the electrode or the main earth conductor connected to it.\nThe \"ground loop to PEN\" impedance includes the installation ground resistance (the earth electrode in parallel with any bonding to grounded exposed conductive parts), to the PEN (via the system neutral earth resistances) but excludes the transformer impedance and the active conductor impedance.\nThe approximate value obtained by the use of a proprietary meter is typically in the order of 10 Ω to 50 Ω in good soil conditions."
+} 

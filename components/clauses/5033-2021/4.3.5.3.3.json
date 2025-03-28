@@ -1,0 +1,5 @@
+{
+  "id": "4.3.5.3.3",
+  "title": "LOAD BREAK DISCONNECTION DEVICES ON SYSTEMS WITHOUT STRING FUSING",
+  "fullText": "Where there are more than two parallel strings without string fusing installed on all strings, a load break disconnection device shall be installed at the connection point, where the strings are paralleled together. The load break disconnection device shall disconnect the parallel strings so that there are no more than two strings in parallel when the load break disconnection device is in the \"off\" position.\nA load break disconnection device that is external to the PCE shall be installed on systems with more than two parallel strings without string fusing installed on all strings."
+} 

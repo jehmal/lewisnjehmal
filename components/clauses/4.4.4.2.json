@@ -1,8 +1,0 @@
-{
-  "id": "4.4.4.2",
-  "title": "Rating",
-  "fullText": "Each switch shall have a current rating, at its operating voltage, not less than the current rating of the socket-outlet it controls.\nWhere a single switch is used to control two socket-outlets, as permitted by Exception 1 to Clause 4.4.4.1, the current rating of the switch shall be not less than—\n(a)\tthe total current rating of the socket-outlets; or\n(b)\tthe current rating of the overcurrent protective device on the circuit, whichever is the lesser value.",
-  "references": {
-    "sections": ["4.4.4.1"]
-  }
-} 

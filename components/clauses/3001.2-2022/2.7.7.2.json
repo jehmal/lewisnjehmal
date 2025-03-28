@@ -1,0 +1,5 @@
+{
+  "id": "2.7.7.2",
+  "title": "Isolation between sources",
+  "fullText": "When one source is connected to part of the electrical installation, all other sources are isolated from the installation with respect to all live (active and neutral) conductors.\nNOTE 1 Isolation may be achieved by —\n(a) an isolating switch; or\n(b) a contactor with an isolation rating; or\n(c) a socket-outlet for each source and a plug for the part of the installation.\nEquipment designed and tested in accordance with IEC 61810-1 to prevent back-feeding into the a.c. input connection, when the input a.c. supply is absent and the generator/inverter alternative supply is in use, may be acceptable.\nNOTE 2 A source selection switch may also serve as the main switch for the various supplies."
+} 

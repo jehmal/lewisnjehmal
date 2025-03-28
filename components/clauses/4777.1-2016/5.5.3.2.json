@@ -1,0 +1,5 @@
+{
+  "id": "5.5.3.2",
+  "title": "IES CONNECTED TO SWITCHBOARDS WITH LOADS",
+  "fullText": "Where multiple inverters are connected directly to a main switchboard or a distribution board with other circuits and loads, and each has a main switch (inverter supply), then they shall be grouped. Where the consumer installation is three-phase, then a three-pole main switch (inverter supply) shall be used, with the IES balanced across the three phases of the consumer installation. Where the number of main switches (inverter supply) on a switchboard exceeds two, then a single main switch (inverter supply) shall be used to isolate all connected IES. In this situation, a distribution switchboard should be used with isolation provided for each inverter or IES."
+} 

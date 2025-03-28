@@ -1,0 +1,5 @@
+{
+    "id": "4.2.4",
+    "title": "Current limiting of the incoming supply",
+    "fullText": "Each incoming supply to the installation from a generating set shall be protected by a separate overcurrent protection device located within the electrical installation and, operating in all active conductors.\nThe operating setting of the protection device shall not exceed the rating of either the supply conductors or the inlet fittings."
+} 

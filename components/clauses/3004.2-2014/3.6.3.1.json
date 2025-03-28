@@ -1,0 +1,5 @@
+{
+    "id": "3.6.3.1",
+    "title": "Switchboard marking",
+    "fullText": "The face of switchboards shall be permanently marked with the system voltage and either 'V a.c.' or system frequency.\nEXAMPLE: '230 V a.c.' or '230 V–50 Hz'\nIf the frequency is other than 50 Hz, the frequency shall be indicated.\nFor three-phase systems the system voltage, phase, and number of conductors shall be indicated."
+} 

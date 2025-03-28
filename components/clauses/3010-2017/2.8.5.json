@@ -1,0 +1,5 @@
+{
+    "id": "2.8.5",
+    "title": "Connection of generating set windings",
+    "fullText": "The following points, as applicable, shall be connected to the relevant neutral conductor of the electrical installation and not be directly connected to the generating set bonding system:\n(a)\tThe generating set winding connections referred to in Clause 2.5(b).\n(b)\tOne side of an otherwise unpolarized single-phase generating set winding.\nAlternatively, the generating set windings referred to in Items (a) and (b) above may be arranged through a protection system in a manner that ensures the disconnection of the electrical installation in the event of an earth fault."
+} 

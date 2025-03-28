@@ -1,0 +1,5 @@
+{
+    "id": "2.4.6.6",
+    "title": "Control",
+    "fullText": "Each socket-outlet on or in a service pillar shall be controlled by its own individual switch that is —\n(a) mounted immediately adjacent to the socket-outlet it controls or is otherwise suitably identified as to the socket-outlet it controls; and\n(b) clearly identified to indicate the off and on positions.\nA socket-outlet that is switched by the insertion and withdrawal of the plug is deemed to meet the requirements of this Clause.\nA combined RCD and overcurrent circuit-breaker (RCBO) complying with the requirements of AS/NZS 61009.1 may be used to satisfy this requirement.\nNOTE Typical service pillar configurations are shown in Figure 2.3 for Australia and Figure 2.6 for New Zealand."
+}

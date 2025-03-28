@@ -1,0 +1,5 @@
+{
+  "id": "6.3.2.2",
+  "title": "ARC FLASH RISK ASSESSMENT",
+  "fullText": "Table 6.1 provides the estimated consequence level based on the calculated arc flash energy. Prior to installing a battery system, the arc flash energy shall be calculated based on a short-circuit occurring at the output terminals of the battery system.\nTable 6.1 — Consequence levels based on arc flash energy\nConsequence level\nArc flash incident energy level\ncal/cm2\nInsignificant ≥ 0.0, < 1.2\nMinor ≥ 1.2, < 4.0\nModerate ≥ 4.0, < 8.0\nMajor ≥ 8.0, < 40\nCatastrophic ≥ 40"
+} 

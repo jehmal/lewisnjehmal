@@ -1,0 +1,5 @@
+{
+    "id": "1.5.1.2",
+    "title": "New Zealand",
+    "fullText": "In New Zealand, when any alteration is made to the LV electrical installation of the recreational vehicle, any neutral-earth link shall be removed. Also, the following shall be installed if not already in place:\n(a) Overcurrent protection for each external supply, in accordance with Clause 4.5.3.1; and\n(b) RCD protection for all final subcircuits, in accordance with Clause 4.5.4. Alterations include:\n(i) Removal of a neutral-earth link or connection.\n(ii) Installation of a new final subcircuit.\n(iii) Extension of an existing final subcircuit.\n(iv) Removal of an in-line RCD from the supply lead.\nWhere a neutral-earth link is removed, the incoming earth conductor of the external supply shall be disconnected from the neutral bar (or equivalent) and reconnected to the earth bar (or equivalent).\nNOTE Transferring the connection point of the incoming protective earthing conductor is necessary to ensure that all items required to be earthed remain connected to the earth pin of the supply lead."
+} 

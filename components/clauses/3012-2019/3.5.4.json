@@ -1,0 +1,5 @@
+{
+    "id": "3.5.4",
+    "title": "Arc welding equipment",
+    "fullText": "Where arc welders are incorporated into generating sets, tests shall be conducted to ensure that the insulation resistances are not less than those given in Table 7.\nTABLE  7\nMINIMUM INSULATION RESISTANCE\n\nParts to be tested\tMinimum insulation resistance\nMΩ\nInput circuit (including control circuits connected to it)\tto\tWelding circuit (including control circuits connected to it)\t5\nAll circuits\tto\tExposed conductive parts\t2.5\nWelding circuit (including control circuits connected to it)\tto\tAny auxiliary circuit that operates at a voltage exceeding extra-low-voltage\t10\nWelding circuit (including control circuits connected to it)\tto\tAny auxiliary circuit that operates at a voltage not exceeding extra-low-voltage\t1\nSeparate welding circuit\tto\tSeparate welding circuit*\t1\n* In the case of multiple welding circuit outlets."
+} 

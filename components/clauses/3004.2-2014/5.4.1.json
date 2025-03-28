@@ -1,0 +1,5 @@
+{
+    "id": "5.4.1",
+    "title": "Protective devices",
+    "fullText": "Circuits shall be designed to ensure coordination between protective devices in a series.\nOvercurrent and fault current protective devices shall not interrupt protective conductors. When fuses are used to protect three-phase motor circuits, consideration shall be given to protection against single-phasing."
+} 

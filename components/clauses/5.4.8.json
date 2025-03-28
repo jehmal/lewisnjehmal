@@ -1,6 +1,0 @@
-{
-  "id": "5.4.8",
-  "title": "Variable Frequency Devices",
-  "fullText": "Variable frequency devices shall be earthed in accordance with Clause 5.4.1.1.\n\nWhere a variable frequency device is required to be earthed, the protective earthing conductor shall be—\n• (a) incorporated in the cable supplying the device; and\n• (b) connected to the earthing terminal or connection of the device.",
-  "references": ["5.4.1.1"]
-} 

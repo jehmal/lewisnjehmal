@@ -1,0 +1,5 @@
+{
+  "id": "6.3.1.2.4",
+  "title": "BATTERY SYSTEMS THAT INCLUDE OVERCURRENT PROTECTION",
+  "fullText": "Battery systems that have integral protection devices including overcurrent protection either in the BMS or integral to the battery system, may meet the requirements for overcurrent protection of the output cables from the battery system where —\n(a) the battery system includes overcurrent protection that is a readily available circuit-breaker or HRC fuse;\n(b) the battery system manufacturer's instructions permits the use of the overcurrent protection of the BMS to meet the overcurrent protection requirements of the battery system output cables; and\n(c) the output cables have a current-carrying capacity greater than the rating of the protection device."
+}

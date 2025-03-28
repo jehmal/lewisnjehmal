@@ -1,0 +1,5 @@
+{
+  "id": "6.3.4.5",
+  "title": "EXCESS TEMPERATURE",
+  "fullText": "The battery system shall not be exposed to temperatures greater than the maximum temperature specified by the product's manufacturer. For those battery types categorized as fire hazard level 1 in Table 3.1, where high temperature can result in a fire, the BMS shall —\n(a) monitor the temperature of at least every thermally coupled block of cells; and\n(b) act to shutdown the battery or battery module if the temperature exceeds the maximum value as specified by the manufacturer."
+} 

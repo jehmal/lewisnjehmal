@@ -1,0 +1,5 @@
+{
+    "id": "5.5.2.3.4",
+    "title": "Fuses",
+    "fullText": "Fuses used in renewable energy systems shall —\n(a) be rated for d.c. use; and\n(b) have a voltage rating equal to or greater than the renewable energy system maximum voltage; and\n(c) be rated to interrupt fault currents from the renewable energy system, and any other connected power sources such as batteries or generators.\nFuses used in PV systems shall be of an overcurrent and short circuit current protective type suitable for PV systems."
+} 

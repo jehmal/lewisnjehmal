@@ -1,0 +1,5 @@
+{
+    "id": "2.9.2.2",
+    "title": "Minimum exhaust rate",
+    "fullText": "The minimum exhaust ventilation rate required to maintain the concentration of hazardous gases below 2% is calculated by the following formula:\nqv = 0.0060 n I\nwhere\nqv = the minimum exhaust ventilation rate, in litres per second\nn = the number of battery cells\nI = the charging current, in amperes"
+} 

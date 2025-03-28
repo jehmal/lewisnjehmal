@@ -1,0 +1,5 @@
+{
+    "id": "2.3.1",
+    "title": "Basic functional checks before each use",
+    "fullText": "Before carrying out any test the equipment should be checked to ensure that it is correctly set, functional and in good condition.\nContact probes and leads should be checked for damage to insulated parts, continuity and sound connections.\nAfter each test, or group of tests, the pre-test checks should be undertaken again. This will confirm that the equipment has not developed a fault during the testing.\nIn summary, the process is:\nPROVE operation of equipmentPROVE operation of equipmentTEST circuit\nNOTE Appendix A provides guidance on pre-use checks for particular types of test equipment."
+} 

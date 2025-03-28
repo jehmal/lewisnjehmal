@@ -1,0 +1,5 @@
+{
+    "id": "2.8.4.2",
+    "title": "Single-phase portable generating sets",
+    "fullText": "One output connection of a single-phase isolated output winding shall be connected to the electrical installation switchboard neutral bar.\nException: In New Zealand only, when the generating set output is connected by installation wiring to a switchboard without a MEN link, the generating set output neutral connection is to be made to the neutral busbar used for the system of supply conversion.\nThe generating set [see Clause 2.5(b)] shall be earthed by connection to the earthing system of the electrical installation.\nConnection of the generating set to the mass of earth shall not be made by means of a separate earth electrode.\nAppendix A details the reasons that connection of the generator set bonding system of portable generating sets to the general mass of earth is not required or recommended."
+} 

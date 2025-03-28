@@ -27,6 +27,7 @@ const BentoCard = ({
   description,
   href,
   cta,
+  onClick,
 }: {
   name: string;
   className: string;
@@ -35,6 +36,7 @@ const BentoCard = ({
   description: string;
   href: string;
   cta: string;
+  onClick?: () => void;
 }) => (
   <div
     key={name}
@@ -46,8 +48,10 @@ const BentoCard = ({
     )}
   >
     <div>{background}</div>
-    <div className="pointer-events-none z-10 flex transform-gpu flex-col gap-1 p-6 transition-all duration-300 group-hover:-translate-y-10">
-      <Icon className="h-12 w-12 origin-left transform-gpu text-hunyadi-yellow transition-all duration-300 ease-in-out group-hover:scale-75" />
+    <div className="pointer-events-none z-10 flex transform-gpu flex-col gap-1 p-6 px-8 transition-all duration-300 group-hover:-translate-y-10">
+      <div className="absolute top-4 right-4">
+        <Icon className="h-8 w-8 transform-gpu text-hunyadi-yellow transition-all duration-300 ease-in-out group-hover:scale-75" />
+      </div>
       <BoxReveal boxColor="#eca72c" duration={0.5}>
         <h3 className="text-xl font-semibold text-english-violet dark:text-hunyadi-yellow">
           {name}
@@ -62,7 +66,7 @@ const BentoCard = ({
       )}
     >
       <Button variant="ghost" asChild size="sm" className="pointer-events-auto">
-        <a href={href} className="text-flame hover:text-hunyadi-yellow">
+        <a href={href} onClick={onClick} className="text-flame hover:text-hunyadi-yellow">
           {cta}
           <ArrowRightIcon className="ml-2 h-4 w-4" />
         </a>

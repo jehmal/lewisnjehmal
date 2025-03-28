@@ -1,0 +1,5 @@
+{
+    "id": "4.5.3.2",
+    "title": "Final subcircuit overcurrent protection",
+    "fullText": "Each final subcircuit shall have an overcurrent protection device located within the switchboard. Where there is only one final subcircuit installed, overcurrent protection may be provided by the current limiting protection device required by Clause 4.5.3.1."
+} 

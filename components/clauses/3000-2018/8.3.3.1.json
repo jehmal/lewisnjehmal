@@ -1,0 +1,5 @@
+{
+    "id": "8.3.3.1",
+    "title": "Low Voltage",
+    "fullText": "Testing shall be carried out on parts of electrical installations designed to operate at low voltage as follows:\n(a) Continuity of the earthing system (earth resistance of the main earthing conductor, protective earthing conductors, PEN conductors, and bonding conductors), in accordance with Clause 8.3.5.\n(b) Insulation resistance, in accordance with Clause 8.3.6.\n(c) Polarity, in accordance with Clause 8.3.7.\n(d) Correct circuit connections, in accordance with Clause 8.3.8.\n(e) Verification of impedance required for automatic disconnection of supply (earth fault-loop impedance), in accordance with Clause 8.3.9.\n(f) Operation of RCDs, in accordance with Clause 8.3.10.\nException: Verification of earth fault loop impedance may be omitted where automatic disconnection of supply (refer to Clause 1.5.5.2) is not the method used to provide fault protection.\nNotes:\n1. Item (e) above may require that supply is available.\n2. Item (f) above requires that supply is available.\n3. Additional tests for isolated supplies are detailed in Clause 7.4.8."
+} 

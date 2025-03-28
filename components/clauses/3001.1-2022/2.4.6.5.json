@@ -1,0 +1,5 @@
+{
+    "id": "2.4.6.5",
+    "title": "Protection against earth leakage",
+    "fullText": "All socket-outlets shall be protected by one or more RCDs with rated residual current not exceeding 30 mA that —\n(a) interrupt all live (active and neutral) conductors; and\n(b) are of a type that provides protection against electric shock that complies with the requirements of a Type A RCD in accordance with AS/NZS 61008.1 or AS/NZS 61009.1.\nRCDs incorporating Type A functionality along with additional functionality may be installed, including —\n(i) Type F for the protection of circuits carrying high frequency leakage currents, such as those associated with frequency converters and electronic ballasts; or\n(ii) Type B where power inverters or frequency inverters are installed, as specified in the manufacturer's instructions for the specific current-using equipment.\nNOTE Typical service pillar configurations are shown in Figure 2.3 for Australia and Figure 2.6 for New Zealand."
+}

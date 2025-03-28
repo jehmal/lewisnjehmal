@@ -1,0 +1,5 @@
+{
+  "id": "4.4.2.4",
+  "title": "VOLTAGE DROP",
+  "fullText": "The cross-sectional area of every current-carrying conductor shall be such that the voltage drop between the most remote PV module in the array to the input of the PCE shall not exceed 5 % of the Vmp (at STC) for PV arrays operating above 120 V.\nNOTE 1 for systems where the calculated PV d.c. circuit maximum voltage does not exceed 120 V refer to the requirements in AS/NZS 3000.\nNOTE 2 Voltage drop on PV circuits can impact the performance of the PV system, see Clause 2.2.3(c)."
+} 

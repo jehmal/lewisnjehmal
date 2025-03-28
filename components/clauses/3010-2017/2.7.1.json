@@ -1,0 +1,5 @@
+{
+    "id": "2.7.1",
+    "title": "General",
+    "fullText": "Where a generating set is to operate as an alternative supply (standby) system in the case of failure of the normal supply, one or more changeover device shall be provided complying with the requirements of Clauses 2.7.1 to 2.7.13.\nUnless otherwise authorized, the changeover device shall be designed to prevent back feed of the generating set output into the electricity distributor's network.\nA1\tA grid-connected inverter or regenerative supply source shall not be connected downstream of the generating set changeover device.\nException: Where suitable control systems prevents backfeed to the generator the above provision does not apply.\nNOTES:\n1\tA generating set cannot absorb energy imported from external sources into the generating set.\n2\tAutomatic transfer switches in accordance with the relevant requirements of AS/NZS 3947.6.1 or AS/NZS 60947.6.1 may conform with these requirements."
+} 

@@ -1,0 +1,5 @@
+{
+    "id": "2.8.4.1",
+    "title": "Multi-phase and single-phase three wire centre-tapped generating sets",
+    "fullText": "The following points of the generating set windings shall be connected to the electrical installation switchboard neutral bar:\n(a)\tThe neutral or star point of a three-phase winding.\n(b)\tThe neutral point of a two-phase winding.\nNo point of the output winding shall be connected to the generating set bonding system.\nException: In New Zealand only, when the generating set output is connected by installation wiring to a switchboard without a MEN link, the generating set output neutral connection is to be made to the neutral busbar used for the system of supply conversion."
+} 

@@ -1,0 +1,5 @@
+{
+  "id": "6.3.1.5.1",
+  "title": "GENERAL",
+  "fullText": "Wiring between the battery system and PCE should be installed in a way to minimize effects of inductive loops.\nThe cable from the battery system to the overcurrent protection device shall have no other devices connected other than monitoring and control circuits."
+} 

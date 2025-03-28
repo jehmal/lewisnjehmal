@@ -1,9 +1,0 @@
-{
-  "id": "3.8.3.3",
-  "title": "Active and neutral conductors",
-  "fullText": "An active or neutral conductor need not be coloured in accordance with the colours specified in Table 3.4 where—\n(a) insulated conductors within a multi-core cable, provided they are not yellow, have each core clearly identifiable by means of numbering, lettering or equivalent means;\n(b) conductors of flexible cords and flexible cables, provided they are not yellow, are identified by alternative colours in accordance with Clause 3.8.3.4; or\n(c) the neutral conductor of an insulated aerial conductor is identified by multiple longitudinal ribs around the circumference and length that clearly distinguish it from the other conductors.",
-  "references": {
-    "tables": ["Table 3.4"],
-    "sections": ["3.8.3.4"]
-  }
-} 

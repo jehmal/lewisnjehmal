@@ -1,6 +1,0 @@
-{
-    "id": "6.4.3.2.1",
-    "title": "Supply",
-    "fullText": "Electrical equipment shall be:\n(a) earthed and protected by an RCD with a fixed rated residual current not exceeding 30 mA;\n(b) supplied at either extra-low voltage or low voltage through an isolating transformer complying with AS/NZS 61558, and not earthed; or\n(c) supplied by other suitable measures that take account of the electrical equipment construction, installation methods, and physical location.",
-    "references": ["1.5.4.5", "1.5.4.6"]
-} 

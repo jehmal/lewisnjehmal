@@ -1,0 +1,5 @@
+{
+    "id": "1.4.8",
+    "title": "Extra-low voltage (ELV)",
+    "fullText": "Not exceeding 50 V a.c. or 120 V ripple-free d.c.\nNOTES:\n1 For the purposes of this Standard, a nominal 120 V d.c. battery system is considered LV.\n2 The open circuit voltage on PV arrays at STC (standard test conditions) as per AS/NZS 5033 will affect the maximum voltage that may be experienced in a stand-alone system (e.g. the cables)."
+} 

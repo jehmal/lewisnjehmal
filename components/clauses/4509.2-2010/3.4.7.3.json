@@ -1,0 +1,5 @@
+{
+    "id": "3.4.7.3",
+    "title": "Battery sizing-energy storage",
+    "fullText": "Batteries for energy storage should be sized according to the following equation:\nC\t=\tEtot ×\tTaut\n \nx\n\nwhere\n \n\n   \nVdc\tDODmax\n \n. . . 3.4.7.3\n \nCx\t=\tbattery capacity, specified for an appropriate discharge rate x, in ampere hours (Ah)\nEtot\t=\ttotal design daily energy demand from the d.c. bus, in watt hours (Wh)\nTaut\t=\tnumber of days of autonomy\nVdc\t=\tnominal voltage of the d.c. bus (i.e. battery voltage), in volts (V)\nDODmax\t=\tdesign maximum depth of discharge of the battery, expressed as a percentage"
+} 

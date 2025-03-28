@@ -1,0 +1,5 @@
+{
+    "id": "1.5.24",
+    "title": "Prospective hazard current",
+    "fullText": "Prospective hazard current is current that would flow, in a transformer-isolated supply, between one of the active conductors and earth if the active conductor were solidly bonded to earth.\nNOTE: Although prospective hazard current does not flow until a line-to-earth fault occurs, a line can be described as having a prospective hazard current of a particular value because the cumulative effect of the imperfections in the line isolation will cause current to flow as soon as a line-to-earth fault occurs."
+} 

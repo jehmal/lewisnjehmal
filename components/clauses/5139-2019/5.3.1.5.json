@@ -1,0 +1,5 @@
+{
+    "id": "5.3.1.5",
+    "title": "Segregation of circuits",
+    "fullText": "In addition to the segregation requirements of AS/NZS 3000:2018 Section 3, segregation shall be provided between d.c. and a.c. circuits within enclosures such that connections and pathways are physically segregated from each other by an insulating barrier(s). DC wiring shall not be installed or pass through a.c. switchboards or enclosures unless segregated by means of an insulating barrier, such as conduit or trunking.\nWhere devices such as switches for circuits requiring segregation are mounted on a common mounting rail in an enclosure, this rail shall not be metallic or conductive unless the entire enclosure is metallic."
+} 

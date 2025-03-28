@@ -1,0 +1,5 @@
+{
+    "id": "3.4.3.4",
+    "title": "Module orientation",
+    "fullText": "An array with fixed orientation should be set up to face within ±10° of true north unless system or site requirements dictate otherwise. Where a single axis tracking system is used, the array should face within ±10° of true north when the array is at the midpoint of its range of axial movement."
+} 

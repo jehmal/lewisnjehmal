@@ -1,8 +1,0 @@
-{
-  "id": "3.12.2.1",
-  "title": "Insulation of aerial conductors",
-  "fullText": "Aerial conductors shall be insulated in the following situations:\n(a) For any conductor span that is attached to a building or structure.\nException: This requirement need not apply to aerial conductors between and supported by two independent poles or similar independent supports.\n(b) For any conductor span within arm's reach of any building, building opening or structure.\n(c) Above areas where sailing craft or irrigation pipes are used (see Table 3.8).\n(d) In areas declared by the responsible fire authority as being subject to bushfires, where required by the regulatory authority or the electricity distributor.",
-  "references": {
-    "tables": ["3.8"]
-  }
-} 

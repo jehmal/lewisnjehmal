@@ -1,0 +1,5 @@
+{
+    "id": "1.4.7",
+    "title": "Light source life (LSL)",
+    "fullText": "Length of time during which a population of light sources provides more than a minimum luminous flux percentage and less than the claim for failure fraction percentage under specified conditions.\nNOTE: For further information refer to IEC 63013."
+}

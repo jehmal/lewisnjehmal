@@ -1,0 +1,5 @@
+{
+  "id": "1.5.7",
+  "title": "Basic and fault protection by use of extra-low voltage",
+  "fullText": "Separated extra-low voltage (SELV) or protected extra-low voltage (PELV) systems may be used to provide both basic and fault protection subject to the following conditions:\n\n• (a) The nominal voltage shall not be capable of exceeding the limits for extra-low voltage (50 V a.c. or 120 V ripple-free d.c.) and the source of supply is arranged so that it cannot exceed these values.\n\n• (b) Circuits shall be electrically segregated from each other and from circuits at higher voltages.\n\n• (c) Live parts of SELV circuits shall not be connected to earth or to protective earthing conductors that are part of other circuits or to other live parts.\n\n• (d) Live parts of PELV circuits shall be protected from direct contact by barriers or insulation unless the voltage does not exceed 25 V a.c. or 60 V ripple-free d.c. in dry areas where a large contact area with the human body is not expected or 6 V a.c. or 15 V ripple-free d.c. in all other areas.\n\nNOTE: Clause 7.5 provides specific deemed-to-comply requirements for the arrangement of ELV circuits."
+} 

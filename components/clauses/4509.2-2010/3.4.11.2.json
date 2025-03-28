@@ -1,0 +1,5 @@
+{
+    "id": "3.4.11.2",
+    "title": "Series system",
+    "fullText": "In series systems, the generating set should be sized to meet the power requirements of the battery charger, with an additional design margin. The following Equation can be used:\nSgen\t=\tSbc × fgo\t. . . 3.4.11.2\n \nwhere\n \n\n\nSgen  =   apparent power rating of the generating sets, in volt amperes (VA)\nSbc  =  maximum apparent input power to the battery charger under conditions of maximum output current and typical maximum charge voltage, in volt amperes (VA)\nfgo   =   generating set over-size factor, dimensionless\n \nNOTE: Typical value for the generating set over-size factor is 1.1"
+} 

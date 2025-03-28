@@ -1,0 +1,5 @@
+{
+  "id": "4.15.2.2",
+  "title": "CONTROL AND PROTECTION",
+  "fullText": "The conductors connected to the secondary windings of a transformer shall be—\n(a)\tconsidered as submain or final subcircuit conductors, as appropriate; and\n(b)\tcontrolled\tand\tprotected\tin\taccordance\twith\tthe\tappropriate requirements of Clauses 2.3 and 2.5.\nException: This requirement need not apply where—\n(a)\tthe transformer secondary winding supplies only one submain or final subcircuit; and\n(b)\tthe secondary circuit conductors have a current-carrying capacity not less than the rated load current of the transformer primary winding multiplied by the ratio of the transformer primary voltage to the secondary voltage."
+}

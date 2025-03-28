@@ -1,0 +1,5 @@
+{
+    "id": "1.4.5.1",
+    "title": "Critical defect",
+    "fullText": "A defect that renders a system inoperative.\nNOTE: A critical defect is likely to affect an entire system and is reasonably likely to have a significant adverse impact upon the safety of occupants of part, or all, of a building. Examples include, in a central battery system the failure of the battery or failure to sense loss of supply, a non-operational exit sign where it is the only available sign in a space, an impaired emergency luminaire, which is unable to provide sufficient light to an important aspect of a lighting system, i.e. at stairs, a change in floor level or direction."
+} 

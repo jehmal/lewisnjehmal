@@ -1,0 +1,5 @@
+{
+    "id": "2.5.3",
+    "title": "Length",
+    "fullText": "Supply leads used in caravan parks shall be not less than 10 m long. This is to reduce the risk of series joins in detachable supply leads. In other applications, no minimum length is specified.\nIn all cases, the length shall not exceed the relevant figure specified in Table 2.1 for the applicable conductor cross-sectional area.\nTable 2.1 — Maximum lengths of supply leads\nSingle-phase\t3 Phase\nCable size\nmm2\tCB rating\tLength of lead\nm\tCable size\nmm2\tCB rating\tLength of lead\nm\n1.5\t16\t15\t1.5\t16\t15\n2.5\t16\t25\t2.5\t16\t25\n2.5\t20\t20\t2.5\t20\t20\n4\t20\t30\t4\t20\t35\n4\t25\t25\t4\t25\t30\n6\t32\t30\t6\t32\t30\n10\t50\t30\t10\t50\t35\n16\t63\t40\t16\t63\t45\n25\t80\t50\t25\t63\t70\n35\t100\t55\t25\t80\t55\n—\t—\t—\t35\t100\t65\n—\t—\t—\t35\t125\t50\n—\t—\t—\t50\t125\t70\nNOTE 1 The minimum length of 10 m is specified for use in caravan parks for the benefit of park designers when they are designing site layouts.\nNOTE 2 Values calculated in Table 2.1 are based upon voltage drop considerations and the overload characteristics of the protection devices."
+} 

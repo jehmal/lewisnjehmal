@@ -1,0 +1,5 @@
+{
+  "id": "2.2.2",
+  "title": "BATTERY SYSTEM CHEMISTRIES",
+  "fullText": "The following types of battery system chemistries are considered in the provisions of this Standard:\n(a) Lead acid.\n(b) Nickel alkaline.\n(c) Lithium ion.\n(d) Flow.\n(e) Hybrid ion.\nNOTE The general provisions of this Standard may be applied to other battery system chemistries provided all the hazards listed in Section 3, as well as any specific hazards related to that chemistry type, are accounted for. The electrical installation requirements of this Standard may be applied for these other battery system chemistries.\nAny individual battery system shall be made up of only one type of technology or chemistry. Where battery systems of different types are used within one BESS, they shall be connected to separate ports or separate PCEs. This is to manage the different charging and discharging of these battery systems independently."
+} 

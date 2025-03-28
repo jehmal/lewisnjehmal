@@ -1,0 +1,5 @@
+{
+  "id": "4.4.2.4",
+  "title": "TESTING",
+  "fullText": "The testing of the installation shall be performed in accordance with the requirements of the pre-assembled integrated BESS manufacturer and the requirements of AS/NZS 3000.\nPolarity of any additionally connected d.c. and a.c. devices shall be tested prior to connection to the pre-assembled integrated BESS. Testing shall be carried out to ensure continuity of earth connections. All connections should be verified and measured (where applicable, such as solar PV open circuit voltages) and included in the documentation."
+} 

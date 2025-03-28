@@ -1,0 +1,5 @@
+{
+  "id": "5.3.1.3.8",
+  "title": "BESS WITH MULTIPLE PCEs",
+  "fullText": "When a BESS includes multiple PCEs (e.g. a solar charge controller and an inverter; or multiple inverters), a separate isolation device shall be installed adjacent to each PCE."
+} 

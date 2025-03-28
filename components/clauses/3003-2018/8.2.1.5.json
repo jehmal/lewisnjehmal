@@ -1,0 +1,5 @@
+{
+    "id": "8.2.1.5",
+    "title": "Wiring",
+    "fullText": "The patient area shall be inspected to ensure that each socket-outlet located below 2.3 m, or located above 2.3 m and used for medical electrical equipment, is protected by an LPD.\nWhere RCDs are used as LPDs, this check shall be carried out by tripping the RCD at each socket-outlet.\nWhere isolation transformers are used as LPDs, this check shall be carried out by applying a suitable fault to each socket-outlet and observing the response on the associated LIM."
+} 

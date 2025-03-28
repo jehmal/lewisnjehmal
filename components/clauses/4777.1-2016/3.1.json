@@ -1,0 +1,5 @@
+{
+  "id": "3.1",
+  "title": "CONTROL, PROTECTION, AND WIRING SYSTEM REQUIREMENTS",
+  "fullText": "The control, protection and wiring system equipment and installation shall be fit for purpose for the conditions to which they are likely to be exposed within the electrical installation.\n\nThe IES equipment, switchgear and wiring shall be selected and installed to provide the following:\n(a) Control and isolation of the electrical installation, and the IES as required for operation, maintenance, testing and fault detection or repair.\n(b) Automatic disconnection of supply or IES output in the event of an overload, short circuit or excessive earth leakage current in the protected part of the electrical installation.\n(c) Switchgear and control gear grouped and/or interconnected together on switchboards or in inverter control system components, enclosed against external influences.\n(d) Additional grid interface devices as required for overall IES operation.\nNOTE: See Clauses 3.4.4 (phase balancing, central protection, etc.), 3.4.6 (demand response mode) and 3.4.8 (export control).\n(e) Electrical connection between the electrical installation and the IES."
+} 

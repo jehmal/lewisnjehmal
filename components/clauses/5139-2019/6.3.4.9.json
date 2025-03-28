@@ -1,0 +1,5 @@
+{
+  "id": "6.3.4.9",
+  "title": "OVER-DISCHARGE",
+  "fullText": "Where the battery type is categorized as fire hazard level 1 in Table 3.1 and a discharge past a specified point can result in a fire, the BMS shall —\n(a) electrically disconnect the battery or battery module from the system if the battery system's voltage or battery system's state of charge drops below the minimum voltage or state of charge specified by the battery manufacturer;\n(b) shutdown the battery, battery module or battery system and not be able to recharge.\nWhere the battery type is categorized as fire hazard level 2 in Table 3.1, the BESS shall include a PCE which cannot draw power from the battery system when the battery system's voltage or state of charge is less than the limits specified by the battery manufacturer.\nWhere the battery system is not shutdown due to over-discharged batteries, an alarm shall be activated."
+} 

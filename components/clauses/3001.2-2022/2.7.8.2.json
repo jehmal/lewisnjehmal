@@ -1,0 +1,5 @@
+{
+  "id": "2.7.8.2",
+  "title": "Insulation monitoring first fault",
+  "fullText": "Where an insulation monitoring device is installed to provide monitoring and warnings of the supply in case of a first fault, the insulation monitoring device will allow a single fault between a live part and an exposed conductive part to occur without automatic disconnection. A single fault may occur provided that a continuously operating earth fault or insulation monitoring system is fitted and arranged to provide a warning to the operator when an earth fault occurs or insulation value falls below 1.0 MΩ."
+} 

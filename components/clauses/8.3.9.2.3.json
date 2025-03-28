@@ -1,7 +1,0 @@
-{"section": "8.3.9.2.3",
-    "title": "No Supply Available",
-    "content": {
-        "title": "No Supply Available",
-        "fullText": "Where no supply is available, the total resistance (Rpne) of the active and protective earthing conductors of the circuit shall be measured using an ohmmeter. Each active conductor in turn and the protective earthing conductor shall be connected together at the origin of the circuit (normally where the protective device is fitted). The resistance of each active-PEC pair shall be determined using an ohmmeter at the furthest point of each branch of the circuit.\nNotes:\n1. Where supply is available and the electrical installation is connected to a distribution system, the earth fault-loop impedance test is preferred in order to verify the complete earth fault-loop including the integrity of the MEN connection and the supply neutral (PEN) conductors.\n2. Where no supply is available, the resistance method establishes the contribution of the final subcircuit to the total impedance of the full earth fault loop.\n3. Reference to voltage drop values are in Table B1."
-    }
-} 

@@ -1,0 +1,5 @@
+{
+  "id": "3.4.7",
+  "title": "IES OPERATIONAL SETTINGS",
+  "fullText": "The IES protection settings need to meet the requirements of the electricity distributor.\n\nThe inverter protection settings shall be as specified in AS/NZS 4777.2 for anti-islanding protection and sustained operation limits.\n\nThe electrical distributor may require changes to be made to the power quality response modes and sustained operational limits (voltage and/or frequency).\n\nNOTE: Any changes to these set points need to be approved by the electrical distributor through formal agreement or as required in applicable regulations or legislation.\n\nThe internal settings of the operational and control modes of the inverter shall only be adjusted within the allowable limits set out in AS/NZS 4777.2.\n\nAdditional requirements from the electricity distributor may include the activation or connection of—\n(a) DRMs connected to a DRED;\n(b) voltage response modes;\n(c) fixed power factor or reactive power modes;\n(d) power response mode; and\n(e) power rate limit.\n\nThese changes shall be recorded in the system manual."
+} 

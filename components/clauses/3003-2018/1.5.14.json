@@ -1,0 +1,5 @@
+{
+    "id": "1.5.14",
+    "title": "Leakage protective device (LPD)",
+    "fullText": "The following devices are LPDs:\n(a)\tLow-voltage isolation transformers in accordance with AS/NZS 4510.\n(b)\tType I low-voltage residual current devices (RCDs) in accordance with AS/NZS 3190, AS/NZS 61008.1 or AS/NZS 61009.1.\nNOTE: Clauses 2.8.1 to 2.8.8 specify requirements for RCDs that are used as LPDs."
+} 

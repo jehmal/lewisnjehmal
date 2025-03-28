@@ -1,0 +1,5 @@
+{
+  "id": "5.5.3.3",
+  "title": "IES CONNECTED TO SWITCHBOARDS WITHOUT LOADS",
+  "fullText": "Where multiple inverters are connected to a distribution switchboard as part of the IES installation (such as the switchboard for IES no loads shown in Figures 5 and 6), this distribution switchboard shall have a single isolator (normal or submain supply). Each connected inverter shall have an inverter a.c. isolator provided in the distribution switchboard and have clear labelling identifying which inverter is isolated by operation of the isolator. It is preferred that in this arrangement, where practical, the IES distribution switchboard is connected to the main switchboard via a single main switch (inverter supply). This arrangement is shown in Figure 5."
+} 

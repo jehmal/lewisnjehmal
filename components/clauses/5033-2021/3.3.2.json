@@ -1,0 +1,5 @@
+{
+  "id": "3.3.2",
+  "title": "POTENTIAL FAULT CURRENTS NOT ORIGINATING AT PV MODULES",
+  "fullText": "All cables and components (including, but not limited to, array cables, sub-array cables, string cables and PV modules) in a PV system shall be protected from currents not originating at the PV modules.\nIBF TOTAL is the sum of all backfeed sources of current not originating at the PV modules, such as from PCE/s or other external sources that are directly connected to the array.\nNOTE The value of backfeed short-circuit current available from the PCE should be documented in installation information."
+} 

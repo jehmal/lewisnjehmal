@@ -1,0 +1,5 @@
+{
+    "id": "5.5.3",
+    "title": "Generator circuit-breaker",
+    "fullText": "A generator of more than 15 kW/kVA capacity shall be provided with a circuit-breaker in its output fitted with each of the following:\n(a)\tThermal overload protection (e.g. 15 s).\n(b)\tShort-circuit protection (e.g. 500 ms).\nGenerators for parallel operation shall be provided with reverse power protection. The tripping of the generator circuit-breaker shall be time delayed (e.g. 5 s to 15 s)."
+} 

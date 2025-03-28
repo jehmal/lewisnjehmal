@@ -1,0 +1,5 @@
+{
+  "id": "6.4.2.4",
+  "title": "TESTING",
+  "fullText": "The testing of the installation shall be performed in accordance with the requirements of the manufacturer and the requirements of AS/NZS 3000.\nWhere the installation has a separate battery system, battery polarity shall be tested prior to connection to PCE. Testing shall ensure no inadvertent connections between floating or isolated battery systems and earth.\nThe following measurements should be undertaken and results recorded in the commissioning documentation:\n(a) Total battery system voltage.\n(b) Individual battery or battery module voltages, if applicable.\n(c) Other relevant measurements, where applicable, such as specific gravity readings of individual battery cells, impedance test results of individual battery cells or initial state of health.\n(d) Overall battery system voltage drop from cabling at maximum rated discharge current."
+} 

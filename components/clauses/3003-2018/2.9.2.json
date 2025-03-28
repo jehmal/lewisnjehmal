@@ -1,0 +1,5 @@
+{
+    "id": "2.9.2",
+    "title": "Isolation transformers",
+    "fullText": "Low-voltage isolation transformers that are used as LPDs shall be installed in accordance with AS/NZS 3000 and the manufacturer's instructions to ensure the temperature of the space or enclosure does not exceed the maximum ambient temperature identified on the isolation transformer.\nIsolation transformers shall be accessible for servicing.\nIsolation transformers in a cardiac-protected electrical area shall not supply more than one patient location.\nIsolation transformers in body-protected electrical area may supply more than one patient location.\nNOTE: This Standard does not require temperature rise tests of the space or enclosure in which the isolation transformer is installed."
+} 

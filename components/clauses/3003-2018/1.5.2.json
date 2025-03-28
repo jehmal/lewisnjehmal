@@ -1,0 +1,5 @@
+{
+    "id": "1.5.2",
+    "title": "Applied part",
+    "fullText": "Part of medical electrical (ME) equipment that in normal use necessarily comes into physical contact with the patient for ME equipment or an ME system to perform its function.\n[Ref: AS/NZS IEC 60601.1]\nNOTES:\n1\tAS/NZS IEC 60601.1—\n(a)\tclassifies 'applied part' as Type B, Type BF or Type CF depending on the degree of protection against electric shock; and\n(b)\trequires the equipment to be identified to indicate this classification and whether the applied part is defibrillator-proof, as shown in Figure 1.\n2\tIn some medical electrical equipment, one symbol may appear on the equipment to indicate that all applied parts are of the same classification. For equipment with applied parts of different classifications, the appropriate symbol will appear on each applied part or near the point at which the applied part is connected to the equipment, e.g. an ECG patient cable connector."
+} 

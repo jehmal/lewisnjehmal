@@ -1,0 +1,5 @@
+{
+    "id": "3.3",
+    "title": "Overcurrent protection",
+    "fullText": "The following shall apply for overcurrent protection:\n(a) Each socket-outlet shall be individually protected by a separate overcurrent protective device that is clearly identified to indicate the socket-outlet that it controls.\n(b) The rating of each of these overcurrent protective devices shall be less than or equal to the rating of the socket-outlet.\nNOTE The consequences of protecting a socket-outlet with an overcurrent protection device of lesser rating to the load should be considered.\nException: A 16 A overload protective device as overcurrent protection for 15 A three-pin flat-pin fittings (socket-outlets) in accordance with AS/NZS 3112 for supply to connectable electrical installations is deemed to comply.\nThe interrupting capacity of the overcurrent protection device shall be not less than the prospective short circuit current at the point where the device is installed."
+} 

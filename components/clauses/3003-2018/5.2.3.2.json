@@ -1,0 +1,5 @@
+{
+    "id": "5.2.3.2",
+    "title": "Socket-outlets",
+    "fullText": "All fixed socket-outlets protected by an LPD that are to be used to supply medical electrical equipment shall be identified 'SUITABLE FOR MEDICAL USE'.\nNOTE: This identification requirement need not apply where a Type 1, 10 mA portable or in line RCD, or a PSOA in accordance with Clause 5.2.3.1(iii), is being used.\nSocket-outlets other than those installed for the supply of medical electrical equipment do not require LPD protection, but shall be protected by an RCD having a rated residual current not exceeding 30 mA, installed in accordance with AS/NZS 3000."
+} 

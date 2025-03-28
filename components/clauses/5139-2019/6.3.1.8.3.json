@@ -1,0 +1,5 @@
+{
+  "id": "6.3.1.8.3",
+  "title": "BATTERY SYSTEM IS DIRECTLY EARTHED",
+  "fullText": "Where the battery system is directly earthed with voltages greater than DVC-A all metallic equipment enclosures associated with the BESS installation shall be bonded together and connected to the earthing system of the electrical installation to prevent a shock hazard occurring.\nThe minimum size of the bonding conductor shall be 6 mm2 or equivalent to the earth conductor size, whichever is the greater."
+} 

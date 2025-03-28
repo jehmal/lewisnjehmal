@@ -1,9 +1,0 @@
-{
-  "id": "5.1.3",
-  "title": "MEN Earthing System",
-  "fullText": "The protective earthing arrangements required by this standard apply to electrical installations connected to the multiple earthed neutral (MEN) distribution system, the standard distribution system used in Australia and New Zealand. Under the MEN system, the neutral conductor (PEN) of the distribution system is earthed at the source of supply at regular intervals throughout the system and at each electrical installation connected to the system. Within the electrical installation, the earthing system is separated from the neutral conductor and is arranged for the connection of the exposed conductive parts of equipment.\nNotes:\n1.\tThe MEN system as installed in Australia and New Zealand differs from the IEC system. Both systems are identical in principle but vary in detail. For further details refer to AS/NZS 61439 and AS/NZS 3007.\n2.\tThe MEN system and its various parts are illustrated in Figures 5.1 and 5.2. Figure 5.1 shows a general arrangement and Figure 5.2 an alternative arrangement in an owner or user-operated supply substation installation. The IEC 60364 series describes the MEN system as a TN-C-S system with the letters signifying:\n•\tT: The distribution system is directly connected to earth at the neutral point of the supply transformer.\n•\tN: The exposed conductive parts are connected to the earthed point of the distribution system at the MEN connection.\n•\tC: The neutral and protective conductor functions are combined in a single conductor (the neutral conductor of the distribution system).\n•\tS: The protective conductor function is separated from the neutral—separate conductors within the installation.",
-  "references": {
-    "standards": ["AS/NZS 61439", "AS/NZS 3007", "IEC 60364"],
-    "figures": ["5.1", "5.2"]
-  }
-} 

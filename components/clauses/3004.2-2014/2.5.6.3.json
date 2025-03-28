@@ -1,0 +1,5 @@
+{
+    "id": "2.5.6.3",
+    "title": "Instruments for d.c. generators",
+    "fullText": "A d.c. generator of 5.5 kW output or more, which is not operated in parallel, shall be provided with at least one voltmeter and one ammeter.\nGenerators for parallel operation shall be provided with one voltmeter for each generator (or one voltmeter and a changeover for its connection to each generator), one ammeter for each generator and one voltmeter for each section of busbar.\nFor compound-wound generators fitted with equalizer connections, the ammeter shall be connected to the pole opposite to that connected to the series winding of the generator."
+} 

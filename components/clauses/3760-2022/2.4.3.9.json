@@ -1,0 +1,5 @@
+{
+    "id": "2.4.3.9",
+    "title": "Testing of Class I equipment that is totally encapsulated",
+    "fullText": "Some Class I equipment is manufactured by entirely encapsulating it so that although it is supplied by a supply cord or by a cord set incorporating a protective earth conductor that is required by Class I equipment, there is no access to the equipment to confirm the effectiveness of the continuity of the protective earth conductor from the plug earth pin or the appliance inlet by test. When it is suspected that the equipment is of this nature, because the earth continuity cannot be verified, inspect the supply cord carefully as usual, and test the insulation by measuring either the leakage current or the insulation resistance as appropriate."
+} 

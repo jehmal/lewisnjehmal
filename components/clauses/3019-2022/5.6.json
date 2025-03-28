@@ -1,0 +1,5 @@
+{
+    "id": "5.6",
+    "title": "Protective device fault current rating",
+    "fullText": "All circuit protective devices have an adequate interrupting capacity.\nNOTE 1 The prospective short circuit current (PSCC) at the location of the device may be measured, calculated or assessed for comparison with the rating of the device.\nNOTE 2 To assist assessment or calculation, the prospective fault current at the point of supply may be sought from the electricity distributor.\nNOTE 3 A measurement of PSCC derived from measurement of EFLI, and which does not exceed the rated interrupting capacity of the device, is always acceptable.\nNOTE 4 The PSCC at the particular location may be less than the figure derived from measurement of EFLI, due to the influence of upstream devices."
+} 

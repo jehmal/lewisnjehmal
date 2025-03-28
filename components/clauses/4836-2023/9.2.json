@@ -1,0 +1,5 @@
+{
+  "id": "9.2",
+  "title": "ELECTRICAL SAFETY",
+  "fullText": "For electrical safety, the combination of leads and instruments used should be capable of withstanding the highest voltages which occur at the test location. Table 9.1 lists the categories and their typical use.\nNOTE Care should be taken with the transport and storage of test equipment, including leads.\nTable 9.1 — Test instrument category and typical use\nOver-voltage category | Circuit voltage | Suitability | Examples\nI | ELV | Measurements on circuits not directly connected to mains | ELV DC circuits, ELV lighting\nII | LV | Measurements on equipment directly connected to an LV installation | Appliances\nIII | LV | Measurements performed on an LV installation | Final subcircuits, distribution boards, submains, LV DC circuits\nIV | LV | Measurements performed at the source of an LV installation | Mains and main switchboards\nNOTE Category I meters are not suitable for testing LV installations."
+} 

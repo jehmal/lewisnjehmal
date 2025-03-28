@@ -1,0 +1,5 @@
+{
+    "id": "3.1.3",
+    "title": "Demand management",
+    "fullText": "Demand management may be applied to lower the maximum demand and to reduce component size and cost. This may be implemented by the system users or by automatic control. The extent of demand management that should be carried out will depend on a number of factors including—\n(a)\tsize and usage times of individual loads;\n(b)\tbudget constraints; and\n(c)\tuser attitudes.\nTypical demand management practices include staggering the time of operation of high power loads, so that they do not operate concurrently, and delaying or reducing usage of energy during periods of low resource availability, or scheduling high energy use to generating set run time or peak PV hours, where possible."
+} 

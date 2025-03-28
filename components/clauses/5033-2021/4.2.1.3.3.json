@@ -1,0 +1,5 @@
+{
+  "id": "4.2.1.3.3",
+  "title": "SYSTEMS CONTAINING DCUS ON ALL MODULES",
+  "fullText": "PV array maximum voltage calculation applied to system containing DCUs (VDCU string max) on all modules shall be calculated by using any of the following ways:\n(a) VDCU string max = VDCU max x number of DCUs in series.\n(b) Calculated in accordance with IEC 62548."
+} 

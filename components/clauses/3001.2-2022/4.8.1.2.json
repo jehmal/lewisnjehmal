@@ -1,0 +1,5 @@
+{
+    "id": "4.8.1.2",
+    "title": "Switching",
+    "fullText": "Switches that directly control low voltage socket-outlets shall operate in all live (active and neutral) conductors.\nException: Where an isolating transformer or electricity converter with a polarized output, or a transposition sensor, is installed in accordance with Clause 2.6.4 for each external supply, the switches may operate in the active conductors only."
+} 

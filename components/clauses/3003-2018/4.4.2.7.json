@@ -1,0 +1,5 @@
+{
+    "id": "4.4.2.7",
+    "title": "Earthing connections",
+    "fullText": "All joints and connections to the equipotential earthing system and the EP junction shall be in accordance with AS/NZS 3000, and with the requirements of this Clause.\nAll joints and connections shall be—\n(a)\tfully insulated or isolated from contact with structural metal; and\n(b)\teffected so that conductors forming part of the equipotential earthing system are not joined in tunnel connectors in which a single screw bears directly on the conductors.\nException:\n1    The EP junction is not required to conform.\nThis does not prohibit the use of socket-outlets or fixed electrical equipment in which the earthing facility consists of a tunnel connector with a single screw bearing directly on the earthing conductor. However, it does disallow two or more earthing conductors being joined in such terminals.\nNOTE: AS/NZS 3000 states that stranded earthing conductors are not permitted to be soft soldered together before clamping under a screw or between metal surfaces in an earthing terminal or connector."
+} 

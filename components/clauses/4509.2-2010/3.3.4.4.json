@@ -1,0 +1,5 @@
+{
+    "id": "3.3.4.4",
+    "title": "Parallel configuration",
+    "fullText": "This configuration is applicable to either a.c. or d.c bus system designs.\nThe key feature of this configuration is the use of an interactive battery inverter, i.e. one which allows bi-directional power flow, and which is capable of synchronizing with, and supplying a.c. power in parallel with, a generating set (refer to Figure 4). A contactor, or contactors, under the control of the inverter, connects the generating set to the a.c. inverter output when the system is synchronised and the generator is required to be on-line. When operating in parallel with the generating set, the direction and magnitude of power flow through the inverter at any instant is controlled to ensure optimal or near optimal loading of the generating set and battery charging at the highest possible rate while at all times meeting the load demand.\nThis configuration provides the best utilization of the generating set, and the highest quality of output power (a sine waveform, without breaks in the supply voltage). It may also allow the use of greatly reduced battery size."
+} 

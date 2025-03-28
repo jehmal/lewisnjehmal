@@ -1,0 +1,5 @@
+{
+    "id": "2.6.4.1",
+    "title": "General",
+    "fullText": "For every single-phase external supply, protection against transposition of the active and neutral conductors of the supply shall be by one of the following methods:\n(a) transposition sensor; or\n(b) onboard isolating transformer or electricity converter with a polarized output; or\n(c) protective devices and switching devices in a connectable electrical installation shall operate in all live (active and neutral) conductors in accordance with Sections 3, 4 and 5.\nSee Sections 3 and 4 regarding switching of all live conductors."
+} 

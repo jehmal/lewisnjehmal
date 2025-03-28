@@ -1,0 +1,5 @@
+{
+    "id": "2.2.2.10",
+    "title": "Resistors",
+    "fullText": "Resistors, for checking polarity and phase rotation, should be selected such that —\n(a) each resistor is a different value; and\n(b) no combination of resistor values adds up to the value of any other resistor or combination.\nResistors for conducting routine checks of instrument accuracy should be selected to approximate typical values.\nResistors marked as having 5 % tolerance are preferred over those having 10 % tolerance.\nNOTE Refer to Appendix A for additional information."
+} 

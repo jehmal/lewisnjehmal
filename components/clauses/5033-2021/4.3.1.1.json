@@ -1,0 +1,5 @@
+{
+  "id": "4.3.1.1",
+  "title": "GENERAL",
+  "fullText": "PV modules shall be qualified to IEC 61215-1, IEC 61215-2, IEC 61730-1 and IEC 61730-2. In addition, the modules shall be qualified to IEC 61215-1-1, IEC 61215-1-2, IEC 61215-1-3 or IEC 61215-1-4 depending on the cell technology.\nModules shall be classified as Safety Class II as specified in IEC 61730.\nPV modules only conforming to Class 0 requirements of the above documents shall not be used. If it has multiple classifications then it shall be installed in accordance with requirements of the classifications other than Class 0.\nFor building mounted applications, the fire test requirement of IEC 61730 shall be Fire Class C or higher based on the test procedure detailed in Appendix I.\nPV Modules for use in systems with calculated PV d.c. circuit maximum voltage above 50V d.c. shall include bypass diodes evaluated under the above Standards, unless the PV module manufacturer specifies not to use bypass diodes."
+} 

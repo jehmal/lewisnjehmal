@@ -1,0 +1,5 @@
+{
+  "id": "5.7.1",
+  "title": "General",
+  "fullText": "Effective fault protection by means of automatic disconnection of supply is based on disconnecting supply from the section of the installation concerned in such a way as to limit the time/touch voltage relationship to safe values in the event of an insulation fault.\nAutomatic disconnection is dependent on the characteristics of the circuit protective device and the impedance of the earthing system. Where the touch potential exceeds 50 V a.c. or 120 V ripple-free d.c., the circuit-protective device shall cause disconnection of supply within the required time.\nThe impedance of the earthing system shall be limited to that which will generate sufficient current in the protective device to cause operation of that device within the required time, taking into consideration the characteristics of the circuit protection device and the impedance of the active conductor.\nNOTE: Appendix B provides a detailed analysis of earth fault-loop impedance as an element of the method of protection by automatic disconnection of supply."
+}

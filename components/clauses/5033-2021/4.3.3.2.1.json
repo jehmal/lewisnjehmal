@@ -1,0 +1,5 @@
+{
+  "id": "4.3.3.2.1",
+  "title": "GENERAL",
+  "fullText": "Where the calculated PV d.c. circuit maximum voltage does not exceed 120 V, a disconnection device shall be installed adjacent to the PV module(s) to isolate the PV generation source.\nNOTE See Clause 4.3.11.3 for the requirements for isolation of DCU input circuits."
+} 

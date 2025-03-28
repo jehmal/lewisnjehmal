@@ -1,0 +1,5 @@
+{
+    "id": "3.5.3",
+    "title": "Insulation resistance or leakage current",
+    "fullText": "The insulation resistance or leakage current of Class I (earthed conductive parts) and Class II (double insulated) electrical equipment shall be tested in accordance with the method in AS/NZS 3760. The exception to the method in AS/NZS 3760 is for fixed equipment, where the insulation resistance shall be measured from the earth terminal of the equipment rather than the earth pin of a plug.\nThe insulation resistance values measured shall be not less than the minimum values given in AS/NZS 3760."
+} 

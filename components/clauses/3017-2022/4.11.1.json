@@ -1,0 +1,5 @@
+{
+    "id": "4.11.1",
+    "title": "General",
+    "fullText": "When an item of electrical equipment is suspected of causing an electric shock, touch voltage tests shall be performed to ensure that shock currents resulting from contact between exposed metal of the electrical equipment and extraneous conductive parts do not exceed the shock voltages limits as specified in AS/NZS 3000.\nIn the case of earthed equipment, the touch voltage between the earthed metal of the electrical equipment and an item of equipment earthed through another earthing conductor is usually the voltage drop along the protective earthing conductor. (See Figure 4.31).\nIn the case of Class II (double insulated) equipment containing switch mode power supplies, the touch voltage between the extraneous metal of the electrical equipment and either earthed metallic equipment or extraneous conductive parts may be due to capacitive coupling."
+} 

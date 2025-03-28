@@ -1,0 +1,5 @@
+{
+  "id": "1.3.23",
+  "title": "MAXIMUM POWER POINT TRACKING",
+  "fullText": "control strategy whereby PV array operation is always at or near the point on a PV device's currentvoltage characteristic where the product of electric current and voltage yields the maximum electrical power under specified operating conditions"
+} 

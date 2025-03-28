@@ -1,0 +1,5 @@
+{
+  "id": "4.6.1",
+  "title": "GENERAL",
+  "fullText": "There are several reasons for earthing exposed conductive parts of a PV array, as follows:\n(a) To provide a path for faults and leakage currents to flow.\n(b) Lightning protection.\n(c) Equipotential bonding.\n(d) PCE fault detection and alarm functionality (see Clause 3.5.3).\n(e) EMC mitigation.\n\nNOTE \"Exposed conductive parts\" is a broader term than \"exposed metal\" as defined and used in AS/NZS 3100 but has the same safety implications.\n\nAn earth conductor may perform one or more of these functions in an installation.\n\nEarthing/bonding of exposed conductive parts of a PV array shall be performed in accordance with Clause 4.6.2.\n\nFigure 4.12 shows an example of earthing requirements of exposed conductive parts on a PV array with no functional earth."
+}

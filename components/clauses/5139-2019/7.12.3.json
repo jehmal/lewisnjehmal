@@ -1,0 +1,5 @@
+{
+  "id": "7.12.3",
+  "title": "MULTIPLE ISOLATION DEVICE",
+  "fullText": "When a battery system has more than one isolation device installed, these shall be labelled and numbered according to the battery system to which they are connected.\nWhere there are parallel battery systems connected to the PCE(s) and multiple isolation/disconnection devices are used, the following signage shall be fixed adjacent to the PCE connected to the multiple battery systems and have a warning label containing a warning symbol and stating:\nWARNING — MULTIPLE BATTERY SYSTEMS\nTURN OFF ALL BATTERY SYSTEM ISOLATORS TO ISOLATE EQUIPMENT\nIf there are multiple PCEs, only one sign is required to be located beside one of the PCEs."
+} 

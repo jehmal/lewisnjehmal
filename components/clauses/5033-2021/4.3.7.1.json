@@ -1,0 +1,5 @@
+{
+  "id": "4.3.7.1",
+  "title": "GENERAL",
+  "fullText": "Where required, overcurrent protection shall be installed on all current carrying conductors not directly connected to earth.\nNOTE 1 Functional earth connections via an earth fault interrupter are considered to be directly connected to earth. Functional earth connections via a resistor are not considered to be directly connected to earth.\nWhere overcurrent protection is required to protect against currents originating at PV modules, the location of overcurrent protection devices shall be as close to the connection point of parallel circuits as practicable.\nWhere overcurrent protection is required to protect against currents not originating at PV modules, the location of overcurrent protection devices shall be as close to sources as practicable.\nOvercurrent protection devices not capable of breaking load under current shall be marked as \"no-load break\". They shall not be able to be operated without the use of a tool."
+} 

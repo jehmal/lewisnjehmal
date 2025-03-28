@@ -1,0 +1,5 @@
+{
+    "id": "7.5.4",
+    "title": "Separation Requirements for SELV and PELV Circuits",
+    "fullText": "Live parts of SELV and PELV circuits shall be electrically separated from each other and from other higher voltage circuits. Arrangements shall ensure a level of electrical separation equivalent to that between the input and output of a safety isolating transformer complying with AS/NZS 61558. SELV and PELV circuit conductors shall be segregated from those of other circuit conductors.\nException: SELV and PELV circuit conductors installed in accordance with Clause 3.9.8.3 may be contained within the same wiring system as low voltage circuits.\nLive parts shall be arranged so that short-circuit or arcing, either between live parts or between live parts and other conductive material, will not take place under the conditions that may reasonably be expected in service."
+} 

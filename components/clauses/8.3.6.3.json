@@ -1,7 +1,0 @@
-{"section": "8.3.6.3",
-    "title": "Results",
-    "content": {
-        "title": "Results",
-        "fullText": "The insulation resistance between:\n(a) The conductors of consumer mains and submains; and\n(b) Live and earthed parts of an electrical installation, or parts thereof, including consumer mains and submains,\nshall be not less than 1 MΩ.\nExceptions: Acceptable insulation resistance values for items likely to adversely affect test results are as follows:\n1. For sheathed heating elements of appliances: not less than 0.01 MΩ.\n2. A value permitted in the Standard applicable to the electrical equipment.\n3. For functional earth connections of RCDs: not less than 0.05 MΩ, or as prescribed by the manufacturer.\nNotes:\n1. For shorter cable runs, the insulation resistance should be significantly greater than 1 MΩ, e.g., for polymeric cables up to 50 m, a value in excess of 50 MΩ would be expected.\n2. Insulation resistance varies with insulation materials and decreases with increased length and/or higher temperature.\n3. PVC insulated cables with a route length of 50 m can be expected to have insulation resistances of at least 20 MΩ at a temperature not exceeding 20°C but only 6 MΩ at a temperature of 30°C.\n4. XLPE insulated cables can be expected to have insulation resistance of at least 1500 MΩ for a route length of 50 m."
-    }
-} 

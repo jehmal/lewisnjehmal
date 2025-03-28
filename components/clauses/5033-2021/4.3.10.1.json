@@ -1,0 +1,5 @@
+{
+  "id": "4.3.10.1",
+  "title": "BYPASS DIODE",
+  "fullText": "Bypass diodes may be used to prevent PV modules from being reverse biased and consequent hot spot heating. Where external bypass diodes are used, and are not embedded in the PV module encapsulation, they shall be selected for the expected operating environment and have—\n(a) a voltage rating at least 2 × VOC MOD of the protected PV module; and\n(b) a current rating of at least 1.4 × ISC MOD."
+} 

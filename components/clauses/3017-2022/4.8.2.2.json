@@ -1,0 +1,5 @@
+{
+    "id": "4.8.2.2",
+    "title": "Supply energized",
+    "fullText": "Where EFLI testing is to be carried out under energized conditions, see Clause 4.8.5.1.\nThe location of the protection device for the circuit being tested shall be identified. The earth fault-loop impedance for each branch of each final subcircuit shall be tested at the furthest point of each branch of the final subcircuit. This may be achieved by use of an earth loop fault impedance test instrument."
+} 

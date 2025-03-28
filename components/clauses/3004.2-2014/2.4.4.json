@@ -1,0 +1,5 @@
+{
+    "id": "2.4.4",
+    "title": "Adverse effects and its interference",
+    "fullText": "Electrical equipment shall be selected so that, during normal operation, including switching, it will not cause harmful effects to other equipment.\nFactors that may need to be considered include the following:\n(a)\tPower factor.\n(b)\tExcessive voltage fluctuations.\n(c)\tSevere distortion of current waveforms.\n(d)\tElectromagnetic emissions.\nNOTE: IEC 60945 and IEC 60950-1 or AS/NZS 60950.1 should be referred to for equipment that could cause electromagnetic disturbance."
+} 

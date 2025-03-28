@@ -1,9 +1,0 @@
-{
-  "id": "3.12.3.1",
-  "title": "General",
-  "fullText": "Aerial conductors for low voltage systems shall be installed such that clearances from ground, buildings and structures other than public roadways are not less than those given in Table 3.8.\nNOTE: These clearances do not apply to pole supports or independent supports for the aerial conductors themselves.\nClearances shall be maintained in any direction from any position to which any part of such conductors may either sag at a maximum conductor temperature of 115°C or move as a result of wind pressure.\nWhen aerial conductors are being strung, an additional clearance shall be provided so that the distances specified in Table 3.8 are obtained up to a maximum conductor temperature of 115°C.\nNOTE: Table D2 of Appendix D uses sag allowances that make provision for additional clearances.\nWhere aerial conductors terminate above or to the side of a building or structure, a suitable clearance to prevent contact with the building or structure shall be provided.\nConnections between aerial conductors and circuit wiring shall not be regarded as aerial conductors but shall be out of arm's reach from the ground or from an elevated area.\nNOTE: Regulatory authorities may have additional requirements regarding aerial conductor clearances.",
-  "references": {
-    "tables": ["3.8", "D2"],
-    "appendices": ["D"]
-  }
-} 

@@ -1,0 +1,5 @@
+{
+  "id": "4.13.1",
+  "title": "GENERAL",
+  "fullText": "For the purpose of this Clause, an electricity converter includes both static and dynamic equipment designed to stabilize the supply voltage, or to change the voltage or frequency of an electricity supply, or to maintain a continuous electricity supply for a limited period of time when the primary source of electricity supply is interrupted.\nExamples include the following:\n(a)\tUninterruptible power systems (UPS).\n(b)\tSemiconductor power converters (and inverters).\n(c)\tVoltage stabilizers.\n(d)\tMotor-generator sets.\n(e)\tRotary converters.\nTransformers\tand\tengine-driven\tgenerating\tsets\tthat\tcomply\twith AS/NZS 3010 shall not be considered as electricity converters.\nNOTE: Requirements for alternative, stand-by and stand-alone systems are set out in Clause 7.3."
+}

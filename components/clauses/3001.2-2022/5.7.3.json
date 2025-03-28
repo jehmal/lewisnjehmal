@@ -1,0 +1,5 @@
+{
+    "id": "5.7.3",
+    "title": "Battery chargers",
+    "fullText": "For battery chargers connected to a low voltage a.c. supply, refer to the relevant clauses of AS/NZS 60335.2.29. The d.c. output should be electronically regulated so the maximum d.c. output voltage or amps of the battery manufacturer's specifications are not exceeded.\nThe battery charger output should be rated to a minimum of 10 % of the capacity of the connectable electrical installation battery in Ah at 20 h discharge rate (C20 rating) and not exceeding the maximum charge rate of the battery manufacturer's specifications."
+} 

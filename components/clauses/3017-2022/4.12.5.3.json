@@ -1,0 +1,5 @@
+{
+    "id": "4.12.5.3",
+    "title": "Test using a volt meter",
+    "fullText": "Figure 4.33 shows a method of testing the high resistance of the incoming neutral (PEN).\nNOTE A substantial difference, i.e. > 6 V, indicates a the possibility of a loose or high resistance neutral connection either at the switchboard, overhead line connector box or to the consumers mains or service line.\nWARNING: DUE TO THE SIGNIFICANT RISE IN VOLTAGE ON EARTHED EQUIPMENT, INCLUDING THE EARTH ELECTRODE, DURING THE COURSE OF THIS TEST, THE PREMISES SHOULD BE VACATED BY ALL PERSONS AND THE TEST CONDUCTED BY A COMPETENT PERSON TRAINED IN THIS TECHNIQUE."
+} 

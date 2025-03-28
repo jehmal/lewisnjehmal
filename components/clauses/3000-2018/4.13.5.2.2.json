@@ -1,0 +1,5 @@
+{
+  "id": "4.13.5.2.2",
+  "title": "RCDs",
+  "fullText": "The possible waveform of a fault current to earth can affect the operation of RCDs and shall be taken into account for the selection of the type of RCD.\nWhere an electricity converter includes an inverter, the RCD shall be of a type suitable for the waveform of the particular inverter, and in accordance with the inverter manufacturer's recommendations.\nNOTE: Requirements for types of RCDs are set out in Clause 2.6.2.2."
+}

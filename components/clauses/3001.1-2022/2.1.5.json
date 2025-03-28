@@ -1,0 +1,5 @@
+{
+    "id": "2.1.5",
+    "title": "Ring circuits",
+    "fullText": "Where a common submain is connected as a ring circuit, both ends of each live conductor shall be connected to the same terminal at the origin of the circuit.\nNOTE A ring circuit can be a useful way to overcome voltage drop where multiple service pillars are installed. However, the prospective fault current on a ring circuit can be appreciably greater than for a radial circuit."
+} 

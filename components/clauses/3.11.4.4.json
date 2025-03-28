@@ -1,9 +1,0 @@
-{
-  "id": "3.11.4.4",
-  "title": "Minimum depth of cover",
-  "fullText": "Underground wiring systems shall be installed with the minimum depth of cover and protection specified in Table 3.6.\nThese dimensions shall apply vertically between the upper surface of—\n(a) the wiring system for a Category A or Category C system; or\n(b) the additional mechanical protection of a Category B system,\nand the surface of the ground or below any poured concrete laid on that surface (see Figures 3.10 to 3.17).\nWhere cables are buried close to a sloping or vertical surface, these dimensions shall also apply perpendicular to that surface (see Figure 3.17).",
-  "references": {
-    "tables": ["3.6"],
-    "figures": ["3.10", "3.11", "3.12", "3.13", "3.14", "3.15", "3.16", "3.17"]
-  }
-} 

@@ -1,0 +1,5 @@
+{
+    "id": "2.8.4",
+    "title": "Indication",
+    "fullText": "If the location of any RCD that is used as an LPD is remote from all the socket-outlets that it protects, the RCD shall be fitted with an amber, yellow or orange indicator light to show when supply is available to the socket-outlets.\nException:\n1\tSocket-outlets identified 'CLEANING PURPOSES ONLY'."
+} 

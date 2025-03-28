@@ -1,0 +1,5 @@
+{
+    "id": "2.8.2",
+    "title": "Discrimination",
+    "fullText": "An RCD that is used as an LPD shall not be protected by another RCD unless it is of a higher rating and discrimination is ensured. A 30 mA RCD shall not be used in the switchboard in lieu of mechanical protection for final sub-circuits supplying body-protected or cardiac-protected electrical areas.\nException:\n1\tInstallations that conform with NZS 6115.\nNOTES:\n1\tA 30 mA RCD upstream of a 10 mA RCD will not provide adequate discrimination.\n2\tSee Clause 5.2 for home care installations."
+} 

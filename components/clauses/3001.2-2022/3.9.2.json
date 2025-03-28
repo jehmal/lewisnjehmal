@@ -1,0 +1,5 @@
+{
+    "id": "3.9.2",
+    "title": "Equipotential bonding",
+    "fullText": "All metallic piping and metal framework in or on a relocatable unit shall be connected to the protective earthing conductor by means of —\n(a) an equipotential bonding conductor in accordance with AS/NZS 3000; or\n(b) clamping it to any earthed conductive parts so that reliable mechanical and electrical contact is maintained between the piping and earthed metal.\nThe connection of the equipotential bonding conductor to the conductive frame of the relocatable unit shall be by a permanent stud (minimum 6 mm) attached to the frame or by a nut and bolt (minimum 6 mm).\nSelf-drilling screws shall not be used for this connection.\nException: Piping systems for the supply of gas do not need to be connected to the protective earthing conductor in situations where this practice is not permitted in accordance with AS/NZS 5601.2."
+} 

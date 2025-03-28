@@ -1,0 +1,5 @@
+{
+    "id": "4.12.5.1",
+    "title": "Test using an earth fault-loop impedance meter − Installation energized",
+    "fullText": "The incoming neutral may be tested by using a proprietary earth fault-loop impedance test instrument as follows:\n(a) Turn all main switches OFF.\n(b) To remove all alternate current paths, for example, water pipe bond, remove MEN connection and incoming neutral from the neutral bar at the main switchboard.\n(c) Measure between the incoming active(s) on line side of main switch and incoming neutral.\nNOTE 1 In multi-phase installations, the readings should be substantially the same.\nNOTE 2 If the earth fault-loop impedance is greater than 0.5 Ω further investigation may be required."
+} 

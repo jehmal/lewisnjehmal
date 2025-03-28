@@ -1,0 +1,5 @@
+{
+    "id": "2.7.5",
+    "title": "Changeover device without an intermediate 'off' position",
+    "fullText": "A permanently connected changeover device having no intermediate 'off' position shall be connected in one of the following ways, such that supply to the load may be obtained from either of the two sources of supply:\n(a)\tSupply side of a main switch [see Figure 2.2(a)].\n(b)\tSupply side of switch(es) controlling a submain(s) or final subcircuit(s) [see Figure 2.2(b)].\n(c)\tSupply side of a switch controlling an individual final subcircuit [see Figure 2.2(c)].\nNOTE: Figures 2.1 and 2.2 are only intended to show the location of changeover devices relevant to other switchgear for the purpose of this Clause."
+} 

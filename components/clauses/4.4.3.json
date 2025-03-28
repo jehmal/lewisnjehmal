@@ -1,8 +1,0 @@
-{
-  "id": "4.4.3",
-  "title": "Earthing contacts",
-  "fullText": "Every socket-outlet shall be provided with an earthing contact.\nNOTE: See Clause 5.4.2 for earthing requirements.\nException: In accordance with Clause 7.5.10, socket-outlets for SELV and PELV systems shall not be provided with an earthing contact.",
-  "references": {
-    "sections": ["5.4.2", "7.5.10"]
-  }
-} 

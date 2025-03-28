@@ -1,0 +1,5 @@
+{
+    "id": "2.7.4.1",
+    "title": "Identification of socket-outlets protected by LPDs",
+    "fullText": "Socket-outlets protected by LPDs shall be identified by the specific words—\n(a)\t'RCD PROTECTED' or 'ISOLATION TRANSFORMER PROTECTED';\n(b)\t'from RCD X' or 'from LIM X'; and\n(c)\t'CLEANING PURPOSES ONLY', where applicable.\nException:\n1\tItem (a) need not apply to socket-outlets identified 'CLEANING PURPOSES ONLY'.\nEach socket-outlet or group of socket-outlets shall be identified (numbered or lettered) in accordance with Clause 2.12.1 to identify the appropriate LIM and overload monitor or the appropriate RCD.\nSocket-outlets protected by an LPD shall not have DB/CB identification affixed."
+} 

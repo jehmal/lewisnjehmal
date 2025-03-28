@@ -1,0 +1,5 @@
+{
+  "id": "6.3.4.4",
+  "title": "BATTERY MANAGEMENT SYSTEM (BMS)",
+  "fullText": "Battery systems that are categorized as fire hazards due to fault conditions identified in Clauses 6.3.4.5 to 6.3.4.9 shall be installed with a BMS that is compatible with the particular type of battery system.\nThe BMS shall monitor all the potential and controllable fault conditions that result in a fire if they occur. The BMS shall either take direct action as specified in Clauses 6.3.4.5 to 6.3.4.9 and/or provide an actionable alarm.\nWhere more than one battery chemistry is provided to constitute a battery system, each of the battery chemistries or technologies used shall include a suitable BMS.\nThe BMS should —\n(a) monitor the battery system's temperature and voltage; and\n(b) maintain the charging and discharging of the battery system between the manufacturer's specified voltage and temperature windows."
+} 

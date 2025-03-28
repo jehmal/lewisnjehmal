@@ -1,0 +1,5 @@
+{
+    "id": "5.1",
+    "title": "GENERAL",
+    "fullText": "Every circuit, except for starter motor (cranking) circuits, shall be protected against overload and short-circuit by a fuse or circuit-breaker located in the active conductor (non-earthed) as close as practical to the source of supply. Circuits for essential equipment such as steering motors equipped with overload alarms may be protected for short-circuit only.\nFuses and circuit-breakers used shall be selected from those manufactured in accordance with the appropriate AS/NZS and/or IEC Standard.\nFinal subcircuits connected to a distribution panel or switchboard shall be protected, unless otherwise specified, by a fuse or circuit-breaker."
+} 

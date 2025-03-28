@@ -1,0 +1,5 @@
+{
+  "id": "5.3.1.1",
+  "title": "GENERAL",
+  "fullText": "A BESS shall not be installed if the pre-assembled battery system has a voltage of DVC-A and is connected to an inverter that does not have at least simple separation between the battery system d.c. port and the a.c or grid port of the inverter.\nThe cabling and installation requirements of the pre-assembled battery system shall be treated as DVC-C if a non-separated PCE other than an inverter is installed (e.g. solar charge controller) and the non-battery side of the PCE is greater than DVC-A."
+} 

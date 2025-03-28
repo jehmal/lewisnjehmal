@@ -366,6 +366,17 @@ const File = forwardRef<HTMLButtonElement, FileProps>(
   ({ value, className, isSelectable = true, fileIcon, children, ...props }, ref) => {
     const { direction, selectedId, selectItem } = useTree();
     const isSelected = selectedId === value;
+    
+    const handleClick = () => {
+      selectItem(value);
+      
+      // Emit a custom event with the selected file ID
+      const event = new CustomEvent('tree-item-selected', { 
+        detail: { id: value } 
+      });
+      window.dispatchEvent(event);
+    };
+    
     return (
       <AccordionPrimitive.Item value={value} className="relative">
         <AccordionPrimitive.Trigger
@@ -382,7 +393,7 @@ const File = forwardRef<HTMLButtonElement, FileProps>(
             isSelectable ? "cursor-pointer" : "opacity-50 cursor-not-allowed",
             className,
           )}
-          onClick={() => selectItem(value)}
+          onClick={handleClick}
         >
           {fileIcon ?? <FileIcon className="size-4" />}
           {children}

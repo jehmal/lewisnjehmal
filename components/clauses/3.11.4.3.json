@@ -1,8 +1,0 @@
-{
-  "id": "3.11.4.3",
-  "title": "Category B wiring system mechanical protection",
-  "fullText": "For a Category B wiring system, additional mechanical protection shall be provided as follows:\n(a) The protection shall be placed not more than 75 mm above the wiring system.\n(b) The protection shall be not less than 150 mm wide.\n(c) The protection shall overlap the wiring system by at least 40 mm on each side.\n(d) The protection shall consist of one or a combination of the following:\n(i) Precast concrete slabs having a thickness of not less than 40 mm and a classification of not less than grade 20 in accordance with AS 3600 or NZS 3104.\n(ii) Concrete slabs cast on-site having a thickness of not less than 100 mm.\n(iii) A continuous concrete pour having a thickness of not less than 75 mm.\n(iv) Fibrous cement slabs having a thickness of not less than 12 mm.\n(v) Bricks manufactured specifically for the protection of electric cables.\n(vi) Polymeric cable cover strips complying with AS 4702.\n(vii) Other materials that offer the same degree of protection afforded by the materials in Items (i) to (vi).",
-  "references": {
-    "standards": ["AS 3600", "NZS 3104", "AS 4702"]
-  }
-} 

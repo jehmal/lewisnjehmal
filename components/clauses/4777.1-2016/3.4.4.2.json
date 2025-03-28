@@ -1,0 +1,5 @@
+{
+  "id": "3.4.4.2",
+  "title": "PHASE BALANCE PROTECTION",
+  "fullText": "Where phase balance protection is required as per Table 1, it shall respond to current imbalance at the IES connection point caused by an IES (or multiple IES) between phases greater than 21.7A (5 kVA at 230 V) by disconnecting all IES from the installation by automatic operation of a disconnection device located adjacent to the main switch (Inverter supply) or adjacent to the inverters and/or the internal inverter disconnection device by asserting DRM 0 to the inverter. The disconnection device shall operate when there is loss of power to the central protection, loss of control signal from the central protection or an internal fault in the central protection (this is to enable fail-safe operation). A semiconductor (solid state) device shall not be used for this purpose. Phase balance protection shall operate within 30 seconds."
+} 

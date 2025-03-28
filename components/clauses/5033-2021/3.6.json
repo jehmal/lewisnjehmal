@@ -1,0 +1,5 @@
+{
+  "id": "3.6",
+  "title": "PROTECTION AGAINST EFFECTS OF LIGHTNING",
+  "fullText": "This Clause provides information specific to PV systems.\nNOTE 1 Refer to AS 1768 for all other lightning protection requirements.\nThe following shall apply to a PV system:\n(a) Where an LPS is installed, the PV system shall be bonded to the LPS in accordance with AS 1768.\n(b) Surge protection devices (SPDs) installed on the d.c. side of the PCE shall be designed for that purpose. SPDs for d.c. use shall conform to IEC 61643-31 or EN 50539-11. SPDs designed for a.c. application shall not be used.\nSee Appendix G for recommendations on lightning and surge protection for PV systems, and for maps showing the ground flash density of lightning in Australia and New Zealand."
+} 

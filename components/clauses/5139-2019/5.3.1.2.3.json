@@ -1,0 +1,5 @@
+{
+  "id": "5.3.1.2.3",
+  "title": "REQUIREMENTS FOR HRC FUSES AND HOLDERS",
+  "fullText": "In addition to the requirements specified in Clause 5.3.1.2.1, HRC fuses and holders used for overcurrent protection for battery systems shall —\n(a) be in accordance with IEC 60269-1 and IEC 60269-3 or AS/NZS IEC 60947.1 and AS 60947.3;\n(b) be mounted in a purpose-built fuse holder;\n(c) not be a type able to be rewired;\n(d) require a tool to access live parts or terminals; and\n(e) be mounted in a fuse holder providing the minimum degree of protection of IP2X.\nFuses and fuse holders that are not rated for load breaking shall be installed to only be accessible to authorized persons and shall be labelled as per Clause 7.13.3."
+} 

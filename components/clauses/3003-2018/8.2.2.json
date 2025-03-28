@@ -1,0 +1,5 @@
+{
+    "id": "8.2.2",
+    "title": "Earthing",
+    "fullText": "The patient area shall be inspected and tested to ensure that protective earthing of the following points is intact:\n(a)\tEarth pins in all socket-outlets that are protected by an LPD and are—\n(i)\taccessible below 2.3 m;\n(ii)\tused for medical electrical equipment that are located above 2.3 m;\n(iii)\tlocated within 2.0 m on an entry way to a patient area; or\n(b)\tAll permanently wired Class I electrical equipment with conductive parts accessible below 2.3 m.\nProtective earthing shall be verified using a suitable and calibrated resistance meter.\nAll resistance values shall be less than or equal to 1.0 Ω measured from a single reference point within the patient area.\nA reticulated metal service, such as a plumbing fitting, may be used as an earth reference providing that it gives consistent earth resistance readings under 1.0 Ω for all points."
+} 

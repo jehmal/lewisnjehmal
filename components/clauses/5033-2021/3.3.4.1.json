@@ -1,0 +1,5 @@
+{
+  "id": "3.3.4.1",
+  "title": "STRINGS",
+  "fullText": "For strings connected in parallel, overcurrent protection shall be provided when—\nIF STRING + IBF TOTAL > IMOD MAX OCPR\nWhere overcurrent protection is required, see Clause 3.3.5 for rating of the overcurrent protection devices.\nNOTE 1 See Clause 1.4 for notations."
+} 

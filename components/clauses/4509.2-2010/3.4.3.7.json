@@ -1,0 +1,5 @@
+{
+    "id": "3.4.3.7",
+    "title": "PV cell temperature",
+    "fullText": "Cell temperature varies over the course of a day, under the influence of ambient temperature and irradiance, and will tend to be highest during periods of high irradiance. The daily average cell temperature can be estimated from the following equation:\nTcell,eff = Ta,day + 25\t. . . 3.4.3.7\n\nwhere\nTcell,eff = average daily effective cell temperature, in degrees Celsius\nTa,day = daytime average ambient temperature for the month of interest, in degrees Celsius"
+} 

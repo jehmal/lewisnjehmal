@@ -1,0 +1,5 @@
+{
+    "id": "2.2.2.3",
+    "title": "Instrument for measuring insulation resistance",
+    "fullText": "The meter shall have a nominal open-circuit terminal voltage in accordance with the following:\n(a) For measurements on ELV circuits — 250 V d.c.\n(b) For LV circuits up to and including 500 V — 500 V d.c.\n(c) For circuits above 500 V and not exceeding 1 000 V — 1 000 V d.c.\nThe insulation resistance meter used shall be able to maintain its terminal voltage within +20 % and −10 % of the nominal open-circuit terminal voltage, when measuring a resistance of 1 MΩ on the 250 V and 500 V ranges, and 10 MΩ on the 1 000 V range."
+} 

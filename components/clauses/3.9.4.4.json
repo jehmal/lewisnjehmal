@@ -1,8 +1,0 @@
-{
-  "id": "3.9.4.4",
-  "title": "Protection methods",
-  "fullText": "Where protection of a wiring system is required, in accordance with Clauses 3.9.4.2 and 3.9.4.3.2, the wiring system shall be—\n(a) provided with adequate mechanical protection at a minimum of WSX3 to prevent damage (refer to Paragraph H5.4, Appendix H); or\n(b) provided with an earthed metallic armouring, screen, covering or enclosure, to operate a short circuit protective device under fault conditions; or\n(c) protected by an RCD with a maximum rated operating residual current of 30 mA.\nNOTE: Where conductive mechanical protection is installed to meet the requirements of 3.9.4.4(a), for the protection of double insulated conductors, earthing of the conductive mechanical protection need not be provided.",
-  "references": {
-    "sections": ["3.9.4.2", "3.9.4.3.2", "H5.4", "Appendix H"]
-  }
-} 

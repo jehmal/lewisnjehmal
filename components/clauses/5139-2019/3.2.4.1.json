@@ -1,0 +1,5 @@
+{
+  "id": "3.2.4.1",
+  "title": "GENERAL",
+  "fullText": "Arc flash occurs when electrical current passes through the air between electrified conductors when there is insufficient isolation or insulation to withstand the applied voltage.\nArc flash incident energy is dependent on the voltage, current and the length of time that the arc occurs. The energy dissipates out from the arc flash incident so it is at its greatest at the incident and diminishes further away from the incident.\nArc flash incident energy determines the location requirements of the battery system, and the personal protective equipment (PPE) required for protection within the arc flash boundary while installing and maintaining the battery system.\nBESS and battery systems exposed to mechanical damage, inappropriate use and electrical faults may result in dangerous energy discharge and arc flash occurring.\nArc flash incident energy and arc flash boundary has been calculated for a number of example systems, see Appendix F."
+} 

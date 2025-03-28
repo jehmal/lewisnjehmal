@@ -1,0 +1,5 @@
+{
+    "id": "6.4.8",
+    "title": "Correction factors for non-continuous service",
+    "fullText": "If a cable is intended to supply a motor or equipment operating for periods of not more than 1 h, its current rating given in Table 6 may be increased using the relevant rating correction factor given in Table 8.\n\nTABLE 8\nCORRECTION FACTORS FOR HALF-HOUR AND ONE-HOUR SERVICE\n\nNominal cross-sectional area\n2\nmm\tHalf-hour service\tOne-hour service\n1 to 10\t1.06\t1.06\n16\t1.09\t1.06\n25\t1.19\t1.08\n35\t1.34\t1.14\n50\t1.55\t1.25"
+} 

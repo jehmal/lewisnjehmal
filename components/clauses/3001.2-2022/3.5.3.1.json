@@ -1,0 +1,5 @@
+{
+    "id": "3.5.3.1",
+    "title": "Current limitation of the incoming supply",
+    "fullText": "In accordance with Clause 2.6.1, each supply to a relocatable unit shall be protected by a separate overcurrent protection device located within or on the relocatable unit.\nThe maximum rating of this overcurrent protection device shall not exceed the maximum current rating of the supply wiring system.\nA 16 A miniature circuit breaker (MCB) may be used as overcurrent protection for a 15 A three-pin flat- pin fitting to AS/NZS 3112 in a relocatable unit."
+} 

@@ -1,0 +1,5 @@
+{
+    "id": "7.4",
+    "title": "d.c. AND a.c. CABLING AND WIRING SEGREGATION",
+    "fullText": "A d.c. circuit shall not be contained in the same wiring system as an a.c. circuit, unless one of the following methods of separation is used:\n(a)\tFor a multi-core cable or cord, the cores of the d.c. circuit are separated from the cores of the a.c. circuit by an earthed metal screen of equivalent current-carrying capacity to that of the largest core in either circuit.\n(b)\tThe cables are insulated for their system voltage and installed in separate compartments of a cable ducting or trunking system.\n(c)\tThe cables are installed on a tray or ladder where physical separation is provided by a partition.\n(d)\tPhysically separate conduit, duct, trunking or routing systems are used for d.c. and a.c. systems.\n(e)\tThe d.c. and a.c. conductors are fixed directly to a surface and separated by at least 100 mm.\n(f)\tThe low voltage cables are of a type providing the equivalent of double insulation."
+} 

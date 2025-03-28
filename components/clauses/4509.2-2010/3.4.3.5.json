@@ -1,0 +1,5 @@
+{
+    "id": "3.4.3.5",
+    "title": "Irradiation data",
+    "fullText": "The irradiation data used should be appropriate for the tilt angle and orientation of the modules. In particular, data used for a module orientation greater than 5° from true north (dictated by installation constraints), or for modules mounted on a tracking system, should be adjusted for those conditions."
+} 

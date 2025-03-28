@@ -1,0 +1,5 @@
+{
+    "id": "3.5.1",
+    "title": "Metering",
+    "fullText": "Each system should be equipped with metering of the following system variables:\n(a)\tBattery voltage (measured at the battery terminals).\n(b)\tInput current (from each generator).\n(c)\t'Hours run' meter for the generating sets.\nAdditional meters such as load current ammeters and ampere hour or kilowatthour meters may also be useful."
+} 

@@ -1,0 +1,5 @@
+{
+    "id": "4.2.5",
+    "title": "Enclosure of live parts",
+    "fullText": "The electrical installation supply inlet and the generator socket outlet connection shall not expose live parts to direct contact while disconnected or in the normal process of cord extension set insertion or withdrawal.\nThe generator socket outlet complying with AS/NZS 3112, AS/NZS 60884.1, AS/NZS 3123, IEC 60309-2 or AS/NZS 3131 with a IP 2X rated terminals is deemed to comply.\nThe neutral pin of the electrical installation supply inlet is considered to be a live part and shall be isolated from the main switchboard neutral connection by the changeover device when in the normal supply or 'off' positions.\nNOTE: See Figures 4.2 and 4.3."
+} 

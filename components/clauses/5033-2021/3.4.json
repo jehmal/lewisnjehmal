@@ -1,0 +1,5 @@
+{
+  "id": "3.4",
+  "title": "PROTECTION AGAINST FIRE CAUSED BY ARCS",
+  "fullText": "This Clause is reproduced from IEC 62548 ed.1.0, Clause 6.3, Copyright © 2016 IEC Geneva, Switzerland. www .iec .ch\nIn d.c. systems, overheating of connections and consequent arc faults may occur when high resistance connections are present, or may develop due to temperature cycling in an installation. It is important that care should be taken to ensure that—\n(a) all connections are correctly tightened to avoid points of failure over time;\n(b) all connectors are properly locked into place;\n(c) all crimp connections are performed according to manufacturer's instructions; and\nNOTE 1 Special care should be taken in the case where wire harnesses, plugs, sockets and connectors are assembled on site.\n(d) appropriate materials are used for contacts and connections (for example not using dissimilar metals)\nNOTE 2 Failure of plugs, sockets and connectors (due to poor assembly or crimping) has been identified as a statistically significant failure mode.\nNOTE 3 For installation requirements of plugs, sockets and connectors, see Clause 4.3.9."
+} 

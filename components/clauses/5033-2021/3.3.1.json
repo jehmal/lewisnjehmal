@@ -1,0 +1,5 @@
+{
+  "id": "3.3.1",
+  "title": "GENERAL",
+  "fullText": "Overcurrent within PV modules/PV array can result from earth faults in array wiring or from fault currents due to short circuits in modules, in junction boxes, combiner boxes or in module wiring.\nPV modules may be connected in parallel and directly connected to external sources (e.g. batteries). These parallel circuits and additional sources increase the available current under fault conditions.\nThe overcurrents in a PV system can be caused by the sum of currents—\n(a) originating at the PV modules (multiple parallel strings); and\n(b) not originating at the PV modules (e.g. from external sources such as BESS, backfeed from PCEs)\nOvercurrent protection shall be provided and applied in accordance with this document and with PV module manufacturer's requirements.\nNOTE See Figure 3.1 for a typical example of overcurrent protection for PV modules, external sources and backfeed from the PCE."
+} 

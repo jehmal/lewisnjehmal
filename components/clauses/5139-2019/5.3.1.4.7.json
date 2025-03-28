@@ -1,0 +1,5 @@
+{
+    "id": "5.3.1.4.7",
+    "title": "Protection from overcurrent from PCE",
+    "fullText": "Overcurrent protection shall be installed on the pre-assembled battery system's d.c. port of the PCE, if —\n(a) the PCE charging current or load current under fault conditions is greater than the current-carrying capacity of the conductor between the PCE and the pre-assembled battery system; and\n(b) the length of cable between the PCE and the pre-assembled battery system overcurrent protection device is greater than 3 m."
+} 

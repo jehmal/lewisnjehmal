@@ -1,0 +1,5 @@
+{
+  "id": "2.7.7.3",
+  "title": "Sources live simultaneously",
+  "fullText": "If the source of supply to the load is able to be changed while more than one supply is energized, the arrangement shall be such that the simultaneous connection of the load to both supply sources does not occur.\nNOTE This may be achieved using break-before-make switching or interlocked contactors, however the simplest method for a manual switch is to have an intermediate \"off\" position between each pair of positions that select sources."
+} 

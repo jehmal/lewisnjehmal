@@ -1,0 +1,5 @@
+{
+    "id": "2.9.3",
+    "title": "Overcurrent circuit-breaker",
+    "fullText": "The primary circuit of every isolation transformer shall be protected by a miniature overcurrent circuit-breaker (MCB) in accordance with AS/NZS 3111 or AS/NZS 60898.1.\nThe rating of the MCB shall not exceed the primary current rating of the transformer.\nNOTE: This miniature overcurrent circuit-breaker may be the same device as the overload protective device required by AS/NZS 3000."
+} 

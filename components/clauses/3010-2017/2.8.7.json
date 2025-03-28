@@ -1,0 +1,5 @@
+{
+    "id": "2.8.7",
+    "title": "Rating",
+    "fullText": "Switches, circuit-breakers, fuses, contactors, reclosers and other switchgear shall be selected with appropriate regard to the rated values of voltage, service duty and continuous and in-rush current of the circuits on which they are installed.\nAll protective devices shall be capable of safely interrupting the prospective short-circuit current at the point where the devices are installed.\nAll switchgear used to break load current shall be marked with the rated breaking and making current capacity of the device. Switches that are not rated to interrupt the full-load current of the circuit shall be interlocked with load-breaking devices to prevent the possibility of the switches being opened under load."
+} 

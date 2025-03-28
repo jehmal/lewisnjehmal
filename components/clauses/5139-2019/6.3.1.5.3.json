@@ -1,0 +1,5 @@
+{
+  "id": "6.3.1.5.3",
+  "title": "MECHANICAL PROTECTION",
+  "fullText": "For battery systems installed in a room, the battery system cables from the battery system terminal to point of connection to the overcurrent protection device shall not exceed 2 m in length without protection by medium duty conduit or equivalent protection.\nAll cables that exit the battery system enclosure or battery system room to the point of connection to the battery system overcurrent protection device shall be mechanically protected by at least medium duty conduit or equivalent protection up to the overcurrent protection device.\nFor battery systems operating at DVC-B or DVC-C, the cable between the overcurrent protection device and the PCE shall have mechanical protection.\nNOTE Refer to AS/NZS 3000:2018 Clause H4 for mechanical protection of cables."
+} 

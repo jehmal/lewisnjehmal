@@ -1,0 +1,5 @@
+{
+  "id": "4.3.6.5",
+  "title": "OVERCURRENT PROTECTION FOR PV SYSTEMS CONNECTED TO BATTERY ENERGY STORAGE SYSTEM (BESS)",
+  "fullText": "Where BESS is directly connected to PV circuits, the selection of the overcurrent protection device shall be in accordance with this Standard and AS/NZS 5139.\nThe over current protection device may be integrated into the PCE or BESS provided it is appropriately rated to protect the PV system. i.e. where battery overcurrent protection device is not rated to protect the PV circuit, another protection device for the PV circuits shall be installed.\nNOTE See Clause 3.3 for overcurrent protection requirements."
+} 

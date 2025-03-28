@@ -1,0 +1,5 @@
+{
+  "id": "3.3.3.2",
+  "title": "CALCULATION OF POTENTIAL STRING FAULT CURRENT",
+  "fullText": "IF STRING is the fault current that may flow in a string due to other parallel connected strings in the array.\nIF STRING = (SA-1) × ISTRING MAX\nNOTE 1 Where there is only one string, IF STRING = ISTRING MAX i.e. the minimum current rating of a string is the string current itself.\nNOTE 2 The thermal withstand capability of a PV module under reverse current is qualified during a 2 h test specified in the module safety test from IEC 61730 and is specified on the module as the \"maximum overcurrent protection\" value.\nNOTE 3 See Clause 1.4 for notations."
+} 

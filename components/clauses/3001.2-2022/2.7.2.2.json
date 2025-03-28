@@ -1,0 +1,5 @@
+{
+    "id": "2.7.2.2",
+    "title": "Internal/onboard low voltage supplies",
+    "fullText": "Internal/onboard supplies for a connectable electrical installation shall be provided by either —\n(a) an RCD protected supply; or\n(b) an isolated supply.\nSources shall comply with the relevant safety requirements of —\n(i) AS/NZS 4763 for an inverter; and\n(ii) AS/NZS 3010 for a generator.\nThe source shall provide short circuit protection in accordance with AS/NZS 3000. See Figures 2.8 and 2.9 for typical onboard supply wiring diagrams."
+} 

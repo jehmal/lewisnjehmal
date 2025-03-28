@@ -1,7 +1,0 @@
-{"section": "8.3.7.1",
-    "title": "General",
-    "content": {
-        "title": "General",
-        "fullText": "This testing is to prevent:\n(a) The transposition of active and neutral conductors of the consumer mains, or submains supplying an outbuilding having an MEN connection, resulting in the electrical installation earthing system becoming energized;\n(b) Combinations of incorrect active, neutral, and earthing conductor connections, resulting in the exposed conductive parts of the electrical installation becoming energized;\n(c) The connection of switches or protective devices in neutral conductors, resulting in parts of appliances, such as heating elements and lampholders, remaining energized when the switches are in the \"OFF\" position;\n(d) Multi-phase equipment, such as multi-phase motors, and semiconductor-controlled equipment operating in an unpredictable manner;\n(e) Protective earthing conductors carrying current under normal conditions of operation;\nNote: For purposes of this Clause, a PEN conductor is not regarded as a protective earthing conductor (PEC).\n(f) Short-circuits existing between conductors.\nNote: A short-circuit current flowing between live conductors or through part of the earthing system can cause considerable fire damage or personal injury, particularly in high current locations."
-    }
-} 

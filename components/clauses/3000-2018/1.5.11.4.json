@@ -1,0 +1,5 @@
+{
+  "id": "1.5.11.4",
+  "title": "Voltage in unused conductors",
+  "fullText": "Protection shall be provided against injury or property damage because of any harmful effects of voltage that may be induced or otherwise occur in unused conductors. Disconnected, redundant, or unused conductors associated with conductors that remain connected shall be terminated and protected at both ends in the same manner as is required for live conductors.\n\nNOTE: Such conductors are capable of attaining induced, unwanted voltages that may be dangerous, particularly where in close proximity to high voltage conductors."
+} 

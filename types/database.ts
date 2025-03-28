@@ -13,4 +13,7 @@ export interface DatabaseMessage {
   run_id: string;
   assistant_id: string | null;
   is_complete: boolean;
+  is_follow_up?: boolean;
+  referenced_clauses?: any[];
+  figures?: any[];
 } 

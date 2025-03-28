@@ -1,0 +1,5 @@
+{
+    "id": "4.5.3",
+    "title": "Earthing",
+    "fullText": "The earthing system of the electrical installation shall provide the earthing point for the stand-alone power system.\nThe electrical installation earth, as described in AS/NZS 3000, shall be the main earthing conductor earth electrode. An equipotential bonding conductor complying with AS/NZS 3000 shall be provided between the electrical main (installation) switchboard and the stand-alone power system earthing connection.\nWhere the d.c. system is required to be earthed, one conductor of the d.c. supply shall be connected to the main earthing conductor. Where this is done, the size of the main earthing conductor shall be determined using the calculations in AS/NZS 3000. This means that the conductor used for determination of the earth conductor size is the larger cross-section of either the d.c. unearthed conductor or the a.c. consumers mains active conductor for the installation."
+} 

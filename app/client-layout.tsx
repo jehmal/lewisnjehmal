@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { useUser } from "@/contexts/UserContext";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 export default function ClientLayout({
   children,
@@ -43,6 +44,7 @@ export default function ClientLayout({
               </Link>
             )}
           </div>
+          <ThemeToggle />
         </nav>
         {children}
       </div>

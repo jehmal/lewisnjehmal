@@ -1,6 +1,0 @@
-{
-  "id": "5.3.3.1.1",
-  "title": "General",
-  "fullText": "The cross-sectional area of a protective earthing conductor shall ensure:\n(a) Adequate current-carrying capacity for prospective fault currents for a time at least equal to the operating time of the associated overcurrent protective device;\n(b) Appropriate earth fault-loop impedance (see Clause 5.7);\n(c) Adequate mechanical strength and resistance to external influences; and\n(d) For parts of the protective earthing conductor that do not consist of cables, or parts of cables, that there is an allowance for the subsequent deterioration in conductivity that may reasonably be expected.",
-  "references": ["5.7"]
-} 

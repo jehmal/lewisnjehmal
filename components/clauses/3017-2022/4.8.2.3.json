@@ -1,0 +1,5 @@
+{
+    "id": "4.8.2.3",
+    "title": "Supply isolated",
+    "fullText": "EFLI testing is not specifically required for circuits supplying equipment other than socket-outlets because of the risk of electric shock when performing the test on live electrical equipment.\nFor a circuit that is not RCD protected and supply is not available see Clause 4.8.4.2. Where EFLI testing is to be undertaken, test to ensure the circuits are de-energized.\nWhen testing de-energized, consider the most appropriate location to place the temporary connection (active to earth).\nNOTE For guidance on appropriate locations, see Figure 4.25."
+} 

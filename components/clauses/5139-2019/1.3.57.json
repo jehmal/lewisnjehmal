@@ -1,0 +1,5 @@
+{
+  "id": "1.3.57",
+  "title": "POWER CONVERSION EQUIPMENT, SEPARATED",
+  "fullText": "PCE where electrical separation is provided by either of the following methods:\n(a) PCE with simple separation between the input and output circuits.\n(b) PCE that is only used in series with another device that provides simple separation between input and output or a minimum of basic insulation separation in accordance with a product safety standard applicable to device providing electrical separation, e.g. a transformer\nNote 1 to entry: Where a non-separated PCE is required to be used only in series with a dedicated isolation transformer, the combination may be treated as a separated PCE. Other configurations require analysis at the system level and are beyond the scope of this Standard, however the principles in this Standard may be applied."
+} 

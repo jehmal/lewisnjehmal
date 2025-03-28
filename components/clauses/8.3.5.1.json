@@ -1,8 +1,0 @@
-{
-    "section": "8.3.5.1",
-    "title": "General",
-    "content": {
-        "title": "General",
-        "fullText": "Testing to prove the continuity of the earthing system (earth resistance of the main earthing conductor, protective earthing conductors, combined protective earthing and neutral (PEN) conductors, and bonding conductors) shall be carried out to ensure that the earthing system has been installed in a manner that will cause circuit protective devices to operate if there is a fault between live parts, other than the neutral, and the mass of earth. An effective earthing system will ensure that exposed conductive parts of electrical equipment do not reach dangerous voltages when such faults occur.\nNote: Where a PEN submain is installed in accordance with Clause 5.5.3.1 (c), testing shall confirm that the earth terminal, point, or bar of the sub-board is connected via the PEN conductor to the earth terminal, point, or bar of the main switchboard"
-    }
-} 

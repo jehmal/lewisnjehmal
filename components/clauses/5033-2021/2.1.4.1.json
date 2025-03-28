@@ -1,0 +1,5 @@
+{
+  "id": "2.1.4.1",
+  "title": "GENERAL",
+  "fullText": "PV array(s) are often connected to PCEs with multiple d.c. inputs as shown in Figure 2.5 and Figure 2.6.\nIf multiple d.c. inputs are in use, overcurrent protection and cable sizing within the various sections of the PV array(s) are critically dependent on the internal input circuits of the PCE."
+} 

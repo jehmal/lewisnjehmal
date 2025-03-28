@@ -1,0 +1,5 @@
+{
+  "id": "1.3.36",
+  "title": "PV SUB-ARRAY CABLE",
+  "fullText": "output cable of a PV sub-array that carries only the output current of its associated sub-array in normal operation, and that connects the PV sub-array with the other PV sub-arrays that constitute the PV array\nNote 1 to entry: PV sub-array cables are only relevant for PV arrays that are divided into sub-arrays (see Figure 2.4 for details)."
+} 

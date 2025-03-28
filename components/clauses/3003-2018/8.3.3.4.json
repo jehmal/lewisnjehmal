@@ -1,0 +1,5 @@
+{
+    "id": "8.3.3.4",
+    "title": "Maximum tripping time tests",
+    "fullText": "In New Zealand, the RCD tripping time shall be measured at the rated tripping current between the active supply and the earth on the load side of the RCD for each single-phase RCD. The test instrument shall conform with IEC 61557-6. Two tests shall be performed, one at 0° on the voltage wave and the other at 180°. The tripping time shall not exceed 40 ms. Both times shall be recorded.\nIn the event of a failed result, the RCD shall be retested with all downstream loads disconnected.\nFor multi-phase supplies, the tests shall be applied to each phase."
+} 

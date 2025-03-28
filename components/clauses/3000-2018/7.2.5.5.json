@@ -1,0 +1,5 @@
+{
+  "id": "7.2.5.5",
+  "title": "Pump Rooms for Fire Pumps and Fire Pump Control Equipment",
+  "fullText": "In rooms used essentially to house fire hydrant or sprinkler pumps, lighting equipment and socket-outlets may be connected as a final subcircuit to the circuit supplying the pump equipment, provided that: (a) the final subcircuit is protected against any overcurrent, in accordance with Clause 2.5; (b) the final subcircuit is protected by an RCD with a fixed rated residual current not exceeding 30 mA; and (c) the wiring system between the pump equipment circuit and such final subcircuit protective device complies with: (i) the current-carrying capacity and installation requirements of Clause 2.5.3.1; and (ii) the type and segregation requirements of Clauses 7.2.5.2.2 and 7.2.5.3.\nException: Circuits for lighting and socket-outlets in pump rooms installed in accordance with Clause 7.2.5.2.1. The wiring system between the final subcircuit protective device and the lighting equipment or socket-outlets need not comply with the requirements of Clause 7.2.5.2.2."
+}

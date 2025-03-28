@@ -1,0 +1,5 @@
+{
+  "id": "4.3.6.2",
+  "title": "CIRCUIT BREAKERS",
+  "fullText": "Circuit breakers used for overcurrent protection in PV circuits shall —\n(a) be in accordance with either AS/NZS 60898.2 or AS/NZS IEC 60947.2;\n(b) not be polarity sensitive;\n(c) be rated for d.c. use;\n(d) be rated to interrupt full load and prospective fault currents from the PV array and any other connected power sources such as batteries, generators and the grid if present;\n(e) be rated for overcurrent according to Clause 3.3; and\n(f) have a degree of protection of at least IPXXB or IP2X protection level in the connected or disconnected state.\nNOTE Circuit breakers are not recommended for string overcurrent protection.\nWhere circuit breakers are used as a disconnection device, see Clause 4.3.4.2.4."
+} 

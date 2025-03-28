@@ -1,0 +1,5 @@
+{
+  "id": "5.6.1.1",
+  "title": "ADDITIONAL INFORMATION FOR PV D.C. SYSTEMS",
+  "fullText": "Additional site information for PV d.c. systems shall include:\n(a) the path of the d.c. cabling;\n(b) the location of d.c. disconnection point(s) indicated by \"DP\";\n(c) the location of additional load break disconnector(s);\n(d) PV array size;\n(e) d.c. Voltage; and\n(f) contain a warning where d.c. disconnection type(s) can only be operated by suitable qualified personnel.\n\nEXCEPTION — These requirements do not apply for systems with a calculated PV d.c. circuit maximum voltage is less than 120 V d.c. and where the inverter is located within 1.5 m of the connected PV module using d.c. disconnection consistent with Clause 4.5.3.1."
+} 

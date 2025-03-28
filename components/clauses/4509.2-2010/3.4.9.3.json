@@ -1,0 +1,5 @@
+{
+    "id": "3.4.9.3",
+    "title": "Inverter-chargers",
+    "fullText": "Inverter-chargers should be sized in the same manner as unidirectional inverters, with the additional constraint that the device should provide a charge rate adequate to allow recharging of the batteries from the design maximum depth of discharge, in an acceptable time."
+} 

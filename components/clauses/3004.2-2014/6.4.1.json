@@ -1,0 +1,5 @@
+{
+    "id": "6.4.1",
+    "title": "General requirement",
+    "fullText": "The corrected current rating of each cable shall not be lower than the highest current likely to be carried by the cable. The corrected current rating shall be calculated by using the relevant correction factors for continuous service. The highest current shall be calculated from the load demands and the diversity factors of circuits, machinery, etc. supplied by the cable."
+} 

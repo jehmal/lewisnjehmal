@@ -1,0 +1,5 @@
+{
+  "id": "5.3.1.2.2",
+  "title": "REQUIREMENTS FOR CIRCUIT BREAKERS",
+  "fullText": "In addition to the requirements specified in Clause 5.3.1.2.1, circuit breakers used for overcurrent protection shall be in accordance with either AS/NZS 60898.2 or AS/NZS IEC 60947.2.\nCircuit breakers for indoor use shall be mounted in enclosures that have a minimum rating of IP23.\nCircuit breakers for outdoor use shall be suitably rated for ambient temperature of —\n(a) for Australia, 40 °C; or\n(b) for New Zealand, 30 °C.\nThey should be mounted in enclosures that have a minimum rating of IP56.\nThe selection and connection of circuit breakers shall take into account the applied voltage when the system is earthed and unearthed.\nNOTE It may be necessary to take into account whether earth is connected to the positive or the negative pole of the battery system, or whether earth is connected to a centre tap or similar."
+} 

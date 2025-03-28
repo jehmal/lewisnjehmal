@@ -1,0 +1,5 @@
+{
+    "id": "3.2.1",
+    "title": "Types of a.c. distribution system",
+    "fullText": "The systems shall be either, or a combination of the following:\n(a)\tSingle-phase systems or final subcircuits—\n(i)\tsingle-phase two-wire insulated; or\n(ii)\tsingle-phase two-wire with neutral earthed; or\n(iii)\tsingle-phase two-wire with midpoint earthed for lighting and socket-outlets; or\n(iv)\tsingle-phase three-wire with midpoint earthed, but without hull return.\n(b)\tThree-phase systems—\n(i)\tthree-phase three-wire insulated three-phase (IT); or\n(ii)\tfour-wire with neutral earthed (TN-C type) but without hull return; or\n(iii)\tfive-wire with neutral earthed (TN-S) but without hull return.\nEarthing of a distribution system is to be effected by means independent of the earthing arrangements of non-current-carrying parts and is to be connected to the hull or to the boat's earth plate at one point only.\nNOTE: When designing an IT system, reference should be made to IEC 60364-6 for guidance."
+} 

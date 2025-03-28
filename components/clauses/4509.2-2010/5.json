@@ -1,0 +1,5 @@
+{
+    "id": "5",
+    "title": "SYSTEM PERFORMANCE",
+    "fullText": "Performance specifications should be based on the equations and other considerations outlined in Sections 2, 3 and 4.\nMajor system parameters which should be specified (for annual, seasonal or monthly periods, as appropriate to the basis of the design) are—\n(a)\tdesign d.c. load energy and design a.c. load energy;\n(b)\tload management strategies or conditions necessary for performance as specified;\n(c)\tmaximum and surge demand;\n(d)\taverage daily energy output of each renewable energy generator under design conditions;\n(e)\texpected contribution to the load from each generator under design conditions, as a percentage;\n(f)\tnominal generating set run time under design conditions;\n(g)\trenewable energy resource data used for design calculations including adjustments for site conditions and design parameters (e.g. PV array tilt angle and orientation, wind turbine tower height);\n(h)\tsystem voltage; and\n(i)\tratings of major components."
+} 

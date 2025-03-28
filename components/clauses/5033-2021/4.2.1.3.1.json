@@ -1,0 +1,5 @@
+{
+    "id": "4.2.1.3.1",
+    "title": "Systems containing no DCUs",
+    "fullText": "The PV array maximum voltage is calculated by using any of the following ways:\n(a) PV array maximum voltage = VMOD MAX x M; or\n(b) Calculated in accordance with IEC 62548."
+} 

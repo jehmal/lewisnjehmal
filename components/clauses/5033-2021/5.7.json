@@ -1,0 +1,5 @@
+{
+  "id": "5.7",
+  "title": "SHUTDOWN PROCEDURE",
+  "fullText": "All systems shall include a shutdown procedure that clearly sets out the steps to safely shut down the system. The procedure shall be placed adjacent to and visible from the equipment to be operated in the event of a shutdown. Where the inverter is adjacent to the switchboard it is directly connected to, the shutdown procedure may be placed within that switchboard.\n\nAll labelling of devices shall be consistent with terminology used in the shutdown procedure.\n\nFor PV array disconnectors, a warning shall be included in the shutdown procedure stating the following:\n\nWARNING: PV ARRAY d.c. ISOLATORS DO NOT DE-ENERGIZE THE PV ARRAY AND PV CABLES.\n\nNOTE 1 The yellow warning can be separate but added below the shutdown sign so as to simplify sign manufacturing.\n\nNOTE 2 See Figure A.6."
+} 

@@ -1,0 +1,5 @@
+{
+    "id": "4.9.1",
+    "title": "Control of directly connected appliances",
+    "fullText": "Every directly connected appliance in a recreational vehicle or non-recreational vehicle shall be controlled by a switch that is placed and marked so as to be readily identifiable and convenient for its intended use. This modifies the requirement of AS/NZS 3000 in relation to isolating devices for air conditioners, hot water services and fixed or stationary cooking appliances with an open cooking surface incorporating an electric cook top.\nWhere a dedicated circuit is installed to supply a single appliance, the protective device at the switchboard is deemed to comply.\nEvery directly connected appliance in a recreational vehicle or non-recreational vehicle shall be provided with a switch that operates in all live (active and neutral) conductors.\nException: Where an isolating transformer or electricity converter with a polarized output, or a transposition sensor, is installed in accordance with Clause 2.6.4 for each external supply, the switches may operate in the active conductors only."
+} 

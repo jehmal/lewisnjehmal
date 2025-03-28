@@ -1,0 +1,5 @@
+{
+  "id": "7.16",
+  "title": "SHUTDOWN PROCEDURE",
+  "fullText": "All BESS shall include a permanent sign detailing the shutdown procedure that sets out the sequential steps to safely shutdown the BESS.\nThe shutdown procedure shall be —\n(a) installed adjacent to the PCE to which the battery system is connected; and\n(b) placed adjacent to and visible from the equipment to be operated in the event of a shutdown.\nWhere the PCE is adjacent to the switchboard it is directly connected to, the shutdown procedure may be placed within that switchboard.\nThe sign detailing the shutdown procedure may also include the start-up procedure.\nAll labelling of devices shall be consistent with terminology used in the shutdown procedure.\nA warning shall be included in the shutdown procedure indicating that isolation of the battery system by isolation and shutting done the PCE may not de-energize the battery system and further action may be required.\nThe shutdown procedure should also include emergency contact information for manufacturer or supplier."
+} 

@@ -1,0 +1,5 @@
+{
+  "id": "4.13.5.2.1",
+  "title": "GENERAL",
+  "fullText": "Every submain or final subcircuit outgoing from an electricity converter shall be individually protected in accordance with Clause 2.5 and shall also include additional protection, where required, by Clause 2.6.\nExceptions:\n1\tThis requirement need not apply where protection on the incoming side (if any) provides protection against an overcurrent condition on the outgoing side.\n2\tOvercurrent protective devices shall not be provided where the unexpected interruption of the supply could cause a greater danger than overcurrent."
+}

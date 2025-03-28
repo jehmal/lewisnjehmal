@@ -1,0 +1,5 @@
+{
+    "id": "4.3.5.2",
+    "title": "Testing for de-energized",
+    "fullText": "Testing for de-energized shall be undertaken as follows:\n(a) The test instrument shall be checked immediately before testing on a known voltage source to ensure operational condition.\n(b) Testing shall be performed (see Figure 4.2).\n(c) The test instrument shall immediately be tested on a known voltage source to confirm the instrument's continuing working order.\nNOTE The confirmation of the instrument's ability to indicate voltage after the de-energized state is confirmed may require an alternative power supply."
+} 

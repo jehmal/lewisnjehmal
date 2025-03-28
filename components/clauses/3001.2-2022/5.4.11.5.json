@@ -1,0 +1,5 @@
+{
+    "id": "5.4.11.5",
+    "title": "Calculating ventilation requirements",
+    "fullText": "The minimum ventilation size required for each of the high and low venting requirements in Clause 5.4.11.3 Items (a) and (b) is calculated by the following formula.\nA = K × Ah × I 5.1\nwhere\nA = the minimum area of vent in square millimetres\nAh = total amp/hour (Ah) of battery or battery bank\nI = the maximum available charging current in amperes\nK = nominal bank voltage\nValues for constant (K): 12 V = 0.0534 (K)\n24 V = 0.1068 (K)\n48 V = 0.2136 (K)"
+} 

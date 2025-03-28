@@ -1,0 +1,5 @@
+{
+  "id": "5.3.1.6.4",
+  "title": "Earth connection requirements — Resistive earthed",
+  "fullText": "A resistive earthed pre-assembled battery system is a battery system, with a resistor inserted in series with the earth connection, connected to a PCE providing separation from an earth referenced system e.g. the grid (see Figure 5.5).\nFor resistively earthed pre-assembled battery system, one conductor of the battery system shall be connected to the installation earthing system via a resistor (see Figures 5.7 to 5.12). The pre-assembled battery system earthing conductor shall be rated to withstand the prospective earth fault current of the battery system continuously.\nNOTE In a resistively earthed system, the prospective earth fault current is significantly reduced by the use of the resistor and may not trip the overcurrent protection."
+}

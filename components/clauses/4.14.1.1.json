@@ -1,9 +1,0 @@
-{
-  "id": "4.14.1.1",
-  "title": "Switching devices",
-  "fullText": "Every motor shall be provided with a switching device capable of performing all of the following functions:\n(a) Starting and stopping the motor.\n(b) Emergency stopping, in accordance with Clause 2.3.5.\n(c) Isolating the motor for mechanical maintenance, in accordance with Clause 2.3.6.\nExceptions:\n1 Where a number of motors are required to function as a group, or operate in a coordinated manner, e.g. a split system airconditioning unit, a single switching device may be used to control more than one motor.\n2 A switch suitable for disconnection of supply in accordance with Item (c) need not be provided for motors that are—\n• connected by a plug and socket-outlet; or\n• incorporated in an appliance having no exposed moving parts; or\n• rated at not greater than 150 VA.\nNOTES:\n1 Refer to Clause 2.3 for the location and function of the switching device.\n2 AS/NZS 1668.1 requires provision for locking air-handling and smoke-spill motor-isolating switches in the ON position.",
-  "references": {
-    "clauses": ["2.3.5", "2.3.6", "2.3"],
-    "standards": ["AS/NZS 1668.1"]
-  }
-} 

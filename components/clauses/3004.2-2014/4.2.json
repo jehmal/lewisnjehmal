@@ -1,0 +1,5 @@
+{
+    "id": "4.2",
+    "title": "AUTOMATIC DISCONNECTION OF SUPPLY TO FINAL SUBCIRCUITS OR EQUIPMENT",
+    "fullText": "A protective device (fuse, circuit-breaker or RCD) shall automatically disconnect the supply to the circuit or equipment in the event of a fault between a live part and an exposed non-current-carrying conductive part.\nNOTES:\n1\tAn RCD will provide a substantial degree of personnel protection in most circumstances in locations where the risk of accidental contact is increased. On boats with relatively small single-phase a.c. electrical installations powered intermittently from a shore supply, a single RCD protecting the whole of the boat's a.c. system is commonly fitted.\n2\tNot every marina or boat yard has RCD protected shore power outlets as standard.\nRCDs shall comply with AS/NZS 61008.1 or AS/NZS 61009.1 and—\n(a)\tbe of the trip-free type;\n(b)\tinterrupt the active and neutral conductors of the circuit(s) being protected; and\n(c)\tbe fitted with an internal circuit for manual testing of the trip function. In New Zealand, RCDs for personnel protection shall be Type A."
+} 

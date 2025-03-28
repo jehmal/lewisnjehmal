@@ -1,0 +1,5 @@
+{
+  "id": "7.2.3.5",
+  "title": "Discrimination (Selectivity) of Circuit-Protective Devices",
+  "fullText": "Protective devices shall be selected such that: (a) a fault on one safety service will not result in loss of supply to other safety services; and (b) a fault on the general electrical installation will not result in loss of supply to safety services.\n\nFault-current limiters used to protect safety services shall not be used to provide protection to any part of the general electrical installation. Discrimination shall be arranged between protective devices for outgoing circuits and the upstream protective device. Refer to Clause 2.5.7.2.3."
+}

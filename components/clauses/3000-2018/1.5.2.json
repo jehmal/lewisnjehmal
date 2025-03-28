@@ -1,0 +1,5 @@
+{
+  "id": "1.5.2",
+  "title": "Control and isolation",
+  "fullText": "Electrical installations shall be provided with control and isolation devices to prevent or remove hazards associated with the electrical installation and to allow maintenance of electrical equipment.\n\nThis may incorporate a device that effectively isolates the equipment from all sources of supply external to the equipment.\n\nThe control of safety services shall be arranged so that the control devices are separate from the control of other equipment and are not unintentionally interrupted by the operation of other equipment.\n\nAn isolation device shall interrupt all active conductors and may be required to operate in a neutral conductor.\n\nNOTE: Clause 2.3.2.1.1 contains requirements for the operation of isolation devices in neutral conductors.\n\nAn isolation device or switch shall not interrupt an earthing conductor or a combined protective earthing and neutral (PEN) conductor."
+} 

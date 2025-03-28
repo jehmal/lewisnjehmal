@@ -1,0 +1,5 @@
+{
+  "id": "5.3.7",
+  "title": "TOXIC FUME HAZARD",
+  "fullText": "Where the pre-assembled battery system is categorized as a toxic fume hazard in Table 3.1, the installation shall be in accordance with the instructions of the manufacturer.\nInstructions provided by the manufacturer shall be included in the documentation provided to the system owner (or nominated representative).\nWhere vents are required, venting shall ensure toxic fumes are vented outside of the building to minimize levels below safe levels of toxicity.\nVentilation to the outside shall not be located in restricted locations for battery systems or BESS (see Clause 5.2.2.2).\nNOTE 1 Some toxic fumes are heavier than air until heated, such as HF that is produced by lithium ion base battery technology. As such both inlet and outlet vents need to be considered.\nNOTE 2 Refer to Safe Work Australia or WorkSafe New Zealand for information regarding workplace exposure standards for airborne contaminants."
+} 

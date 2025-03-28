@@ -1,0 +1,5 @@
+{
+    "id": "1.4.27",
+    "title": "voltage",
+    "fullText": "differences of potential typically existing between conductors or between conductors and earth, as follows:\n(a) Extra‑low voltage (ELV) — not exceeding 50 V a.c. or 120 V ripple-free d.c.\n(b) Protected extra‑low voltage (PELV) — an extra-low voltage system that is not electrically separated from earth, but that otherwise satisfies all the requirements for SELV.\n(c) Separated extra‑low voltage (SELV) — an extra-low voltage system that is electrically separated from earth and from other systems in such a way that a single fault cannot give rise to the risk of electric shock.\n(d) Low voltage (LV) — exceeding extra-low voltage, but not exceeding 1 000 V a.c. or 1 500 V d.c.\n(e) High voltage (HV) — exceeding low voltage."
+} 

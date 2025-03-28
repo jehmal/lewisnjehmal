@@ -1,9 +1,0 @@
-{
-  "id": "4.3.3.1",
-  "title": "General",
-  "fullText": "Cords or cables connected by an installation coupler shall be—\n(a) of heavy-duty sheathed type complying with AS/NZS 3191 and the requirements of Clause 3.9.7.4 or AS/NZS 5000;\n(b) selected to suit the protection device;\nException: For sections of installation wiring that terminate within a single piece of electrical equipment, such as a luminaire, single socket-outlet or SELV socket-outlet, the cable may be reduced to suit the rating of that single piece of electrical equipment.\n(c) adequately protected and installed to minimize the risk of mechanical damage in accordance with Clause 3.3.2.6;\n(d) supported and fixed in position in accordance with Clause 3.3.2.8 and Clause 3.9.3.1; and\n(e) as short as practicable.",
-  "references": {
-    "standards": ["AS/NZS 3191", "AS/NZS 5000"],
-    "sections": ["3.9.7.4", "3.3.2.6", "3.3.2.8", "3.9.3.1"]
-  }
-} 

@@ -1,0 +1,5 @@
+{
+    "id": "4.5.4",
+    "title": "Protection",
+    "fullText": "The consumers mains shall be protected by an over-current protection device.\nAs the output of the stand-alone power system is supplying a switchboard providing the MEN link, the protective device(s) on the output of the stand-alone power system shall not include an RCD.\nNOTE: This is because an RCD in this location may not operate correctly due to the location of the earth.\nIf an inverter is used as the supply source and the main (installation) switchboard has one or more RCDs fitted for final sub-circuit protection, any RCD or RCBO fitted shall be suitable for the waveform of the particular inverter, and be in accordance with the inverter manufacturer's recommendations.\nNOTE: See Appendix B for an explanation."
+} 

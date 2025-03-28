@@ -1,0 +1,5 @@
+{
+    "id": "3.5.7",
+    "title": "Supply without an isolating transformer",
+    "fullText": "Where the electrical installation on the boat is intended to be supplied without the use of an isolating transformer in the live (active and neutral) conductors, the following items shall be effectively connected to a protective earthing conductor (which shall be run as directly as possible to, and shall be connected effectively to, the earthing contact of the boat's appliance inlet or the earthing terminal of any direct connection point):\n(a)\tThe earthing contact of all socket-outlets.\n(b)\tThe exposed conductive parts of equipment that are required to be earthed in accordance with AS/NZS 3000.\nNOTE: Where a boat is supplied without the use of an isolating transformer, a galvanic isolator that complies with Clause 2.6.5 should be fitted in the shore supply protective earthing conductor before it connects to the boat's earth system. It should be installed in an accessible location, as close as practical to the shore power inlet."
+} 

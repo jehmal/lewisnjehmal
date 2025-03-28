@@ -1,0 +1,5 @@
+{
+    "id": "1.3.35",
+    "title": "Net head (for micro-hydro generators)",
+    "fullText": "The static head minus hydraulic losses, not including losses in the turbine."
+} 

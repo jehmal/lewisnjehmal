@@ -1,0 +1,5 @@
+{
+  "id": "4.14.3.3",
+  "title": "OVERTEMPERATURE PROTECTIVE DEVICES",
+  "fullText": "Overtemperature protective devices shall comply with the following:\n(a)\tProtection\tProtection\tof\tmotor\twindings\tagainst\texcessive temperatures shall be provided by—\n(i)\tthermal\toverload\tprotective\tdevices\tcomplying\twith AS/NZS 60947.4.1;\n(ii)\tbuilt-in thermal protection, in accordance with AS/NZS 60947.8; or\n(iii)\ta device that affords an equivalent degree of protection.\n(b)\tOperation The protective device shall disconnect, directly or indirectly, not less than the following number of supply conductors to the motor:\n(i)\tFor single-phase a.c. motors and d.c. motors supplied from a two-wire supply with one line earthed and single-phase a.c. motors: one.\n(ii)\tFor three-phase a.c. motors and d.c. motors supplied from two unearthed lines: two.\n(c)\tAdditional requirements for unattended motors Where thermal protective devices for unattended motors are of the automatic reset type, the device shall protect the motor windings against attaining excessive temperatures under continued tripping conditions."
+}

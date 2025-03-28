@@ -1,0 +1,5 @@
+{
+    "id": "3.4.3.10.1",
+    "title": "D.C. bus systems with standard switched regulators",
+    "fullText": "The number of modules required for a PV array where this is the sole energy source can be calculated from Equation 3.4.3.10(1) is for systems with standard switched regulators and Equation 3.4.3.10(2) for systems with standard regulators with maximum power point tracking:\n\n \nNp\t=\t\nEtot × fo\n \n\n \nVdc × Imod × Htilt ×ηcoul\n \n. . . 3.4.3.10(1)\n \n\nwhere\n \nNp\t=\tnumber of parallel strings of modules in the array (rounded up to the next whole number), dimensionless\nEtot\t=\ttotal design daily energy demand, in watt hours (Wh)\nfo\t=\toversupply co-efficient, dimensionless\nVdc\t=\tnominal d.c. voltage, in volts (V)\nImod\t=\tderated output current of the module, in amperes (A)\nHtilt\t=\tdaily irradiation on the tilted plane, in peak sun hours\nηcoul\t=\tcoulombic efficiency of the battery, dimensionless"
+} 

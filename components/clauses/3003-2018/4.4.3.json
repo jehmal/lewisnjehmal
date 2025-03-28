@@ -1,0 +1,5 @@
+{
+    "id": "4.4.3",
+    "title": "Return earths",
+    "fullText": "A return earth shall be installed between the EP junction and each distribution board from which circuits originate\nNOTE: See Figure 10.\nEach return earth shall be labelled at the EP junction and at the distribution board 'RETURN EARTH'.\nEach EP junction shall be connected by an individual return earth(s) to the main or submain earthing conductor(s) of the switchboard(s) associated with the cardiac-protected electrical area.\nNOTE: See Figures 10, 11, 12 and 13.\nThe cross-sectional area of the return earth(s) shall be in accordance with AS/NZS 3000 and shall not be less that 4 mm2.\nNOTE: In most installations, the cross-sectional area of the return earth(s) need not be as large as that of the EP earthing system."
+} 

@@ -1,0 +1,5 @@
+{
+  "id": "4.3.6.4",
+  "title": "FUSE HOLDERS",
+  "fullText": "Fuse holders shall —\n(a) have a current rating equal to or greater than the corresponding fuse;\n(b) provide a degree of protection suitable for the location and have a degree of protection of at least IPXXB or IP2X, even when the fuse link or carrier is removed;\n(c) conform to the requirements of Clause 4.3.7, where the fuse holder is incorporated into a plug, socket or connector; and\n(d) have a specified wattage rating higher than the fuses power dissipation at the current rating of the circuit they will be fitted to according to Clause 4.2.2.\nFuse holders not capable of being opened under load current shall be labelled as \"Do not operate under load\".\nEXCEPTION — These requirements are not applicable to PCE integrated fuse holders where access requires the use of a tool and the PCE conforms to IEC 62109-1 and IEC 62109-2."
+} 

@@ -1,5 +1,0 @@
-{
-  "id": "2.7.3",
-  "title": "Protection by Protective Devices",
-  "fullText": "Protective devices may be used to protect against the effects of overvoltage arising from such causes as lightning and switching operations.\n\nWhere installed, such devices shall—\n(a) limit the (transient) voltage to a value below the insulation level of the electrical installation or the part thereof that the device protects;\n(b) operate at voltages not less than or equal to the highest voltage likely to occur in normal operation; and\n(c) cause no hazard to persons or livestock during operation.\n\nNOTES:\n1. This Standard does not require installations to be protected against overvoltages from lightning. Reference should be made to AS/NZS 1768 for information that will assist in determining the risk of lightning for particular applications and suitable protection methods.\n2. This Standard does not require surge protection devices (SPDs) to be installed. Appendix F is provided to give guidance on the appropriate selection and installation method for these devices."
-} 

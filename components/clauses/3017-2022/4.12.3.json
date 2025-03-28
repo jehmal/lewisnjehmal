@@ -1,0 +1,5 @@
+{
+    "id": "4.12.3",
+    "title": "Requirements",
+    "fullText": "Electrical continuity across neutral connections shall be confirmed by testing.\nThe commonly used methods of testing the integrity of the neutral connection are based on assessment of the following:\n(a) Loop impedance.\n(b) Current.\n(c) Voltage.\nAny combination of the above methods can be used to exploit the advantages and minimize the disadvantages that are inherent in the individual methods described.\nThe implications of a three phase system need to be considered."
+} 

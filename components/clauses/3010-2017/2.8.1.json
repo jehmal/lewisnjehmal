@@ -1,0 +1,5 @@
+{
+    "id": "2.8.1",
+    "title": "General",
+    "fullText": "The generating set earthing and earth bonding arrangements shall be as follows for neutral-earth connected generators (for other earthing systems, see Clause 2.11.3):\n(a)\tThe neutral to frame link in the generating set shall be permanently removed.\n(b)\tAn earth cable in accordance with AS/NZS 3000 requirements for the main earthing conductor shall be installed from the electrical installation to the generating set and connected to the generating set earth bonding connection and the main switchboard earth bar.\n(c)\tAn electrical installation earth electrode and main earthing conductor in accordance with AS/NZS 3000 requirements shall be provided for the electrical installation and connected to the main switchboard."
+} 

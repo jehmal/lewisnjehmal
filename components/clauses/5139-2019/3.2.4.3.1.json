@@ -1,0 +1,5 @@
+{
+  "id": "3.2.4.3.1",
+  "title": "MULTIPLYING FACTOR",
+  "fullText": "The arc flash energy calculated according to Equation 3.2.4(1) is dissipated radially. A battery system (or systems) is located in an enclosure or in a room, where the area over which the energy to be dissipated is restricted by walls, enclosure roof or even the battery system. This physical limitation means that the amount of energy dissipated in the direction of a person working on the battery could be increased. The factor by which it is increased is known as the multiplying factor.\nFor battery system enclosures and BESS enclosures, a minimum multiplying factor of 3 shall be applied; while for battery system rooms, a minimum multiplying factor of 1.5 shall be applied, unless specific other information is provided by the manufacturer or determined through engineering analysis.\nNOTE See Appendix F for example arc flash calculations."
+} 

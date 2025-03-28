@@ -1,0 +1,5 @@
+{
+  "id": "3.3.3.3",
+  "title": "CALCULATION OF POTENTIAL SUB-ARRAY FAULT CURRENT",
+  "fullText": "IF S-ARRAY is the fault current that may flow in a sub-array due to other parallel connected strings in the array.\nIF S-ARRAY = (SA- SSA) × ISTRING MAX\nNOTE 1 See Clause 1.4 for notations."
+} 

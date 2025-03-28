@@ -1,0 +1,5 @@
+{
+    "id": "2.9.7",
+    "title": "Number and disposition of electrical points protected by an isolated supply",
+    "fullText": "For the purpose of this Clause, a double socket-outlet shall be deemed to be two points. The maximum number of points protected by a single transformer-isolated supply shall be as follows:\n(a)\tIn body-protected electrical areas—12 points.\nNOTE: Separate transformer-isolated supplies may need to be provided to each patient location in order to reduce the size of the transformer and the magnitude of the prospective hazard current, limit the complexity of the installation and obviate any duplication of alarms and controls.\n(b)\tIn cardiac-protected electrical areas—12 points."
+} 

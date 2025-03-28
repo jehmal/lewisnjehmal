@@ -1,0 +1,5 @@
+{
+    "id": "3.4.10.1",
+    "title": "Selection",
+    "fullText": "The following factors should be considered in the selection of battery chargers:\n(a)\tCharging method appropriate for the battery type (constant voltage for lead acid cells and constant current for NiCd cells).\n(b)\tVoltage regulation (if any).\n(c)\tOutput current limiting.\n(d)\tBattery manufacturer's recommended charge characteristics.\n(e)\tOutput current ripple content.\n(f)\tHigh efficiency.\n(g)\tPower factor\n(h)\tElectromagnetic interference levels to AS/NZS 1044.\nIn systems where the generating set provides a large fraction of the total annual energy demand, battery chargers with the following characteristics are recommended:\n(i)\tElectronic voltage regulation.\n(ii)\tCurrent limited output.\n(iii)\tBattery manufacturer's recommended charge characteristic.\n(iv)\tEfficiency greater than 80% at full load."
+} 

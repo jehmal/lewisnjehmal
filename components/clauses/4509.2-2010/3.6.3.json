@@ -1,0 +1,5 @@
+{
+    "id": "3.6.3",
+    "title": "Generating set isolation",
+    "fullText": "All outgoing circuits from a generating set shall be provided with an isolating device which, if not located on the alternator itself, should be located as close as practicable to the alternator. This isolation may take the form of a main switch, combined circuit- breaker/main switch or a changeover switch with an intermediate OFF position."
+} 

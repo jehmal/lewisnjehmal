@@ -1,0 +1,5 @@
+{
+    "id": "5.5.2.2.2",
+    "title": "Photovoltaic wiring system",
+    "fullText": "The ELV wiring system installed from the PV array to the PCE shall —\n(a) be double insulated and specifically for d.c. PV array wiring; and\n(b) suitably restrained and mechanically protected; and\n(c) be of an appropriate size with regard to the fault currents that can be produced by the installed PV array; and\n(d) have suitable IP rated connections and entries.\nThe temperature rise of the cable, UV rating and conductor arc effects shall be considered.\nSee Figure 5.6 for an example of a PV array wiring system for a connectable electrical installation.\nNOTE When installing single core double insulated (SDI) conductors for d.c. PV array wiring, they should either be installed in separate enclosures or each conductor spaced a minimum of 100 mm apart."
+} 

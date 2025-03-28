@@ -1,0 +1,5 @@
+{
+    "id": "4.2.2.6",
+    "title": "RCD testing",
+    "fullText": "The correct operation of RCDs shall be tested by operation of the integral testing device —\n(a) Operating the integral testing button;\n(b) Confirming that the RCD operates in the active conductor(s) of the circuit(s) to which it is connected, and in the neutral conductor where required; and\n(c) Resetting the RCD, then operating the integral test button a second time.\nNOTE The second operation is to confirm that the integral test circuit and the tripping mechanism have not been adversely affected during the first operation."
+} 

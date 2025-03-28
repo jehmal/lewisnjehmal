@@ -1,0 +1,5 @@
+{
+    "id": "2.4.3.7",
+    "title": "Testing of arc welders with exposed terminals",
+    "fullText": "A brief description of the main types of welding power supplies is provided in Appendix J.\na)\tInspect the\n•\tmains leads for damage; and\n•\twelding leads for damage such as excessive charring.\nb)\tFor transformer types, test as Class I equipment, and measure the insulation resistance:\n(i)\tBetween the active and neutral pins of the supply plug and exposed metal parts.\n(ii)\tBetween the active and neutral pins of the supply plug and the output terminals.\nOr alternatively the leakage current to earth shall be measured using the differential test method.\nc)\tConfirm that the mains voltage does not appear at the output terminals;\nd)\tVisually check that the Voltage Reduction Device (VRD), if fitted, is operational.\nNOTE – Details of testing of arc welders with exposed terminals are given as follows:\nAustralia: AS 1674.2.\nNew Zealand: IEC 60974-4."
+} 

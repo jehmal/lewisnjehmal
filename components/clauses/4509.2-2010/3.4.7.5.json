@@ -1,0 +1,5 @@
+{
+    "id": "3.4.7.5",
+    "title": "Daily depth of discharge",
+    "fullText": "For systems where the battery is sized for several days of autonomy, and the generating set does not run every day, the average daily depth of discharge of the battery should be calculated from the following equation:\n \n\nDODd = V\n \nEtot\n× C\n \n\n. . . 3.4.7.5\n \ndc\tx\n \nwhere\nDODd\t=\tdaily depth of discharge of the battery, expressed as a percentage\nEtot\t=\ttotal daily energy demand from the d.c. bus, in watt hours (Wh)\nVdc\t=\tnominal voltage of the d.c. bus (i.e. battery voltage), in volts (V)\nCx\t=\tbattery capacity, specified for an appropriate discharge rate, x, in ampere hours (Ah)\nFor systems where the generating set runs every day, the daily depth of discharge should be calculated based on knowledge of the expected load profile (at least approximately) and the generating set running times."
+} 

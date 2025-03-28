@@ -1,0 +1,5 @@
+{
+    "id": "3.4.1",
+    "title": "System voltage selection (d.c.)",
+    "fullText": "The following points shall be considered when deciding on the d.c. nominal system voltage—\n(a)\tlimiting the current drawn under maximum demand conditions; and\nNOTE: At high currents care must be taken to consider voltage drop in cables and battery sizes.\n(b)\tthe availability of appropriately sized equipment, particularly batteries and inverters."
+} 

@@ -1,8 +1,0 @@
-{
-  "id": "3.9.7.1.2",
-  "title": "Unprotected",
-  "fullText": "Insulated, unsheathed cables enclosed in conductive wiring enclosures shall not be installed without short-circuit protection.\nNOTE: Sheathing of cables is not required within conductive switchboard surrounds.\nConsumer mains not provided with short-circuit protection on the supply side, shall comply with the installation requirements of this Section relevant to the type of wiring system and shall be—\n(a) constructed in such a manner as to reduce the risk of short-circuit to a minimum; and\n(b) installed in accordance with the relevant additional requirements of the electricity distributor.\nThe following wiring systems are deemed to reduce the risk of short-circuit to a minimum:\n(i) Insulated and sheathed cables enclosed in heavy-duty insulating conduit in accordance with either the AS/NZS 2053 series or the AS/NZS 61386 series.\n(ii) Insulated and sheathed cables installed in underground wiring enclosures.\n(iii) Aerial conductors consisting of XLPE cables type X-90UV in accordance with the AS/NZS 3560 series.\n(iv) Busways and busbar systems, including joints and switchboard busbars, having insulation up to the first protective device in accordance with the AS/NZS 3439 series or the AS/NZS 61439 series.",
-  "references": {
-    "standards": ["AS/NZS 2053", "AS/NZS 61386", "AS/NZS 3560", "AS/NZS 3439", "AS/NZS 61439"]
-  }
-} 

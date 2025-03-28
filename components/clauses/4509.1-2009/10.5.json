@@ -1,0 +1,5 @@
+{
+    "id": "10.5",
+    "title": "SYSTEM FUNCTIONAL TEST",
+    "fullText": "The overall function of the complete system shall be tested. The tests performed and the results shall be recorded in the on-site documentation.\nAll input sources should provide charge to the battery bank.\nPower shall be available to connected d.c. and a.c. loads.\nRCDs shall be tested. (See AS/NZS 3000 for advice on testing with non-sinusoidal wave forms).\nNOTE: Attention is drawn to Appendix B and issues with RCDs."
+} 

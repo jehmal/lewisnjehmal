@@ -1,0 +1,5 @@
+{
+    "id": "3.6.6",
+    "title": "Battery overcurrent protection",
+    "fullText": "The output conductors of the battery bank shall be protected against overcurrent, by HRC fuses or d.c. rated circuit breakers, as follows:\n(a)\tWhere the battery bank is electrically floating (i.e. neither side of the battery is earthed), protection shall be provided in both positive and negative battery leads.\n(b)\tWhere one side of the battery bank is earthed, protection shall be provided in the unearthed battery lead.\nThe protection should be mounted as close as practicable to the battery terminals (keeping battery leads as short as possible) while offering no possibility for spark ignition of any hydrogen emitted from the batteries during charging. Refer to AS/NZS 4509.1 requirements\nIdeally, the battery bank should comprise a single string of cells of the correct ampere hour capacity and of the same type of battery.\nWhere multiple strings of cells are used, each string should be separately protected (see Figure 6).\nAdditionally, the strings should be connected to equalize cable resistance in each string."
+} 

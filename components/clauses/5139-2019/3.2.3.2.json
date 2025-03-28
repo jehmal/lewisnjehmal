@@ -1,0 +1,5 @@
+{
+  "id": "3.2.3.2",
+  "title": "DECISIVE VOLTAGE CLASSIFICATION (DVC)",
+  "fullText": "The decisive voltage classification (DVC), as defined in IEC 62109-1, shall be applied in this Standard. Table 3.2 provides a summary of DVC levels.\nThe DVC system refers to the voltage level and also the degree of separation of the relevant battery port from the grid or from any other energy source (e.g. in the case of a charge controller, as installed with a PV array). This type of classification simplifies the decisions associated with protection and enclosure requirements for a battery system.\nThe classification of circuits of power conversion equipment (PCE) (including inverters and charge controllers) shall be made according to their decisive voltage classification (DVC).\nAll inverter and PCE ports shall be classified and marked according to their DVC classification. Refer to AS/NZS 4777.2:2015 Clause 9.3.3(h) and IEC 62109-1.\nNOTE See Appendix A for additional information."
+} 

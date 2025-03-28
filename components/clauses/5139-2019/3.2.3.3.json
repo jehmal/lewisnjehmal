@@ -1,0 +1,5 @@
+{
+  "id": "3.2.3.3",
+  "title": "BATTERY SYSTEM PROSPECTIVE FAULT CURRENT/ SHORT-CIRCUIT CURRENT",
+  "fullText": "The prospective fault current (or prospective short-circuit current) at the battery terminals of the battery system shall be based on the fault current able to be supplied by the battery cell, module or bank prior to the interaction of any battery management system.\nTo determine the sizing of the battery prospective fault current protection the battery system manufacturer should be consulted to identify the cell prospective fault current capability. If information regarding the cell prospective fault current is not available from the manufacturer, the battery system should not be installed.\nNOTE The internal resistance of a cell (lead acid type or similar) may be determined by the method shown in AS 2676.1 and AS 2676.2.\nThe cell short-circuit current may be calculated according to the following equation:\nIsc = Voc/Ri\nwhere\nIsc = cell short-circuit current, in amperes\nVoc = cell open-circuit voltage, in volts\nRi = cell internal resistance at full charge, in ohms"
+} 

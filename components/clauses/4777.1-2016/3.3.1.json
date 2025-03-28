@@ -1,0 +1,5 @@
+{
+  "id": "3.3.1",
+  "title": "GENERAL",
+  "fullText": "All cables shall be installed and sized in accordance with AS/NZS 3000, the AS/NZS 3008.1.1 series and the requirements of this Standard.\n\nAll the cables between the IES and any switchboard and all the cables between any distribution switchboards and the main switchboard that carry current from the IES shall have a current-carrying capacity of at least the rated current of the IES. Where the IES is configured as a multiple mode inverter, the cable current-carrying capacity shall be sized to suit the larger of the generating output and the load input rated current of the IES."
+} 

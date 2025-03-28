@@ -1,0 +1,5 @@
+{
+  "id": "4.13.3",
+  "title": "CONTROL",
+  "fullText": "Where an electrical installation, or part thereof, is supplied through an electricity converter, the converted supply shall be controlled by an isolating switch, or switches, at the output of the converter, or at the switchboard to which the output is connected.\nEach electricity converter shall be controlled by switches or devices suitable for starting and stopping the converter. Where there is more than one switch or device for this purpose, they shall be grouped together and clearly identified.\nAn electricity converter shall be so arranged that it cannot supply energy upstream of the point of connection to the installation either directly or indirectly.\nException: Electricity converters may be arranged to supply energy upstream of the point of connection to the installation subject to any additional conditions required by the electricity distributor.\nProvision shall be made to ensure that all necessary connections for protection in the installation remain intact when supply is available from the output of the electricity converter."
+} 

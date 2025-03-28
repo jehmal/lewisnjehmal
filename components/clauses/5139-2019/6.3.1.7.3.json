@@ -1,0 +1,5 @@
+{
+  "id": "6.3.1.7.3",
+  "title": "EARTH CONNECTION REQUIREMENT — DIRECT EARTHED",
+  "fullText": "A direct earthed battery system is a battery system, with a direct earth connection, connected to an inverter providing separation from an earth referenced system, e.g. the grid (see Figure 6.6).\nFor directly earthed battery system, one conductor of the battery system shall be connected to the installation earthing system (see Figures 6.9 to 6.14). The battery system earthing conductor shall be rated to withstand the prospective earth fault current of the battery system for a time at least equal to the operating time of the associated overcurrent protective device (see Clause 6.3.1.7.7).\nNOTE The installation earthing system needs to be checked as per Clause 6.3.1.7.1."
+} 

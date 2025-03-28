@@ -1,0 +1,5 @@
+{
+    "id": "4.5.4.1",
+    "title": "General",
+    "fullText": "All final subcircuits in a recreational vehicle or non recreational vehicle shall be protected by one or more RCDs with rated residual current not exceeding 30 mA, that also —\n(a) interrupts all live (active and neutral) conductors; and\n(b) is of a type that provides protection against electric shock that complies with the requirements of a Type A RCD in accordance with AS/NZS 61008.1 or AS/NZS 61009.1.\nRCDs incorporating Type A functionality along with additional functionality may be installed, including:\n(i) Type F for the protection of circuits carrying high frequency leakage currents such as those associated with frequency converters and electronic ballasts, or\n(ii) Type B where power inverters or frequency inverters are installed, as specified in the manufacturer's instructions for the specific current-using equipment."
+} 

@@ -1,0 +1,5 @@
+{
+    "id": "2.4.3",
+    "title": "Synchronization",
+    "fullText": "Where generating sets are to be synchronized with an electricity distributor's network, the requirements for synchronization shall be obtained from the electricity distributor.\nAutomatic controls shall be provided to ensure that the output voltage and frequency of a generating set is synchronized with—\n(a)\tthe normal supply when connected during transfer or for extended parallel operation; or\n(b)\tthe output of other generating sets when connected to a multiple generating set installation.\nSynchronization check controls shall be installed for each connection or changeover device where parallel operation is to occur, to prevent the closure of the changeover device across unsynchronized sources of supply.\nNOTES:\n1\tFor most installations, a formal agreement with the electricity distributor is required to permit operation of a generating set output in parallel with an electricity distributor's network.\n2\tFor interlocking, see Clause 2.7.3."
+} 

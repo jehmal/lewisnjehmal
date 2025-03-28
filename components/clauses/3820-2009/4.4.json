@@ -1,0 +1,5 @@
+{
+    "id": "4.4",
+    "title": "SPECIFIC REQUIREMENTS FOR ELECTRIC TOYS",
+    "fullText": "Electric toys shall not be powered by electricity exceeding 24 V and the voltage of their accessible parts shall not exceed 24 V.\n\nInternal voltages shall not exceed 24 V unless it is ensured that the voltage and the current combination generated do not lead to any risk or harmful electric shock, even when the electric toy is broken.\n\nElectric toys may be supplied from a separate power supply. The power supply shall have an input voltage not exceeding 250 V a.c. and have double insulation characteristics with a SELV secondary voltage not exceeding 24 V a.c. or d.c. and having a rated output not exceeding 200 VA and rated output current not exceeding 10 A."
+} 

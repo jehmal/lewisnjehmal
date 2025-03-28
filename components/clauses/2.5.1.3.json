@@ -1,5 +1,0 @@
-{
-  "id": "2.5.1.3",
-  "title": "Submains and final subcircuits—General arrangement",
-  "fullText": "An overcurrent protective device or devices ensuring protection against overload current and short-circuit current shall be placed at the origin of every circuit and at each point where a reduction occurs in the current- carrying capacity of the conductors.\n*\tNOTE: The  general  arrangement  of  protective  devices  is  shown  in Figures 2.2(A) and 2.2(B).\nExceptions:\n1\tOvercurrent protective devices shall not be provided on circuits where the unexpected interruption of the supply could cause a greater danger than overcurrent (see Clause 2.5.1.4).\n2\tOvercurrent protective devices may be located at an alternative position in accordance with Clauses 2.5.3.3 and 2.5.4.4.\n3\tOvercurrent protective devices may be omitted in accordance with Clauses 2.5.3.4 and 2.5.4.5."
-}

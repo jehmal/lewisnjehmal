@@ -1,0 +1,5 @@
+{
+    "id": "1.4.19",
+    "title": "RCD protected inverter (RCDP inverter)",
+    "fullText": "Inverter that is fitted with a residual current device (RCD) in the output circuit and with equipotential bonding of the earthing terminal of the a.c. output connector with input circuits and the accessible conductive parts and with polarized output circuits achieved by connecting of the earthing terminal of the a.c. output connector to either the—\n(a)\tupstream side of the RCD on the pole that is connected to the neutral terminal of the\na.c. output connector; or\n(b)\tcentre tap of the output circuit supply on the upstream side of the RCD.\nNOTES:\n1\tThis type of inverter may have accessible conductive parts that are separated from the output circuits by double or reinforced insulation—these parts do not need to be bonded.\n2\tWhere the d.c. input circuit is such that the input terminals are effectively connected together by a low impedance (e.g. internal impedance of a secondary battery), equipotential bonding of a single input terminal is considered to satisfy the requirement for all such input terminals."
+} 

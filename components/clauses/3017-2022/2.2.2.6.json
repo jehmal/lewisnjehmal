@@ -1,0 +1,5 @@
+{
+    "id": "2.2.2.6",
+    "title": "Portable independent source providing 50 Hz supply",
+    "fullText": "The purpose of this equipment is to enable testing of RCDs in cases where normal supply is not available.\nSuitable sources include —\n(a) a motor-generator set; or\n(b) a battery-powered inverter with a nominally \"pure sine wave\" output.\nThe output of the source shall be sufficient to supply the required test current without causing voltage to drop.\nNOTE Refer to Appendix A for additional information."
+} 

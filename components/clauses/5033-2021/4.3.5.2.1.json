@@ -1,0 +1,5 @@
+{
+  "id": "4.3.5.2.1",
+  "title": "DISCONNECTION POINT",
+  "fullText": "A disconnection point shall be selected in accordance with Clause 4.3.8. It shall meet the installation requirements of Clause 4.3.9. The disconnection point shall also meet the following additional requirements:\n(a) Be adjacent to the PV modules of the PV array.\n(b) Be readily available.\n(c) Be protected against weather and water, and no more than 150mm from the edge of the PV modules that they are installed under.\nNOTE 1 Protection against weather and water could be met by installing the disconnection point under a PV module or by means equivalent to Clause 4.4.7.3.\n(d) Adequately supported so that there is no undue stress on the connection, but able to be disconnected.\n(e) Have both the positive and negative disconnection device located together.\n(f) Labelled in accordance with Clause 5.5.2.2.\n(g) Documented in accordance with Clause 5.6.\nNOTE 2 See Clause 4.4.5.2 for additional requirements of the wiring system."
+} 

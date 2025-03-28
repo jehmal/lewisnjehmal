@@ -2,13 +2,13 @@ import { NextResponse } from 'next/server';
 import OpenAI from 'openai';
 import { ContinuationRequest, ChatResponse } from '@/types/chat';
 import { checkResponseComplete } from '@/utils/chat';
+import { parseAssistantResponse } from '@/utils/response-parser';
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-const DEFAULT_ASSISTANT_ID = 'asst_0syunOVHoPe644xaWVGjgMdb';
-const WA_STANDARDS_ASSISTANT_ID = 'asst_T1DnF1FCVP7dqOem77Zizi8L';
+const DEFAULT_ASSISTANT_ID = 'asst_RgmjOwHZ3YTFWsBfIKu9XVIT';
 
 export async function POST(req: Request) {
   try {
@@ -18,11 +18,9 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: 'Missing thread or run ID' }, { status: 400 });
     }
 
-    // Use the provided assistantId or determine which to use based on content
-    const selectedAssistantId = assistantId || 
-      (isWAStandardsQuery(followUpQuestion || previousContent) ? 
-        WA_STANDARDS_ASSISTANT_ID : 
-        DEFAULT_ASSISTANT_ID);
+    // Use the provided assistantId or the default
+    const selectedAssistantId = assistantId || DEFAULT_ASSISTANT_ID;
+    console.log('Using assistant ID:', selectedAssistantId);
 
     // Create a continuation message with the follow-up question if provided
     await openai.beta.threads.messages.create(threadId, {
@@ -57,13 +55,19 @@ export async function POST(req: Request) {
 
     const isComplete = checkResponseComplete(continuedContent);
 
+    // Parse the assistant's response to extract structured data
+    console.log('Parsing continued assistant response...');
+    const { structuredResponse, referencedClauses } = parseAssistantResponse(continuedContent);
+    console.log('Structured response metadata:', structuredResponse.metadata);
+
     const response: ChatResponse = {
       response: continuedContent,
       isComplete,
       threadId,
       runId: run.id,
       context: 'Continuation context',
-      assistantId: selectedAssistantId
+      assistantId: selectedAssistantId,
+      referencedClauses: referencedClauses
     };
 
     return NextResponse.json(response);
@@ -75,37 +79,3 @@ export async function POST(req: Request) {
     }, { status: 500 });
   }
 }
-
-// Add the isWAStandardsQuery function here as well
-const isWAStandardsQuery = (message: string): boolean => {
-  const keywords = [
-    'wa',
-    'w.a',
-    'w.a.',
-    'w/a',
-    'western australia',
-    'western australian',
-    'wa electrical',
-    'wa standard',
-    'western power',
-    'waes'
-  ];
-  
-  const lowercaseMessage = message.toLowerCase().trim();
-  
-  // Check for exact matches
-  for (const keyword of keywords) {
-    if (lowercaseMessage.includes(keyword)) {
-      return true;
-    }
-  }
-  
-  // Check for word boundaries
-  const messageWords = lowercaseMessage.split(/\s+/);
-  return messageWords.some(word => 
-    word === 'wa' || 
-    word === 'w.a' || 
-    word === 'w.a.' || 
-    word === 'w/a'
-  );
-}; 

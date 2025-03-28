@@ -1,0 +1,5 @@
+{
+    "id": "3.3.4.2",
+    "title": "Series configuration",
+    "fullText": "The key feature of this configuration is that the output from the generating set is supplied only to the battery charger which then feeds the d.c. bus (refer to Figure 2). All a.c. load energy is provided by an inverter. This configuration is the least sophisticated and may be the lowest cost option. However because of the low efficiency of utilization of the generating set in supplying a.c. loads, it should be used only where the load is predominantly or entirely d.c., or in systems supplying less than 1 kWh/d."
+} 

@@ -1,0 +1,5 @@
+{
+  "id": "2.7.7.4",
+  "title": "Voltage rating",
+  "fullText": "The principles of connection to the installation including the minimum voltage rating of the switch(es) and the neutral-earth connection shall be in accordance with AS/NZS 3010.\nWhere a switching device is used, it shall have a minimum voltage rating not less than the maximum out-of-phase voltage between the sources.\nException: Where a manual source selection switch has an intermediate \"off\" position between each pair of positions that select sources, the switch need only be rated for the nominal voltage."
+} 

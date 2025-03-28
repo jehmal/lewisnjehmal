@@ -1,0 +1,5 @@
+{
+    "id": "2.1.2",
+    "title": "PV system architectures",
+    "fullText": "The relation of a PV array to earth is determined by—\n(a) any functional earthing of the array in use; and\n(b) the earth status of the application circuit to which the array is connected.\nBoth these issues affect safety of the array.\nManufacturer's instructions (including manufacturers of PCE) shall be taken into account in determining the most appropriate system earthing arrangement."
+}

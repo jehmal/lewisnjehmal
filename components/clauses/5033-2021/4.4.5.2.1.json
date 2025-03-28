@@ -1,0 +1,5 @@
+{
+  "id": "4.4.5.2.1",
+  "title": "GENERAL",
+  "fullText": "The installation requirements of wiring enclosures for the wiring system depends on the location of the wiring system. The installation shall be in accordance with one of the following clauses:\n(a) Clause 4.3.2.3 for wiring systems between the PV modules and the disconnection point.\n(b) Clause 4.4.5.2.2 for wiring systems between a load break disconnection device(s) and application circuit.\n(c) Clauses 4.4.5.2.2 and 4.4.5.2.3 for wiring systems between the disconnection point and a load break disconnection device.\n(d) Clause 4.4.5.2.4 for wiring systems between non-adjacent groups of PV modules."
+} 

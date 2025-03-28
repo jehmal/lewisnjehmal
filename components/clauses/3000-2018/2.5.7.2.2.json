@@ -1,0 +1,5 @@
+{
+  "id": "2.5.7.2.2",
+  "title": "Safety service circuit discrimination (selectivity)",
+  "fullText": "A fault current up to the level of an arcing fault current—\n(a)\ton one safety service circuit shall not result in loss of supply to other safety service circuits; and\n(b)\ton the general electrical installation shall not result in loss of supply to safety services.\nDiscrimination (selectivity) shall be provided between protective devices up to the level of an arcing fault current, which is deemed to be in the range of 30% to 60% of the prospective short-circuit current in accordance with Clause 7.2.3.5.\nNOTE: An example of protective devices and the arcing fault current is shown in Figure 2.13."
+} 

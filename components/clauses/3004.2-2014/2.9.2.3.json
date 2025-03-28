@@ -1,0 +1,5 @@
+{
+    "id": "2.9.2.3",
+    "title": "Natural ventilation",
+    "fullText": "For natural ventilation the minimum size of inlet and outlet vents is given by—\nA = 100 qv\nwhere\nA = the minimum area of vent, in square centimetres\nqv = the minimum exhaust ventilation rate, in litres per second\nWith natural ventilation, an air velocity of at least 0.1 m/s is assumed.\nNOTE: Based on the provisions of AS 2676 and AS 3011.\nIf natural ventilation is impractical or insufficient, mechanical ventilation shall be provided while charging batteries. Where mechanical ventilation is employed, the charging system(s) shall be interlocked so as to be disabled if the ventilation fails. A warning device shall be provided and operate if failure occurs.\nSwitches, fuses and all other equipment, that could generate sparks shall not be placed in battery compartments or containers.\nCable entries to battery compartments shall be gastight."
+} 

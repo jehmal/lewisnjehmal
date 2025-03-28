@@ -1,0 +1,5 @@
+{
+    "id": "2.10.2",
+    "title": "Protection against overcharging",
+    "fullText": "Chargers shall incorporate protection against battery overvoltage and battery discharge back through the charger output; they shall have a means to indicate the output current or charger output status."
+} 

@@ -1,9 +1,0 @@
-{
-  "id": "4.5.2.3.5",
-  "title": "Requirements for specific classifications",
-  "fullText": "Recessed luminaires of classifications compliant to Appendix ZZ of AS/NZS 60598.2.2 shall be installed as per the following:\n(a) In Australia only:\n(i) In residential installations, Do-not-cover, CA90, IC or IC-4 luminaires shall be installed.\n(ii) In non-residential installations, Non-IC, Do-not-cover, CA90, IC or IC-4 luminaires shall be installed.\nCA135 luminaires shall not be installed in residential or non-residential installations.\n(b) In New Zealand only:\n(i) In residential installations, CA90, CA135, IC or IC-4 luminaires shall be installed.\n(ii) In non-residential installations, Non-IC, Do-not-cover, CA90, CA135, IC or IC-4 luminaires shall be installed.\nNOTE: Table 4.3 provides information and guidance on the classifications, symbols, applications and general restrictions on recessed luminaires.",
-  "references": {
-    "standards": ["AS/NZS 60598.2.2"],
-    "tables": ["4.3"]
-  }
-} 

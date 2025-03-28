@@ -1,0 +1,5 @@
+{
+    "id": "4.4.2.3",
+    "title": "Protection",
+    "fullText": "The final sub-circuit shall be protected at the point of supply terminals by an over-current protective device complying with the requirements of AS/NZS 3000, except where the interruption of the supply could cause a greater danger than the over-current.\nIf earth leakage protection is required, an RCD shall be provided. The RCD and overcurrent device may be combined into an RCBO device. If an inverter is used as the supply source and an RCD is required, the RCD or RCBO shall be suitable for the waveform of the particular inverter, and shall be in accordance with the inverter manufacturer's recommendations. Over-current protective devices shall not be provided where the unexpected interruption of the stand-alone power supply could cause a greater danger than the over-current."
+} 

@@ -1,0 +1,5 @@
+{
+    "id": "9.3.2",
+    "title": "Inverters with separation",
+    "fullText": "For inverters, which provide separation/isolation (on both a.c. output and inverter controls) between the d.c. input and the LV a.c. output, the following shall apply:\n(a) The a.c. output may be connected to a MEN-configured main (installation) switchboard or operated as a separated (isolated) supply.\n(b) The d.c input may be left floating or be earthed on one side.\nNOTE: Consult the manufacturer's instructions for acceptable configurations"
+} 

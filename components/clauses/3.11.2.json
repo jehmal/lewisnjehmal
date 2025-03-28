@@ -1,8 +1,0 @@
-{
-  "id": "3.11.2",
-  "title": "Classification of wiring systems",
-  "fullText": "Underground wiring systems are classified as one of three categories.\nThe type of cable and form of enclosure determine the category assigned to the underground wiring system.\nCategory A system—where the wiring system is inherently suitable for installation below ground and no further mechanical protection is required.\nCategory B system—where the wiring system is suitable for installation below ground only with additional mechanical protection provided for the cable or cable enclosure.\nCategory C system—where the wiring system is laid within a channel chased in the surface of rock.\nUnderground cables shall be—\n(a) of a type specified in Column 1 of Table 3.5; and\n(b) installed in accordance with a category specified in Columns 2 to 9 of Table 3.5.\nNOTE: Underground wiring systems do not include those that are—\n(a) embedded in a concrete floor, slab or pad;\n(b) laid on the surface of the ground either within the building or in outdoor locations;\n(c) enclosed in a ventilated cable tunnel; or\n(d) enclosed in a trough with removable covers where air circulation is not restricted.",
-  "references": {
-    "tables": ["3.5"]
-  }
-} 

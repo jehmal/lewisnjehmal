@@ -114,6 +114,31 @@ export const MovingBorder = ({
 
   const transform = useMotionTemplate`translateX(${x}px) translateY(${y}px) translateX(-50%) translateY(-50%)`;
 
+  // Helper function to safely parse dimensions
+  const parseUnit = (value: string | undefined) => {
+    if (!value) return 0;
+    // If value contains units like '%', 'px', 'rem', etc., return as is
+    if (isNaN(Number(value))) return value;
+    // Otherwise, return as number
+    return Number(value);
+  };
+
+  const rxValue = parseUnit(rx) || 0;
+  const ryValue = parseUnit(ry) || 0;
+
+  // Calculate the path coordinates
+  const createPathD = () => {
+    // Safely handle numeric and string values
+    const isNumericRx = typeof rxValue === 'number';
+    const isNumericRy = typeof ryValue === 'number';
+    
+    // For percentage calculations, we need to ensure we're adding strings with % at the end
+    const rightEdge = isNumericRx ? `${100 - Number(rxValue)}%` : `calc(100% - ${rxValue})`;
+    const bottomEdge = isNumericRy ? `${100 - Number(ryValue)}%` : `calc(100% - ${ryValue})`;
+    
+    return `M 0 ${ryValue} A ${rxValue} ${ryValue} 0 0 1 ${rxValue} 0 H ${rightEdge} A ${rxValue} ${ryValue} 0 0 1 100% ${ryValue} V ${bottomEdge} A ${rxValue} ${ryValue} 0 0 1 ${rightEdge} 100% H ${rxValue} A ${rxValue} ${ryValue} 0 0 1 0 ${bottomEdge} Z`;
+  };
+
   return (
     <>
       <svg
@@ -127,15 +152,7 @@ export const MovingBorder = ({
         <path
           fill="none"
           ref={pathRef}
-          d={`M 0 ${ry || 0} 
-             A ${rx || 0} ${ry || 0} 0 0 1 ${rx || 0} 0 
-             H calc(100% - ${rx || 0}) 
-             A ${rx || 0} ${ry || 0} 0 0 1 100% ${ry || 0} 
-             V calc(100% - ${ry || 0}) 
-             A ${rx || 0} ${ry || 0} 0 0 1 calc(100% - ${rx || 0}) 100% 
-             H ${rx || 0} 
-             A ${rx || 0} ${ry || 0} 0 0 1 0 calc(100% - ${ry || 0}) 
-             Z`}
+          d={createPathD()}
         />
       </svg>
       <motion.div

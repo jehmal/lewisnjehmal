@@ -1,0 +1,5 @@
+{
+  "id": "4.3.3.2.2",
+  "title": "PV MODULE(S) INSTALLED WITHIN 1.5 M OF THE INVERTER",
+  "fullText": "Where the calculated PV d.c. circuit maximum voltage does not exceed 120 V and the PV module(s) are installed within 1.5 m of the inverter, a disconnection device shall be installed adjacent to the PV module(s).\nWhere plug, sockets and connectors are used as the disconnection device, they shall meet the requirements of Clause 4.3.8.\nNOTE See Clause 4.5.3.1 for the selection of appropriate disconnection devices for inverters."
+} 

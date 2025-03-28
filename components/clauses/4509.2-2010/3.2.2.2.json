@@ -1,0 +1,5 @@
+{
+    "id": "3.2.2.2",
+    "title": "Adjustment for site conditions",
+    "fullText": "Adjustment to data from the sources mentioned in Clause 3.2.2.1 should be made both for climatic variations from the measurement site to the installation site and shading, especially due to trees or built structures, at the PV array location. Shading should be avoided wherever possible due to the detrimental impact on array output.\nClimatic variations will be influenced by such factors as distance from the coast and mountainous terrain. Rainfall records, vegetation and local knowledge of cloud cover and fogs may provide a qualitative indication of the correction factor to be applied.\nWhere shading may affect system performance and an accurate estimation of PV output is required, hourly analysis methods should be used to determine the impact on array output."
+} 

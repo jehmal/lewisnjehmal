@@ -1,0 +1,5 @@
+{
+    "id": "4.4.2.5.3",
+    "title": "Method of connecting the earthing conductor to the EP junction or node",
+    "fullText": "A separate earthing conductor shall be used to connect each item of permanently wired electrical equipment to the EP junction or node.\nNOTE: Under the definitions specified in AS/NZS 3000, permanently wired electrical equipment includes items such as electrical wall boxes, medical service panels, pendants and pedestals, metal cable enclosures and socket-outlets.\nA metal enclosure containing the socket‐outlets identified in Clause 4.4.2.4.1(b), may be connected to the EP junction or node via the same earthing conductor as the socket‐outlets providing that—\n(a)\tthe enclosure is isolated from direct contact with structural building metal; and\n(b)\tall LV wiring within the enclosure is protected by an LPD located outside the enclosure, i.e. a remote Type I RCD or a remote isolation transformer.\nNOTES:\n1\tClause 4.4.2.4.1 allows any number of socket-outlets to be connected to the EP junction or node via the same earthing conductor.\n2\tSee also Figures 10 and 11."
+} 

@@ -1,0 +1,5 @@
+{
+    "id": "3.4.7.1",
+    "title": "Battery selection",
+    "fullText": "Batteries used for stand-alone power systems should be of a type suitable for the duty and operating environment they will experience. The following factors should be considered:\n(a)\tCycle life under deep cycling duty.\n(b)\tCalendar life.\n(c)\tMaintenance.\n(d)\tRate of gassing and overcharge requirement.\n(e)\tSelf discharge.\n(f)\tEnergy efficiency.\n(g)\tDischarge rate capability.\n(h)\tPerformance over the expected ambient temperature range.\n(i)\tEase and safety of transport, installation and activation.\n(j)\tPurchase, disposal and maintenance costs.\nBatteries with different characteristics or ages should not be used in the same battery bank.\nNOTE: Problems often occur if batteries are used in parallel strings. It is strongly recommended that the number of parallel strings be minimized and that the battery manufacturer is consulted when parallel strings cannot be avoided."
+} 

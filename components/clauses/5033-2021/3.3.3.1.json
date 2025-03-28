@@ -1,0 +1,5 @@
+{
+  "id": "3.3.3.1",
+  "title": "CALCULATION OF MAXIMUM STRING CURRENT",
+  "fullText": "The value of ISTRING MAX depends on the PV system configuration, and is calculated as follows:\n(a) String containing no DCUs:\nISTRING MAX = 1.25 x KI x ISC MOD\nNOTE 1 See Appendix J for the determination of KI.\n(b) Strings containing partial DCUs:\nThe greater of the following:\nISTRING MAX = IDCU string max\nor\nISTRING MAX = 1.25 x KI x ISC MOD\n(c) Strings with DCUs on all modules:\nISTRING MAX = IDCU string max\nNOTE 2: See Clause 1.4 for notations."
+} 

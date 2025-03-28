@@ -1,0 +1,5 @@
+{
+    "id": "4.4.2.8",
+    "title": "Equipotential (EP) junction",
+    "fullText": "An equipotential earthing system shall have only one EP junction.\nWhere an EP junction is readily accessible for testing in the cardiac-protected electrical area, it shall be identified as follows in accordance with Clause 2.12.1:\n(a)\tWith the wording 'EP TEST POINT'.\n(b)\tWith the wording '0.1 Ω EP EARTHING SYSTEM'.\n(c)\tWith the wording 'EP JUNCTION'.\nNOTE: A requirement is not specified in this Standard for the location of the EP junction. In selecting the location, attention should be given to the following:\n(a)\tThe need for access to the EP earthing system during commissioning and in-service testing, alterations and additions.\n(b)\tPhysical and electrical considerations that might favour the location of the EP junction at or near one of the non-LPD protected points.\n(c)\tThe relative locations of associated RCDs or isolation transformers."
+} 

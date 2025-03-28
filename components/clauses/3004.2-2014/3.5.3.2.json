@@ -1,0 +1,5 @@
+{
+    "id": "3.5.3.2",
+    "title": "Protection against reversal of polarity in the supply lead",
+    "fullText": "Except where shore power is supplied to the boat by an on-board isolating transformer or converter with a polarized output, a means shall be provided for checking the polarity (active to neutral) of the incoming supply.\nSuch means shall include—\n(a)\tan interlocking device with visual indication such that the shore supply cannot be connected if the polarity is incorrect; or\n(b)\tan automatic correction device with visual indication that matches the polarity of the shore supply to the polarity of the boat.\nIn multiphase installations, provision shall be made for checking the phase sequence and for matching the shore supply phase sequence with the boat's phase sequence."
+} 

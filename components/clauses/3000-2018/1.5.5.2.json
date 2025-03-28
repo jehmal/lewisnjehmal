@@ -1,0 +1,5 @@
+{
+  "id": "1.5.5.2",
+  "title": "Methods of protection",
+  "fullText": "Fault protection shall be provided by one or any combination of the following methods:\n\n• (a) Automatically disconnect the supply on the occurrence of a fault likely to cause a current flow through a body in contact with exposed conductive parts, where the value of that current is equal to or greater than the shock current, in accordance with Clause 1.5.5.3.\n\n• (b) Prevent a fault current from passing through a body by the use of Class II equipment or equivalent insulation, in accordance with Clause 1.5.5.4.\n\n• (c) Prevent a fault current from passing through a body by electrical separation of the system, in accordance with Clause 1.5.5.5.\nNOTE: Clause 7.4 provides further guidance on electrical separation.\n\n• (d) Limit the fault current that can pass through a body to a value lower than the shock current.\n\nNOTE: The most commonly used method of protection is automatic disconnection of supply."
+} 

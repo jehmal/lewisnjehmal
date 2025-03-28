@@ -1,0 +1,5 @@
+{
+  "id": "6.3.1.5.5",
+  "title": "CURRENT-CARRYING CAPACITY",
+  "fullText": "The current-carrying capacity of the battery system's cable to the overcurrent protection device shall be rated to —\n(a) the maximum current rating of the battery system; and\n(b) the short-circuit current and direction from the battery system.\nThe current-carrying capacity of the battery system cables to the PCE shall be greater than the rating of the overcurrent protection devices installed (see Clause 6.3.1.2).\nThe minimum cable sizes for battery system wiring, shall be based upon the current-carrying capacity of the relevant flexible cables as specified in —\n(i) AS/NZS 3008.1 series; or\n(ii) as specified by the manufacturer of the cable.\nNOTE AS/NZS 3008.1 series applies to a.c. cables, but for the purposes of this Standard, the current rating tables and calculations are relevant also for d.c."
+} 

@@ -1,0 +1,5 @@
+{
+    "id": "3.5.2.3",
+    "title": "Length",
+    "fullText": "The length of any supply lead shall be not more than the applicable figure specified in Table 5 for the applicable conductor cross-sectional area, and in no case greater than 25 m.\n\nTABLE 5\nMAXIMUM LENGTHS OF SUPPLY LEADS\n\nCross-sectional area of lead conductors\n2\nmm\tC curve miniature\ncircuit breaker (MCB)\nA\tMaximum length of lead m\n1.5\t16\t10\n2.5\t16\t20\n2.5\t20\t15\n4.0\t20\t25\n6.0\t32\t25\n10.0\t50\t25\n16.0\t63\t25\nNOTE: These lengths are based on an assumed voltage drop of 5% of 230 V at rated current for each cross-sectional area and on short circuit (i.e. fault) protection requirements assuming the protection is a C curve circuit-breaker in all cases."
+} 

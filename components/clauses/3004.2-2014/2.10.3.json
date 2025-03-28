@@ -1,0 +1,5 @@
+{
+    "id": "2.10.3",
+    "title": "Wind generator and photovoltaic devices",
+    "fullText": "Charge regulators used with a wind generator or photovoltaic cells shall be specially designed for use in such systems. When used to charge battery installations, the regulator output voltage limit shall be set to the charging voltage appropriate for the battery. Protection against battery overvoltage and reversal of the charging current shall be provided."
+} 

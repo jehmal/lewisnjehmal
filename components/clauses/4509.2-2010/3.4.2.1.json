@@ -1,0 +1,5 @@
+{
+    "id": "3.4.2.1",
+    "title": "General",
+    "fullText": "The sizing of renewable energy generators is often influenced by a number of design criteria, including the available energy resource, acceptable generating set run time (if used), budget constraints and other factors. For systems in which the renewable energy fraction is less than 75%, other system features may be necessary to ensure satisfactory system performance (see Clause 3.5.2). In system designs that allow for loads supplied directly from renewable generators without the need for intermediate battery storage, the appropriate sub-system efficiency should be chosen. Care should be exercised in design to allow for conditions when renewable resources may not be available and energy needs to be drawn from storage. In these cases subsystem efficiencies based on intermediate storage should be used."
+} 

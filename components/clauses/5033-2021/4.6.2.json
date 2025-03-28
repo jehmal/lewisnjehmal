@@ -1,0 +1,5 @@
+{
+  "id": "4.6.2",
+  "title": "EARTHING OF PV ARRAY EXPOSED CONDUCTIVE PARTS",
+  "fullText": "Where the calculated PV d.c. circuit maximum voltage is greater than 35 V, the following exposed conductive parts of the PV array shall be earthed:\n(a) All conductive PV module frames.\n(b) Array mounting frames that are directly in contact with the PV d.c. cables.\n(c) Conductive cable support systems or conductive wiring enclosures that are directly in contact with the PV d.c. cables.\n\nNOTE 1 PV array cabling that is installed in an insulating wiring enclosure (e.g. insulating conduit) is not deemed to be in direct contact.\n\nWhere the calculated PV d.c. circuit maximum voltage is greater than 35 V and the PV system is connected to a non earth reference system, exposed conductive parts of all associated electrical equipment shall be equipotentially bonded.\n\nNOTE 2 Examples of a non earth referenced systems may be independent water pumping systems that do not have a direct connection to earth."
+} 

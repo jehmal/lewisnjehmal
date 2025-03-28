@@ -1,8 +1,0 @@
-{
-  "id": "3.8.2.1",
-  "title": "Colour identification by sleeving or other means",
-  "fullText": "Colour identification by sleeving or other means, using colours corresponding to those listed in Table 3.4 at each termination, may be used as a means of identification for the following purposes:\n(a) Conductors with black or light blue insulation used as active conductors.\nor\n(b) Conductors with other than green, yellow, green/yellow, black or light blue insulation used as neutral conductors.\nor\n(c) Conductors within multi-core cables with other than green, yellow or green/yellow insulation used as earthing conductors.\nColour identification shall be of colour-fast, non-conductive material that is compatible with the cable and its location.\nSingle-core cables with other than green, yellow or green/yellow insulation, used as earthing conductors, shall be identified continuously along their entire length.\nColour identification shall not be used at terminations or along the entire length, to identify a green, yellow or green/yellow colour-insulated conductor as an active or neutral conductor.",
-  "references": {
-    "tables": ["Table 3.4"]
-  }
-} 

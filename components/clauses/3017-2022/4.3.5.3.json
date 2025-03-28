@@ -1,0 +1,5 @@
+{
+    "id": "4.3.5.3",
+    "title": "Isolation",
+    "fullText": "Where there is a requirement for continued de-energization, ensure the isolation device for each possible source is locked out and tagged or physically separated from the supply equipment so that the circuits under test cannot be energized unintentionally. See Figure 4.2."
+} 

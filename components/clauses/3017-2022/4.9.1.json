@@ -1,0 +1,5 @@
+{
+    "id": "4.9.1",
+    "title": "General",
+    "fullText": "Testing the operation of residual current devices (RCDs) is carried out to confirm that —\n(a) the RCD has been correctly installed; and\n(b) when operated, the RCD disconnects supply from the protected circuit(s)\nNOTE 1 The term RCD includes all devices having the function of detecting and reacting to the presence of residual currents, including where residual current functions are performed by an add-on device attached to and controlling another device. The test methods in this clause are designed for integrated devices, such as residual current circuit breaker with overcurrent protection (RCBOs); where the detection, reaction, and resulting disconnection are all performed within one device. Where other types of RCDs are to be tested; the same test method may be used but test equipment may need to be connected to different terminals.\nNOTE 2 Confirmation that the correct type and rating of RCD has been selected is a matter of visual inspection, in accordance with Section 2.\nNOTE 3 Guidance on the suitability of types of RCD is contained in AS/NZS 3000"
+} 

@@ -1,0 +1,5 @@
+{
+    "id": "4.9.4",
+    "title": "Results",
+    "fullText": "Results of testing shall demonstrate that all of the following conditions are met:\n(a) The RCD has been correctly installed.\n(b) The RCD operates when a residual current of approximately the rated value is present on the protected circuit.\n(c) When operated, the protected circuit(s) are disconnected from supply to the required degree (all actives, or all actives plus neutral)."
+} 

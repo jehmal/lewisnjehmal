@@ -1,0 +1,5 @@
+{
+  "id": "3.4.1",
+  "title": "GENERAL",
+  "fullText": "A main switch (inverter supply) shall be provided on the switchboard to which the IES is directly connected. An isolation switch or circuit breaker with the characteristics in Clause 3.4.3 may be used.\n\nThe labelling of all main switches shall be in accordance with Section 6.\n\nThe current rating of an IES comprised of a single inverter shall be the rated current of the inverter. Where the IES is comprised of multiple inverters, the IES current rating shall be the summation of the rated currents of all the inverters of that IES. The main switch (inverter supply) shall be sized to suit the total IES rated current for those IES connected to it."
+} 

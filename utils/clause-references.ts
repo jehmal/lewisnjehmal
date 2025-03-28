@@ -17,7 +17,7 @@ export async function getReferencedClauses(clause: ClauseSection): Promise<Claus
   
   if (clause.references) {
     // Check sections references
-    const sections = clause.references['sections'] || [];
+    const sections = clause.references.sections || [];
     if (Array.isArray(sections)) {
       for (const section of sections) {
         const referenced = await findReferencedClause(section);
@@ -25,11 +25,11 @@ export async function getReferencedClauses(clause: ClauseSection): Promise<Claus
       }
     }
     
-    // Check clauses references
-    const clauses = clause.references['clauses'] || [];
-    if (Array.isArray(clauses)) {
-      for (const clauseRef of clauses) {
-        const referenced = await findReferencedClause(clauseRef);
+    // Check document references
+    const documents = clause.references.documents || [];
+    if (Array.isArray(documents)) {
+      for (const docRef of documents) {
+        const referenced = await findReferencedClause(docRef);
         if (referenced) referencedClauses.push(referenced);
       }
     }

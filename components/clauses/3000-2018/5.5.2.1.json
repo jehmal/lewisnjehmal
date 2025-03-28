@@ -1,0 +1,5 @@
+{
+  "id": "5.5.2.1",
+  "title": "Arrangement",
+  "fullText": "All protective earthing conductors shall be directly connected to the main earthing conductor or to another point on an earthing system that is connected to the main earthing conductor. Protective earthing conductors shall not normally carry load current.\nThe connection shall be made at one or a combination of the following points:\n(a) An earthing terminal/connection or bar at the main switchboard provided specifically for the connection of earthing conductors and that is directly connected to the main earthing conductor.\n(b) Any point on the main earthing conductor.\n(c) An earthing terminal/connection or bar at a distribution board provided specifically for the connection of protective earthing conductors and arranged to comply with Clause 5.5.2.2.\n(d) Any point on a protective earthing conductor providing facilities for earthing at a distribution board and arranged to comply with Clause 5.5.2.2.\nNOTES:\n1.\tExamples of earthing connections are shown in Figure 5.3.\n2.\tRefer to Clause 5.5.3.1 where the earthing system in an outbuilding is to be treated as a separate MEN installation."
+}

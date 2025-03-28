@@ -1,0 +1,5 @@
+{
+    "id": "1.5.20",
+    "title": "Patient area",
+    "fullText": "Areas where it is intended by the responsible organization/entity that low-voltage medical electrical equipment will be used on a patient, see Figure 3.\nPatient areas may consist of either a single patient location or multiple patient locations.\nIf the area consists of multiple patient locations which form a single clinical operational unit (e.g. recovery) the patient area will enclose all these patient locations.\nExceptions:\n1\tAreas where low-voltage medical equipment is only used in an emergency or for the transportation of patients, e.g. corridors and lifts.\n2\tAreas where low-voltage medical electrical equipment is used in conjunction with patients in another area, e.g. a remote monitoring location.\nNOTE: In New Zealand, guidance on the classification of medical procedures enabling the decisions made by the responsible organization in determining patient areas may be found in AS/NZS 2500."
+} 

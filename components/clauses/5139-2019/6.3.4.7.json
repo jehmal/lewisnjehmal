@@ -1,0 +1,5 @@
+{
+  "id": "6.3.4.7",
+  "title": "OVERCURRENT",
+  "fullText": "The maximum available charge current being applied to the battery system shall not be greater than the maximum allowable charge current as specified by the manufacturer.\nThe battery system shall have a BMS that monitors the charge current and either —\n(a) disconnects the charging source when the battery exceeds the maximum current as specified by the manufacturer; or\n(b) limits the charging current to no greater than the maximum value allowed."
+} 

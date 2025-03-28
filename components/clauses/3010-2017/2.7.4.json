@@ -1,0 +1,5 @@
+{
+    "id": "2.7.4",
+    "title": "Changeover device with intermediate 'off' position",
+    "fullText": "A permanently connected changeover device having an intermediate 'off' position may be used in place of a main switch or a switch controlling submains, or final subcircuits or an individual final subcircuit, such that the supply to the load may be obtained from either of two sources and is able to be isolated from both. Such a device may also be connected as in Clause 2.7.5 (see Figure 2.1).\nA manual transfer switch (MTS) used as a main switch shall have operating handles or controls associated with the MTS that enables the main switch to be manually operated, single action and mechanical. The MTS shall consist of a handle, lever, push buttons or similar device.\nElectronic touch screens, programmable control systems or the like shall not be used as a means of operating the MTS where used as a main switch.\nNOTE: Changeover devices having an intermediate 'off' position would typically be used for manually operated switches only."
+} 

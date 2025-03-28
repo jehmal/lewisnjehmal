@@ -1,0 +1,5 @@
+{
+    "id": "3.6.7",
+    "title": "Battery isolation",
+    "fullText": "The battery bank shall be able to be readily isolated from the power system.\nOne solution is the 'Disconnector Fuse' which enables quick disconnection. A multi-fuse unit can also provide the main protection for any d.c. loads required (see Figures 6, 7 and 8).\nNOTE: See Appendix D for sizing method and example.\nWhere it is necessary to isolate battery strings without interrupting power supply, the schemes shown in Figures 7 and 8 may also be implemented with separate fusing and isolation for each string."
+} 

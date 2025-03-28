@@ -1,0 +1,5 @@
+{
+    "id": "2.7.6",
+    "title": "Rating",
+    "fullText": "Changeover devices shall have a voltage rating of at least the maximum out-of-phase voltage between contacts connected to the different sources of supply.\nChangeover devices shall have a minimum current and fault duty rating to cater for the—\n(a)\tmaximum load current that is able to flow under both the normal and alternative supply (generating set) operating conditions; and\n(b)\tmaximum fault duty available when operating on the normal or alternative supply."
+} 

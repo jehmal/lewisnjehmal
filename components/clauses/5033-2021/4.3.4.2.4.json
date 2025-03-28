@@ -1,0 +1,5 @@
+{
+  "id": "4.3.4.2.4",
+  "title": "CIRCUIT BREAKERS",
+  "fullText": "Where a circuit breaker is used as a load break disconnection device, it shall—\n(a) meet the requirements of Clause 4.3.6.2;\n(b) be rated according to Clause 4.3.4.2.5; and\n(c) meet the requirements for isolation, including marking requirements for an isolation device, in accordance with AS/NZS 60898.2 or AS/NZS IEC 60947.2.\n(d) interrupt all live conductors simultaneously (i.e. have at least one pole per polarity);\nEnclosures for circuit breakers shall be IP rated according to Clause 4.4.6."
+} 

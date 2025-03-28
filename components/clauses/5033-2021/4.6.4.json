@@ -1,0 +1,5 @@
+{
+  "id": "4.6.4",
+  "title": "CONNECTION TO INSTALLATION EARTH",
+  "fullText": "Where the earthing of the PV systems is a part of the LPS, the bonding conductors shall be connected to the electrical installation earthing system as specified in AS 1768 and, not via the PCE protective earth conductor.\n\nIn PV installations connected to an inverter that are not subject to lightning, the inverter main earth conductor in the a.c. cable of the inverter output may be used as the earth connection point, provided that the inverter a.c. cable earth conductor is of adequate size according to the type and rating of system in use, see Clause 4.6.5.\n\nIn all other applications, the PV array earthing conductor shall be connected to the electrical installation earthing system."
+} 

@@ -1,0 +1,5 @@
+{
+    "id": "3.1.4.4",
+    "title": "Surge demand a.c. loads",
+    "fullText": "Surge demand should be based on a selection of loads which constitute the highest surge load condition. Where the starting of two or more loads is automatically controlled, such as for refrigeration, the calculation should account for concurrent surges from the largest two of these loads.\nIn the absence of more accurate information, the surge demand for an individual load can be estimated from the following equation:\n\nsurge demand = power/(pf × surge factor)\t. . . 3.1.4.4\n\nwhere\nsurge demand = surge demand, in volt amperes (VA)\npower = real power consumption when running, in watts (W)\npf = power factor of the device when running, dimensionless\nsurge factor = a factor which depends on the type of load\n\nAs a guide, use surge factor of 1 for resistive loads, 3 for universal motors (hand-held tools and most kitchen appliances), and 7 for induction motors.\nNOTE: Electronic loads such as TVs can cause extremely high surges for very short periods after power up. This may be a problem for very small inverters if electronic loads are the major surge loads."
+} 

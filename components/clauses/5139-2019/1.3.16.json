@@ -1,0 +1,5 @@
+{
+  "id": "1.3.16",
+  "title": "BATTERY MANAGEMENT SYSTEM (BMS)",
+  "fullText": "electronic system that monitors and manages a battery or battery system's electric and thermal states enabling it to operate within the safe operating region of the particular battery\nNote 1 to entry: The BMS provides communications between the battery or battery system and the PCE and potentially other connected devices (e.g. vents or cooling).\nNote 2 to entry: The BMS monitors cells, battery or battery modules to provide protective actions for the battery system in the case of over charge, overcurrent, over-discharge, over heating, over voltage and other possible hazards that could occur. Additional BMS functions may include active or passive charge management, battery equalization, thermal management, specific messaging or communications to the PCE regarding charge rates and availability."
+}

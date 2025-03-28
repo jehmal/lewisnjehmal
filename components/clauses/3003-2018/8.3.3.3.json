@@ -1,0 +1,5 @@
+{
+    "id": "8.3.3.3",
+    "title": "Maximum tripping time tests",
+    "fullText": "In Australia, a trip current is applied at rated tripping current 5% between the active supply conductor and earth on the load side of each single-phase RCD protected socket-outlet. The RCD shall trip within 40 ms of applying the fault.\nA minimum of two such tests are applied to each RCD at random times in relation to the mains cycle.\nException:\n1\tFor commissioning (see Appendix B) six such tests are required.\nFor multi-phase supplies, the two tests are applied to the phase with the least sensitivity.\nThe worst-case measured tripping time is recorded in the in-service inspection and test report.\nSome RCD test sets with switches identified 'ZERO DEGREES' and '180 DEGREES' are not suitable for carrying out this test, however test sets that measure tripping time with randomly applied faults are commercially available."
+} 

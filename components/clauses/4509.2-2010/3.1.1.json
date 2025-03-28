@@ -1,0 +1,5 @@
+{
+    "id": "3.1.1",
+    "title": "Information required",
+    "fullText": "The minimum amount of information required for design is—\n(a)\tdesign load energy (daily energy consumption);\n(b)\tmaximum a.c. and d.c. demand; and\n(c)\tsurge demand.\nWhere the daily design load energy equals or exceeds 1 kWh/d, seasonal variation of average daily energy demand is also required.\nThis information is to be drawn from a list of all electrical loads detailing supply type (a.c. or d.c.), real and apparent power consumption, usage time and surge demand.\nNOTE: A worked example is provided in Appendix A and blank worksheets are provided in Appendix B."
+} 

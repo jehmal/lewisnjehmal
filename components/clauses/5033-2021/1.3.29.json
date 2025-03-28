@@ -1,0 +1,5 @@
+{
+  "id": "1.3.29",
+  "title": "POWER CONVERSION EQUIPMENT, SEPARATED",
+  "fullText": "power conversion equipment where there is at least simple separation between the input and output circuits\nNote 1 to entry: For a PCE that does not have internal separation/isolation between the input and output circuits, but is required to be used with a dedicated isolation transformer, with no other equipment connected to the PCE side of that isolation transformer, the combination may be treated as a separated PCE. Other configurations require analysis at the system level and are beyond the scope of this Standard. However, the principles in this Standard may be used."
+} 

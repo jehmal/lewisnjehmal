@@ -1,0 +1,5 @@
+{
+    "id": "4.2",
+    "title": "Earth fault-loop impedance",
+    "fullText": "The maximum earth fault-loop impedance when measured at any socket-outlet providing site supply shall not exceed the maximum value detailed in AS/NZS 3000 for a protective device with 0.4 s disconnection time.\nNOTE The use of 0.4 s disconnection time for protective devices fitted to caravan park or camping ground socket-outlets is to ensure adequate touch voltage control is provided for all connectable electrical installations connected to those socket-outlets."
+} 

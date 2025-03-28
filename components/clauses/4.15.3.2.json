@@ -1,9 +1,0 @@
-{
-  "id": "4.15.3.2",
-  "title": "Other transformers",
-  "fullText": "Electrical equipment shall be earthed as required by Clause 5.4.\nException: Where the low voltage transformer output complies with the requirements of the AS/NZS 61558 series, earthing is not required on the secondary side.",
-  "references": {
-    "clauses": ["5.4"],
-    "standards": ["AS/NZS 61558"]
-  }
-} 

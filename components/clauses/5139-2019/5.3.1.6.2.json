@@ -1,0 +1,5 @@
+{
+  "id": "5.3.1.6.2",
+  "title": "Floating/separated",
+  "fullText": "Floating pre-assembled battery system connected to a separated PCE is where the battery system is not earthed and is not referenced to earth (see Figure 5.3).\nAs the pre-assembled battery system is separated from earth (i.e. floating) and the PCE is electrically separated from the output application circuit, there are no additional earthing requirements except for earth fault monitoring (see Clause 5.3.1.8)."
+}

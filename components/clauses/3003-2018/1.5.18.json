@@ -1,0 +1,5 @@
+{
+    "id": "1.5.18",
+    "title": "Overload monitor",
+    "fullText": "An instrument in accordance with AS/NZS 4510 that monitors the output current of a low- voltage isolation transformer and actuates an alarm when this exceeds the rating of the isolation transformer.\nNOTE: The overload monitor and the LIM defined in Clause 1.5.15 are often combined in the same item of equipment."
+} 

@@ -1,0 +1,5 @@
+{
+    "id": "7.9.4",
+    "title": "Other Electrical Installations (NZ Only)",
+    "fullText": "The final subcircuit shall be protected by a separate residual current device (RCD) of Type B complying with IEC 62423, with a maximum rated residual current of 30 mA which operates in all live (active and neutral) conductors. Combined RCD and overcurrent circuit-breakers (RCBOs) may be used.\nException: For Mode 3 charging facilities, a Type A RCD with a maximum rated residual current of 30 mA, in conjunction with a residual direct current-detecting device (RDC-DD) conforming to IEC 62955 may be used.\nNOTE: The RDC-DD disconnects supply where residual d.c. currents of 6 mA or greater are detected."
+} 

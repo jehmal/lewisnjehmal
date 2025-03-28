@@ -1,0 +1,5 @@
+{
+  "id": "4.3.6.3",
+  "title": "FUSES",
+  "fullText": "Fuse systems used for overcurrent protection are an acceptable means of non-load break disconnecting if they have removable fusing elements, preferably with a disconnection mechanism (fuse-combination unit).\nFuses used in PV arrays shall —\n(a) be rated for d.c. use;\n(b) be rated to interrupt fault currents from the PV array, and any other connected power sources such as batteries, generators and the grid, if present; and\n(c) be of an overcurrent and short circuit current protective type suitable for PV conforming to IEC 60269-6 (i.e. Type gPV)."
+} 

@@ -1,0 +1,5 @@
+{
+  "id": "3.5.2.2",
+  "title": "ADDITIONAL PCE DETECTION REQUIRED FOR FUNCTIONALLY EARTHED PV ARRAYS",
+  "fullText": "In addition to the EFI, the PCE or an external device shall, before start-up of the system —\n(a) open circuit the functional earth connection to the PV array;\n(b) measure the resistance to earth of each conductor of the PV array; and\n(c) where the earth insulation resistance is—\n(i) above the threshold of RISO limit shown in Table 3.3 the system shall reconnect the functional earth and be allowed to start; and\n(ii) equal to or less than the threshold RISO limit, the system shall shut down and initiate an earth fault alarm in accordance with Clause 3.5.3.\nNOTE Direct functional earthing of systems is not recommended. Functional earthing via a resistor is a safer option wherever it is possible.\n\nTable 3.3 — PV array to earth insulation resistance (RISO) limits vs inverter rating\nTotal PV array power rating (kW) | RISO limit, k Ω\n≤ 20 | 30\n> 20 to ≤ 30 | 20\n> 30 to ≤ 50 | 15\n> 50 to ≤ 100 | 10\n> 100 to ≤ 200 | 7\n> 200 to ≤ 400 | 4\n> 400 to ≤ 500 | 2\n> 500 | 1"
+} 

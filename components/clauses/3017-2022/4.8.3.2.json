@@ -1,0 +1,5 @@
+{
+    "id": "4.8.3.2",
+    "title": "Supply available",
+    "fullText": "Where supply is available, the earth fault-loop impedance for each branch of each final subcircuit shall be determined using an earth fault-loop impedance tester at the socket outlet furthest from the supply on each branch of the final subcircuit.\nThe MEN connection shall be left intact."
+} 

@@ -1,0 +1,5 @@
+{
+    "id": "4.6.2",
+    "title": "Earthing",
+    "fullText": "The neutral of the stand-alone power system shall be earthed at the main switchboard. The installation of the earth shall comply with the requirements of AS/NZS 3000. Figure 4.5 illustrates three different types of connections:\n(a) Final sub-circuit that is earthed via an earth conductor connected to the earth bar at the main switchboard.\n(b) Sub-main connected to a distribution board that is earthed via an earth conductor connected to the earth bar at the main switchboard.\n(c) Sub-main having only active(s) and PEN conductor connected to an MEN switchboard that has its own MEN link and earth electrode to the outbuilding requirements of AS/NZS 3000.\nNOTES:\n1 The sizing of the consumers mains, sub-mains and final sub-circuits, where present, should take into account the allowable voltage drop for an installation as specified in AS/NZS 3000. Detailed design requirements are not specified in this document.\n2 Other configurations for supplying multiple buildings are possible using the provisions related to sub-mains in AS/NZS 3000."
+} 

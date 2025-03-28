@@ -1,0 +1,5 @@
+{
+  "id": "2.1.4.3",
+  "title": "PCES WITH MULTIPLE INPUTS INTERNALLY CONNECTED IN THE PCE",
+  "fullText": "Where multiple circuits are internally paralleled into the same MPPT, each PV section connected to one of those MPPT inputs (see Figure 2.6) shall be treated for the purposes of this document as a sub-array. All the PV sections combined shall be classified as the complete PV array."
+} 

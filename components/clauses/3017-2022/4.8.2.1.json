@@ -1,0 +1,5 @@
+{
+    "id": "4.8.2.1",
+    "title": "EFLI testing considerations",
+    "fullText": "The EFLI can be tested by one of two methods described in Clause 4.8.5.\nClause 4.8.5.1 describes a method for testing EFLI on an energized circuit.\nClause 4.8.5.2 describes a method for testing EFLI for a circuit that has been isolated.\nThe following shall be taken into consideration before testing EFLI of circuits:\n(a) Testing an energized circuit gives more accurate results.\n(b) Testing an energized circuit at any point other than a socket outlet requires direct access to live parts, so increased risk of electric shock. A safe work method should be adopted.\nNOTE 1 Refer to AS/NZS 3000 for further information on testing requirements.\nNOTE 2 The use of Tables 4.5 and 4.6 of this document are for miniature circuit breakers and HRC fuses only. Where other devices are used as the protection device, the manufacturer's data shall be consulted to obtain the value of current (Ia) for calculating the resistance of the protective earthing conductor."
+} 

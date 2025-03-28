@@ -1,0 +1,5 @@
+{
+  "id": "6.3.5.2.3",
+  "title": "RATE OF VENTILATION (LEAD ACID)",
+  "fullText": "The average hydrogen concentration by volume in a battery system enclosure or battery system room shall be maintained below 2 %.\nThe minimum exhaust ventilation rate required to maintain hydrogen concentration below 2 % shall be calculated by the following equation:\nqv = 0.006nI 6.3.5(1)\nwhere\nqv = minimum exhaust ventilation rate, in litres per second\nn = number of 2 V battery cells\nI = charging rate, in amperes\nIf there are multiple parallel battery systems in the battery system enclosure or battery system room the total exhaust ventilation rate is the sum of the rates of ventilation of all the battery cells, modules or battery systems."
+} 

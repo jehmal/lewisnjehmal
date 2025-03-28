@@ -1,7 +1,0 @@
-{"section": "8.3.7.2",
-    "title": "Results",
-    "content": {
-        "title": "Results",
-        "fullText": "The polarity and correct circuit connection testing shall show that all active, neutral, and protective earthing conductors in the electrical installation are correctly connected to the corresponding terminals of electrical equipment so that:\n(a) There is no transposition of conductors that could result in the electrical equipment becoming unsafe when it is connected to supply, particularly where appliances are connected by socket-outlets; and\n(b) Switches or protective devices do not operate in the earthing or a combined protective earthing and neutral (PEN) conductor; and\n(c) Switches or protective devices do not operate independently in neutral conductors; and\n(d) All Edison screw lampholders that are not incorporated in an appliance or provided with a shroud or skirt that prevents contact with the outer contact shall have the neutral connected to the outer contact; and\n(e) All fixed socket-outlets for multiphase supplies are connected so the phase sequence is the same throughout the installation; and\n(f) No protective earthing conductor is connected in parallel with any neutral conductor; and\n(g) There are no short-circuits between the conductors; and\n(h) There are no interconnections of conductors between different circuits.\nNote: Any MEN or ESR connection is not considered a short-circuit."
-    }
-} 

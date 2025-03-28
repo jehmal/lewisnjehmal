@@ -1,0 +1,5 @@
+{
+    "id": "3.4.7.8",
+    "title": "Capacity derating for operating temperature",
+    "fullText": "The available capacity of a battery is affected by the electrolyte temperature, generally decreasing with decreasing temperature. Temperature variations within cells vary more slowly than the ambient air temperature because of their large thermal mass. Therefore the battery capacity should be derated, based on the monthly minimum daily average air temperature.\nTypical figures for lead acid batteries discharging at the 100 h rate and 20 h rate (C100 and\nC20) are shown in Figure 5.\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \t \t \t \t \t \t \t \t \t \t \n\n\nFIGURE 5  TYPICAL BATTERY CAPACITY CORRECTION FACTOR AS A FUNCTION OF TEMPERATURE FOR C100 AND C20 DISCHARGE RATES"
+} 

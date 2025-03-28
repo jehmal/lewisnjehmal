@@ -1,0 +1,5 @@
+{
+    "id": "1.4.11.1",
+    "title": "Circuit-breaker",
+    "fullText": "A switch suitable for opening a circuit automatically, as a result of predetermined conditions, such as those of overcurrent or undervoltage, or by some form of external control.\n[AS/NZS 3000]"
+} 

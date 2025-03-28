@@ -1,0 +1,5 @@
+{
+  "id": "3.1.5",
+  "title": "PROVING DE-ENERGIZATION",
+  "fullText": "Any voltage test used to prove de-energization shall be conducted in the following sequence:\n(a) Visually check test equipment for any signs of damage.\n(b) Check the suitability for the voltage present.\n(c) Test the voltage tester on a known voltage source for correct operation.\n(d) Test between all conductors and a known earth.\n(e) Test between all conductors.\n(f) Retest the voltage tester on a known voltage source for correct operation.\nNOTE Further guidance is provided in AS/NZS 3017.\nWARNING: WHEN VOLTAGE TESTERS ARE USED TO PROVE DE-ENERGIZATION, THEY SHALL BE TESTED FOR CORRECT OPERATION IMMEDIATELY BEFORE USE, AND AGAIN IMMEDIATELY AFTER USE, TO CONFIRM THAT THE INSTRUMENT IS STILL WORKING CORRECTLY. SPECIAL ATTENTION SHALL BE GIVEN TO THIS PROCEDURE IF THE TEST RESULT INDICATES ZERO VOLTAGE.\nOnly competent persons shall perform the tests.\nWARNING: THE USE OF TESTERS THAT DETECT AN ELECTRIC FIELD SURROUNDING AN ENERGIZED CONDUCTOR ARE NOT SUITABLE FOR CABLES THAT ARE SURROUNDED BY A METALLIC SCREEN, CABLES CARRYING DIRECT CURRENT, AND IN SIMILAR CIRCUMSTANCES."
+} 

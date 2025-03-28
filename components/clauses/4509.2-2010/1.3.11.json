@@ -1,0 +1,5 @@
+{
+    "id": "1.3.11",
+    "title": "Depth of discharge (DOD)",
+    "fullText": "The amount of charge removed from a fully charged battery at a specified discharge rate. Depth of discharge is expressed as a percentage of the battery's rated capacity. (For example, the removal of 25 Ah from a battery with a rating of 100 Ah results in a 25% depth of discharge).\nNOTE: Battery capacity rating depends on the rate of discharge."
+} 

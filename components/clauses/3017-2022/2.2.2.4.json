@@ -1,0 +1,5 @@
+{
+    "id": "2.2.2.4",
+    "title": "Instrument for measuring fault-loop impedance",
+    "fullText": "The following instruments are required:\n(a) For measuring the active conductor and protective earth conductor (Rph and Re) loop values of a de-energized circuit, a low range ohmmeter, as specified in Clause 2.2.2.2, is required.\n(b) For measuring earth fault-loop impedance on an energized circuit, an earth fault-loop impedance meter is required.\nNOTE This type of meter can also be used for a number of other functions, including locating high-impedance faults in circuits, and verifying the prospective short-circuit current and prospective earth fault current."
+} 

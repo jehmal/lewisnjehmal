@@ -1,0 +1,5 @@
+{
+    "id": "4.4.3",
+    "title": "Requirements",
+    "fullText": "Testing to prove the continuity of the earthing system includes the following:\n(a) Earth resistance of the main earthing conductor.\n(b) Protective earthing conductors.\n(c) Bonding conductors.\nWhere a PEN submain is installed to supply a separate MEN installation in an individual outbuilding, testing shall confirm that the earth terminal, point or bar of the sub-board is connected via the PEN conductor to the earth terminal, point or bar of the main switchboard.\nThe earthing system in a separate MEN installation shall be connected to the submain neutral conductor supplying the outbuilding. In this case, the submain neutral conductor supplying the outbuilding is a combined protective earthing and neutral (PEN) conductor."
+} 

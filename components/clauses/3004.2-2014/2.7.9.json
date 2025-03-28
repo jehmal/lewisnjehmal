@@ -1,0 +1,5 @@
+{
+    "id": "2.7.9",
+    "title": "Final subcircuits",
+    "fullText": "Final subcircuits may be supplied from individual distribution boards or panels, or from distribution sections of switchboards.\nProtective devices such as circuit-breakers or fuses shall be provided at the origin of each final subcircuit to interrupt any overload and short-circuit current in the circuit conductors before heat can damage the conductor insulation, connections or wiring-system terminals. The selection, arrangement and performance characteristics should be such that the following is achieved:\n(a)\tMaximum continuity of service to healthy circuits under fault conditions through selective operation of the various protective devices.\n(b)\tProtection of electrical equipment and circuits from damage due to overcurrents, by coordination of the electrical characteristics of the circuit or apparatus and the tripping characteristics of the protective devices. For every fuse and circuit-breaker there shall be provided adjacent to it an indication of its intended nominal current appropriate to the circuit or subcircuit it protects."
+} 

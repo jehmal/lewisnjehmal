@@ -1,0 +1,5 @@
+{
+  "id": "2.3.2",
+  "title": "SYSTEM ARCHITECTURES",
+  "fullText": "A system installation may comprise any one of the following:\n(a) A BESS having one battery system connected to one or more PCE(s).\n(b) A BESS having parallel battery systems connected to one or more PCE(s).\n(c) Multiple BESSs, each individual BESS comprising one or more battery systems connected to one or more PCE(s).\nWhen an installation comprises multiple BESSs (see Figures 2.11 and 2.12), for which the combined energy storage rating of the installation is > 200 kWh, this Standard applies to each individual BESS forming part of that installation and for which the energy storage rating is ≤ 200 kWh."
+} 

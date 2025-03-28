@@ -1,0 +1,5 @@
+{
+  "id": "6.3.1.9",
+  "title": "EARTH FAULT PROTECTION — MONITORING ALARM",
+  "fullText": "For all battery systems separated from earth (i.e. floating) or connected to earth via a resistor and is operating at DVC-B or DVC-C, an earth fault alarm system shall be installed.\nThe alarm system shall include an audible signal activated in a location where an authorized person will be aware of the signal (see Clause 6.3.8).\nEarth fault detection systems including any additional monitoring or alarm connections or devices shall be in accordance with the manufacturer's requirements."
+} 

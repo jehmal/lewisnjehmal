@@ -1,0 +1,5 @@
+{
+    "id": "3.8.1",
+    "title": "General",
+    "fullText": "The system equipment should be protected against lightning surge, where necessary, in accordance with AS/NZS 1768.\nThe use of metal oxide varistors (MOV) is recommended and it is recommended that expert advice should be sought in lightning prone areas.\nNOTES:\n1\tGas discharge protection devices/surge protectors are not recommended as they may not self extinguish on a d.c. circuit.\n2\tFor information on lightning protection, see Appendix E."
+} 

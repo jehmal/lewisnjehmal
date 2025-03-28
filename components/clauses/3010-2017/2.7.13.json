@@ -1,0 +1,5 @@
+{
+    "id": "2.7.13",
+    "title": "Four pole/four pole changeover device",
+    "fullText": "When a four pole/four pole changeover device is used in a main switchboard, the normal supply neutral conductor to the switchboard shall not be switched prior to MEN link.\nA four pole/four pole changeover device may be used to connect a generating set at a switchboard without a MEN link fitted (distribution switchboard).\nWhere a four pole/four pole changeover device is used, the incoming submain and generating set neutral conductors may be switched."
+} 

@@ -1,0 +1,5 @@
+{
+  "id": "4.2.2.1",
+  "title": "GENERAL",
+  "fullText": "The amount of current in electrical equipment associated with PV arrays depends on the configuration of the PV arrays.\nIndividual PV modules are current-limited sources. However, because they can be connected in parallel, and connected to external sources (see Clause 3.3), the maximum current in the circuits of the PV system may be much higher and shall be calculated in accordance with Table 4.2.\nComponents and cables shall be rated to carry currents according to this Clause."
+} 

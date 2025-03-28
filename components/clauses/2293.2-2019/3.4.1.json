@@ -1,0 +1,5 @@
+{
+    "id": "3.4.1",
+    "title": "General",
+    "fullText": "A central battery system shall be tested to verify the performance and operation of the system under mains fail conditions. Circuits, emergency luminaires or exit signs may be tested individually or collectively provided the service frequency and tolerance levels for each circuit, luminaire or exit sign do not exceed those specified.\nWhenever data is recorded for individual cells of the battery, cell numbers shall be designated in sequence, commencing from the positive end.\nMaintenance of battery systems that is carried out in accordance with the procedures of AS 2676.1 or AS 2676.2, or IEC 62485-1 or IEC 62485-2, as applicable, shall be deemed to conform with the applicable clauses in this Section."
+} 

@@ -1,0 +1,5 @@
+{
+  "id": "2.1.4.2",
+  "title": "PCES WITH SEPARATE MAXIMUM POWER POINT TRACKING (MPPT) INPUTS",
+  "fullText": "Where a PCE's input circuit provides separate MPPT inputs, each PV section connected to a MPPT input (see Figure 2.5) may be treated as a separate PV array for the purposes of this document."
+} 

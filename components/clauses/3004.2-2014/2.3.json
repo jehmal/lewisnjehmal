@@ -1,0 +1,5 @@
+{
+    "id": "2.3",
+    "title": "INCLINATION OF BOAT",
+    "fullText": "Electrical equipment shall be designed to continue to operate satisfactorily with the boat at the inclinations from normal indicated in Table 2.\n\nTABLE 2\nANGULAR DEVIATION AND MOTION (From IEC 60092-101)\n\nStatic condition\tAngular deviation about fore-and-aft axis\n\tGeneral conditions*\t15°\n\tEmergency conditions\t22° 30'\n\tAngular deviation about athwartship axis (trim)\n\tEmergency conditions*\t10°\n\nDynamic condition\tRotation about fore-and-aft axis (rolling)†\t22° 30'\n\tRotation about athwartship axis (pitching)\t7° 30'\n\tFor sailing boats only: maximum heel angles of 45° on either tack\n*\tThe boat in any combination of angles within these limits.\n†\tThese motions may occur simultaneously."
+} 

@@ -1,0 +1,5 @@
+{
+    "id": "4.4.2.5.1",
+    "title": "Points required to be earthed via the EP junction or node",
+    "fullText": "The protective earthing terminal of permanently installed Class I electrical equipment shall be earthed via the EP junction or node if any earthed parts are accessible in the patient environment.\nExceptions:\n1\tAccessible metal parts of Class I electrical equipment that is double-insulated from live parts and may not be protectively earthed within the equipment.\n2\tAccessible metal parts of Class II equipment.\n3\tPermanently installed electrical equipment that is inaccessible in the patient environment is not required to be connected to earth via the EP junction or node. Where such equipment is of Class I, it shall be earthed directly to the distribution board."
+} 

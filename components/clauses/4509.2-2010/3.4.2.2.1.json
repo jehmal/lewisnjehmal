@@ -1,0 +1,5 @@
+{
+    "id": "3.4.2.2.1",
+    "title": "General",
+    "fullText": "Design and performance calculations based on energy (Wh) should take into account energy losses in all equipment and cabling between the renewable energy generator and the d.c. distribution bus (including the battery)."
+} 

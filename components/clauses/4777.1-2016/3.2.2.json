@@ -1,0 +1,5 @@
+{
+  "id": "3.2.2",
+  "title": "CONNECTION TO SWITCHBOARD",
+  "fullText": "The IES should be connected directly to the main switchboard. In installations where this is not possible, the IES should be connected to the distribution switchboard located physically nearest to the inverter. The main switchboard, the distribution switchboard to which the IES is connected and all intermediate distribution switchboards (if any) shall be labelled in accordance with Section 6.\n\nNOTE: When selecting the distribution board for the IES connection, minimizing the cable run and voltage rise to the point of connection is important (see Clause 3.3.3 and AS/NZS 3000).\n\nWhere an a.c. generating set is installed for purposes of an alternative supply system, an IES shall be connected to the grid side of any generator changeover device in the electrical installation, except when the a.c. generating set operating as the alternative supply and the IES are appropriately designed to operate in parallel or where the IES has an interlock with the changeover device to disconnect the IES when the generator is operating.\n\nNOTE: A generating set cannot absorb energy from an IES."
+} 

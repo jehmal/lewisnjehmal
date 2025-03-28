@@ -1,0 +1,5 @@
+{
+  "id": "3.4.5",
+  "title": "RESIDUAL CURRENT DEVICES (RCDs)",
+  "fullText": "An RCD dedicated for an IES may be used to meet the mechanical cable protection requirements and isolation requirements of AS/NZS 3000 for the cable from the switchboard to the IES.\n\nIf an RCD is used, the RCD shall—\n(a) disconnect all live conductors (including the actives and neutral); and\n(b) be of the type specified in the inverter manufacturer's instructions or as labelled on the inverter.\n\nNOTES:\n1 If the IES is a multiple mode IES with stand-alone functionality, then the requirements of Clause 5.4 apply.\n2 Where manufacturers specify RCDs for earth fault protection and the protection required is greater than 30 mA, alternatives for mechanical protection are required. Manufacturers' instructions cannot be used to override the 30 mA requirement for RCDs in AS/NZS 3000.\n\nIn New Zealand, all RCD protection shall be at least Type A and shall operate in all live conductors (including the neutral)."
+} 

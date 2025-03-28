@@ -1,0 +1,5 @@
+{
+  "id": "6.3.2.4",
+  "title": "BATTERY SYSTEM INSTALLED IN NON-DOMESTIC OR NON-RESIDENTIAL ELECTRICAL INSTALLATIONS",
+  "fullText": "Battery systems installed in a building shall have arc flash energy less than 40 cal/cm2.\nBattery system with a calculated arc flash energy greater than 4.0 cal/cm2 shall be installed in a dedicated battery system room or within a dedicated enclosure located outside of the building.\nBattery system installed that have an arc-flash energy greater than or equal to 8.0 cal/cm2 should be able to isolate the battery system into blocks of less than 8.0 cal/cm2 to limit the arc flash hazard exposure for authorized people working on the system."
+} 

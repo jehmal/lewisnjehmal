@@ -1,0 +1,5 @@
+{
+    "id": "2.1.2",
+    "title": "Rating classifications",
+    "fullText": "Generating sets are assigned output power rating classifications based on the following descriptions of the intended application:\n(a)\tStandby Maximum output rating is available from the generating set operating at a variable load for the duration of the normal mains power interruption. There is no sustained overload capability.\n(b)\tPrime Maximum output rating is available from the generating set operating at a variable load for an unlimited time. There is 10% overload capability for short periods and infrequent operations.\n(c)\tContinuous Maximum output rating is available from the generating set operating at constant load for an unlimited time. There is no sustained overload capability.\nNOTE: Definitions for these ratings are based on Standards such as AS 4594.1 and ISO 8528-1 but may be further qualified in manufacturer's recommendations."
+} 

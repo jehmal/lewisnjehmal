@@ -1,0 +1,5 @@
+{
+    "id": "3.4.8.6",
+    "title": "Temperature compensation",
+    "fullText": "Battery charging voltages should be temperature compensated according to the electrolyte temperature, by a factor appropriate for the battery type."
+} 

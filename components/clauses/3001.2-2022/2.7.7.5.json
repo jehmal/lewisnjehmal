@@ -1,0 +1,5 @@
+{
+  "id": "2.7.7.5",
+  "title": "Location",
+  "fullText": "The source selection device(s) shall be located within or adjacent to the main switchboard that supplies the part of the installation being switched between sources of supply.\nWhere the main switchboard is installed externally, the changeover or source selection device may be installed at an internal switchboard.\nException: This requirement does not apply to a changeover or source selection device that is —\n(a) incorporated into a source of supply, e.g. in an inverter/charger; or\n(b) part of a UPS.\nWhere the exception applies, a warning label shall be provided at the switchboard to warn of the possibility that some parts of the installation may remain energized and to indicate the location of the device.\nThis exception only applies where the internal switching arrangement of the source meets the requirements of Clauses 2.7.7.2 to 2.7.7.4. Where compliance is unproven, a separate switch shall be installed in accordance with this clause."
+} 

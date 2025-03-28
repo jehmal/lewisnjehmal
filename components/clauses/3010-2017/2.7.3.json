@@ -1,0 +1,5 @@
+{
+    "id": "2.7.3",
+    "title": "Interlocking",
+    "fullText": "Changeover devices shall incorporate a mechanical interlock to prevent the simultaneous connection of the generating set system and the normal supply system, unless the following exception applies.\nNOTE: The use of electrical interlocking in addition to mechanical interlocking is not a requirement of this Standard, but is recommended. In the case of electrically operated changeover devices, the controls for the generating set and the operation of the changeover device may provide limited electrical interlocking.\nException: Where closed transition changeover arrangements are permitted, then a changeover device without a mechanical interlock is allowable. The closed transition changeover device shall be installed to the manufacturer's instructions.\nWhere the normal supply is from the distributor, the use of a closed transition changeover device(s) shall require a formal agreement with that electricity distributor."
+} 

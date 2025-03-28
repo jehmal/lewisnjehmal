@@ -1,6 +1,0 @@
-{
-  "id": "5.5.2.2.3",
-  "title": "Earthing Facilities for Distribution Boards",
-  "fullText": "A protective earthing conductor that originates at a distribution board, in accordance with Clause 5.5.2.1, Item (c) or (d), shall not be used for the provision of earthing facilities for another distribution board.\nExceptions:\n1. This requirement need not apply where earthing facilities for a distribution board originate from the same distribution board as the associated active conductors supplying the distribution board.\n2. A common protective earthing conductor connected to the main earthing conductor in accordance with Clause 5.5.2.1, Item (a) or (b) may be arranged to provide earthing facilities at a number of distribution boards provided that:\n• the continuity of the protective earthing conductor shall not be dependent on a terminal at a distribution board; and\n• a direct connection shall be made between the common protective earthing conductor and any branch protective earthing conductor to a distribution board.",
-  "references": ["5.5.2.1"]
-} 

@@ -1,0 +1,5 @@
+{
+  "id": "4.3.2.3.3",
+  "title": "WIRING LOOPS",
+  "fullText": "To reduce the magnitude of lightning-induced overvoltages and radio interference, the PV array wiring should be laid in such a way that the area of conductive loops is minimized (e.g. by laying cables in parallel, as shown in Figure 4.1).\n\nPV module\njunction box\nPV module\nReturn\nconductor\n– + – +\n+ – + – + –\n+\n+\n–\n–\nFigure 4.1(a) — PV string wiring examples to minimize area of conductive loop\n\nPV module\njunction box\nPV module\n+ – + – + –\n– + – + – +\nFigure 4.1(b) — PV string wiring examples to minimize area of conductive loop\n\n+ – + – + – + – + – + –\nFigure 4.1(c) — PV string wiring examples to minimize area of conductive loop"
+} 

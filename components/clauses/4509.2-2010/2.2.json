@@ -1,0 +1,5 @@
+{
+    "id": "2.2",
+    "title": "GENERAL DESIGN CRITERIA",
+    "fullText": "The design of any system should be guided by a number of criteria, determined by the user's general preferences (e.g. lowest economic life cycle cost, lowest environmental impact) and by site constraints. Some of the major areas to be considered are—\n(a)\tbudget constraints;\n(b)\tpower quality (e.g. waveform quality or continuity of supply);\n(c)\tenvironmental impact (e.g. trimming or removal of trees for a PV system, civil works and diversion of water in a hydro system);\n(d)\tuse of existing equipment;\n(e)\tacceptable extent of generating set (generating sets) running versus renewable energy contribution;\n(f)\tacceptable noise levels;\n(g)\tavailability of spare parts and maintenance service;\n(h)\tsite accessibility;\n(i)\tacceptable level of reliability and maintenance;\n(j)\tlevel of automation versus direct user control; and\n(k)\taesthetics.\nReliability should be considered essential. However, the necessity for special design techniques to achieve very high levels of reliability will depend on the application."
+} 

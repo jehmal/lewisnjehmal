@@ -1,0 +1,5 @@
+{
+    "id": "5.4.12.3.3",
+    "title": "Electrical protection",
+    "fullText": "The battery management safety system shall continuously monitor the voltage, current and temperature of the battery and protect against the following by automatic disconnection —\n(a) over and under voltage; and\n(b) over and under temperature; and\n(c) over current.\nThe battery management safety system should be as per the cell manufacturer's recommendation or designed and supplied by the same manufacturer."
+} 

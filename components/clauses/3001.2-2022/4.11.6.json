@@ -1,0 +1,5 @@
+{
+    "id": "4.11.6",
+    "title": "Isolation of the protective earthing conductors",
+    "fullText": "No fixed connection shall be made between any protective earthing conductor and the general mass of earth, e.g. by means of a driven electrode.\nNo connection shall be made between any live (active or neutral) conductor and any protective earthing conductor of the electrical installation.\nException: A connection may be made between the MPEC and the neutral conductor of a generating set or inverter installed in accordance with Clause 2.7."
+} 

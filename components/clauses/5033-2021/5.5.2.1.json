@@ -1,0 +1,5 @@
+{
+  "id": "5.5.2.1",
+  "title": "LOAD BREAK DISCONNECTION DEVICE",
+  "fullText": "Load break disconnectors shall be provided with a sign affixed in a prominent location with the following text:\n\nPV ARRAY d.c. ISOLATOR\n\nNOTE See Figure A.4(a).\n\nWhere multiple isolation/disconnection devices are used that are not ganged (see Clause 4.5.4.2) the following sign shall be fixed adjacent to the PCE and have a warning label containing a warning symbol and stating:\n\nWARNING: MULTIPLE d.c. SOURCES\nTURN OFF ALL d.c. ISOLATORS TO ISOLATE EQUIPMENT\n\nNOTE See Figure A.4(b)."
+} 

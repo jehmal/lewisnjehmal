@@ -1,0 +1,5 @@
+{
+    "id": "2.4.4.3",
+    "title": "Uninterruptable power supply status indicators",
+    "fullText": "A suitably located UPS status indicator shall be provided where socket-outlets or permanently wired equipment are connected to a UPS and there is continuous patient observation, including in—\n(a)\teach operating theatre; and\n(b)\tstaff stations in recovery wards, intensive care units, isolation rooms and other special care areas.\nUninterruptable power supply status indicators shall be provided with synchronized, pulsating, audible and visual alarms to indicate when the UPS is operating in battery mode. The audible alarm shall continue until muted; however, there shall not be a 'master' muting facility. The visual alarm shall continue until the supply is restored to the UPS or the UPS is exhausted.\nUninterruptable power supply status indicators shall be identified 'UPS STATUS' in accordance with Clause 2.12.1.\nWhere the UPS status indicator is provided with an alphanumeric display, the message 'UPS IN EMERGENCY MODE' shall be displayed when supply to the UPS is lost."
+} 

@@ -1,0 +1,5 @@
+{
+    "id": "2.1.2",
+    "title": "Steps involved",
+    "fullText": "There are a number of steps in the design process which are essential, though they cannot always be followed in sequential order. The following points can serve as a checklist:\n(a)\tEstablishing design criteria—\n(i)\tgeneral design criteria;\n(ii)\tassessment of energy services and energy source selection;\n(iii)\tassessment of electrical demand; and\n(iv)\tresource assessment.\n(b)\tSystem configuration.\n(c)\tComponent sizing and selection—\n(i)\tmajor component sizing and selection;\n(ii)\tmetering and control; and\n(iii)\tprotection, switching and isolation.\n(d)\tInstallation design.\n(e)\tCosting and economic evaluation.\n(f)\tDocumentation.\nFor small, low cost or simple systems, carrying out these steps may be trivial, or a step may be omitted. Additionally, the process may involve some degree of iteration. For example, if a chosen design proves to be over-budget, the system components may need to be re-sized, and other aspects of the design may need to be modified."
+} 

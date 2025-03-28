@@ -1,0 +1,5 @@
+{
+    "id": "2.11.2.3",
+    "title": "Earthing and equipotential bond connections",
+    "fullText": "The generating set output shall be arranged as an isolated supply and any neutral to earth bonding within the generating set is to be permanently removed.\nA protective earthing conductor shall be run from the generating set frame connection to the main earthing terminal/connection or bar of the electrical installation main switchboard. The protective earthing conductor size shall be in accordance with Section 5 requirements of AS/NZS 3000.\nThe neutral to earth connection shall be made in the electrical installation at the main switchboard.\nAn earthing conductor, deemed to be the main earthing conductor, shall be taken from the main earthing terminal/connection or bar in the main switchboard to an earth electrode in accordance with Section 5 requirements of AS/NZS 3000.\nNOTE: The main switchboard may form part of the generating set."
+} 

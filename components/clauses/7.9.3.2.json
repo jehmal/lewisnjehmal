@@ -1,8 +1,0 @@
-{
-    "section": "7.9.3.2",
-    "title": "Facilities for Mode 2 Charging",
-    "content": {
-        "title": "Facilities for Mode 2 Charging",
-        "fullText": "Each facility for Mode 2 charging shall comply with all of the following:\n(a) The final subcircuit shall have a minimum current-carrying capacity of 20 A and shall not supply any other socket-outlet or point in wiring.\n(b) The socket-outlet shall comply with one of the following Standards and shall not be switched by the insertion or withdrawal of a plug:\n(i) AS/NZS 3112.\n(ii) IEC 60309-2.\n(iii) AS/NZS 3123.\n(iv) BS 1363-2.\n(c) The socket-outlet shall be installed at a minimum height of 800 mm from the floor or ground."
-    }
-} 

@@ -1,0 +1,5 @@
+{
+    "id": "2.8.3",
+    "title": "Generating set bonding system",
+    "fullText": "The following parts of the generating set shall be electrically bonded together to form the generating set bonding system:\n(a)\tThe 'star' point or neutral connection of a multiple-phase output isolated winding.\n(b)\tOne output connection of a single-phase isolated output winding.\nThe output winding connection to the generating set bonding system shall be by means of a permanently labelled removable link mounted adjacent to the generating set a.c. output connections.\n(c)\tThe engine frame.\n(d)\tThe generator or alternator frame. All exposed conductive parts enclosing electrical equipment or wiring.\n(e)\tThe 'earth' terminals of any socket outlets fitted.\n(f)\tThe frame connection (marked   or 'FRAME').\nWhen the generating set is permanently connected to a switchboard by installation wiring in an electrical installation, the generating set neutral to frame link shall be permanently removed."
+} 

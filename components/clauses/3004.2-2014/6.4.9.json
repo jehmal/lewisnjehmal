@@ -1,0 +1,5 @@
+{
+    "id": "6.4.9",
+    "title": "Parallel connection of cables",
+    "fullText": "Cables with conductors of cross-section less than 10 mm2 shall not be connected in parallel.\nNOTES:\n1\tThe current-carrying capacity of cables connected in parallel is the sum of the current ratings of all parallel conductors, provided that the cables have equal impedance, cross-section and rated conductor temperatures.\n2\tSee the recommendation in IEC 60092-352 relating to special precautions for single-core cables for a.c. wiring."
+} 

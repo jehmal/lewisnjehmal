@@ -1,0 +1,5 @@
+{
+  "id": "2.3.1",
+  "title": "APPLICATIONS",
+  "fullText": "The following types of BESS are covered by this Standard:\n(a) BESS comprising PCE connected to d.c. application circuit.\n(b) BESS comprising a separated/isolated PCE connected to a.c. system (d.c. connections may also be present).\n(c) BESS comprising a non-separated/non-isolated PCE connected to a.c. system (d.c. connections may also be present).\nThe PCE functions include the following:\n(i) d.c. to d.c. converter or a.c to d.c battery charger.\n(ii) Stand-alone inverter or multiple mode inverter or other grid connect inverter which allows interconnection with battery systems.\n(iii) d.c. controller for controlling system ouput/input.\nNOTE Some battery systems have additional inbuilt PCEs (e.g. d.c. to d.c. converters) and are considered part of the auxiliary equipment and form part of the battery system."
+} 

@@ -1,0 +1,5 @@
+{
+    "id": "2.7.2.3.2",
+    "title": "Inverters and inverter charger requirements",
+    "fullText": "Inverters and inverter chargers shall —\n(a) have separate terminals for the a.c. input and the a.c. output, which are isolated from each other and from the d.c. battery input terminals; and\nNOTE 1 Where common or linked a.c. terminals are used, it is not possible to avoid back-feeding of the circuit providing normal supply to the unit.\nNOTE 2 Relays or electronic switching may not provide the required isolation between a.c. input and output, see Clause 2.7.7.2.\n(b) have short circuit and overload protection on the low voltage output of the inverter charger unit in accordance with AS/NZS 3000; and\n(c) be non-rotating power inverters; and\n(d) be designed to operate up to an ambient temperature of 50 °C and withstand an ambient temperature of 70 °C without damage; and\n(e) be automatically controlled; and\n(f) provide isolation of the a.c. output from the d.c. supply circuit; and\n(g) have controls which are readily accessible."
+} 

@@ -1,0 +1,5 @@
+{
+    "id": "4.7.2",
+    "title": "Considerations",
+    "fullText": "Testing considerations for socket outlets include the following:\n(a) Testing with circuit isolated, as follows:\n(i) Perform IR test between earth and the circuit conductors and then between conductors to ensure the conductors are electrically isolated from each other.\n(ii) Bridge across the line and load terminal for switching devices such as contactors and electronic control equipment that may contain contactors/relays.\n(iii) Disconnect the load terminals at the permanently connected consumer equipment.\n(b) Testing with circuit energized, as follows:\n(i) Using a phase rotation meter, connect/clamp the test probes in accordance with the test instrument manufacturer's instructions and record the test result.\n(ii) If the circuit under test has phase sensitive equipment connected (e.g. roller door, motor etc.) and provided the rotation result is correct, energize the equipment and check the operation is in the correct direction of travel."
+} 

@@ -1,0 +1,5 @@
+{
+    "id": "2.3.2",
+    "title": "Periodic checks of accuracy",
+    "fullText": "All test equipment shall be checked regularly, and particularly after extended periods of storage, to ensure that it remains operational and safe, and that internal batteries are adequately charged.\nThe interval between checks should be determined by the frequency of use. The interval shall not exceed 12 months.\nInstrument accuracy may be confirmed by checking —\n(a) against a range of resistors of known values; or\n(b) against a circuit of known characteristics.\nNOTE Appendix A includes guidance on periodic checks for particular types of test equipment."
+} 

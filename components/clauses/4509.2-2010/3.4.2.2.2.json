@@ -1,0 +1,5 @@
+{
+    "id": "3.4.2.2.2",
+    "title": "D.C. bus systems",
+    "fullText": "For any particular renewable energy generator, a renewable energy subsystem efficiency can be calculated as follows\n\nηrenss = ηren-batt × ηreg × ηbatt\t3.4.2.2(1)\n\nwhere\nηrenss = the efficiency of the subsystem from a renewable energy generator to the d.c. bus, dimensionless\nηren-batt = the energy transmission efficiency of the cabling between renewable energy generator and battery, dimensionless\nηreg = the energy efficiency of the regulator, dimensionless\nηbatt = the energy efficiency (i.e. watt hour efficiency) of the battery, dimensionless\n\nDesign and performance calculations based on charge (Ah) should take into account the coulombic efficiency of the batteries."
+} 

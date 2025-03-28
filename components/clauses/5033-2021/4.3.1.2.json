@@ -1,0 +1,5 @@
+{
+  "id": "4.3.1.2",
+  "title": "ADDITIONAL STANDARDS FOR PV MODULES",
+  "fullText": "Additional information on PV module reliability is given in the following Standards:\n(a) IEC 61701, Resistance to salt mist corrosion (in coastal environments)\n(b) IEC 62716, Photovoltaic (PV) modules — Ammonia corrosion testing\n(c) IEC TS 62804-1, Photovoltaic (PV) modules — Test methods for detection of potential-induced degradation — Part 1: Crystalline silicon\n(d) IEC 62941, Terrestrial photovoltaic (PV) modules — Quality system for PV module manufacturing\n(e) IEC TS 63126, Guideline for qualifying PV modules, components and materials for operation at high temperatures\n(f) IEC TS 63209-1, Extended stress testing of PV modules for risk analysis (in development)\nNOTE Current editions of IEC 61215 and IEC 61730 Standards have been demonstrated in field studies to be insufficient for evaluating the long term durability of PV modules under some installation conditions. Test protocols including those above are designed to address these issues. These should be considered where appropriate."
+} 

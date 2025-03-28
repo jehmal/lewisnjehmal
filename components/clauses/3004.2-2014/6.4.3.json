@@ -1,0 +1,5 @@
+{
+    "id": "6.4.3",
+    "title": "a.c. system",
+    "fullText": "For a.c. systems the cross-sectional area of conductors shall be so determined that the voltage drop from the main or emergency switchboard busbars to any point in the installation, under normal conditions of service with maximum current, does not exceed 5% of the nominal voltage.\nNOTE: The values for voltage drop specified in this Clause 6.4.3 apply under normal steady conditions. Under special conditions of short duration, such as motor starting, higher voltage drops are permissible, provided that other equipment within the installation is capable of withstanding the effects of the higher voltage drop."
+} 

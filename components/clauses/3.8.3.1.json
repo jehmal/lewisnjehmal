@@ -1,9 +1,0 @@
-{
-  "id": "3.8.3.1",
-  "title": "General",
-  "fullText": "The colour identification provisions of Table 3.4 need not apply to the applications described in Clauses 3.8.3.2 to 3.8.3.5.",
-  "references": {
-    "tables": ["Table 3.4"],
-    "sections": ["3.8.3.2", "3.8.3.3", "3.8.3.4", "3.8.3.5"]
-  }
-} 

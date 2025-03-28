@@ -1,0 +1,5 @@
+{
+  "id": "1.3.60",
+  "title": "PROSPECTIVE FAULT CURRENT",
+  "fullText": "current that would flow in the circuit during short-circuit fault conditions, if each main current path of the switching device and of the overcurrent protective device, if any, were replaced by a conductor of negligible impedance\n[SOURCE: IEV 442-01-47 (MOD)]"
+} 

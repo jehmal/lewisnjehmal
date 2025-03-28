@@ -1,0 +1,5 @@
+{
+    "id": "1.3.13",
+    "title": "Design maximum depth of discharge",
+    "fullText": "The maximum depth of discharge that the batteries should experience under design conditions (i.e. exceeding this DOD may result in damage to, or reduced life of, the batteries)."
+} 

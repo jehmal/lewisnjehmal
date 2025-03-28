@@ -1,0 +1,5 @@
+{
+    "id": "2.4.6.4",
+    "title": "Electrical equipment supplied by inverters",
+    "fullText": "Inverters used on construction and demolition sites shall comply with the requirements of AS/NZS 4763 and be one of the following types:\n(a)\tAn RCD protected inverter (RCDP Inverter) with a maximum rated residual current of 30 mA.\n(b)\tAn isolated inverter.\nIsolated inverters shall only be used on construction and demolition sites to supply a separated circuit for electrical equipment, installed in accordance with the electrical separation requirements of AS/NZS 3000. Each winding shall supply not more than one item of Class I (earthed conductive parts) electrical equipment.\nNOTES:\n1\tAS/NZS 4763 requires identification of the classification, by the means given in Clause F1.\n2\tOne or more items of Class II (double insulated) electrical equipment may be connected to an isolated winding inverter.\n3\tWiring of dedicated battery storage systems for inverters should comply with AS/NZS 3000. Battery storage systems should comply with AS 4086.2."
+} 

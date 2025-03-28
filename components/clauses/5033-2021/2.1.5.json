@@ -1,0 +1,5 @@
+{
+  "id": "2.1.5",
+  "title": "STRINGS CONSTRUCTED USING D.C. CONDITIONING UNITS",
+  "fullText": "DCUs may allow for d.c. conditioning of the PV output.\nFor example, DCUs can be used to optimize designs where some PV modules have shading on a regular basis or where there are different PV module orientations.\nFor the purposes of this document, module(s) on the input side of the DCUs are not considered to be an individual PV array. They are deemed to be a part of the PV array.\nDCUs may either be connected to all PV modules (see Figure 2.7) or to some PV modules (partial DCU strings, see Figure 2.8)."
+} 

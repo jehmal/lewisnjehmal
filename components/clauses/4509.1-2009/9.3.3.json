@@ -1,0 +1,5 @@
+{
+    "id": "9.3.3",
+    "title": "Inverters without separation",
+    "fullText": "Where the d.c. supply to the inverter is at ELV, inverters that do not have isolation/separation between the d.c. input and the a.c. output shall not be used."
+} 

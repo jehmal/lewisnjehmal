@@ -1,0 +1,5 @@
+{
+    "id": "4.8.4.2",
+    "title": "Testing isolated circuit",
+    "fullText": "Maximum values of earth fault-loop resistance shall not exceed the values shown in Table 4.6 for the size of the active and earth conductors or the value of Ia for the protective device being used in accordance with the manufacturer's data.\nThe values of Zs in Table 4.6 were calculated using the following equation:\nZs = Uo/Ia\nwhere\nZs\n=\nearth fault-loop impedance\nUo\n=\nnominal phase voltage (230 V)\nIa\n=\ncurrent causing automatic operation of protective device, as follows:\nIa for circuit-breakers is the mean tripping current as follows:\nType B\n=\n4 times rated current\nType C\n=\n7.5 times rated current\nType D\n=\n12.5 times rated current\nIa for fuses are approximate mean values from AS 60269.1\nThe circuit protection devices Type B, C and D are only applicable to miniature circuit breakers. For moulded case and ACBs, the manufacturer's data sheet is to be consulted to obtain the Ia for 0.4 s."
+} 

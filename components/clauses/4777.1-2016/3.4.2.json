@@ -1,0 +1,5 @@
+{
+  "id": "3.4.2",
+  "title": "OVERCURRENT PROTECTION",
+  "fullText": "All IES cabling shall be protected against overcurrent in accordance with AS/NZS 3000.\n\nWhere overcurrent protection for the cabling to the IES is not provided by other overcurrent protection, the main switch (inverter supply) shall be a circuit-breaker with rating suitable to protect all cabling up to the IES.\n\nNOTE: Overcurrent protection of the cable needs to take into account fault currents that may be sourced from either the main supply or the IES output."
+} 

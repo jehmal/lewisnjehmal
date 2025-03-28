@@ -1,0 +1,5 @@
+{
+    "id": "2.9.6",
+    "title": "System prospective hazard current",
+    "fullText": "The prospective hazard current of the supply, LIM and circuit wiring shall not exceed 2 mA when measured in accordance with AS/NZS 4510.\nMetal conduit provides some protection against electrical interference and may be used if it does not cause the prospective hazard current to exceed that permitted by this Clause.\nThe length of isolated supply circuits should be as short as practicable in order to minimize the total prospective hazard current."
+} 

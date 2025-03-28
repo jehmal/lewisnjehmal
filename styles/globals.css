@@ -28,3 +28,23 @@
         margin-right: 0 !important;
     }
 }
+
+/* Math equation styles */
+.math-equation {
+  display: inline-block;
+  margin: 0 0.1em;
+  vertical-align: middle;
+}
+
+.math-equation-error {
+  color: #e53e3e;
+  font-style: italic;
+}
+
+/* For display mode equations */
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  margin: 1em 0;
+  padding: 0.5em 0;
+}

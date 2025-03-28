@@ -1,8 +1,0 @@
-{
-  "id": "3.10.3.9",
-  "title": "Cable trunking",
-  "fullText": "Cable trunking installations shall be installed as follows:\n(a) Covers shall be able to be opened, where practicable.\n(b) Covers shall be continuous when passing through walls or floors.\n(c) Cable trunking shall be accessible through its entire length.\n(d) Cables installed in a trunking shall not rely on any readily removable cover for support.\n(e) Non-hygroscopic trunking shall be used to enclose insulated, unsheathed conductors.\n(f) Live parts of accessories mounted on cable trunking shall be arranged so that basic protection is provided, in accordance with Clause 1.5.4.\nNOTE: See Clause 3.9.9.3 for requirements for penetration of fire-rated constructions.",
-  "references": {
-    "sections": ["1.5.4", "3.9.9.3"]
-  }
-} 

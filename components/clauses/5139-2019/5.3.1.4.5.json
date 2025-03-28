@@ -1,0 +1,5 @@
+{
+  "id": "5.3.1.4.5",
+  "title": "CURRENT-CARRYING CAPACITY",
+  "fullText": "The current-carrying capacity of cables between the battery system and PCE shall be —\n(a) in accordance with AS/NZS 3008.1.1;\n(b) not less than the maximum continuous current of the battery system;\n(c) not less than the maximum continuous current of the PCE; and\n(d) not less than the rating of the overcurrent protection device.\nNOTE The current-carrying capacity of cables should be selected to ensure efficient operation of the system and to minimize voltage drop."
+} 

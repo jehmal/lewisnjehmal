@@ -1,0 +1,5 @@
+{
+  "id": "7.2.2.1",
+  "title": "General",
+  "fullText": "Wiring systems associated with safety services shall be capable of maintaining supply to electrical equipment when exposed to fire. An electrical source for safety services shall not be used for purposes other than safety services unless the supply availability for safety services is not impaired.\nWhen safety services are required to operate under emergency conditions or there is a loss of normal supply, it may be necessary to automatically disconnect supply from other non-essential equipment to provide sufficient capacity for the safety services.\nException: This Clause does not apply to fire detection, alarm, and intercom systems with battery backup complying with AS 1670 or NZS 4512."
+} 

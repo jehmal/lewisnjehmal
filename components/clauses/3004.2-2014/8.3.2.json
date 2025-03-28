@@ -1,0 +1,5 @@
+{
+    "id": "8.3.2",
+    "title": "Switchboards, panel boards and distribution boards",
+    "fullText": "Before switchboards or panel boards and distribution boards are put into service, their insulation resistance shall be not less than 1 ΜΩ when measured between each busbar and earth and between each insulated busbar and busbars connected to the other pole or poles. The insulation resistance shall be recorded at the time of test.\nThis test shall be made with—\n(a)\tall circuit-breakers and switches open;\n(b)\tall fuse-links for pilot lamps, earth-fault indication lamps and voltmeters removed; and\n(c)\tvoltage coils temporarily disconnected."
+} 

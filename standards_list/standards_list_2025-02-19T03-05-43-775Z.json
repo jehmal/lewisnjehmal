@@ -1,0 +1,80 @@
+{
+  "generated_at": "2025-02-19T03:05:43.775Z",
+  "standards": [
+    {
+      "id": "AS/NZS 4509.1-2009",
+      "fileId": "file-CNLXstGhfCHsXQVkzSVfa3",
+      "title": "Stand-alone power systems - Part 1: Safety and installation",
+      "file_details": {
+        "object": "file",
+        "id": "file-CNLXstGhfCHsXQVkzSVfa3",
+        "purpose": "assistants",
+        "filename": "temp_clauses.json",
+        "bytes": 3448071,
+        "created_at": 1739892036,
+        "status": "processed",
+        "status_details": null
+      }
+    },
+    {
+      "id": "AS/NZS 4509.2-2010",
+      "fileId": "file-Rg2kMXsPe7JG91HJwnTpAh",
+      "title": "Stand-alone power systems - Part 2: System design",
+      "file_details": {
+        "object": "file",
+        "id": "file-Rg2kMXsPe7JG91HJwnTpAh",
+        "purpose": "assistants",
+        "filename": "temp_clauses.json",
+        "bytes": 2780224,
+        "created_at": 1739894919,
+        "status": "processed",
+        "status_details": null
+      }
+    },
+    {
+      "id": "AS/NZS 4836-2023",
+      "fileId": "file-L17AmDg6BTYqh3Aij5gf8k",
+      "title": "Safe working on or near low-voltage electrical installations and equipment",
+      "file_details": {
+        "object": "file",
+        "id": "file-L17AmDg6BTYqh3Aij5gf8k",
+        "purpose": "assistants",
+        "filename": "temp_clauses.json",
+        "bytes": 4610676,
+        "created_at": 1739896645,
+        "status": "processed",
+        "status_details": null
+      }
+    },
+    {
+      "id": "AS/NZS 5033-2021",
+      "fileId": "file-U4DTAYw73pKV7Kdq9Eqp2T",
+      "title": "Installation and safety requirements for photovoltaic (PV) arrays",
+      "file_details": {
+        "object": "file",
+        "id": "file-U4DTAYw73pKV7Kdq9Eqp2T",
+        "purpose": "assistants",
+        "filename": "temp_clauses.json",
+        "bytes": 7785972,
+        "created_at": 1739926520,
+        "status": "processed",
+        "status_details": null
+      }
+    },
+    {
+      "id": "AS/NZS 5139-2019",
+      "fileId": "file-XVTxqeoadUiCHp4kcme61S",
+      "title": "Electrical installations - Safety of battery systems for use with power conversion equipment",
+      "file_details": {
+        "object": "file",
+        "id": "file-XVTxqeoadUiCHp4kcme61S",
+        "purpose": "assistants",
+        "filename": "temp_clauses.json",
+        "bytes": 10515564,
+        "created_at": 1739933401,
+        "status": "processed",
+        "status_details": null
+      }
+    }
+  ]
+}

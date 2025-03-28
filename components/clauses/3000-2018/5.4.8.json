@@ -1,0 +1,5 @@
+{
+  "id": "5.4.8",
+  "title": "Variable Frequency Devices",
+  "fullText": "Devices that produce high frequency currents in the protective earth may produce touch voltages that are dangerous to persons and livestock.\nNOTES:\n1.\tThe touch voltages may be as much as 100 V but the manufacturer's advice should be sought when installing this type of device. These high frequency voltages may not be detectable using normal 50 Hz test instruments. An oscilloscope and ballast resistor is required.\n2.\tAttention is drawn to the safety requirements for electronic equipment in AS62103."
+} 

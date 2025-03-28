@@ -1,0 +1,5 @@
+{
+    "id": "4.4.2.9",
+    "title": "Equipotential (EP) test facility",
+    "fullText": "Where the EP junction is not readily accessible, a test facility shall be provided in the cardiac-protected electrical area.\nThe EP test facility shall be—\n(a)\tconnected to either the EP junction or to an EP node;\n(b)\tprovided with a terminal in accordance with Clause 4.4.2.10; and\n(c)\tisolated from structural metal.\nThe earthing resistance requirements for the system shall apply from the EP test point. The following requirements apply:\n(i)\tAn EP test facility that is connected directly to the EP junction shall be identified in accordance with Clause 2.12.1 and as follows:\n(A)\tWith the words 'EP TEST POINT'.\n(B)\tWith the words '0.1 Ω EP EARTHING SYSTEM'.\n(C)\tWith the location of the EP junction.\n(ii)\tAn EP test facility that is connected directly to an EP node shall be identified in accordance with Clause 2.12.1 and as follows:\n(A)\tWith the words 'EP TEST POINT'.\n(B)\tWith the words '0.1 Ω EP EARTHING SYSTEM'.\n(C)\tWith the location of the relevant EP node."
+} 

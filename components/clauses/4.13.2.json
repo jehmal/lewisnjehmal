@@ -1,8 +1,0 @@
-{
-  "id": "4.13.2",
-  "title": "Selection and installation",
-  "fullText": "NOTE: Guidance on the selection and installation of electricity converters is contained in—\n(a) for uninterruptible power systems (UPS) ......................... AS/NZS 62040 series;\n(b) for semiconductor power converters............................................ AS 60146 series;\n(c) for batteries .................................................................................. AS 3011 series; and\n(d) for rotating electrical machines ..................................................... AS 60034 series.",
-  "references": {
-    "standards": ["AS/NZS 62040", "AS 60146", "AS 3011", "AS 60034"]
-  }
-} 

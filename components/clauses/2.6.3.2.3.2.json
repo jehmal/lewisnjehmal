@@ -1,5 +1,0 @@
-{
-  "id": "2.6.3.2.3.2",
-  "title": "Location of RCD Protection",
-  "fullText": "Where protection of final subcircuits is required, RCDs shall be installed at the switchboard at which the final subcircuit originates.\n\nException: Where the wiring system is installed with additional mechanical protection as required by Clause 3.9.4, the RCD protection specifically intended for the protection of that socket-outlet can be installed at, or adjacent to, the socket-outlet (e.g. factory)."
-} 

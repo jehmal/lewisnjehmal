@@ -1,5 +1,0 @@
-{
-  "id": "4.15.5",
-  "title": "Step-up transformers",
-  "fullText": "Where a transformer is used to raise the voltage above that at which electricity is supplied at the point of supply, no connection shall be made between the primary and secondary windings.\nException: A connection may be made between primary and secondary windings, using a protective earthing conductor, to provide an earth- reference supply."
-} 

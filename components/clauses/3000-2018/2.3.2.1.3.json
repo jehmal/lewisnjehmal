@@ -1,0 +1,5 @@
+{
+  "id": "2.3.2.1.3",
+  "title": "Direct current systems",
+  "fullText": "All conductors of a d.c. circuit shall be capable of being isolated by a device for isolation.\nNOTE: Guidance is provided in Appendix Q on the installation of d.c. systems.\nExceptions:\n1\tIn the case of a d.c. circuit having one conductor connected either to earth or to a protective earthing conductor, that conductor need not be isolated or switched.\n2\tIn accordance with Clause 7.5.8.2(b), switches in an extra-low voltage d.c. electrical installation may operate in one less conductor than the number of conductors in the circuit."
+} 

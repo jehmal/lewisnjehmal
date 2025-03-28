@@ -5,7 +5,10 @@ interface BaseSection {
   id: string;
   title: string;
   fullText: string;
-  references: Record<string, string[]>;
+  references?: {
+    documents?: string[];
+    sections?: string[];
+  };
   requirements: string[];
   subsections?: Record<string, BaseSection>;
 }
@@ -21,10 +24,22 @@ function formatClauseSection(section: BaseSection, id: string): ClauseSection {
     id,
     title: section.title,
     fullText: section.fullText || '',
-    references: section.references || {},
+    references: {
+      documents: section.references?.documents || [],
+      sections: section.references?.sections || [],
+      crossStandards: []
+    },
     requirements: section.requirements || [],
-    subsections: section.subsections || {}
+    subsections: {}
   };
+
+  // Convert subsections recursively
+  if (section.subsections) {
+    formattedSection.subsections = Object.entries(section.subsections).reduce((acc, [key, subsection]) => {
+      acc[key] = formatClauseSection(subsection, key);
+      return acc;
+    }, {} as Record<string, ClauseSection>);
+  }
 
   if (section.subsections && !section.fullText) {
     formattedSection.fullText = Object.entries(section.subsections)

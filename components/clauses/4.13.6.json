@@ -1,8 +1,0 @@
-{
-  "id": "4.13.6",
-  "title": "Earthing",
-  "fullText": "The output of an electricity converter shall be provided with the same type of earthing system used for the associated electrical installation.\nProtective earthing conductors shall not be switched.\nProvision shall be made to ensure that all necessary connections for protection, such as the MEN connection, remain intact when supply is available from the output of the system.\nNOTE: See Clause 4.12.2 for information regarding Standards applicable to various devices.",
-  "references": {
-    "clauses": ["4.12.2"]
-  }
-} 

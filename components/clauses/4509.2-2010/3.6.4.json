@@ -1,0 +1,5 @@
+{
+    "id": "3.6.4",
+    "title": "Wiring",
+    "fullText": "Wiring shall be protected from short-circuit and overload by high rupturing capacity (HRC) fuses or appropriate type circuit breakers (a.c. or d.c.), sized to limit the current below the maximum current carrying capacity of any part of the connected circuit.\nAll fuses and circuit breakers shall be labelled to indicate the circuits protected.\nThe wiring from the battery terminals to the overload protection is usually not electrically protected (due to practical constraints) and should be as short as possible with special attention paid to its mechanical protection."
+} 

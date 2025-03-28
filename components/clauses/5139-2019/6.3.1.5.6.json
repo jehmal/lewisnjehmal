@@ -1,0 +1,5 @@
+{
+  "id": "6.3.1.5.6",
+  "title": "PARALLEL BATTERY SYSTEMS",
+  "fullText": "For a BESS consisting of two or more battery systems connected in parallel, the output cable or busbar from each battery system to a point where the parallel battery systems connect (e.g. PCE or junction box), shall have equal resistance. This can be achieved by the cables which connect the battery systems to a common connection point being of equal length, equal cross-sectional area and conductor materials.\nException — This requirement does not apply where there is a BMS or similar device that provides managed voltage and current charge/discharge control to each separate system."
+} 

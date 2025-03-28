@@ -1,0 +1,5 @@
+{
+  "id": "3.4.4.4",
+  "title": "CONNECTION AND RECONNECTION PROCEDURE",
+  "fullText": "Only after all of the following conditions have been met shall the IES be enabled to connect or reconnect to the grid:\n(a) The voltage of the grid has been maintained within the limits of AS 60038 (for Australia) or IEC 60038 (for New Zealand) for at least 60 s.\n(b) The frequency of the grid has been maintained within the range 47.5 Hz to 50.15 Hz for at least 60 s.\n(c) The IES and the grid are synchronized and in-phase with each other.\n(d) No external disconnect signal is present or DRM 0 asserted requiring the system to be disconnected.\n\nNOTE: Voltages for reconnection in Australia may be in the range of 205 V to 255 V and in New Zealand 198 V and 246 V."
+} 

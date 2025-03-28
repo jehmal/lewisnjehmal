@@ -1,0 +1,5 @@
+{
+  "id": "5.4.4",
+  "title": "RCDs ON MULTIPLE MODE INVERTER SYSTEM FINAL SUBCIRCUITS",
+  "fullText": "RCD protection shall be installed on final subcircuits in accordance with AS/NZS 3000.\n\nWhen RCDs are installed to protect electrical installation connected loads on a stand-alone port of a multiple mode inverter, they shall be of a type that correctly operates on the stand-alone port output waveform and be in accordance with the requirements specified by the manufacturer for use with the inverter."
+} 

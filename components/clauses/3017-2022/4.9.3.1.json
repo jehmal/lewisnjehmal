@@ -1,0 +1,5 @@
+{
+    "id": "4.9.3.1",
+    "title": "Mandatory tests",
+    "fullText": "Testing for earth continuity in accordance with Clause 4.4 shall be carried out before the tests in this Clause.\nThe correct installation and operation of each RCD shall be tested by —\n(a) confirming correct connection to supply, in accordance with Clause 4.9.5.2; and\n(b) initiating operation of the RCD, in accordance with Clause 4.9.5.3; and\n(c) confirming that operation of the RCD has the effect of disconnecting all conductors of the circuit that are required to be disconnected, in accordance with Clause 4.9.5.3.\nWhere the manufacturer's instructions specify any particular procedure for functional testing of the RCD, that procedure shall be undertaken in addition to the testing specified by this clause.\nNOTE Operation under conditions other than sinusoidal current need not be tested. Provided the markings on the RCD indicate that it is of an appropriate Type for the circuit, it is sufficient to confirm operation on sinusoidal current."
+} 

@@ -1,0 +1,5 @@
+{
+    "id": "5.6.4.4",
+    "title": "Voltage drop in extra-low voltage installations",
+    "fullText": "Where the d.c. supply is from batteries, the voltage drop to any point in the installation shall not exceed 10 % of the nominal voltage.\nA d.c. conductor of adequate cross-sectional area between the charging source(s) and the batteries is vital for satisfactory charging of the batteries. A voltage drop for this conductor should not exceed 1 % of the rated voltage during charging, unless the charging source has battery voltage sensing and automatic output voltage compensation, in which case voltage drop at full charge should not exceed the range of compensation."
+} 

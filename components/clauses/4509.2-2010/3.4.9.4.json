@@ -1,0 +1,5 @@
+{
+    "id": "3.4.9.4",
+    "title": "Interactive battery inverters",
+    "fullText": "Interactive battery inverters should be sized in conjunction with the generating sets. The combined ratings of the inverter and generating set should be capable of supplying both the maximum demand and surge demand that will be placed on them by the load.\nWhile a smaller inverter rating may suffice in a parallel system compared to a switched system, the inverter should also be capable of supplying the demand that will be placed on it when the generating set is not running or not yet paralleled. This consideration relates to the inverter power rating, as well as to the programming of generating set start and stop parameters with respect to the expected load profile."
+} 

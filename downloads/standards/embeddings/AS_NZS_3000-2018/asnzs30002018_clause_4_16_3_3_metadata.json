@@ -1,0 +1,11 @@
+{
+  "unique_id": "AS_NZS_3000-2018_4.16.3.3",
+  "standard_id": "AS/NZS 3000-2018",
+  "standard_title": "Electrical installations (known as the Australian/New Zealand Wiring Rules)",
+  "clause_id": "4.16.3.3",
+  "clause_title": "CAPACITORS NOT CONNECTED IN PARALLEL WITH INDIVIDUAL APPLIANCES",
+  "source_file": "C:\\Users\\thewo\\Desktop\\TradeGuru\\lewisnjehmal\\components\\clauses\\3000\\4.16.3.3.json",
+  "created_at": "2025-02-21T05:17:45.206Z",
+  "embedding_model": "text-embedding-ada-002",
+  "embedding_version": "v1"
+}

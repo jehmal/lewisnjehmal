@@ -1,0 +1,5 @@
+{
+    "id": "5.6.1",
+    "title": "Devices for protection against overcurrent",
+    "fullText": "Batteries and associated wiring shall be protected against overload and short-circuit by means of fuses or circuit breakers at a position within, at or adjacent to, the battery compartment.\nA fuse or circuit-breaker shall, as a minimum, be installed in each unearthed pole of each circuit connected directly to a battery within 200 mm of the battery terminals.\nException: The fuse or circuit‑breaker may be placed up to 1 m from the terminals, provided each conductor from the battery is contained within a protective covering, such as a sheathing, conduit or cable trunking, for its entire length from the battery terminal to the circuit protective device.\nThere shall be no more than four conductors connected to a single battery terminal."
+} 

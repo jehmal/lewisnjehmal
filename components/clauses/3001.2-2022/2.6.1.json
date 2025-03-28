@@ -1,0 +1,5 @@
+{
+    "id": "2.6.1",
+    "title": "Limitation of incoming supply current",
+    "fullText": "Every external supply shall be protected against overload by an overcurrent device on, or within, the connectable electrical installation to which the supply is connected. The rating of this device shall not exceed the rating of the supply lead or supply lead fittings, whichever is the smaller. See Figure 2.7.\nA 16 A miniature circuit breaker (MCB) may be used as overcurrent protection for a 15 A three-pin flat- pin fitting to AS/NZS 3112 in a recreational vehicle.\nIn Australia, the overcurrent protection device for connectable electrical installations shall operate in all live (active and neutral) conductors."
+} 

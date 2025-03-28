@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <style>
+    .bg { fill: #f5f5f5; }
+    .border { fill: none; stroke: #ccc; stroke-width: 2; }
+    .icon { fill: #ee5622; }
+    .text { font-family: Arial, sans-serif; text-anchor: middle; }
+    .title { font-size: 20px; font-weight: bold; fill: #ee5622; }
+    .subtitle { font-size: 14px; fill: #666; }
+  </style>
+  
+  <!-- Background -->
+  <rect class="bg" x="0" y="0" width="400" height="300" rx="8" ry="8" />
+  <rect class="border" x="10" y="10" width="380" height="280" rx="4" ry="4" />
+  
+  <!-- Figure icon -->
+  <g transform="translate(200, 120)">
+    <rect class="icon" x="-40" y="-40" width="80" height="80" rx="8" opacity="0.2" />
+    <path class="icon" d="M-25,-15 h50 M-25,0 h50 M-25,15 h50" stroke-width="5" stroke-linecap="round" />
+  </g>
+  
+  <!-- Text -->
+  <text class="text title" x="200" y="200">Figure Reference</text>
+  <text class="text subtitle" x="200" y="225">Image not available</text>
+</svg> 

@@ -1,0 +1,5 @@
+{
+    "id": "3.8.6.1",
+    "title": "Control",
+    "fullText": "Every permanently connected low voltage appliance within a relocatable unit shall be controlled by a switch in accordance with the requirements AS/NZS 3000.\nEvery permanently connected low voltage appliance in a relocatable unit shall be provided with a switch that operates in all live (active and neutral) conductors.\nException: Where an isolating transformer or electricity converter with a polarized output or a transposition sensor is installed in accordance with Clause 2.6.4 for each external supply, the switches may operate in the active conductors only."
+} 

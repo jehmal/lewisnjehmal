@@ -1,0 +1,5 @@
+{
+    "id": "3.6",
+    "title": "CONNECTION BETWEEN GENERATOR WINDINGS, FRAME AND EQUIPOTENTIAL BONDING SYSTEM",
+    "fullText": "Connections shall be tested and verified as follows:\n(a)\tWhere an RCD is used with, or connected to, a generator, the integrity of the connection between the generator windings and the equipotential bonding system on the generator (see Figure 2.3) shall be verified in accordance with Appendix F Clause F2.3.1, by a competent person.\n(b)\tWhere, in accordance with Clause 2.4.6.3(a)(i), an isolated winding generator is used, the continuity of the connection from the frame to the equipotential bonding system (see Figure 2.2) shall be tested by a qualified person. The resistance of this connection shall be less than 1 Ω. In addition, the insulation resistance between the generator winding and the frame shall be greater than 1 MΩ."
+} 

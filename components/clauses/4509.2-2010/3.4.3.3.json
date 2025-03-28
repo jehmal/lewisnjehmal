@@ -1,0 +1,5 @@
+{
+    "id": "3.4.3.3",
+    "title": "Module tilt angle",
+    "fullText": "The tilt angle should be chosen so as to maximize the useable energy production of the array. The optimum angle depends on the site latitude, the variation in solar irradiation throughout the year, the variation in load throughout the year, and the variation in output from other renewable energy generators, if present. A minimum tilt angle of 10° is recommended under any circumstances, to ensure adequate self-cleaning.\nWhere the PV array is the only renewable energy generator in the system, Table 2 provides a first estimate of the optimum angle.\nIn hybrid systems where the PV array is to be used in conjunction with some other renewable energy generator, the tilt angle should be chosen to maximize the seasonal complementarity of the array output with that of the other generators, in order to minimize the requirement for energy from a generating set."
+} 

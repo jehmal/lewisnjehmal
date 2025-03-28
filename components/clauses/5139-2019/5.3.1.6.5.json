@@ -1,0 +1,6 @@
+{
+  "id": "5.3.1.6.5",
+  "title": "Battery system connected to a non-separated PCE",
+  "fullText": "For pre-assembled battery systems connected to a non-separated PCE, no conductor of the battery system shall be connected to the installation earthing system if the output circuit of the PCE is referenced to earth e.g. in the case of an inverter connected to the grid.\nNOTE An example of this is a battery system connected to a non-separated inverter and no conductor of the battery system is earthed but the battery system is effectively referenced to earth through the non-separated inverter (see Figure 5.6)."
+}
+ 

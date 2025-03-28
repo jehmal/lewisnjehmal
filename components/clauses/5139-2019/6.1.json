@@ -1,0 +1,5 @@
+{
+  "id": "6.1",
+  "title": "GENERAL REQUIREMENTS",
+  "fullText": "This Section applies for the installation of all battery systems and BESSs that are not conforming to the Best Practice Guide: battery storage equipment — Electrical Safety Requirements.\nLead acid batteries shall be in accordance with AS/NZS 4029.1 or AS/NZS 4029.2, or IEC 60896 (series), or equivalent battery standard.\nNickel cadmium batteries shall be in accordance with AS 3731 series.\nSecondary lithium cells and batteries shall be in accordance with IEC 62619.\nWhere other battery system technologies are installed, use standards for the technology as they become available.\nThe battery system and other components that make up the BESS shall be selected such that they are compatible with types of battery technologies used. The battery system and BESS operational parameters and controls shall be configured according to manufacturer's requirements."
+}

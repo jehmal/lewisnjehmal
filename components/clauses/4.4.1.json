@@ -1,9 +1,0 @@
-{
-  "id": "4.4.1",
-  "title": "General",
-  "fullText": "Socket-outlets shall be suitable for the intended application and shall comply with the appropriate Standard.\nNOTES:\n1 Socket-outlets complying with AS/NZS 3112 are suitable for general use in electrical installations.\n2 Socket-outlets complying with AS/NZS 3123 are suitable for industrial applications.\n3 Socket-outlets complying with AS/NZS 3131 are suitable for medical locations.\n4 Socket-outlets complying with AS/NZS 60884.1 are suitable for general use in electrical installations.\n5 Socket-outlets complying with AS/NZS 60884.2.5 are suitable for adaptors.\nSocket-outlets shall be installed in accordance with Clauses 4.4.2 to 4.4.4.\nSocket-outlets shall be installed in readily accessible positions.\nNOTE: Socket-outlets installed in locations such as behind fixed furniture, in cupboards or in similar locations are not considered to be readily accessible.\nSocket-outlets shall be installed so that the plug can be withdrawn without undue difficulty.\nNOTE: Socket-outlets installed in locations such as behind fixed furniture, in cupboards or in similar locations are not considered to be readily accessible.\nSocket-outlets shall be installed so that the plug can be withdrawn without undue difficulty.\nNOTE: Socket-outlets installed in locations such as behind fixed furniture, in cupboards or in similar locations are not considered to be readily accessible.\nSocket-outlets shall be installed so that the plug can be withdrawn without undue difficulty.",
-  "references": {
-    "standards": ["AS/NZS 3112", "AS/NZS 3123", "AS/NZS 3131", "AS/NZS 60884.1", "AS/NZS 60884.2.5"],
-    "sections": ["4.4.2", "4.4.3", "4.4.4"]
-  }
-} 

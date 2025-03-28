@@ -1,0 +1,5 @@
+{
+  "id": "4.4.4.1",
+  "title": "GENERAL",
+  "fullText": "Each socket-outlet shall be individually controlled by a separate switch that complies with either AS/NZS 3133, AS/NZS 60669.1 or AS/NZS 60947.3 and operates in all active conductors.\nSwitches controlling socket-outlets shall comply with Clauses 4.4.4.2 and 4.4.4.3.\nExceptions:\n1\tA single switch may be used for the control of two socket-outlets located immediately adjacent to each other.\n2\tA socket-outlet that is rated at not more than 10 A, installed for the connection of a fixed or stationary appliance or a luminaire and that is not readily accessible for other purposes, need not be controlled by a switch.\n3\tA socket-outlet that is switched by the insertion and withdrawal of the plug is deemed to meet the requirements of this Clause."
+}

@@ -1,0 +1,5 @@
+{
+  "id": "2.3.6.3",
+  "title": "Installation",
+  "fullText": "Devices for shutting down for mechanical maintenance shall be inserted in the main circuit.\nWhere switches are provided for this purpose, they shall be capable of interrupting the full-load current of the relevant part of the electrical installation. They need not interrupt all live conductors.\nException: Interruption of the control circuit of a drive or the like may occur where—\n(a)\tsupplementary safeguards, such as mechanical restrainers are provided; or\n(b)\tdirect interruption of the main supply is achieved by another means.\nNOTE: Shutting down for mechanical maintenance may be achieved by devices, such as switches, circuit-breakers or plugs and sockets.\nA device located remotely from the electrical equipment it controls, which is used for shutting down for mechanical maintenance, shall be provided with facilities for securing it in the open position."
+}

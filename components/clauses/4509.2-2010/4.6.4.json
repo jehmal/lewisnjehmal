@@ -1,0 +1,5 @@
+{
+    "id": "4.6.4",
+    "title": "Alarms",
+    "fullText": "For the protection of the battery bank, it is desirable to have an indication of high or low battery voltage. In stand-alone power systems these may take the form of the system voltmeter in combination with high and low volt alarms in any inverter or system controller, or a low volt d.c. cut-off incorporated in the PV regulator.\nIn any case, where a low battery voltage load disconnect is not available, a dedicated cut- off unit should be fitted."
+} 

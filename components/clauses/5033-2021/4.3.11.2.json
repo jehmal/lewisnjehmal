@@ -1,0 +1,5 @@
+{
+  "id": "4.3.11.2",
+  "title": "BLOCKING DIODE",
+  "fullText": "Blocking diodes may be used. However, they are not a replacement for overcurrent protection.\nWhere used, blocking diodes shall be installed—\n(a) so, no live parts are exposed; and\n(b) to be protected from degradation due to environmental factors.\nWhere there is a special recommendation from the manufacturer or from local regulation to use blocking diodes in PV strings of the PV array, these diodes shall be installed as shown in Figure 4.3.\n+\n+\n+\n-\n-\n-\n+\n+\n+\n-\n-\n-\n+\n+\n+\n-\n-\n-\n+\n-\nBlocking diodes\nFigure 4.3 — Blocking diode implementation (example)"
+} 

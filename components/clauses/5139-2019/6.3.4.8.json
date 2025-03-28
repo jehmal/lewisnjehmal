@@ -1,0 +1,5 @@
+{
+  "id": "6.3.4.8",
+  "title": "OVER VOLTAGE",
+  "fullText": "Under normal and abnormal conditions the maximum allowable voltage of the battery system shall not be exceeded. When maximum voltage is exceeded an over voltage alarm shall be activated.\nWhere the battery type is categorized as fire hazard level 1 in Table 3.1, the BMS shall act to shutdown the battery when the voltage of any particular cell, battery or module exceeds the maximum value as specified by the manufacturer.\nWhere the battery type is categorized as fire hazard level 2 in Table 3.1, it shall have a BMS that monitors the battery system voltage and either —\n(a) disconnects the charging source when the battery system exceeds the maximum voltage as specified by the manufacturer is reached; or\n(b) reduces the charging current so that the voltage does not rise above the maximum allowable voltage."
+} 

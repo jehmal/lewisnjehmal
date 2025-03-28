@@ -1,9 +1,0 @@
-{
-  "id": "7.2.5.6.4",
-  "title": "Control Circuits for Fire-Pump Motors",
-  "fullText": "Control circuits associated with the operation of fire-pump motors shall: (a) be directly connected between the active and neutral conductor of the pump circuit; (b) be arranged so that the active conductor of the control circuit is directly connected to the coil of the operating device within the starter; and (c) not be provided with overload protective devices other than those provided for the pump-motor circuit, in accordance with Clause 7.2.5.6.2. This arrangement requires the installation of a switch in the neutral conductor of the control circuit for a fire pump.",
-  "notes": [
-    "This requirement precludes the use of transformers."
-  ],
-  "references": ["7.2.5.6.2"]
-} 

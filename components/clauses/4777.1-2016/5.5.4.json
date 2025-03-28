@@ -1,0 +1,5 @@
+{
+  "id": "5.5.4",
+  "title": "INVERTER ENERGY SYSTEMS (IES) ON DIFFERENT DISTRIBUTION SWITCHBOARDS",
+  "fullText": "Where an installation has multiple distribution switchboards with attached loads and a single IES with an output rating of less than 5 kVA connected at each switchboard (such as in Figure 2), if the voltage balance at the point of supply with the electricity distributor is not adversely affected, then there may be no further requirement for additional phase balance protection, even though the total of all IES exceeds 30 kVA.\n\nNOTE: The voltage balance limitations are defined as required by the electricity distributor.\n\nWhere multiple distribution switchboards are used to connect these IES to a common distribution switchboard and the IES switchboards are without local loads, then up to the common switchboard shall be treated as a single IES installation and additional protection for phase balance shall be provided at that switchboard as per Clause 3.4.4."
+} 

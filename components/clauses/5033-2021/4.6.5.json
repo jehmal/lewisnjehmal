@@ -1,0 +1,5 @@
+{
+  "id": "4.6.5",
+  "title": "EARTHING OR BONDING CONDUCTOR SIZE",
+  "fullText": "The cross sectional area of the earthing conductors for the PV array shall:\n(a) have a resistance no more than 0.5 Ω between exposed conductive parts and the installation earthing system; and\n(b) be in accordance with the Figure 4.13.\n\nAll conductor sizes provided in Table 4.6 are based on current-carrying capacity of copper conductors. Where other conductor types are used, those conductors shall have a current-carrying capacity equal to or greater than current-carrying capacity of copper conductor size indicated in Figure 4.13.\n\nEarthing conductors shall conform with the material, type, insulation, identification, installation and connection requirements specified in AS/NZS 3000.\n\nModule mounting framework may be regarded as a protective earthing conductor provided —\n(a) the exposed conductive parts of PV modules are mounted on, and in effective electrical contact with the framework; and\n(b) the conductive module mounting framework is earthed by connection of a protective earthing conductor to the framework."
+} 

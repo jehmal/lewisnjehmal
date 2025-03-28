@@ -1,0 +1,5 @@
+{
+  "id": "5.3.1.6.3",
+  "title": "Earth connection requirements — Direct earthed",
+  "fullText": "A direct earthed battery system is a battery system, with a direct earth connection, connected to a PCE providing separation from an earth referenced system, e.g. the grid (see Figure 5.4).\nFor directly earthed pre-assembled battery system, one conductor of the battery system shall be connected to the installation earthing system (see Figures 5.7 to 5.12). The pre-assembled battery system earthing conductor shall be rated to withstand the prospective earth fault current of the battery system for a time at least equal to the operating time of the associated overcurrent protective device (see Clause 5.3.1.6.7).\nNOTE The installation earthing system needs to be checked as per Clause 5.3.1.6.1."
+}

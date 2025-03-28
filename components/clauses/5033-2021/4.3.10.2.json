@@ -1,0 +1,5 @@
+{
+  "id": "4.3.10.2",
+  "title": "BLOCKING DIODE",
+  "fullText": "In systems containing batteries, a device should be implemented to avoid reverse current leakage from the batteries into the array at night.\nWhere used, blocking diodes shall be selected for the expected operating environment and have:\n(a) a voltage rating at least 2 × the calculated PV d.c. circuit maximum voltage;\n(b) a current rating of at least 1.4 times the short circuit current at STC of the circuit that they are intended to protect; that is —\n(i) 1.4 × ISC MOD for PV strings;\n(ii) 1.4 × ISC S-ARRAY for PV sub-arrays; and\n(iii) 1.4 × ISC ARRAY for PV arrays."
+} 

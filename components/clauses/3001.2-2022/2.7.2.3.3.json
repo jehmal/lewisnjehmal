@@ -1,0 +1,5 @@
+{
+    "id": "2.7.2.3.3",
+    "title": "Final sub-circuits supplied by inverter and inverter charger units",
+    "fullText": "Final sub circuit(s) supplied by an inverter and by inverter charger units shall not be supplied by any other source.\nInverters and inverter charger units with internal socket-outlets shall be —\n(a) an isolated output type; or\n(b) the output shall be protected by an RCD device.\nA visible indicator shall be provided at the a.c. switchboard indicating the inverter and inverter charger is active online or in standby mode together with a warning label to indicate that the electrical system includes an inverter.\nException: Where the connectable electrical installation switchboard is installed externally, the visible indicator shall be placed in a prominent position within the connectable electrical installation e.g. above a door.\nAn example of a warning label is as follows:\nWARNING — DANGEROUS VOLTAGE\nTHIS UNIT IS EQUIPPED WITH A POWER INVERTER\nTO AVOID SERIOUS INJURY OR DEATH FROM ELECTRICAL SHOCK DISCONNECT ALL A.C. EXTERNAL POWER SUPPLY(S) AND DC. BATTERY POWER TO INVERTER BEFORE OPENING PANEL OR SERVICING ELECTRICAL SYSTEMS"
+} 

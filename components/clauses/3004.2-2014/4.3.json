@@ -1,0 +1,5 @@
+{
+    "id": "4.3",
+    "title": "EARTHED NEUTRAL SYSTEMS",
+    "fullText": "In earthed neutral systems the source is directly connected to earth, and all exposed conductive parts of the installation shall be connected to the earthed point of the boat's power system by protective conductor(s) TN-system.\nIn earthed neutral systems, the protective arrangements shall be—\n(a)\tan overcurrent protective device in each final subcircuit; and\n(b)\tone or more RCDs with sensitivity of 30 mA maximum protecting all final subcircuits, with the exemption for circuits supplying essential services. These circuits shall be provided with an earth leakage monitoring system in place of an RCD to operate an alarm when leakage current exceeds 30 mA for 100 ms.\nNOTES:\n1\tMultiple RCDs may need to be installed to prevent nuisance tripping.\n2\tConsideration should be given to the use of RCDs with a maximum residual current of 10 mA to protect circuits supplying outlets installed in potentially damp areas such as the galley, heads and machinery spaces.\n3\tAttention is drawn to additional regulations that have specific requirements for residual current protection."
+} 

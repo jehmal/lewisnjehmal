@@ -1,0 +1,5 @@
+{
+    "id": "1.4.7.2.1",
+    "title": "Sealed cell",
+    "fullText": "Cell which remains closed and does not release or take in gas or liquid when operated within the limits specified by the manufacturer. (The cells may be equipped with a safety device to prevent dangerously high internal pressure.)\n[IEC 60092-507:2008, Clause 3.5.8.2]\nNOTE: If sealed cells are overcharged then gassing will occur. As such, ventilation is required as for a vented cell."
+} 

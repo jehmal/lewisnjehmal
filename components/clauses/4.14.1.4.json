@@ -1,5 +1,0 @@
-{
-  "id": "4.14.1.4",
-  "title": "Protection against restarting or reversal",
-  "fullText": "Where unexpected restarting of a motor might cause danger, each electric motor shall be provided with means to prevent automatic restarting after stopping.\nNOTE: Such means need not be provided where a suitable method of avoiding danger by warning of automatic restarting is given. Alternatives include enclosure of moving parts, warning sirens, etc.\nWhere safety might be impaired by incorrect direction of rotation of a motor, suitable measures shall be taken to prevent danger from reversal of the direction of rotation.\nNOTE: This applies particularly where reverse-current braking is used."
-} 

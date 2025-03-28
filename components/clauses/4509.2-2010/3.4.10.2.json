@@ -1,0 +1,5 @@
+{
+    "id": "3.4.10.2",
+    "title": "Sizing",
+    "fullText": "Battery chargers should be typically sized at the 10 h rate. Charging rates and voltages should be to manufacturer's recommendations.\nThe following Equation can be used to estimate the required size:\nIbc\t=\t0.1 × C10\t. . . 3.4.10.2\nwhere\nIbc\t=  maximum charge current of the battery charger, in amperes (A)\nC10\t=  10 h rate capacity of the battery, in ampere hours (Ah)\nNOTE: This does not imply that the battery can be fully recharged in 10 hours."
+} 

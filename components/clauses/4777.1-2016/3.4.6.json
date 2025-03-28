@@ -1,0 +1,5 @@
+{
+  "id": "3.4.6",
+  "title": "DEMAND RESPONSE MODE (DRM)",
+  "fullText": "The demand response enabling device (DRED), where provided, shall be connected to the DRM port of the inverter or as per the manufacturer's specifications. The connection to the DRED shall be via the provided terminal block or RJ45 socket labelled as the DRM port.\n\nDRED communication is via extra-low voltage (ELV) and as such cabling shall be suitably protected and segregated from other cables.\n\nNOTE: Any additional enabling requirements for the DRED from the electricity distribution authority need to be met."
+} 

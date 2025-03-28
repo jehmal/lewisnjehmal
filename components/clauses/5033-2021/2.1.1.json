@@ -1,0 +1,5 @@
+{
+  "id": "2.1.1",
+  "title": "GENERAL",
+  "fullText": "PV arrays are used to supply power to an application circuit.\nFigure 2.1 illustrates the general functional configuration of a PV powered system.\nPV array -> Array circuit -> Application circuit\nFigure 2.1 — General functional configuration of a PV powered system\nThe following application circuit types are considered in this document:\n(a) PV array connected to d.c. loads.\n(b) PV array connected to an a.c. system via a separated PCE.\n(c) PV array connected to an a.c. system via a non-separated PCE"
+} 

@@ -1,0 +1,5 @@
+{
+    "id": "3.4.8.2",
+    "title": "Photovoltaic regulators",
+    "fullText": "Regulators for photovoltaic arrays should be capable of carrying 125% of the array short- circuit current. Regulators shall withstand the open circuit voltage of the array at the lowest expected operating temperature.\nLarge arrays may need to be split into sub-arrays. Considerations are—\n(a)\tthe availability of high current regulators;\n(b)\timproved fault tolerance; and\n(c)\tmore staged battery charging."
+} 

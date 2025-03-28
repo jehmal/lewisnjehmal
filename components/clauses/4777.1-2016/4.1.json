@@ -1,0 +1,5 @@
+{
+  "id": "4.1",
+  "title": "GENERAL",
+  "fullText": "The control, protection and wiring system equipment and installation shall be fit for purpose for the conditions to which they are likely to be exposed at the point of installation.\n\nThe energy source equipment, switchgear and wiring shall be selected and installed to provide the following:\n(a) Control and isolation of the energy source, and isolation from the inverter as required for operation, maintenance, testing and fault detection, or repair.\n(b) Automatic disconnection of the energy source or inverter port, in the event of an overload, short circuit or excessive earth leakage current in the protected part of the electrical installation.\n(c) Switchgear and control gear grouped and interconnected together on switchboards or in inverter control system components, enclosed against external influences.\n(d) Electrical connections between the energy source and the inverter."
+} 

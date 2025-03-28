@@ -1,9 +1,0 @@
-{
-  "id": "4.14.1.2",
-  "title": "Rating of switches",
-  "fullText": "The isolating switch shall have a rating of not less than—\n(a) the full-load current of the motor when installed directly in the motor-supply circuit; or\n(b) the control-circuit current when installed in the motor-starter circuit.\nAny switch operating directly in the motor-supply circuit shall be capable of safely interrupting the locked-rotor or stall current of the motor. In the absence of any specific information supplied by the manufacturer, the locked-rotor or stall current shall be taken as—\n(i) eight times the full-load current for a.c. motors; or\n(ii) four times the full-load current for d.c. motors.\nNOTE: Switches suitable for this application include the following:\n(a) Switches complying with AS/NZS 3133 or AS/NZS 60669.1, marked with the letter 'M' and with the nominated locked-rotor current.\n(b) Switches complying with AS/NZS 3947.3, marked with the utilization category 'DC 23' or 'AC 23' and with a rated operational current which is equal to or greater than the full-load current of the motor.\n(c) Switches incorporated with and supplying a socket-outlet intended for use with a plug complying with AS/NZS 3112 or AS/NZS 60884.1.\nWhere one switch is used to isolate more than one motor, in accordance with Clause 4.13.1.1, the switch shall be capable of interrupting the sum of the following currents:\n(A) The locked-rotor or stall current of the largest motor in the group.\n(B) The full-load current of all other motors in the group.",
-  "references": {
-    "standards": ["AS/NZS 3133", "AS/NZS 60669.1", "AS/NZS 3947.3", "AS/NZS 3112", "AS/NZS 60884.1"],
-    "clauses": ["4.13.1.1"]
-  }
-} 

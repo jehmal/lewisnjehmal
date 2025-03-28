@@ -1,4 +1,5 @@
-import { ClauseSection } from './clauses';
+import { TreeViewElement } from '@/components/ui/file-tree';
+import { ClauseSection, ClauseTreeViewElement } from '@/types/clauses';
 
 export interface TimelineEntry {
   title: string;
@@ -10,6 +11,10 @@ export interface Figure {
   title: string;
   image: string;
   quote: string;
+  possiblePaths?: string[]; // Array of possible image paths to try
+  standardDoc?: string; // The standard document this figure belongs to
+  isFallback?: boolean; // Whether this is a fallback figure with a placeholder image
+  validated?: boolean;
 }
 
 export interface BaseMessage {
@@ -33,6 +38,7 @@ export interface DatabaseMessage extends BaseMessage {
   assistant_id: string | null;
   referenced_clauses?: ClauseSection[];
   figures?: Figure[];
+  is_follow_up?: boolean;
 }
 
 export interface Message extends BaseMessage {
@@ -41,7 +47,9 @@ export interface Message extends BaseMessage {
   runId: string;
   figures?: Figure[];
   assistantId: string | null;
-  referencedClauses?: ClauseSection[];
+  referencedClauses?: ClauseTreeViewElement[];
+  isFollowUp?: boolean;
+  contextText?: string; // For storing non-JSON context data
 }
 
 export interface ChatResponse {
@@ -51,6 +59,28 @@ export interface ChatResponse {
   runId: string;
   context: string;
   assistantId: string;
+  referencedClauses?: ClauseSection[];
+  figures?: Figure[];
+}
+
+// New interface for structured assistant responses
+export interface StructuredAssistantResponse {
+  // Natural language response (unchanged)
+  response: string;
+  
+  // Structured metadata
+  metadata: {
+    // Referenced clauses with their IDs and titles
+    referencedClauses: Array<{
+      id: string;
+      title: string;
+      standard: string; // "AUSNZ" or "WA"
+      standardDoc?: string; // The standard document folder (e.g., "3000", "3001.1-2022")
+    }>;
+    
+    // Referenced figures and tables
+    figures?: Figure[];
+  };
 }
 
 export interface ContinuationRequest {

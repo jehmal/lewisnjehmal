@@ -1,0 +1,5 @@
+{
+    "id": "2.7.4.4",
+    "title": "Power available indication for RCD-protected socket-outlets",
+    "fullText": "Each socket-outlet protected by an RCD used as an LPD or each group of socket-outlets that is protected by a common RCD used as an LPD shall be fitted with one amber, yellow or orange indicator light to show when the supply is available. Supply available indicators shall be located to identify the outlets with which they are associated.\nExceptions:\n1\tSocket-outlets identified 'CLEANING PURPOSES ONLY'.\n2\tTest facility socket-outlets as described in Clause 2.8.7.\n3\tPermanently installed ELV charging sockets (including USB charging sockets).\nNOTE: See Clause 5.5 for additional requirements for RCD protected socket-outlets installed in self-harm patient areas."
+} 

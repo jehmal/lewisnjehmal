@@ -1,0 +1,5 @@
+{
+  "id": "4.4.6.1",
+  "title": "GENERAL",
+  "fullText": "All enclosures containing conductor terminations shall be at least IPXXB and IP2X.\n\nAll enclosures containing conductor terminations exposed to the outdoor environment shall have a degree of protection of at least IP55 conforming to AS 60529 and shall be UV resistant.\n\nNOTE 1 PCE are not considered enclosures containing conductor terminations for the purpose of this Clause.\n\nNOTE 2 Higher IP ratings should be considered for tropical regions.\n\nCable glands exposed to outdoor environment shall be at least IP56. Where multiple cables go through one gland, a multi hole cable gland with at least the same number of holes as cables shall be selected."
+} 

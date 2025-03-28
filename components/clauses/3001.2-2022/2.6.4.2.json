@@ -1,0 +1,5 @@
+{
+    "id": "2.6.4.2",
+    "title": "Transposition sensor",
+    "fullText": "NOTE 1 A transposition sensor is commonly referred to as a reverse polarity sensor.\nThe transposition sensor shall be either —\n(a) an interlocking device with visual indication such that any supply cannot be connected if the polarity is incorrect; or\n(b) an automatic correction device with visual indication that matches the polarity of the external supply to the polarity of the connectable electrical installation.\nTransposition sensors shall be installed between the input inlet plug (appliance inlet) and the switchboard located in the connectable electrical installation.\nNOTE 2 A combined transposition sensor and phase sequence sensor may be used to satisfy this requirement."
+} 

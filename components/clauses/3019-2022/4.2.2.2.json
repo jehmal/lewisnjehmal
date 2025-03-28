@@ -1,0 +1,5 @@
+{
+    "id": "4.2.2.2",
+    "title": "Earth continuity tests",
+    "fullText": "Earth continuity tests shall be carried out to determine, as far as is practicable, that —\n(a) the main earthing conductor between the main switchboard earth terminal, point or bar and the earth electrode is continuous and the resistance of the main earthing conductor does not exceed 0.5 Ω;\n(b) the connection between any point on the installation required to be earthed and the switchboard earth terminal, point or bar or terminal is continuous;\n(c) the resistance of protective earthing conductors does not exceed the maximum permitted; and\nNOTE AS/NZS 3000 provides guidance of values of maximum resistance for various conductor sizes and protective devices.\n(d) directly connected appliances requiring earthing (Class I) are connected to earth."
+} 

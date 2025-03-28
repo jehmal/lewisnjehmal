@@ -1,0 +1,5 @@
+{
+    "id": "8.3.2.2",
+    "title": "Testing",
+    "fullText": "Protective earthing shall be verified by using a four-wire milliohm meter to ensure that the resistance from each point nominated in Clause 8.3.2.1 to one or other of the following points is not greater than 0.1 Ω:\n(a)\tThe EP junction.\n(b)\tAny EP test point.\n(c)\tA node.\n(d)\tWall mounted medical gas or suction terminal units and other structurally connected conductive components.\nWhere the tests from Items (c) and (d) result in values greater than 0.1 Ω, all subsequent measurement shall be made directly to the EP junction or one of its nodes.\nEarthing tests shall be carried out every 12 months."
+} 

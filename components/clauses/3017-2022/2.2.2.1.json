@@ -1,0 +1,5 @@
+{
+    "id": "2.2.2.1",
+    "title": "Voltage indicator",
+    "fullText": "Voltage indicators are required to perform the following functions to —\n(a) confirm that no hazardous voltage is present; and\n(b) confirm the presence of voltage.\nNon-contact and single-contact voltage indicators shall not be relied on for proving that no hazardous voltage is present, and that the wiring or fittings have been de-energized and/or isolated to a safe state. A dual-contact voltage indicator is required for this function.\nNOTE When using a voltage meter, low-impedance meters are preferred as they draw current from the circuit under test, reducing the effects from circuit anomalies, for example, those due to capacitive effects or external mutual inducted current. Analogue voltmeters are a low-impedance device, and some digital meters have a selectable low input impedance function."
+} 

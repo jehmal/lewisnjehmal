@@ -1,0 +1,5 @@
+{
+  "id": "4.16.3.1",
+  "title": "GENERAL",
+  "fullText": "Capacitors with values greater than 0.5 F shall be provided with a discharge path.\nThese capacitors shall be controlled in accordance with one of the methods set out in Clauses 4.15.3.2 and 4.15.3.3, as appropriate.\nThe voltage between capacitor terminals shall be not more than 50 V after the capacitor has been disconnected from the supply for the following period, as applicable:\n(a)\tWhere the capacitor is rated up to and including 650 V\t1 min.\n(b)\tWhere the capacitor is rated above 650 V\t5 min.\nCapacitors and electrical equipment containing capacitors shall be provided with a warning notice containing information similar to the following:\nWARNING: ENSURE\tTHAT\tCAPACITORS\tARE\tCOMPLETELY DISCHARGED BEFORE WORKING ON EQUIPMENT."
+}

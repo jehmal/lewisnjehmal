@@ -1,0 +1,5 @@
+{
+  "id": "5.5.3.1",
+  "title": "GENERAL",
+  "fullText": "When an electrical installation has multiple inverters that are installed as part of one IES or as multiple IES, the main considerations are the safe isolation of the system(s) under all conditions and the provision of suitable labelling and instructions to achieve shutdown of the system(s).\n\nIn all situations, the output of the IES should be balanced across phases based on the rated current of each of the inverters and have additional protection as required in Clause 3.4.4. Refer to Table 4 for additional requirements for connecting multiple inverters or IES to a single switchboard.\n\nNOTE: The AS/NZS 3000 principle is to keep the number of main switches to the minimum practicable to provide effective operation in an emergency."
+} 

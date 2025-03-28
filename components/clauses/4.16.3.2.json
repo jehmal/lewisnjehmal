@@ -1,5 +1,0 @@
-{
-  "id": "4.16.3.2",
-  "title": "Capacitors connected in parallel with individual appliances",
-  "fullText": "A capacitor connected in parallel with an individual appliance shall comply with the following requirements:\n(a)\tThe capacitor shall be connected so that the windings of the appliance form a permanent discharge path for the capacitor.\n(b)\tNo switch or fuse shall be inserted between the capacitor and the appliance.\nException: The requirements of Items (a) and (b) need not apply where the capacitor incorporates a permanently connected discharge device.\n(c)\tThe capacitor shall be deemed to be controlled by the controlgear of the appliance."
-} 

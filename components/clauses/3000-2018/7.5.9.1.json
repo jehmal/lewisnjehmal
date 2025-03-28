@@ -1,0 +1,5 @@
+{
+    "id": "7.5.9.1",
+    "title": "General",
+    "fullText": "Every extra-low voltage circuit shall be individually protected at its origin against overload and short-circuit currents by a protective device that:\n(a) Shall comply with the applicable requirements of Clauses 2.2 and 2.5.\n(b) May be provided in one conductor less than the number of conductors in the circuit.\nWhere the extra-low voltage supply is earthed at the point of supply, the protective devices shall be installed in all the unearthed conductors.\nException: Circuits arranged in accordance with Clause 7.5.9.2 need not be provided with overcurrent protection."
+} 

@@ -22,8 +22,10 @@ interface SidebarProps {
 export function Sidebar({ open, setOpen, children }: SidebarProps) {
   const [isHovered, setIsHovered] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
@@ -31,6 +33,11 @@ export function Sidebar({ open, setOpen, children }: SidebarProps) {
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
+
+  if (!mounted) {
+    // Return a placeholder with the same structure but no client-side logic
+    return <div className="fixed left-0 top-0 bottom-0 flex flex-col bg-gray-100 dark:bg-neutral-800 shadow-xl w-0"></div>;
+  }
 
   return (
     <>
@@ -64,9 +71,14 @@ export function SidebarBody({ className, children }: { className?: string; child
 
 export function SidebarLink({ link }: { link: Links }) {
   const { logout } = useUser();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleClick = async (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (link.label.toLowerCase() === 'logout') {
+    if (link.label.toLowerCase() === 'logout' && mounted) {
       e.preventDefault();
       await logout();
     }

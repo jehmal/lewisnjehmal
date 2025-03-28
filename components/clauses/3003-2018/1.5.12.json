@@ -1,0 +1,5 @@
+{
+    "id": "1.5.12",
+    "title": "Group of socket-outlets",
+    "fullText": "One or more socket-outlets contained within one single surround.\nNOTES:\n1\tSocket-outlets that butt up to each other but are not within a single surround are not considered to be a group.\n2\tA group can contain socket-outlets supplied by one or more circuits provided there is clear delineation as to which LPD protects which socket-outlets."
+} 

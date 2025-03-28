@@ -1,0 +1,5 @@
+{
+  "id": "5.4",
+  "title": "FIRE AND EMERGENCY INFORMATION",
+  "fullText": "PV systems shall have a circular green reflector sign at least 100 mm in diameter with the letters \"PV\" on or immediately adjacent to the main metering panel and main switchboard, to be readily visible to approaching emergency workers. Below the \"PV\" lettering shall include the following:\n(a) \"AC \" - For inverters where the calculated PV d.c. circuit maximum voltage is less than 120 V d.c. at the inverter PV input, and the PV modules are within 1.5m of the inverter are installed.\n(b) \"DP\" – Where a disconnection point is used as the isolation method.\n(c) \"SW\" – Where a load break disconnection device is used as the isolation method.\n\nNOTE See Figure A.3."
+} 

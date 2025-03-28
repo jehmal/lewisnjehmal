@@ -1,0 +1,5 @@
+{
+  "id": "1.3.3",
+  "title": "BIFACIAL NAMEPLATE IRRADIANCE",
+  "fullText": "higher irradiance at which nameplate verification is performed for bifacial modules. Bifacial nameplate irradiance (BNPI) is that which corresponds to 1000 W/m2 on the module front, and 135 W/m2 on the module rear\nNote 1 to entry: BNPI may be applied in any method allowed by IEC TS 60904-1-2, such as single-side illumination at equivalent irradiance, or double-side illumination."
+} 

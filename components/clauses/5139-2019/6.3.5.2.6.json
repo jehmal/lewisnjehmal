@@ -1,0 +1,5 @@
+{
+  "id": "6.3.5.2.6",
+  "title": "METHOD OF VENTILATION — MECHANICAL VENTILATION",
+  "fullText": "Where mechanical ventilation is used, the minimum flow rate is determined by the ventilation equation specified in Clause 6.3.5.2.3.\nMechanical ventilation shall only be used on the air inlet to prevent fan damage from the battery acid fumes and remove electrical equipment from what is potentially an explosive gas zone.\nAn air flow sensor shall also be installed to activate an alarm and discontinue charging in the event of a fan failure."
+} 

@@ -1,0 +1,5 @@
+{
+    "id": "3.1.4.5",
+    "title": "Surge demand d.c. loads",
+    "fullText": "Where there are d.c. loads such as motors that may draw significant surge currents, the d.c. surge demand should be estimated. The main considerations that need to be considered are the cable sizing to minimize voltage drops during surge conditions and the batteries capability to sustain the surge. For battery considerations refer to Clause 3.4.7.4."
+} 

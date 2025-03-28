@@ -1,0 +1,5 @@
+{
+    "id": "5.4.12.3.4",
+    "title": "Monitoring device",
+    "fullText": "Each battery (or bank of batteries) shall be monitored via a battery monitor designed for managing lithium ion batteries. The monitor shall display the state of charge (SoC) and may display voltage. Communications with the monitor may be by wired or wireless connection direct to the battery management safety system."
+} 

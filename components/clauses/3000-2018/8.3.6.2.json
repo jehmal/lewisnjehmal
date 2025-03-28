@@ -1,0 +1,5 @@
+{
+  "id": "8.3.6.2",
+  "title": "Method",
+  "fullText": "The integrity of the insulation is stressed by applying a direct current at 500 V for low voltage circuits.\nExceptions:\n1.\tWhere equipment, such as electromagnetic compatibility (EMC) filters, equipment containing surge protective devices connected to earth, or electronic equipment, is likely to be damaged by the test:\n•\tSuch equipment may be disconnected or switched off before carrying out the insulation resistance test on the circuit; or\n•\tThe test voltage for the particular circuit may be reduced to 250 V d.c.\n2.\tWhere connected equipment, such as sheathed heating elements of appliances or an RCD with an FE connection, is likely to influence the verification test, the equipment may be disconnected before carrying out the insulation resistance test on the circuit and the equipment tested separately.\nThe insulation resistance tester used shall be able to maintain its terminal voltage within +20% and -10% of the nominal open circuit terminal voltage, when measuring a resistance of 1 MΩ on the 500 V range or 10 MΩ on the 1000 V range."
+} 

@@ -1,0 +1,5 @@
+{
+    "id": "8.3.3.2",
+    "title": "Sensitivity test",
+    "fullText": "In Australia, a slowly rising fault current shall be applied between the active supply conductor and earth on the load side of each single-phase RCD. Type I RCDs with a rated tripping current of 10 mA therefore shall trip between 4.5–10.5 mA (tester to have accuracy of 5%) during this test.\nAt a minimum of one such test is applied to each single-phase RCD.\nFor multi-phase supplies, the test is carried out with a slowly rising fault current applied sequentially between each active supply conductor and earth.\nThe sensitivity of each RCD is recorded in the in-service inspection and test report."
+} 

@@ -1,0 +1,5 @@
+{
+    "id": "3.4.11.5",
+    "title": "Derating for operating conditions",
+    "fullText": "The output of both the engine and the alternator should be derated for temperature, altitude and humidity as per the manufacturer's specifications (examples are shown in Table 4). Derating factors are cumulative.\n\nTABLE  4\nEXAMPLES OF DERATING FACTORS FOR GENERATING SETS\n\nAir temperature\tDerate 2.5% for every 5°C above 25°C\nAltitude\tDerate 3% for every additional 300 m above 300 m altitude\n\n\n\nHumidity\tAir temperature between 30°C and 40°C\tDerate 0.5% for every 10% above 60% humidity\n\tAir temperature between 40°C and 50°C\tDerate 1.0% for every 10% above 60% humidity\n\tAir temperature above 50°C\tDerate 1.5% for every 10% above 60% humidity\nNOTE: When performing generating set sizing calculations, the derating factors should be added to the required size specification."
+} 

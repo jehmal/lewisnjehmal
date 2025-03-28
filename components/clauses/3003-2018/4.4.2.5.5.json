@@ -1,0 +1,5 @@
+{
+    "id": "4.4.2.5.5",
+    "title": "Maximum resistance of earthing conductors",
+    "fullText": "The resistance of any earthing conductor installed between any socket-outlet or the protective earthing terminal of permanently wired electrical equipment and the EP junction or node shall not exceed 0.1 Ω.\nException:\n1  Permanently installed electrical equipment that is inaccessible in the patient environment need not conform.\nNOTE: The equipment mentioned in the exception above may be earthed directly to the distribution board."
+} 

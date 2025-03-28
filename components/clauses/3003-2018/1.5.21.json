@@ -1,0 +1,5 @@
+{
+    "id": "1.5.21",
+    "title": "Patient environment",
+    "fullText": "The space shown in Figure 2 extending laterally 1.5 m around all possible patient locations to height of 2.5 m in a cardiac-protected electrical area.\nWhere adjacent patient environments overlap, the combined area is deemed one patient environment. A patient environment may contain one or more patient locations.\nThe patient environment does not extend through walls.\nNOTES:\n1\tThe patient environment is intended to embrace all locations within a cardiac-protected electrical area in which intentional or unintentional electrical contact could occur between the patient and any other object, directly or via another person touching the patient and the object.\n2\tEvery possible location of the patient should be considered when determining the extent of the patient location.\n3\tFigure 3 illustrates the relationship between patient area, patient environment and patient location."
+} 

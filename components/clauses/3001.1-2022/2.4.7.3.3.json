@@ -1,0 +1,5 @@
+{
+    "id": "2.4.7.3.3",
+    "title": "Supplementary earthing",
+    "fullText": "Each service pillar or switchboard shall have an earth electrode complying with AS/NZS 3000 requirements connected to the service pillar by a supplementary earthing conductor complying with AS/NZS 3000 requirements for a main earthing conductor.\nThe supplementary earthing conductor shall be labelled to distinguish it from the submain protective earthing conductor(s).\nWhere horizontal electrodes are used, they may be connected together as one continuous electrode with a connection to each service pillar or switchboard, provided that the total length is at least equivalent to having a separate electrode for each pillar.\nNOTE 1 This electrode and supplementary earthing conductor are intended to protect against the adverse effects of earth potential rise; which might otherwise result in the earthing system at the pillar being at a different potential from the local ground in the immediate area of the pillar.\nNOTE 2 A horizontal electrode is preferred, as it is likely to provide better connection to local ground than a vertical electrode."
+} 

@@ -1,7 +1,0 @@
-{
-  "id": "7.2.3.1",
-  "title": "General",
-  "fullText": "A safety service shall be controlled by a main switch that is separate from main switches used to control: (a) any part of the general electrical installation; and (b) other types of safety services.\n\nMain switchboards shall be installed in accordance with Clause 2.10 and the National Construction Code or the New Zealand Building Code.",
-  "note": "Typical examples of main switchboards with one and two normal supplies are shown in Figures 7.2(A) and 7.2(B) respectively.",
-  "references": ["2.10", "7.2(A)", "7.2(B)"]
-} 

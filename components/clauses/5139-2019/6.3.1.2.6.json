@@ -1,0 +1,5 @@
+{
+  "id": "6.3.1.2.6",
+  "title": "BATTERY SYSTEMS NOT REQUIRING A BATTERY MANAGEMENT SYSTEM",
+  "fullText": "The output cables or busbars of a battery system shall be protected against overcurrent according to Clause 6.3.1.2.1.\nWhere there are parallel battery systems and each battery system's output cables or busbars connect individually to a PCE (see Figure 6.4), all output cables or busbars connected to each of the battery systems shall be protected against overcurrent.\nWhere there are parallel battery systems and the output cables or busbars of each battery system are connected at a common point as shown in Figures 6.4, overcurrent protection devices shall be installed in —\n(a) each battery system cable or busbar as required by Clause 6.3.1.2.1; and\n(b) each cable going to the PCE if the current-carrying capacity of each of the cables going to the PCE is less than the sum of the overcurrent protection devices protecting the individual battery systems."
+} 

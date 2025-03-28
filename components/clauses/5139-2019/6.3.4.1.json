@@ -1,0 +1,5 @@
+{
+  "id": "6.3.4.1",
+  "title": "GENERAL",
+  "fullText": "In addition to the enclosure and room requirements specified in Clauses 6.2.3, 6.2.5 and 6.2.6, all battery types that are categorized as fire hazards in Table 3.1 shall be installed in accordance with the fire hazard level requirements specified in this Clause (6.3.4).\nWhere battery systems require ventilation of gases, the ventilation from the battery system shall exhaust to outside of the building only (see Figure 6.16).\nWhere a battery system or BESS is installed in a building with a fire indication panel, a detector linked to that fire indication panel should be installed in the room containing the battery system or BESS. For all other buildings a smoke alarm should be installed within the same room.\nNOTE The battery systems location may have additional requirements in relation to fire separation between the battery system or BESS and the building to which it is attached and any adjacent building or allotment boundary in the relevant local, state or territory or national requirements, according to the building classification code."
+} 

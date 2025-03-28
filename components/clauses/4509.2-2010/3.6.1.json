@@ -1,0 +1,5 @@
+{
+    "id": "3.6.1",
+    "title": "General",
+    "fullText": "Electrical  protection shall be in  accordance  with  AS/NZS 3000, AS/NZS 3010, AS/NZS 5033 and AS/NZS 4509.1. All connections and wiring should be protected from inadvertent contact and mechanical damage by insulated enclosures, barriers, conduits or ducts.\nWhere an a.c. bus system design is used and the system is distributed on multiple buildings, the inverter installations remote from the main system shall comply with AS 4777.\nNOTES:\n1\tSee Appendix D for circuit protection sizing and Clause 3.6.6 for battery overcurrent protection.\n2\tProtection of systems using transformerless inverters is not covered by this Standard."
+} 

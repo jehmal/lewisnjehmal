@@ -1,8 +1,0 @@
-{
-  "id": "3.7.2.1.1",
-  "title": "Common requirements",
-  "fullText": "The selection of the method of connection shall take account of the following factors, as appropriate:\n(a) Material of the conductor and its insulation.\n(b) Number and shape of the wires forming the conductor.\n(c) Cross-sectional area of the conductor.\n(d) Number of conductors being connected together.\n(e) Temperature attained by terminals in normal service such that the effectiveness of the insulation of the conductors is not impaired at the point where insulation is relied upon.\nNOTE: Refer to AS/NZS 61439 for switchboard terminals.\n(f) Prevention of entry of moisture and the siphoning of water through any cable or wiring enclosure.",
-  "references": {
-    "standards": ["AS/NZS 61439"]
-  }
-} 

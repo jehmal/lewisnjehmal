@@ -1,0 +1,5 @@
+{
+    "id": "2.6.8",
+    "title": "Limitations on the use of cord extension sets",
+    "fullText": "Cord extension sets shall—\n(a)\twhen used in multi-level buildings, be confined to the level of the switchboard from which they originate; and\nException: This requirement need not apply to work in lift shafts, stairwells, service shafts, formwork, external staging or sub-mains of construction wiring or a single domestic residence as detailed in Appendix A.\nNOTE: Within each level, switchboards (or auxiliary socket-outlet panel boards) should be positioned to ensure that the maximum permitted length of flexible cords is not exceeded.\n(b)\tnot be joined such that the total length of any such combination exceeds the relevant maximum value specified in Clause 2.6.7.\nNOTE: It is recommended that a single cord extension set be used.\nFlexible extension cords should not be used while in a coiled or reeled configuration."
+} 

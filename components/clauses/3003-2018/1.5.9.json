@@ -1,0 +1,5 @@
+{
+    "id": "1.5.9",
+    "title": "Class III equipment",
+    "fullText": "For equipment other than medical electrical equipment—Class III equipment as defined in AS/NZS 3100.\nNOTES:\n1\tClass III equipment is supplied from an extra-low-voltage supply.\n2\tThere is no Class III equipment classification for medical electrical equipment in AS/NZS IEC 60601.1. That Standard treats such equipment as 'internally powered equipment' or combines it with any remote extra-low-voltage supply as a single item of equipment. In the latter case, the combination is classified as Class I equipment if the extra-low-voltage supply requires protective earthing, or as Class II equipment if it does not require protective earthing."
+} 

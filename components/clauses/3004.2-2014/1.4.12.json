@@ -1,0 +1,5 @@
+{
+    "id": "1.4.12",
+    "title": "Safety voltage",
+    "fullText": "A voltage which does not exceed 50 V a.c. r.m.s. between conductors or between any conductor and earth, in a circuit isolated from the supply by means such as a safety isolating transformer, or a converter with separate windings.\nA voltage which does not exceed 50 V d.c. between conductors, or between any conductor and earth, in a circuit which is isolated from higher voltage circuits.\nNOTES:\n1\tConsideration should be given to the reduction of the limit of 50 V under certain conditions, such as wet surroundings or exposure to heavy seas or where direct contact with live parts is involved.\n2\tThe voltage limit should not be exceeded either at full load or no load, but it is assumed, for the purpose of this definition, that any transformer or converter is operated at its rated supply voltage."
+} 

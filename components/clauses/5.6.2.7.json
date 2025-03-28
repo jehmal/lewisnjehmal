@@ -1,8 +1,0 @@
-{
-  "id": "5.6.2.7",
-  "title": "Telephone and Telecommunication Earthing Systems",
-  "fullText": "The telephone and telecommunication earthing system may be connected in common with the electrical installation earthing system in order to minimize the risk associated with different voltages appearing on the two systems.",
-  "connectionRequirements": [
-    "The cross-sectional area of the equipotential bonding conductors required to connect a telephone and telecommunication earthing system shall have a cross-sectional area not less than 6 mm²."
-  ]
-} 

@@ -1,0 +1,5 @@
+{
+  "id": "6.3.5.2.5",
+  "title": "METHOD OF VENTILATION — NATURAL VENTILATION",
+  "fullText": "Where possible, natural ventilation should be used for battery system rooms and enclosures because of the fault potential and spark potential of mechanical ventilation.\nFor natural ventilation, the minimum size of inlet and outlet apertures is determined from the following equation:\nA = 100qv 6.3.5(2)\nwhere\nA = the minimum area of the apertures, in square centimetres\nqv = the minimum exhaust ventilation rate, in litres per second\nThe equation assumes that a minimum air velocity of 0.1 m/s will flow through the apertures."
+} 

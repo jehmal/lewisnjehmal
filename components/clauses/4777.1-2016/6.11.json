@@ -1,0 +1,5 @@
+{
+  "id": "6.11",
+  "title": "SIGNS FOR MULTIPLE MODE IES (INCLUDING SYSTEMS WITH STAND-ALONE FUNCTIONALITY)",
+  "fullText": "A warning sign shall be installed in the main switchboard and any intermediate distribution switchboards warning that a multiple mode IES with stand-alone functionality is connected and the requirement to follow the shutdown procedure for safe isolation. Additionally this warning sign shall include the text: 'Neutral and earth circuits may be live under fault conditions'.\n\nThe main switch for the stand-alone port of the multiple mode IES shall have the sign 'MAIN SWITCH (STAND-ALONE SUPPLY)'.\n\nNOTE: In some situations, alternate words may be used in place of 'stand-alone supply' to indicate the most appropriate type, for example, 'alternative supply' or 'UPS supply'."
+} 

@@ -1,0 +1,5 @@
+{
+    "id": "7.5.9.2",
+    "title": "Omission of Overcurrent Protection",
+    "fullText": "Overcurrent protection need not be provided where one of the following applies:\n(a) The expected interruption to supply could result in a greater danger than the overcurrent.\n(b) The rated output of the source of supply does not exceed the current rating of the circuit and the circuit is supplied from either of the following sources:\n(i) A transformer marked to indicate that it is short-circuit proof in accordance with AS/NZS 61558 and:\n(A) The rated output of the transformer does not exceed 1 A; or\n(B) The short-circuit current of the transformer does not exceed the current-carrying capacity of the circuit conductors and such short-circuit current is marked on the transformer.\n(ii) A battery, comprising cells having a high internal resistance, e.g., Leclanche or dry-type primary cells."
+} 

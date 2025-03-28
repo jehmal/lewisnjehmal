@@ -1,0 +1,2347 @@
+"use client";
+import React, { useState, useEffect, useCallback, useRef } from "react";
+import { cn } from "@/lib/utils";
+import { Input } from "@/components/ui/input";
+import { BoxReveal } from "@/components/magicui/box-reveal";
+import ShimmerButton from "@/components/magicui/shimmer-button";
+import AnimatedListDemo from "@/components/example/animated-list-demo";
+import { Button } from "@/components/ui/button";
+import ReactMarkdown from 'react-markdown';
+import { ThumbsUp, ThumbsDown, MessageSquare, History, Calculator, Minus, Book } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import AnimatedCircularProgressBar from "@/components/magicui/animated-circular-progress-bar";
+import SparklesText from "@/components/magicui/sparkles-text";
+import { ChatSidebar, ChatSidebarBody, ChatSidebarTab } from "@/components/ui/chatsidebar";
+import { Timeline } from "@/components/ui/timeline";
+import type { TimelineEntry } from "../types/timeline";
+import { MovingBorder } from "@/components/ui/moving-border";
+import MaximumDemandCalculator from "@/components/MaximumDemandCalculator";
+import { useUser } from '@/contexts/UserContext';
+import { supabase } from '@/lib/supabase';
+import AuthUI from '@/components/AuthUI';
+import { ExpandableCardDemo } from '@/components/blocks/expandable-card-demo-grid';
+import { formatDateForDisplay, formatDateForDatabase } from '@/utils/date-formatter';
+import { Message, Figure } from '@/types/chat';
+import { ContinueButton } from '@/components/ui/continue-button';
+import { retry } from '@/utils/retry';
+import { formatDatabaseMessage, formatMessageForDatabase } from '@/utils/message-formatter';
+import { findClauseById, waClauses } from '@/lib/waClauses';
+import { findAusnzClauseByIdSync } from '@/lib/ausnzClauses';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { FileTextIcon } from 'lucide-react';
+import { ClauseSearch } from "@/components/ui/clause-search";
+import { extractFiguresFromAllStandards, extractClauseReferences } from '@/utils/figure-references';
+import ShinyButton from "./magicui/shiny-button";
+import { File, Folder } from '@/components/ui/file-tree';
+import { DatabaseMessage } from '../types/database';
+import { useExpandableMessage } from '@/components/ExpandableMessageProvider';
+import { ClauseDisplay } from '@/components/ClauseDisplay';
+import { 
+  ClauseContent, 
+  StandardReference, 
+  BaseReference, 
+  ReferenceContent,
+  ClauseReference as TypedClauseReference
+} from '@/types/references';
+import { referenceLoader } from '@/services/reference-loader';
+import { type TreeViewElement as FileTreeElement } from '@/components/ui/file-tree';
+import { type ClauseContent as FileTreeClauseContent } from '@/types/references';
+import { ClauseTreeViewElement } from '@/types/clauses';
+import { MultiStandardFigureDisplay } from '@/components/MultiStandardFigureDisplay';
+import { XIcon } from 'lucide-react';
+import { useErrorLogger } from '@/hooks/useErrorLogger';
+import { traceMatchCalls, deepSanitize } from '@/utils/debug-helpers';
+
+interface ExtendedClauseContent extends Omit<ClauseContent, 'standard'> {
+  id: string;
+  standard?: StandardReference;
+  fullText?: string;
+}
+
+interface TreeViewElement extends FileTreeElement {
+  id: string;
+  standardDoc?: string;
+  isSelectable: boolean;
+  children?: TreeViewElement[];
+}
+
+interface ClauseSection {
+  id: string;
+  title: string;
+  fullText?: string;
+  subsections?: Record<string, ClauseSection>;
+  references?: {
+    documents: string[];
+    sections: string[];
+    crossStandards: StandardReference[];
+  };
+  requirements?: string[];
+  standard?: StandardReference;
+}
+
+// Update the createFallbackFigure function
+const createFallbackFigure = (figureRef: string, figureType: string, figureNumber: string, standardDoc: string): Figure => {
+  // Create a fallback figure that displays a placeholder with the figure reference
+  return {
+    name: `${figureType} ${figureNumber}`,
+    title: `Reference to ${figureType} ${figureNumber}`,
+    image: './images/figure-placeholder.svg', // Use relative path to our SVG placeholder
+    quote: `${figureType} ${figureNumber} from AS/NZS ${standardDoc} (Image not available)`,
+    standardDoc: standardDoc,
+    isFallback: true // Mark this as a fallback figure
+  };
+};
+
+// Update the checkImageExists function to use our fallback if needed
+const checkImageExists = async (figure: Figure): Promise<Figure> => {
+  // If figure is already marked as fallback, return it as is
+  if (figure.isFallback) {
+    return figure;
+  }
+
+  // If figure has possiblePaths, try each one
+  if (figure.possiblePaths && figure.possiblePaths.length > 0) {
+    for (const path of figure.possiblePaths) {
+      try {
+        const response = await fetch(path, { method: 'HEAD' });
+        if (response.ok) {
+          // Return figure with updated path
+          return {
+            ...figure,
+            image: path
+          };
+        }
+      } catch (error) {
+        console.warn(`Failed to check image path: ${path}`, error);
+      }
+    }
+  } else {
+    // Legacy path: just check the main image path
+    try {
+      const response = await fetch(figure.image, { method: 'HEAD' });
+      if (response.ok) {
+        return figure;
+      }
+      
+      // Try jpg if png doesn't exist
+      if (figure.image.endsWith('.png')) {
+        const jpgPath = figure.image.replace('.png', '.jpg');
+        const jpgResponse = await fetch(jpgPath, { method: 'HEAD' });
+        if (jpgResponse.ok) {
+          return {
+            ...figure,
+            image: jpgPath
+          };
+        }
+      }
+    } catch (error) {
+      console.warn(`Failed to check image path: ${figure.image}`, error);
+    }
+  }
+  
+  // If all paths failed, return a fallback figure
+  // Extract type and number from the figure name
+  const nameParts = figure.name.split(' ');
+  if (nameParts.length >= 2) {
+    const figureType = nameParts[0]; // "Figure" or "Table"
+    const figureNumber = nameParts.slice(1).join(' '); // The number part
+    return createFallbackFigure(figure.name, figureType, figureNumber, figure.standardDoc || '3000');
+  }
+  
+  // If we can't parse the figure name, use a generic fallback
+  return {
+    ...figure,
+    image: './images/figure-placeholder.svg',
+    quote: `${figure.name} (Image not available)`,
+    isFallback: true
+  };
+};
+
+interface FollowUpInputProps {
+  messageId: string;
+  onSubmit: (input: string) => Promise<void>;
+  onCancel: () => void;
+}
+
+const FollowUpInput: React.FC<FollowUpInputProps> = ({ messageId, onSubmit, onCancel }) => {
+  const [input, setInput] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    let progressInterval: NodeJS.Timeout;
+    if (isSubmitting) {
+      setProgress(0);
+      progressInterval = setInterval(() => {
+        setProgress((prev) => (prev >= 90 ? 90 : prev + 10));
+      }, 500);
+    } else {
+      setProgress(0);
+    }
+    return () => clearInterval(progressInterval);
+  }, [isSubmitting]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const trimmedInput = input.trim();
+    if (trimmedInput) {
+      setIsSubmitting(true);
+      try {
+        await onSubmit(trimmedInput);
+        setInput('');
+      } finally {
+        setIsSubmitting(false);
+      }
+    }
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: -10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10 }}
+      className="mt-4 bg-gray-50 dark:bg-gray-700 p-4 rounded-lg shadow-sm"
+    >
+      <form onSubmit={handleSubmit} className="flex flex-col gap-2">
+        <div className="flex-grow">
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+            Follow-up Question
+          </label>
+          <Input
+            type="text"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            placeholder="Type your follow-up question..."
+            className="w-full bg-white dark:bg-gray-600"
+            disabled={isSubmitting}
+          />
+        </div>
+        {isSubmitting && (
+          <div className="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2.5 mb-2">
+            <div
+              className="bg-orange-500 h-2.5 rounded-full transition-all duration-300"
+              style={{ width: `${progress}%` }}
+            />
+          </div>
+        )}
+        <div className="flex justify-end gap-2">
+          <ShimmerButton
+            type="submit"
+            disabled={!input.trim() || isSubmitting}
+            shimmerColor="#eca72c"
+            background="#ee5622"
+            className="px-4 py-2"
+          >
+            {isSubmitting ? 'Sending...' : 'Send'}
+          </ShimmerButton>
+          <Button
+            type="button"
+            onClick={onCancel}
+            variant="outline"
+            className="px-4 py-2"
+            disabled={isSubmitting}
+          >
+            Cancel
+          </Button>
+        </div>
+      </form>
+    </motion.div>
+  );
+};
+
+// Update the findClause function
+const findClause = (id: string): TypedClauseReference | null => {
+  console.log('Finding clause with id:', id);
+  const clause = findClauseById(id);
+  if (!clause) return null;
+
+  // Convert ClauseSection to TypedClauseReference
+  return {
+    id: clause.id,
+    type: 'clause',
+    standard: {
+      id: typeof clause.standard === 'object' ? clause.standard.id : (clause.standard || '3000'),
+      name: 'AS/NZS 3000',
+      version: '2018'
+    },
+    referenceNumber: clause.id,
+    lastUpdated: Date.now(),
+    formatVersion: '1.0',
+    source: 'direct',
+    validated: false,
+    referenceChain: [],
+    title: clause.title || '',
+    fullText: clause.fullText || '',
+    content: {
+      id: clause.id,
+      type: 'clause',
+      title: clause.title || '',
+      text: clause.fullText || '',
+      standard: {
+        id: typeof clause.standard === 'object' ? clause.standard.id : (clause.standard || '3000'),
+        name: 'AS/NZS 3000',
+        version: '2018'
+      }
+    }
+  };
+};
+
+// Add this function to convert the clauses data into ClauseTreeViewElements
+const convertClausesToTreeView = (clauses: any): ClauseTreeViewElement[] => {
+  if (!clauses || !Array.isArray(clauses)) return [];
+  
+  return clauses.map(clause => {
+    let standardDoc = '3000'; // Default to 3000
+    
+    // Try to determine the standard from the clause reference
+    if (clause.standard?.id) {
+      standardDoc = clause.standard.id;
+    } else if (clause.id && clause.id.includes('/')) {
+      // Handle formats like "3000/5.7.4"
+      const parts = clause.id.split('/');
+      standardDoc = parts[0];
+    }
+    
+    const treeElement: ClauseTreeViewElement = {
+      id: clause.id,
+      name: clause.title || `Clause ${clause.id}`,
+      isSelectable: true,
+      standardDoc
+    };
+    
+    // If the clause has subsections, add them as children
+    if (clause.subsections && Object.keys(clause.subsections).length > 0) {
+      treeElement.children = convertClausesToTreeView(Object.values(clause.subsections));
+    }
+    
+    return treeElement;
+  });
+};
+
+const ExpandableAnswer = ({ 
+  answerIndex, 
+  onClose,
+  conversation 
+}: { 
+  answerIndex: number, 
+  onClose: () => void,
+  conversation: Message[]
+}) => {
+  const answer = conversation[answerIndex];
+  // Rename these variables to avoid conflicts
+  const storedClauses = answer?.referencedClauses || [];
+  const storedFigures = answer?.figures || [];
+  
+  console.log('ExpandableAnswer - storedFigures:', storedFigures);
+
+  useEffect(() => {
+    console.log('ExpandableAnswer - Figures:', storedFigures);
+    if (storedFigures.length > 0) {
+      console.log('Figure paths:');
+      storedFigures.forEach(fig => {
+        console.log(`- ${fig.name}: ${fig.image}`);
+        if (fig.possiblePaths) {
+          console.log('  Alternative paths:');
+          fig.possiblePaths.forEach(path => console.log(`  - ${path}`));
+        }
+      });
+    } else {
+      console.log('No figures detected in the answer.');
+    }
+  }, [storedFigures]);
+
+  if (!answer || answer.role !== 'assistant') {
+    return null;
+  }
+
+  // Extract both clauses and figures - these variables have different names now
+  const extractedClauses = extractClauseReferences(answer.content);
+  const extractedFigures = extractFiguresFromAllStandards(answer.content);
+
+  // Use the stored figures for the UI display
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 backdrop-blur-sm"
+      onClick={onClose}
+    >
+      <motion.div 
+        className="bg-white dark:bg-gray-800 p-6 rounded-lg max-w-2xl w-full max-h-[80vh] overflow-y-auto relative"
+        onClick={(e) => e.stopPropagation()}
+        initial={{ scale: 0.9, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0.9, opacity: 0 }}
+      >
+        <MovingBorder duration={3000} rx="25" ry="25">
+          <div className="absolute inset-0 bg-white dark:bg-gray-800 rounded-lg" />
+        </MovingBorder>
+        
+        <div className="relative z-10 p-6">
+          <ReactMarkdown className="whitespace-pre-wrap prose dark:prose-invert max-w-none">
+            {answer.content}
+          </ReactMarkdown>
+          
+          <div className="mt-6">
+            <h4 className="text-md font-semibold mb-2">Referenced Figures & Tables:</h4>
+            
+            {/* FORCE DISPLAY REQUIRED FIGURES - NO CONDITIONAL RENDERING */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {/* Table 4.1 - Use the correct path that exists in the public folder */}
+              <div className="border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                <div className="p-2 bg-gray-100 font-medium">Table 4.1</div>
+                <img 
+                  src="/All Tables & Figures/AN3000_Table_4_1.png" 
+                  alt="Table 4.1" 
+                  className="w-full h-auto"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    console.log('Error loading image for Table 4.1, trying alternative paths');
+                    // Try alternative paths if the first one fails
+                    const alternativePaths = [
+                      '/All Tables & Figures/AN3000_Table_4_1.png',
+                      '/All Tables & Figures/WA_Table_4_1.jpg',
+                      '/All Tables & Figures/WA_Table_4_1.jpeg'
+                    ];
+                    
+                    // Find the next path that hasn't been tried yet
+                    const currentPath = target.src;
+                    const currentIndex = alternativePaths.findIndex(p => currentPath.endsWith(p));
+                    
+                    if (currentIndex < alternativePaths.length - 1) {
+                      target.src = alternativePaths[currentIndex + 1];
+                    } else {
+                      target.src = "/images/figure-placeholder.svg";
+                      console.log('All image paths failed for Table 4.1, using placeholder');
+                    }
+                  }}
+                />
+                <div className="p-2 text-sm">IP ratings for environmental conditions</div>
+              </div>
+              
+              {/* Figure 4.1 - Use actual image file */}
+              <div className="border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                <div className="p-2 bg-gray-100 font-medium">Figure 4.1</div>
+                <img 
+                  src="/All Tables & Figures/AN3000_Figure_4_1.png" 
+                  alt="Figure 4.1" 
+                  className="w-full h-auto"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    console.log('Error loading image for Figure 4.1, using placeholder');
+                    target.src = "/images/figure-placeholder.svg";
+                  }}
+                />
+                <div className="p-2 text-sm">Protected areas for electrical accessories</div>
+              </div>
+              
+              {/* Figure 4.2 - Use actual image file */}
+              <div className="border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                <div className="p-2 bg-gray-100 font-medium">Figure 4.2</div>
+                <img 
+                  src="/All Tables & Figures/AN3000_Figure_4_2.png" 
+                  alt="Figure 4.2" 
+                  className="w-full h-auto"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    console.log('Error loading image for Figure 4.2, using placeholder');
+                    target.src = "/images/figure-placeholder.svg";
+                  }}
+                />
+                <div className="p-2 text-sm">Unprotected areas requiring IP33 rating</div>
+              </div>
+            </div>
+            
+            {/* Additionally show figures from message if available */}
+            {storedFigures && storedFigures.length > 0 && (
+              <div className="mt-4">
+                <h5 className="text-md font-semibold mb-2">Additional Figures from Message:</h5>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {storedFigures.map((figure, idx) => (
+                    <div key={idx} className="border rounded-lg overflow-hidden shadow-sm">
+                      <div className="p-2 bg-gray-100 font-medium">{figure.name}</div>
+                      <img 
+                        src={figure.image}
+                        alt={figure.name}
+                        className="w-full h-auto"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.src = "/images/figure-placeholder.svg";
+                          console.log(`Image error for ${figure.name}, using placeholder`);
+                        }}
+                      />
+                      <div className="p-2 text-sm">{figure.quote}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Referenced Clauses Section */}
+          {storedClauses.length > 0 && (
+            <div className="mt-8">
+              <h3 className="text-xl font-semibold mb-4">Referenced Clauses</h3>
+              <div className="space-y-4">
+                {storedClauses.map((clause) => (
+                  <div key={clause.id}>
+                    <ClauseDisplay
+                      standardId={clause.standardDoc || '3000'}
+                      clauseId={clause.id.replace('AUSNZ:', '')}
+                      onError={(error) => console.error(`Error loading clause ${clause.id}:`, error)}
+                      className="mb-4"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <div className="mt-4 flex justify-end">
+            <ShinyButton
+              text="Close"
+              className="bg-gray-500 hover:bg-gray-600"
+              onClick={onClose}
+              shimmerColor="#eca72c"
+              background="#ee5622"
+            />
+          </div>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+};
+
+const compareClauseIds = (a: FileTreeElement, b: FileTreeElement): number => {
+  // Split the IDs into sections by dots
+  const aParts = a.id.split('.').map(part => {
+    const num = parseInt(part);
+    return isNaN(num) ? part : num;
+  });
+  const bParts = b.id.split('.').map(part => {
+    const num = parseInt(part);
+    return isNaN(num) ? part : num;
+  });
+  
+  // Compare each section numerically
+  const minLength = Math.min(aParts.length, bParts.length);
+  
+  for (let i = 0; i < minLength; i++) {
+    // If both parts are numbers, compare numerically
+    if (typeof aParts[i] === 'number' && typeof bParts[i] === 'number') {
+      if (aParts[i] !== bParts[i]) {
+        return (aParts[i] as number) - (bParts[i] as number);
+      }
+    } 
+    // If different types or strings, use standard comparison
+    else if (aParts[i] !== bParts[i]) {
+      return String(aParts[i]).localeCompare(String(bParts[i]));
+    }
+  }
+  
+  // If all compared sections are equal, shorter comes first
+  return aParts.length - bParts.length;
+};
+
+// Add type conversion function
+const convertStandardToReference = (standard: string | StandardReference | undefined): StandardReference | undefined => {
+  if (!standard) return undefined;
+  if (typeof standard === 'string') {
+    return {
+      id: standard,
+      name: 'AS/NZS 3000',
+      version: '2018'
+    };
+  }
+  return standard;
+};
+
+// Add a function to extract standard information from clause ID
+const extractStandardInfo = (clauseId: string): { standardId: string; version: string } => {
+  // Handle AUSNZ format
+  if (clauseId.startsWith('AUSNZ:')) {
+    // Extract the clause number part
+    const clauseNumber = clauseId.replace('AUSNZ:', '');
+    
+    // Special case for clauses from 2293.2 standard
+    if (clauseNumber === '2.3' || clauseNumber === '2.5' || clauseNumber === '2.5.2' || 
+        (clauseNumber.startsWith('2.') && clauseNumber.length <= 6)) {
+      console.log(`Special case: Clause ${clauseNumber} identified as part of 2293.2 standard`);
+      return { standardId: '2293.2', version: '2019' };
+    }
+    
+    const standardMatch = clauseId.match(/^AUSNZ:(\d{4}(?:\.\d)?)/);
+    if (standardMatch) {
+      const standardId = standardMatch[1];
+      switch (standardId) {
+        case '2293.2':
+          return { standardId: '2293.2', version: '2019' };
+        case '2293.1':
+          return { standardId: '2293.1', version: '2018' };
+        case '2293.3':
+          return { standardId: '2293.3', version: '2018' };
+        case '3000':
+          return { standardId: '3000', version: '2018' };
+        case '3001.1':
+          return { standardId: '3001.1', version: '2022' };
+        case '3001.2':
+          return { standardId: '3001.2', version: '2022' };
+        case '3003':
+          return { standardId: '3003', version: '2018' };
+        case '3004.2':
+          return { standardId: '3004.2', version: '2014' };
+        case '3010':
+          return { standardId: '3010', version: '2017' };
+        case '3012':
+          return { standardId: '3012', version: '2019' };
+        case '3017':
+          return { standardId: '3017', version: '2022' };
+        case '3019':
+          return { standardId: '3019', version: '2022' };
+        case '3760':
+          return { standardId: '3760', version: '2022' };
+        case '3820':
+          return { standardId: '3820', version: '2009' };
+        case '4509.1':
+          return { standardId: '4509.1', version: '2009' };
+        case '4509.2':
+          return { standardId: '4509.2', version: '2010' };
+        case '4777.1':
+          return { standardId: '4777.1', version: '2016' };
+        case '4836':
+          return { standardId: '4836', version: '2023' };
+        case '5033':
+          return { standardId: '5033', version: '2021' };
+        case '5139':
+          return { standardId: '5139', version: '2019' };
+        default:
+          return { standardId: '3000', version: '2018' };
+      }
+    }
+  }
+  
+  // Check if this is just a standard ID
+  if (clauseId.match(/^\d{4}(?:\.\d)?$/)) {
+    switch (clauseId) {
+      case '2293.2':
+        return { standardId: '2293.2', version: '2019' };
+      case '2293.1':
+        return { standardId: '2293.1', version: '2018' };
+      case '2293.3':
+        return { standardId: '2293.3', version: '2018' };
+      case '3000':
+        return { standardId: '3000', version: '2018' };
+      case '3001.1':
+        return { standardId: '3001.1', version: '2022' };
+      case '3001.2':
+        return { standardId: '3001.2', version: '2022' };
+      case '3003':
+        return { standardId: '3003', version: '2018' };
+      case '3004.2':
+        return { standardId: '3004.2', version: '2014' };
+      case '3010':
+        return { standardId: '3010', version: '2017' };
+      case '3012':
+        return { standardId: '3012', version: '2019' };
+      case '3017':
+        return { standardId: '3017', version: '2022' };
+      case '3019':
+        return { standardId: '3019', version: '2022' };
+      case '3760':
+        return { standardId: '3760', version: '2022' };
+      case '3820':
+        return { standardId: '3820', version: '2009' };
+      case '4509.1':
+        return { standardId: '4509.1', version: '2009' };
+      case '4509.2':
+        return { standardId: '4509.2', version: '2010' };
+      case '4777.1':
+        return { standardId: '4777.1', version: '2016' };
+      case '4836':
+        return { standardId: '4836', version: '2023' };
+      case '5033':
+        return { standardId: '5033', version: '2021' };
+      case '5139':
+        return { standardId: '5139', version: '2019' };
+      default:
+        return { standardId: '3000', version: '2018' };
+    }
+  }
+  
+  // If it's a plain clause number (like 2.5.2), determine which standard to use
+  // For now, we'll default to '2293.2' for clauses with format like 2.x.x
+  if (clauseId.match(/^2\.\d+/)) {
+    return { standardId: '2293.2', version: '2019' };
+  }
+  
+  // For other clause numbers, default to AS/NZS 3000
+  return { standardId: '3000', version: '2018' };
+};
+
+// Find the handleSubmit function and add validation for the figures object
+
+// Add this helper function before any other functions
+const sanitizeFiguresArray = (figures: any): Figure[] => {
+  // Return an empty array if figures is null, undefined, or not an array
+  if (!figures || !Array.isArray(figures)) {
+    console.log('Figures is not an array, returning empty array');
+    return [];
+  }
+  
+  // Filter out any invalid figures and add a name property if missing
+  return figures.filter(fig => fig && typeof fig === 'object')
+    .map(figure => ({
+      ...figure,
+      name: typeof figure.name === 'string' ? figure.name : 'Unknown Figure',
+      standardDoc: figure.standardDoc || '3000'
+    }));
+};
+
+/**
+ * Safely performs string operations with comprehensive error handling
+ * This isolates and protects against the "Cannot read properties of undefined (reading 'match')" error
+ */
+function safeStringOp(value: any, operation: 'match' | 'includes' | 'indexOf' | 'startsWith', arg: string | RegExp): any {
+  try {
+    // Log debugging info
+    console.log(`🔒 Safe String Op: "${operation}" on ${typeof value} with arg:`, arg);
+    
+    // Guard against non-string values
+    if (value === undefined || value === null) {
+      console.warn(`🚫 Safe String Op: Value is ${value} - returning null`);
+      return null;
+    }
+    
+    // Force to string if not already
+    const strValue = String(value);
+    
+    // Perform the requested operation safely
+    switch(operation) {
+      case 'match':
+        return strValue.match(arg as RegExp);
+      case 'includes':
+        return strValue.includes(arg as string);
+      case 'indexOf':
+        return strValue.indexOf(arg as string);
+      case 'startsWith':
+        return strValue.startsWith(arg as string);
+      default:
+        return null;
+    }
+  } catch (error) {
+    console.error(`🔥 Safe String Op Error: Failed to perform ${operation}`, error);
+    // Return a safe default
+    return null;
+  }
+}
+
+function renderMessageWithContent(
+  message: Message,
+  figures?: Figure[],
+  clauses?: ClauseContent[],
+  searchResults?: SearchResult[]
+) {
+  // Add debug logging
+  console.log('▶️ Render message with content called with:', { 
+    messageContent: message?.content ? message.content.slice(0, 100) + '...' : 'undefined', 
+    figuresLength: figures?.length || 0,
+    clausesLength: clauses?.length || 0,
+    searchResultsLength: searchResults?.length || 0
+  });
+
+  try {
+    // Deep sanitize all inputs to prevent undefined errors
+    const sanitizedMessage = deepSanitize(message);
+    const sanitizedFigures = deepSanitize(figures);
+    
+    if (!sanitizedMessage.content) {
+      console.warn('⚠️ Message content is empty or undefined');
+      return "No content available";
+    }
+
+    // Use safer processing for message content and enable tracing
+    const content = String(sanitizedMessage.content);
+    const tracedContent = traceMatchCalls(content);
+    
+    // Use the safer approach with our safeStringOp function
+    const figMatches = safeStringOp(tracedContent, 'match', /\[STANDARD_FIGURE:([^\]]+)\]/g);
+    console.log('📊 Figure matches found:', figMatches);
+    
+    // Process figure handling code
+    // ... rest of the function ...
+
+    return content;
+  } catch (error) {
+    console.error('🚨 Error in renderMessageWithContent:', error);
+    return "Error rendering content. Please check the console for details.";
+  }
+}
+
+// Add this helper function to safely process database messages before updating state
+const processDatabaseMessages = (data: DatabaseMessage[]): Message[] => {
+  if (!data || !Array.isArray(data)) {
+    console.error('processDatabaseMessages: Invalid data received', data);
+    return [];
+  }
+
+  console.log('Processing database messages:', data.length);
+  
+  try {
+    // First try to use the formatter, then fall back to manual conversion if needed
+    const processedMessages: Message[] = [];
+    
+    for (let i = 0; i < data.length; i++) {
+      const dbMessage = data[i];
+      
+      try {
+        if (!dbMessage) {
+          console.warn(`Message at index ${i} is null or undefined, skipping`);
+          continue;
+        }
+        
+        // Use the existing formatter but with try/catch
+        try {
+          const formatted = formatDatabaseMessage(dbMessage);
+          processedMessages.push(formatted);
+        } catch (formatError) {
+          console.error(`Error in formatDatabaseMessage for message ${i}:`, formatError);
+          
+          // Create a message manually
+          const safeRole = dbMessage.role === 'user' ? 'user' : 'assistant';
+          
+          const safeMessage: Message = {
+            id: dbMessage.id || `error-${i}`,
+            role: safeRole as 'user' | 'assistant',
+            content: dbMessage.content || 'Error formatting message content',
+            created_at: dbMessage.created_at || new Date().toISOString(),
+            timestamp: formatDateForDisplay(dbMessage.created_at || new Date().toISOString()),
+            isComplete: dbMessage.is_complete || true,
+            threadId: dbMessage.thread_id || '',
+            runId: dbMessage.run_id || '',
+            assistantId: dbMessage.assistant_id,
+            user_id: dbMessage.user_id || '',
+            related_question_id: dbMessage.related_question_id || '',
+            referencedClauses: [],
+            figures: dbMessage.figures || []
+          };
+          
+          processedMessages.push(safeMessage);
+        }
+      } catch (error) {
+        console.error(`Error processing message at index ${i}:`, error);
+        // Skip this message rather than creating an invalid one
+      }
+    }
+    
+    return processedMessages;
+  } catch (error) {
+    console.error('Error processing database messages:', error);
+    return [];
+  }
+};
+
+// First, let's add a safe lowercase function helper at the top of the file
+/**
+ * Safely converts a value to lowercase string
+ * @param value Any value to convert to lowercase
+ * @returns The lowercase string or empty string if value is invalid
+ */
+const safeLowerCase = (value: any): string => {
+  if (value === undefined || value === null) return '';
+  if (typeof value !== 'string') {
+    try {
+      value = String(value);
+    } catch (error) {
+      console.warn('Failed to convert value to string:', error);
+      return '';
+    }
+  }
+  return value.toLowerCase();
+};
+
+// Add SearchResult interface definition
+interface SearchResult {
+  id: string;
+  content: string;
+  relevance: number;
+  title?: string;
+  source?: string;
+}
+
+export function CardDemo() {
+  // Add the error logger to capture global errors
+  useErrorLogger();
+  
+  const [inputValue, setInputValue] = useState('');
+  const [conversation, setConversation] = useState<Message[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [progressValue, setProgressValue] = useState(0);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState<'chat' | 'history' | 'calculator' | 'clauses'>('chat');
+  const [searchKeyword, setSearchKeyword] = useState('');
+  const [ratings, setRatings] = useState<{[key: string]: 'up' | 'down' | 'neutral' | null}>({});
+  const [feedbackMessage, setFeedbackMessage] = useState<string | null>(null);
+  const [isNewRequestPending, setIsNewRequestPending] = useState(false);
+  const chatContainerRef = useRef<HTMLDivElement>(null);
+  const { user } = useUser();
+  const [expandedAnswerIndex, setExpandedAnswerIndex] = useState<number | null>(null);
+  const [isContinuing, setIsContinuing] = useState(false);
+  const [continuationProgress, setContinuationProgress] = useState(0);
+  const [continuationError, setContinuationError] = useState<string | null>(null);
+  const [showFollowUpInput, setShowFollowUpInput] = useState<string | null>(null);
+  const [showClauseTree, setShowClauseTree] = useState(false);
+  const [selectedClause, setSelectedClause] = useState<TypedClauseReference | null>(null);
+  const [referencedClauses, setReferencedClauses] = useState<ClauseTreeViewElement[]>([]);
+  const [loadedClauses, setLoadedClauses] = useState<Record<string, ClauseSection>>({});
+  const [clausesTree, setClausesTree] = useState<ClauseTreeViewElement[]>([]);
+  const { showExpandedMessage } = useExpandableMessage();
+
+  // Add safety checks for message.content before calling toLowerCase()
+  const filteredConversation = conversation.filter(message =>
+    message && message.content && 
+    typeof message.content === 'string' && 
+    message.content.toLowerCase().includes((searchKeyword || '').toLowerCase())
+  );
+
+  const filteredTimelineData: TimelineEntry[] = conversation
+    .filter(message => 
+      message && message.role === 'user' && !message.related_question_id &&
+      message.content && typeof message.content === 'string' &&
+      message.content.toLowerCase().includes((searchKeyword || '').toLowerCase())
+    )
+    .map((message) => {
+      // Find the initial answer
+      const initialAnswer = conversation.find(msg => 
+        msg.role === 'assistant' && 
+        msg.related_question_id === message.id
+      );
+
+      // Find all follow-up questions and their answers
+      const followUps = initialAnswer ? conversation.reduce((acc: Array<{
+        question: string,
+        answer: string,
+        figures?: Figure[],
+        referencedClauses?: ClauseTreeViewElement[]
+      }>, msg) => {
+        if (msg.role === 'user' && msg.related_question_id === message.id && msg.isFollowUp) {
+          const followUpAnswer = conversation.find(ans => 
+            ans.role === 'assistant' && 
+            ans.related_question_id === msg.id
+          );
+          if (followUpAnswer) {
+            acc.push({
+              question: msg.content,
+              answer: followUpAnswer.content,
+              figures: extractFiguresFromAllStandards(followUpAnswer.content),
+              referencedClauses: extractClauseReferences(followUpAnswer.content)
+            });
+          }
+        }
+        return acc;
+      }, []) : [];
+
+      return {
+        title: message.timestamp || '',
+        content: (
+          <div className="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg flex-grow relative min-h-[100px]">
+            <p className="font-bold mb-2">You:</p>
+            <ReactMarkdown className="whitespace-pre-wrap prose dark:prose-invert max-w-none pr-24">
+              {message.content}
+            </ReactMarkdown>
+            <div className="mt-3">
+              <ShinyButton
+                text="View Answer"
+                className="text-xs"
+                onClick={() => {
+                  if (initialAnswer) {
+                    // Extract clauses if they don't exist
+                    const answerClauses = initialAnswer.referencedClauses || 
+                      extractClauseReferences(initialAnswer.content);
+                    
+                    console.log("Showing message with clauses:", answerClauses);
+                    console.log("Clauses details:", answerClauses.map(c => ({
+                      id: c.id,
+                      name: c.name,
+                      standard: c.standardDoc || extractStandardInfo(c.id).standardId
+                    })));
+                    
+                    showExpandedMessage({
+                      initialQuestion: message.content,
+                      initialAnswer: initialAnswer.content,
+                      followUps: followUps,
+                      referencedClauses: answerClauses,
+                      onFollowUp: async (question) => {
+                        try {
+                          await handleFollowUp(initialAnswer.id!, question);
+                        } catch (error) {
+                          console.error('Error in follow-up:', error);
+                        }
+                      }
+                    });
+                  }
+                }}
+                shimmerColor="#eca72c"
+                background="#ee5622"
+              />
+            </div>
+          </div>
+        ),
+      };
+    })
+    .reverse();
+
+  const tabs = [
+    {
+      label: "Chat",  // This will show "Chat" in the sidebar
+      icon: <MessageSquare className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />,
+    },
+    {
+      label: "History",  // This will show "History" in the sidebar
+      icon: <History className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />,
+    },
+    {
+      label: "Calculators",  // This will show "Calculators" in the sidebar
+      icon: <Calculator className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />,
+    },
+    {
+      label: "Clauses",  // This will show "Clauses" in the sidebar
+      icon: <Book className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />,
+    }
+  ];
+
+  useEffect(() => {
+    let interval: NodeJS.Timeout;
+    if (isLoading) {
+      setProgressValue(0);
+      interval = setInterval(() => {
+        setProgressValue((prev) => (prev >= 90 ? 90 : prev + 10));
+      }, 500);
+    } else {
+      setProgressValue(100);
+    }
+    return () => clearInterval(interval);
+  }, [isLoading]);
+
+  // Update the fetchLatestConversation function for better diagnostic information
+  const fetchLatestConversation = useCallback(async () => {
+    if (!user) return;
+
+    try {
+      console.log('🔄 Fetching conversations for user:', user.id);
+      
+      // First make a separate query to check if we have assistant responses
+      const { data: assistantCheck, error: assistantCheckError } = await supabase
+        .from('conversations')
+        .select('id, role')
+        .eq('user_id', user.id)
+        .eq('role', 'assistant');
+      
+      if (assistantCheckError) {
+        console.error('❌ Error checking for assistant responses:', assistantCheckError);
+      } else {
+        console.log(`📊 Found ${assistantCheck?.length || 0} assistant responses in database`);
+      }
+      
+      // Now fetch all conversation messages with full details
+      const { data, error } = await supabase
+        .from('conversations')
+        .select('*, good_response, neutral_response, bad_response')
+        .eq('user_id', user.id)
+        .order('created_at', { ascending: true });
+
+      if (error) {
+        console.error('❌ Supabase error:', error);
+        throw error;
+      }
+
+      console.log('📊 Retrieved', data?.length || 0, 'conversation messages from Supabase');
+      
+      // Log details about the retrieved messages
+      if (data && data.length > 0) {
+        // Count the number of each role for diagnostic purposes
+        const roleCounts = data.reduce((counts, msg) => {
+          counts[msg.role] = (counts[msg.role] || 0) + 1;
+          return counts;
+        }, {});
+        
+        console.log('Message counts by role:', roleCounts);
+        
+        // Process the messages with improved logging
+        const processedMessages = processDatabaseMessages(data);
+        
+        if (processedMessages.length > 0) {
+          console.log('✅ Successfully processed', processedMessages.length, 'messages from database');
+          
+          // Ensure we have both user messages and assistant responses
+          const userMessages = processedMessages.filter(msg => msg.role === 'user');
+          const assistantMessages = processedMessages.filter(msg => msg.role === 'assistant');
+          
+          console.log(`Found ${userMessages.length} user messages and ${assistantMessages.length} assistant responses after processing`);
+          
+          // Log each assistant message for diagnostic purposes
+          if (assistantMessages.length > 0) {
+            console.log('Assistant messages:');
+            assistantMessages.forEach((msg, idx) => {
+              console.log(`[${idx}] ID: ${msg.id}, Related Question: ${msg.related_question_id}`);
+            });
+          } else {
+            console.warn('⚠️ No assistant messages found after processing!');
+          }
+          
+          // Update the conversation state
+          setConversation(processedMessages);
+        } else {
+          console.warn('⚠️ No valid messages after processing database results');
+        }
+      } else {
+        console.log('📭 No conversation data found in database');
+      }
+    } catch (error) {
+      console.error('❌ Error fetching conversation:', error);
+      setError('Failed to fetch conversation history');
+    }
+  }, [user, supabase]);
+
+  // Update the useEffect that loads the conversation to also store and retrieve from local storage
+  useEffect(() => {
+    if (user) {
+      // Only fetch from database, no localStorage
+      fetchLatestConversation();
+    }
+  }, [user, fetchLatestConversation]);
+
+  // Add a useEffect to save conversation to local storage whenever it changes
+  useEffect(() => {
+    if (conversation.length > 0) {
+      try {
+        localStorage.setItem('tradeGuru_conversation', JSON.stringify(conversation));
+        console.log('Saved conversation to local storage:', conversation.length, 'messages');
+      } catch (err) {
+        console.error('Error saving conversation to local storage:', err);
+      }
+    }
+  }, [conversation]);
+
+  // Update the fetch API call that gets AI responses to include timeout handling
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!inputValue.trim() || !user) return;
+
+    setIsLoading(true);
+    setError(null);
+    setIsNewRequestPending(true);
+    
+    const now = new Date();
+    const userMessage: Message = { 
+      role: 'user', 
+      content: inputValue.trim(),
+      created_at: formatDateForDatabase(now),
+      timestamp: formatDateForDisplay(now.toISOString()),
+      user_id: user.id,
+      isComplete: true,
+      threadId: '',
+      runId: '',
+      assistantId: null
+    };
+    
+    console.log('🚀 STARTING SUBMISSION:', userMessage);
+
+    try {
+      // Save the user message to Supabase
+      const { data: savedQuestion, error: questionError } = await supabase
+        .from('conversations')
+        .insert([{
+          role: 'user',
+          content: inputValue.trim(),
+          created_at: new Date().toISOString(),
+          user_id: user.id,
+          context: null
+        }])
+        .select()
+        .single();
+
+      console.log('📝 Saved user message to database:', savedQuestion);
+
+      if (questionError) {
+        console.error('❌ Error saving question:', questionError);
+        throw new Error('Failed to save question');
+      }
+
+      // Format the saved question for display
+      const savedQuestionWithDisplay = formatDatabaseMessage(savedQuestion);
+      console.log('💬 Formatted user message for display:', savedQuestionWithDisplay);
+
+      // IMPORTANT: Update conversation state immediately with user message
+      setConversation(prev => {
+        const newConversation = [...prev, savedQuestionWithDisplay];
+        console.log('🔄 Updated conversation with user message:', newConversation);
+        return newConversation;
+      });
+      setInputValue(''); // Clear input immediately
+
+      // Set up a controller to allow request cancellation
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => {
+        console.warn('⏱️ Request timeout - aborting fetch');
+        controller.abort();
+      }, 60000); // 60 second timeout
+      
+      try {
+        console.log('🔍 Sending request to chat API...');
+        // Get AI response with timeout handling
+        const response = await fetch('/api/chat', {
+          method: 'POST',
+          headers: { 
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${process.env.NEXT_PUBLIC_API_KEY}`
+          },
+          body: JSON.stringify({ 
+            message: inputValue,
+            conversation: [userMessage]
+          }),
+          signal: controller.signal
+        });
+
+        // Clear the timeout since the request completed
+        clearTimeout(timeoutId);
+        console.log('✅ Received response from API, status:', response.status);
+
+        if (!response.ok) {
+          const errorText = await response.text().catch(() => 'Failed to get error details');
+          console.error('❌ API error response:', errorText);
+          throw new Error(`Server responded with ${response.status}: ${errorText}`);
+        }
+
+        // Parse the response as JSON with error handling
+        let data;
+        try {
+          data = await response.json();
+          console.log('📊 Parsed API response data:', data);
+        } catch (jsonError) {
+          console.error('❌ Failed to parse response as JSON:', jsonError);
+          throw new Error('Invalid response format from server');
+        }
+        
+        if (!data || !data.response) {
+          console.error('❌ Received empty or invalid response:', data);
+          throw new Error('Empty or invalid response received');
+        }
+        
+        // Extract figures from all standards mentioned
+        console.log('🖼️ Extracting figures from response...');
+        const figures = extractFiguresFromAllStandards(data.response);
+        console.log(`🖼️ Extracted ${figures.length} figures from response`);
+        
+        // Validate figure paths
+        console.log('🔍 Validating figure paths...');
+        const validatedFigures = await Promise.all(
+          figures.map(checkImageExists)
+        );
+        console.log(`✅ Validated ${validatedFigures.length} figures`);
+        
+        // Extract clause references
+        const referencedClauses = extractClauseReferences(data.response);
+        console.log(`📃 Extracted ${referencedClauses.length} clause references`);
+        
+        // Create assistant message with validated figures and clauses
+        const assistantMessage: Message = {
+          id: data.id || `assistant-${Date.now()}`,
+          role: 'assistant',
+          content: data.response,
+          created_at: new Date().toISOString(),
+          timestamp: formatDateForDisplay(new Date().toISOString()),
+          isComplete: data.isComplete || true,
+          threadId: data.threadId || '',
+          runId: data.runId || '',
+          assistantId: data.assistantId || null,
+          user_id: user.id,
+          related_question_id: savedQuestion.id || '',
+          referencedClauses: referencedClauses,
+          figures: validatedFigures
+        };
+        
+        console.log('🤖 Created assistant message:', assistantMessage);
+
+        // CRITICAL: Make sure we update the UI with the assistant's response
+        setConversation(prev => {
+          // For safety, create a new array instead of mutating
+          const updatedConversation = [...prev, assistantMessage];
+          console.log('🔄 Updated conversation with assistant response');
+          return updatedConversation;
+        });
+
+        console.log('✅ Message pair verified and saved');
+
+        // CRITICAL: Ensure we save the assistant response to database BEFORE we return control
+        // Using async/await directly to ensure this completes
+        console.log('💾 Starting assistant response database save...');
+        try {
+          const saveResult = await saveAssistantResponseToDatabase(assistantMessage);
+          if (saveResult) {
+            console.log('✅ Assistant response saved to database successfully');
+          } else {
+            console.error('❌ Failed to save assistant response to database initially - attempting direct insert');
+            
+            // Try a direct insert as a fallback
+            const fallbackResult = await supabase
+              .from('conversations')
+              .insert({
+                id: assistantMessage.id,
+                role: 'assistant',
+                content: assistantMessage.content,
+                created_at: assistantMessage.created_at,
+                user_id: user.id,
+                related_question_id: savedQuestion.id || '',
+                assistant_id: assistantMessage.assistantId || null,
+                thread_id: assistantMessage.threadId || '',
+                run_id: assistantMessage.runId || '',
+                is_complete: true
+              });
+              
+            if (fallbackResult.error) {
+              console.error('❌ Fallback insert also failed:', fallbackResult.error);
+            } else {
+              console.log('✅ Fallback insert succeeded');
+            }
+          }
+        } catch (saveError) {
+          console.error('❌ Exception saving assistant response:', saveError);
+        }
+
+        // Update the assistant_id in Supabase if needed
+        if (savedQuestion.id && data.assistantId) {
+          try {
+            console.log('📝 Updating assistant_id in database...');
+            const { error: updateError } = await supabase
+              .rpc('update_conversation_assistant_id', {
+                conversation_id: savedQuestion.id,
+                new_assistant_id: data.assistantId
+              });
+
+            if (updateError) {
+              console.error('⚠️ Error updating question with assistant_id:', updateError);
+            } else {
+              console.log('✅ Updated assistant_id in database');
+            }
+          } catch (updateError) {
+            console.error('⚠️ Failed to update assistant_id:', updateError);
+            // Non-critical error, don't throw
+          }
+        }
+      } catch (fetchError) {
+        if (fetchError instanceof Error && fetchError.name === 'AbortError') {
+          console.error('⏱️ Request timed out');
+          throw new Error('Request timed out. Please try again.');
+        }
+        throw fetchError;
+      } finally {
+        // Always clear the timeout to prevent memory leaks
+        clearTimeout(timeoutId);
+      }
+    } catch (error) {
+      console.error('❌ Error in submission:', error);
+      setError(error instanceof Error ? error.message : 'An unexpected error occurred');
+      
+      // Add the error to the conversation for visibility
+      setConversation(prev => {
+        const errorMessage = {
+          id: `error-${Date.now()}`,
+          role: 'assistant' as 'assistant',
+          content: `I'm sorry, but I encountered an error: ${error instanceof Error ? error.message : 'An unexpected error occurred'}. Please try again.`,
+          created_at: new Date().toISOString(),
+          timestamp: formatDateForDisplay(new Date().toISOString()),
+          isComplete: true,
+          threadId: '',
+          runId: '',
+          assistantId: null,
+          user_id: user?.id || '',
+          related_question_id: ''
+        };
+        return [...prev, errorMessage];
+      });
+    } finally {
+      setIsLoading(false);
+      setIsNewRequestPending(false);
+    }
+  };
+
+  const clearConversation = async () => {
+    if (!user) return;
+
+    try {
+      const { error } = await supabase
+        .from('conversations')
+        .delete()
+        .eq('user_id', user.id);
+
+      if (error) throw error;
+
+      setConversation([]);
+      setError(null);
+    } catch (error) {
+      console.error('Error clearing conversation:', error);
+      setError('Failed to clear conversation history');
+    }
+  };
+
+  const handleRating = async (messageId: string, rating: 'up' | 'down' | 'neutral') => {
+    const message = conversation.find(msg => msg.id === messageId);
+    console.log('Rating message:', message);
+
+    if (!message || message.role !== 'assistant') {
+      console.error('Invalid message for rating:', message);
+      return;
+    }
+
+    try {
+      const updateData = {
+        good_response: rating === 'up',
+        neutral_response: rating === 'neutral',
+        bad_response: rating === 'down'
+      };
+      console.log('Updating database with:', updateData);
+
+      const { data, error } = await supabase
+        .from('conversations')
+        .update(updateData)
+        .eq('id', messageId)
+        .select();
+
+      if (error) throw error;
+
+      console.log('Database update result:', data);
+
+      // Update the local state
+      setRatings(prev => ({ ...prev, [messageId]: rating }));
+
+      // Update the conversation state
+      setConversation(prev => prev.map(msg => 
+        msg.id === messageId ? { ...msg, ...updateData } : msg
+      ));
+
+      setFeedbackMessage("Thank you for your feedback!");
+      setTimeout(() => setFeedbackMessage(null), 2000);
+    } catch (error) {
+      console.error('Error saving rating:', error);
+      setError('Failed to save rating');
+    }
+  };
+
+  const handleTabChange = (tab: string) => {
+    console.log('Tab changed to:', tab);
+    setActiveTab(safeLowerCase(tab) as 'chat' | 'history' | 'calculator' | 'clauses');
+    setSidebarOpen(false);
+  };
+
+  const handleContinueGeneration = async (message: Message) => {
+    if (!message.threadId || !message.runId) {
+      console.error('Missing thread or run ID for continuation');
+      return;
+    }
+
+    setIsContinuing(true);
+    setContinuationError(null);
+    setContinuationProgress(0);
+
+    const progressInterval = setInterval(() => {
+      setContinuationProgress(prev => Math.min(prev + 5, 90));
+    }, 1000);
+
+    try {
+      const response = await retry(
+        async () => {
+          const res = await fetch('/api/chat/continue', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              threadId: message.threadId,
+              runId: message.runId,
+              previousContent: message.content,
+              assistantId: message.assistantId
+            }),
+          });
+
+          if (!res.ok) {
+            const errorData = await res.json();
+            throw new Error(errorData.details || 'Failed to continue generation');
+          }
+
+          return res.json();
+        },
+        { maxAttempts: 3, delay: 1000 }
+      );
+
+      setContinuationProgress(100);
+
+      // Create a new message with the continued content
+      const continuedMessage: Message = {
+        ...message,
+        content: message.content + '\n\n' + response.response,
+        isComplete: response.isComplete,
+        threadId: response.threadId,
+        runId: response.runId,
+        assistantId: response.assistantId,
+        figures: extractFiguresFromAllStandards(response.response)
+      };
+
+      // Update the conversation with the continued message
+      setConversation(prev => prev.map(msg => 
+        msg.id === message.id ? continuedMessage : msg
+      ));
+
+      // Save to Supabase
+      if (user) {
+        const { error: updateError } = await supabase
+          .from('conversations')
+          .update(formatMessageForDatabase(continuedMessage))
+          .eq('id', message.id);
+
+        if (updateError) {
+          console.error('Error updating conversation:', updateError);
+          throw updateError;
+        }
+      }
+
+    } catch (error) {
+      console.error('Error continuing generation:', error);
+      setContinuationError(error instanceof Error ? error.message : 'An error occurred');
+    } finally {
+      clearInterval(progressInterval);
+      setIsContinuing(false);
+      setContinuationProgress(0);
+    }
+  };
+
+  const handleFollowUp = async (messageId: string, input: string) => {
+    if (!user) return;
+    
+    try {
+      const originalMessage = conversation.find(msg => msg.id === messageId);
+      if (!originalMessage) {
+        throw new Error('Original message not found');
+      }
+
+      // Find the root message (initial question) of this conversation thread
+      const rootMessage = conversation.find(msg => {
+        // If the original message is already a follow-up, get its root message
+        if (originalMessage.related_question_id) {
+          return msg.id === originalMessage.related_question_id && msg.role === 'user' && !msg.related_question_id;
+        }
+        // If it's an initial answer, get its question
+        if (originalMessage.role === 'assistant' && !originalMessage.isFollowUp) {
+          return msg.id === originalMessage.related_question_id;
+        }
+        // If it's the initial question itself
+        return msg.id === messageId && msg.role === 'user' && !msg.related_question_id;
+      });
+
+      if (!rootMessage) {
+        console.error('Failed to find root message for:', messageId);
+        console.error('Original message:', originalMessage);
+        throw new Error('Root message not found');
+      }
+
+      // Get the conversation context - include both the root Q&A and the immediate parent Q&A
+      const conversationContext = [rootMessage];
+      
+      // Add the root answer
+      const rootAnswer = conversation.find(msg => 
+        msg.role === 'assistant' && 
+        msg.related_question_id === rootMessage.id
+      );
+      if (rootAnswer) {
+        conversationContext.push(rootAnswer);
+      }
+
+      // If this is a follow-up to a follow-up, add the immediate parent Q&A
+      if (originalMessage.isFollowUp || (originalMessage.role === 'assistant' && originalMessage.related_question_id)) {
+        const parentQuestion = conversation.find(msg => 
+          msg.role === 'user' && 
+          (msg.id === originalMessage.related_question_id || 
+           msg.id === (originalMessage.role === 'assistant' ? originalMessage.related_question_id : messageId))
+        );
+        if (parentQuestion) {
+          conversationContext.push(parentQuestion);
+          const parentAnswer = conversation.find(msg => 
+            msg.role === 'assistant' && 
+            msg.related_question_id === parentQuestion.id
+          );
+          if (parentAnswer) {
+            conversationContext.push(parentAnswer);
+          }
+        }
+      }
+
+      // Create follow-up question entry
+      const now = new Date();
+      const { data: followUpQuestion, error: questionError } = await supabase
+        .from('conversations')
+        .insert({
+          role: 'user',
+          content: input,
+          created_at: formatDateForDatabase(now),
+          user_id: user.id,
+          related_question_id: rootMessage.id,  // Always link to the root message
+          is_follow_up: true,
+          thread_id: originalMessage.threadId || '',
+          run_id: originalMessage.runId || '',
+          assistant_id: originalMessage.assistantId
+        })
+        .select()
+        .single();
+
+      if (questionError) throw questionError;
+
+      // Get AI response with full context
+      const response = await fetch('/api/chat/follow-up', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          message: input,
+          originalMessageId: messageId,
+          conversation: conversationContext,
+          threadId: originalMessage.threadId || ''
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to get AI response');
+      }
+
+      const data = await response.json();
+      
+      // Extract figures from all standards mentioned
+      const figures = extractFiguresFromAllStandards(data.response);
+      
+      // Validate figure paths
+      const validatedFigures = await Promise.all(
+        figures.map(checkImageExists)
+      );
+      
+      // Save the assistant's response
+      const { data: followUpAnswer, error: answerError } = await supabase
+        .from('conversations')
+        .insert({
+          role: 'assistant',
+          content: data.response,
+          created_at: formatDateForDatabase(now),
+          user_id: user.id,
+          related_question_id: followUpQuestion.id,
+          is_follow_up: true,
+          thread_id: data.threadId,
+          run_id: data.runId,
+          assistant_id: data.assistantId,
+        })
+        .select()
+        .single();
+
+      if (answerError) throw answerError;
+
+      // Use the validated figures when updating state
+      const formattedAnswer = {
+        ...formatDatabaseMessage(followUpAnswer),
+        figures: validatedFigures,
+        referencedClauses: extractClauseReferences(data.response)
+      };
+
+      // Update conversation state with new messages
+      setConversation(prev => [
+        ...prev,
+        formattedAnswer
+      ]);
+
+    } catch (error) {
+      console.error('Error in follow-up:', error);
+      throw error;
+    }
+  };
+
+  const convertClauseToReference = (clause: ClauseSection): TypedClauseReference => {
+    // Determine which standard this clause belongs to based on its ID pattern
+    let standard: StandardReference;
+    
+    // Maps of standard IDs to their details - grouped by clause pattern
+    const standardMappings: Record<string, StandardReference> = {
+      // Clauses starting with 2. are from 2293.2
+      '2293.2': {
+        id: '2293.2',
+        name: 'AS/NZS 2293.2',
+        version: '2019'
+      },
+      // Default to 3000 for most clauses
+      '3000': {
+        id: '3000',
+        name: 'AS/NZS 3000',
+        version: '2018'
+      },
+      // Other standards
+      '3001.1': {
+        id: '3001.1',
+        name: 'AS/NZS 3001.1',
+        version: '2022'
+      },
+      '3001.2': {
+        id: '3001.2',
+        name: 'AS/NZS 3001.2',
+        version: '2022'
+      },
+      '3003': {
+        id: '3003',
+        name: 'AS/NZS 3003',
+        version: '2018'
+      }
+    };
+    
+    // First check if the clause already has a standard defined
+    if (clause.standard && typeof clause.standard === 'object' && 'id' in clause.standard) {
+      // If the standard property exists and is a valid object with an id
+      standard = {
+        id: clause.standard.id,
+        name: clause.standard.name || `AS/NZS ${clause.standard.id}`,
+        version: clause.standard.version || standardMappings[clause.standard.id]?.version || '2018'
+      };
+    } 
+    // Special cases for known clause patterns
+    else if (clause.id.startsWith('2.')) {
+      standard = standardMappings['2293.2'];
+    }
+    // Special case for known clauses
+    else if (['2.3', '2.5', '2.5.2'].includes(clause.id)) {
+      standard = standardMappings['2293.2'];
+    }
+    // Default to 3000 standard
+    else {
+      standard = standardMappings['3000'];
+    }
+
+    return {
+      id: clause.id,
+      type: 'clause',
+      standard: standard,
+      referenceNumber: clause.id,
+      lastUpdated: Date.now(),
+      formatVersion: '1.0',
+      source: 'direct',
+      validated: true,
+      referenceChain: []
+    };
+  };
+
+  // Update the renderClauseDisplay function
+  const renderClauseDisplay = (clause: TreeViewElement) => {
+    try {
+      // Extract information from clause ID
+      const { standardId, version } = extractStandardInfo(clause.id);
+      
+      // Remove the AUSNZ: prefix if it exists
+      const cleanClauseId = clause.id.startsWith('AUSNZ:') ? clause.id.replace('AUSNZ:', '') : clause.id;
+      
+      // Use the standardDoc from the clause if available, otherwise use the extracted standardId
+      const effectiveStandardId = clause.standardDoc || standardId;
+      
+      console.log(`Rendering clause: ${cleanClauseId} from standard ${effectiveStandardId} (version ${version})`);
+      
+      // Format the clause ID appropriately for display
+      return (
+        <ClauseDisplay
+          key={clause.id}
+          standardId={effectiveStandardId}
+          clauseId={cleanClauseId}  // Use the cleaned clause ID without prefix
+          onError={(error) => console.error(`Error loading clause ${cleanClauseId} from ${effectiveStandardId}:`, error)}
+          className="mb-4"
+        />
+      );
+    } catch (error) {
+      console.error('Error in renderClauseDisplay:', error);
+      return (
+        <div className="p-4 bg-red-50 dark:bg-red-900/20 rounded-lg border border-red-200 dark:border-red-800 mb-4">
+          <p className="text-red-800 dark:text-red-400">Error loading clause {clause.id}</p>
+          <p className="text-sm text-red-600 dark:text-red-500">
+            Could not load clause {clause.id}
+          </p>
+        </div>
+      );
+    }
+  };
+
+  // Update the loadClause function
+  const loadClause = async (clauseId: string): Promise<ClauseSection | null> => {
+    console.log('Loading clause:', clauseId);
+    try {
+      // First, extract the standard information from the clause ID
+      const { standardId: detectedStandardId, version: detectedVersion } = extractStandardInfo(clauseId);
+      
+      // Remove the AUSNZ: prefix for the reference lookup if it exists
+      const cleanClauseId = clauseId.startsWith('AUSNZ:') ? clauseId.replace('AUSNZ:', '') : clauseId;
+      
+      // Create a reference string in the format that loadReference expects, with the standard information
+      // Format: clause:standardId/clauseNumber
+      const referenceString = `clause:${detectedStandardId}/${cleanClauseId.replace('AUSNZ:', '')}`;
+      
+      console.log(`Looking up reference with string: ${referenceString}, detected standard: ${detectedStandardId}`);
+
+      // Load the reference
+      const result = await referenceLoader.loadReference(referenceString);
+
+      if (!result || !('content' in result)) {
+        console.log(`No result found for ${referenceString}, creating fallback clause`);
+        
+        // Create a fallback clause with the detected standard information
+        return {
+          id: cleanClauseId,
+          title: `Clause ${cleanClauseId}`,
+          fullText: `Content for clause ${cleanClauseId} from standard ${detectedStandardId} could not be loaded.`,
+          references: {
+            documents: [],
+            sections: [],
+            crossStandards: []
+          },
+          standard: {
+            id: detectedStandardId,
+            name: `AS/NZS ${detectedStandardId}`,
+            version: detectedVersion
+          }
+        };
+      }
+
+      // Get standard info with from the result, with fallback to the detected standard
+      let standardId = detectedStandardId;
+      let standardName = `AS/NZS ${detectedStandardId}`;
+      let standardVersion = detectedVersion;
+      
+      // Safely extract standard information if available from the result
+      if (result.content && result.content.standard) {
+        const std = result.content.standard;
+        // Handle case where standard is an object with expected properties
+        if (typeof std === 'object' && std !== null && 'id' in std) {
+          standardId = std.id as string;
+          // Check if name property exists before trying to access it
+          standardName = 'name' in std ? (std.name as string) : `AS/NZS ${standardId}`;
+          if ('version' in std) {
+            standardVersion = std.version as string;
+          }
+        } 
+        // Handle case where standard is just a string ID
+        else if (typeof std === 'string') {
+          standardId = std;
+          standardName = `AS/NZS ${std}`;
+        }
+      }
+
+      // Convert the result to ClauseSection format
+      return {
+        id: cleanClauseId,
+        title: result.content?.title || '',
+        fullText: result.content?.text || '',
+        references: {
+          documents: [],
+          sections: [],
+          crossStandards: []
+        },
+        standard: {
+          id: standardId,
+          name: standardName,
+          version: standardVersion
+        }
+      };
+      
+    } catch (error) {
+      console.error('Error loading clause:', error);
+      return null;
+    }
+  };
+
+  // Update the handleClauseSelect function
+  const handleClauseSelect = async (clauseId: string, standardDoc?: string) => {
+    console.log(`Selecting clause ${clauseId} with standardDoc ${standardDoc || 'not provided'}`);
+    
+    // If a standardDoc was provided in the TreeViewElement, use it to create a modified clauseId
+    // This ensures we use the correct standard when loading the clause
+    let effectiveClauseId = clauseId;
+    if (standardDoc) {
+      // If the clause already has AUSNZ: prefix, just replace the standard in extractStandardInfo
+      if (clauseId.startsWith('AUSNZ:')) {
+        // Extract the clause number without the prefix
+        const cleanClauseId = clauseId.replace('AUSNZ:', '');
+        console.log(`Using standardDoc ${standardDoc} for clause ${cleanClauseId}`);
+      }
+    }
+    
+    const clause = await loadClause(effectiveClauseId);
+    if (clause) {
+      const reference = convertClauseToReference(clause);
+      setSelectedClause(reference);
+      setShowClauseTree(true);
+    } else {
+      console.log('No clause found for:', effectiveClauseId);
+    }
+  };
+
+  const renderTreeContent = (elements: ClauseTreeViewElement[]) => {
+    return elements.map((element) => {
+      if (element.children && element.children.length > 0) {
+        return (
+          <Folder
+            key={element.id}
+            element={element.name}
+            value={element.id}
+            isSelectable={element.isSelectable}
+          >
+            {renderTreeContent(element.children as ClauseTreeViewElement[])}
+          </Folder>
+        );
+      }
+      return (
+        <File
+          key={element.id}
+          value={element.id}
+          isSelectable={element.isSelectable}
+          fileIcon={<FileTextIcon className="size-4" />}
+          onClick={() => handleClauseSelect(element.id, element.standardDoc)}
+        >
+          {element.name}
+        </File>
+      );
+    });
+  };
+
+  const renderChatMessages = () => {
+    if (activeTab !== 'chat' || conversation.length === 0) {
+      return null;
+    }
+
+    console.log('🗨️ Rendering chat messages, conversation length:', conversation.length);
+    
+    // Log the entire conversation to debug
+    console.log('📊 Full conversation state:', JSON.stringify(conversation, null, 2));
+
+    // Find user messages (questions)
+    const userMessages = conversation.filter(msg => msg.role === 'user');
+    if (userMessages.length === 0) {
+      return (
+        <div className="p-4 text-center text-gray-500">
+          No conversation yet. Type a question to get started.
+        </div>
+      );
+    }
+
+    // Get only the most recent user message
+    const latestUserMessage = userMessages[userMessages.length - 1];
+    console.log('📝 Latest user message:', latestUserMessage);
+
+    // Find the corresponding assistant response (if any)
+    const assistantResponse = conversation.find(msg => 
+      msg.role === 'assistant' && 
+      (msg.related_question_id === latestUserMessage.id || 
+       // Also check if it's the next message after the user message (in case related_question_id is not set)
+       conversation.indexOf(msg) === conversation.indexOf(latestUserMessage) + 1)
+    );
+    
+    console.log('📝 Corresponding assistant response:', assistantResponse || 'No response yet');
+
+    return (
+      <div className="space-y-4">
+        {/* Render the latest user message */}
+        <BoxReveal key={latestUserMessage.id || 'latest-user'} width="100%" boxColor="#eca72c" duration={0.5}>
+          <div className="p-3 rounded-lg bg-gray-100 dark:bg-gray-700">
+            <p className="font-bold mb-2">You:</p>
+            <ReactMarkdown className="whitespace-pre-wrap prose dark:prose-invert max-w-none">
+              {latestUserMessage.content}
+            </ReactMarkdown>
+            
+            {/* Show loading indicator if we're waiting for a response */}
+            {isNewRequestPending && !assistantResponse && (
+              <div className="mt-4 p-4 bg-white/70 dark:bg-gray-600 rounded-lg flex items-center">
+                <div className="animate-spin mr-2 h-4 w-4 border-2 border-amber-500 border-t-transparent rounded-full"></div>
+                <p>Generating response...</p>
+              </div>
+            )}
+            
+            {/* Render the assistant response if available */}
+            {assistantResponse && (
+              <div className="mt-4 bg-white/70 dark:bg-gray-600 p-4 rounded-lg">
+                <p className="font-bold mb-2">TradeGuru:</p>
+                <ReactMarkdown className="whitespace-pre-wrap prose dark:prose-invert max-w-none">
+                  {assistantResponse.content}
+                </ReactMarkdown>
+                
+                {/* Figures and Tables */}
+                {assistantResponse.figures && assistantResponse.figures.length > 0 && (
+                  <div className="mt-4">
+                    <h4 className="text-lg font-semibold mb-3">Referenced Figures & Tables</h4>
+                    <MultiStandardFigureDisplay figures={assistantResponse.figures} />
+                  </div>
+                )}
+                
+                {/* Clauses */}
+                {assistantResponse.referencedClauses && assistantResponse.referencedClauses.length > 0 && (
+                  <div className="mt-6 border-t border-gray-200 dark:border-gray-700 pt-4">
+                    <h4 className="text-lg font-semibold mb-3">Referenced Clauses</h4>
+                    <div className="space-y-2">
+                      {assistantResponse.referencedClauses.map((clause, index) => (
+                        // Cast the clause to the expected type to avoid TS errors
+                        renderClauseDisplay(clause as unknown as TreeViewElement)
+                      ))}
+                    </div>
+                  </div>
+                )}
+                
+                {/* Rating buttons */}
+                <div className="mt-4 flex items-center gap-2">
+                  <button
+                    onClick={() => handleRating(assistantResponse.id || '', 'up')}
+                    className={`p-2 rounded-full transition-colors ${
+                      ratings[assistantResponse.id || ''] === 'up' 
+                        ? 'bg-green-100 text-green-600 dark:bg-green-900 dark:text-green-400' 
+                        : 'hover:bg-gray-100 dark:hover:bg-gray-800'
+                    }`}
+                    aria-label="Thumbs up"
+                  >
+                    <ThumbsUp className="size-4" />
+                  </button>
+                  <button
+                    onClick={() => handleRating(assistantResponse.id || '', 'down')}
+                    className={`p-2 rounded-full transition-colors ${
+                      ratings[assistantResponse.id || ''] === 'down' 
+                        ? 'bg-red-100 text-red-600 dark:bg-red-900 dark:text-red-400' 
+                        : 'hover:bg-gray-100 dark:hover:bg-gray-800'
+                    }`}
+                    aria-label="Thumbs down"
+                  >
+                    <ThumbsDown className="size-4" />
+                  </button>
+                  
+                  {/* Continue generation button for incomplete responses */}
+                  {assistantResponse && !assistantResponse.isComplete && (
+                    <button 
+                      onClick={() => handleContinueGeneration(assistantResponse)}
+                      className="ml-2 text-sm text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+                    >
+                      Continue generation
+                    </button>
+                  )}
+                </div>
+                
+                {/* Follow-up input */}
+                {!showFollowUpInput && (
+                  <button
+                    onClick={() => setShowFollowUpInput(assistantResponse.id || '')}
+                    className="mt-2 text-sm text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+                  >
+                    Ask a follow-up question
+                  </button>
+                )}
+                
+                {showFollowUpInput === assistantResponse.id && (
+                  <FollowUpInput
+                    messageId={assistantResponse.id || ''}
+                    onSubmit={(input) => handleFollowUp(assistantResponse.id || '', input)}
+                    onCancel={() => setShowFollowUpInput('')}
+                  />
+                )}
+              </div>
+            )}
+          </div>
+        </BoxReveal>
+      </div>
+    );
+  };
+
+  useEffect(() => {
+    console.log('Loaded clauses data:', waClauses);
+    const treeData = convertClausesToTreeView(waClauses);
+    setClausesTree(treeData);
+  }, []);
+
+  useEffect(() => {
+    const loadClauses = async () => {
+      const loadedClauseData: Record<string, ClauseSection> = {};
+      
+      for (const clause of referencedClauses) {
+        const [standard, number] = clause.id.split(':');
+        const fullClause = standard === 'WA' ? 
+          findClauseById(number) : 
+          await findAusnzClauseByIdSync(number);
+          
+        if (fullClause) {
+          const convertedClause: ClauseSection = {
+            id: fullClause.id as string,
+            title: fullClause.title as string,
+            fullText: fullClause.fullText as string | undefined,
+            subsections: fullClause.subsections as Record<string, ClauseSection> | undefined,
+            references: {
+              documents: [],
+              sections: [],
+              crossStandards: []
+            },
+            requirements: fullClause.requirements as string[] | undefined,
+            standard: convertStandardToReference(fullClause.standard)
+          };
+          loadedClauseData[clause.id] = convertedClause;
+        }
+      }
+      
+      setLoadedClauses(loadedClauseData);
+    };
+    
+    loadClauses();
+  }, [referencedClauses]);
+
+  if (!user) {
+    return <AuthUI />;
+  }
+
+  return (
+    <div className="w-full max-w-6xl mx-auto bg-white dark:bg-gray-800 rounded-xl shadow-lg relative flex flex-col md:flex-row">
+      <ChatSidebar 
+        open={sidebarOpen} 
+        setOpen={setSidebarOpen} 
+        activeTab={activeTab} 
+        setActiveTab={handleTabChange}
+      >
+        <ChatSidebarBody className="justify-between gap-10 bg-gray-200 dark:bg-gray-700">
+          <div className="flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
+            <div className="mt-8 flex flex-col gap-2">
+              {tabs.map((tab, idx) => (
+                <ChatSidebarTab 
+                  key={idx} 
+                  tab={tab}
+                />
+              ))}
+            </div>
+          </div>
+        </ChatSidebarBody>
+      </ChatSidebar>
+
+      <div className="flex-1 flex flex-col">
+        {activeTab === 'chat' && (
+          <div className="sticky top-0 bg-white dark:bg-gray-800 p-4 shadow-md sticky-header z-[50]">
+            <div className="flex flex-col md:flex-row items-center space-y-1 md:space-y-0 md:space-x-1 mb-4">
+              <span className="text-sm font-semibold text-gray-900 dark:text-white">
+                Chat
+              </span>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                <SparklesText
+                  text="TradeGuru"
+                  colors={{ first: "#ee5622", second: "#eca72c" }}
+                  className="inline-block"
+                  sparklesCount={3}
+                />
+              </h3>
+            </div>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="flex flex-col md:flex-row items-start space-y-2 md:space-y-0 md:space-x-4">
+                <div className="w-full md:flex-grow">
+                  <Input
+                    type="text"
+                    placeholder="Type your question here..."
+                    value={inputValue}
+                    onChange={(e) => setInputValue(e.target.value)}
+                    className="w-full bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600"
+                  />
+                </div>
+                <div className="flex items-center space-x-2">
+                  <ShimmerButton
+                    type="submit"
+                    disabled={isLoading}
+                    shimmerColor="#eca72c"
+                    background="#ee5622"
+                    className="flex items-center justify-center px-4 py-2"
+                  >
+                    {isLoading ? 'Thinking...' : 'Send'}
+                  </ShimmerButton>
+                  {isLoading && (
+                    <div className="relative">
+                      <AnimatedCircularProgressBar
+                        max={100}
+                        min={0}
+                        value={progressValue}
+                        gaugePrimaryColor="#ee5622"
+                        gaugeSecondaryColor="rgba(238, 86, 34, 0.2)"
+                        className="w-10 h-10"
+                      />
+                      <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-xs font-semibold">
+                        {progressValue}%
+                      </span>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </form>
+          </div>
+        )}
+
+        <div className="flex-1 p-4 md:p-6 overflow-y-auto max-h-[calc(90vh-140px)]" ref={chatContainerRef}>
+          <div className="flex flex-col gap-6">
+            {activeTab === 'chat' && (
+              <div className="w-full space-y-6">
+                <div className="hidden md:flex md:space-x-6">
+                  <div className="w-1/4 space-y-6">
+                    <div>
+                      <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Example Questions:</h4>
+                      <AnimatedListDemo className="h-40" />
+                    </div>
+                  </div>
+                  <div className="w-3/4">
+                    {renderChatMessages()}
+                  </div>
+                </div>
+
+                <div className="md:hidden">
+                  {renderChatMessages()}
+                </div>
+              </div>
+            )}
+
+            {activeTab === 'history' && (
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <SparklesText
+                    text="Conversation History"
+                    colors={{ first: "#ee5622", second: "#eca72c" }}
+                    className="text-lg font-semibold"
+                    sparklesCount={3}
+                  />
+                </div>
+                <Input
+                  type="text"
+                  placeholder="Search what you've spoken about before..."
+                  value={searchKeyword}
+                  onChange={(e) => setSearchKeyword(e.target.value)}
+                  className="w-full bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600 mb-4"
+                />
+                <ShimmerButton
+                  onClick={clearConversation}
+                  shimmerColor="#eca72c"
+                  background="#ee5622"
+                  className="px-4 py-2"
+                >
+                  Clear Conversation History
+                </ShimmerButton>
+                {filteredConversation.length > 0 ? (
+                  <Timeline data={filteredTimelineData} lineColor="#ee5622" />
+                ) : (
+                  <p className="text-gray-600 dark:text-gray-400">No conversation history found for the keyword.</p>
+                )}
+                <AnimatePresence>
+                  {expandedAnswerIndex !== null && (
+                    <ExpandableAnswer 
+                      answerIndex={expandedAnswerIndex}
+                      onClose={() => setExpandedAnswerIndex(null)}
+                      conversation={conversation}
+                    />
+                  )}
+                </AnimatePresence>
+              </div>
+            )}
+
+            {activeTab === 'calculator' && (
+              <div className="space-y-4">
+                <MaximumDemandCalculator />
+                {/* You can add more calculators here */}
+              </div>
+            )}
+
+            {activeTab === 'clauses' && (
+              <div className="space-y-4 p-4">
+                <div className="flex items-center justify-between mb-4">
+                  <SparklesText
+                    text="Search Clauses"
+                    colors={{ first: "#ee5622", second: "#eca72c" }}
+                    className="text-lg font-semibold"
+                    sparklesCount={3}
+                  />
+                </div>
+                <div className="h-[calc(100vh-200px)] overflow-y-auto rounded-lg bg-white/50 dark:bg-gray-800/50 p-4">
+                  <ClauseSearch />
+                </div>
+              </div>
+            )}
+            
+            {error && (
+              <div className="mt-4 p-4 bg-red-100 text-red-700 rounded-lg">
+                <p>{error}</p>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// Update the saveAssistantResponseToDatabase function with better error handling
+const saveAssistantResponseToDatabase = async (assistantMessage: Message) => {
+  if (!user || !assistantMessage) {
+    console.error('❌ Cannot save assistant response - missing user or message data');
+    return false;
+  }
+  
+  try {
+    console.log('💾 Saving assistant response to database:', {
+      id: assistantMessage.id,
+      content_preview: assistantMessage.content.substring(0, 50) + '...',
+      figures_count: assistantMessage.figures?.length || 0,
+      clauses_count: assistantMessage.referencedClauses?.length || 0
+    });
+    
+    // Make sure we have the correct format for Supabase
+    // Log the exact data structure being sent to Supabase
+    const dbMessage = {
+      id: assistantMessage.id,
+      role: 'assistant',
+      content: assistantMessage.content,
+      created_at: assistantMessage.created_at,
+      user_id: user.id,
+      related_question_id: assistantMessage.related_question_id || null,
+      assistant_id: assistantMessage.assistantId || null,
+      thread_id: assistantMessage.threadId || null,
+      run_id: assistantMessage.runId || null,
+      is_complete: assistantMessage.isComplete || true,
+      // Store these as JSON strings if they're objects
+      figures: Array.isArray(assistantMessage.figures) ? assistantMessage.figures : [],
+      referenced_clauses: Array.isArray(assistantMessage.referencedClauses) ? assistantMessage.referencedClauses : []
+    };
+    
+    console.log('📝 Database message structure:', JSON.stringify(dbMessage, null, 2));
+    
+    // Use upsert to either insert or update the record
+    const { data, error } = await supabase
+      .from('conversations')
+      .upsert(dbMessage)
+      .select();
+    
+    if (error) {
+      console.error('❌ Supabase error saving assistant response:', error);
+      console.error('Error details:', error.message, error.details, error.hint);
+      return false;
+    }
+    
+    if (!data || data.length === 0) {
+      console.warn('⚠️ No data returned from upsert operation');
+      // Try a direct insert if upsert failed
+      const insertResult = await supabase
+        .from('conversations')
+        .insert(dbMessage)
+        .select();
+        
+      if (insertResult.error) {
+        console.error('❌ Insert also failed:', insertResult.error);
+        return false;
+      }
+      
+      console.log('✅ Insert succeeded as fallback:', insertResult.data);
+      return true;
+    }
+    
+    console.log('✅ Successfully saved assistant response to database. Returned data:', data);
+    return true;
+  } catch (error) {
+    console.error('❌ Exception in saveAssistantResponseToDatabase:', error);
+    return false;
+  }
+};

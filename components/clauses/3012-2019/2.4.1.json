@@ -1,0 +1,5 @@
+{
+    "id": "2.4.1",
+    "title": "Control",
+    "fullText": "Each switchboard shall be provided with one isolating switch marked in accordance with Clause 2.4.3 and complying with the requirements for isolating switches in AS/NZS 3000. This switch shall interrupt supply to all final sub-circuits and sub-mains originating from the switchboard, including circuits supplying socket-outlets mounted on the switchboard.\nExceptions:\n1\tOne additional switch may be provided, marked in accordance with Clause 2.4.3, for the control of all final sub-circuits intended to operate out of normal working hours.\n2\tAdditional switches controlling safety services, where required by AS/NZS 3000, shall be provided and clearly identified, all in accordance with AS/NZS 3000.\nNOTE: Consideration should be given to generator supplies to ensure that the isolating switch provides isolation from all incoming supplies"
+} 

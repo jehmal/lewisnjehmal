@@ -1,0 +1,5 @@
+{
+    "id": "1.3.1",
+    "title": "INTERPRETATION",
+    "fullText": "The terms 'normative' and 'informative' have been used in this standard to define the application of the appendix to which they apply. A 'normative' appendix is an integral part of a standard and subject to the same level of compliance as if it were in the body of the standard, whereas an 'informative' appendix is provided for information and guidance, and may indicate good practice. Non-compliance with an informative appendix will not be seen as non-compliance with this standard.\nShall\nIndicates a statement is mandatory to achieve compliance with this standard.\nShould\nIndicates a statement is preferred as indicating good practice, but is not mandatory.\nMay\nIndicates the existence of an option.\nNumeric references are provided without prefix as the clause number only, for example 2.3.2.\nUnless otherwise specified, all AC voltage and current specified values referenced are expressed in root mean square (RMS) values."
+} 

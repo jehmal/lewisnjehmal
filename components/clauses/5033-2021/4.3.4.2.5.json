@@ -1,0 +1,5 @@
+{
+  "id": "4.3.4.2.5",
+  "title": "CURRENT AND VOLTAGE RATING FOR CIRCUIT BREAKERS",
+  "fullText": "Circuit breakers shall be rated to interrupt full load and prospective fault currents, or be rated according to Clause 4.2.2 where overcurrent protection is incorporated, when they are being switched at the calculated PV d.c. circuit maximum voltage.\nNOTE 1 The circuit breaker may be the incorporated overcurrent protection.\nAllowances for temperature de-ratings shall also be met when rating circuit breakers for the installation location.\nWhere the circuit breaker is used for isolation purposes with non-separated PCEs, both the negative circuit configuration and the positive circuit configuration individually shall be rated to switch the calculated PV d.c. circuit maximum voltage.\nWhere the circuit breaker is used for isolation purposes with separated PCEs, the negative circuit configuration and the positive circuit configuration combined shall be rated to switch the calculated PV d.c. circuit maximum voltage.\nNOTE 2 The calculation for rating circuit breakers is directly related to the topology of the inverter."
+} 

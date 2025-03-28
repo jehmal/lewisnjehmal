@@ -1,0 +1,5 @@
+{
+    "id": "3.6.3.2",
+    "title": "Voltmeter installation",
+    "fullText": "A system voltmeter shall be installed on the main switchboard if the system is permanently connected to—\n(a)\tmotor circuits; or\n(b)\ta generator; or\n(c)\tan inverter. If the inverter does not have a true sinusoidal output, the voltmeter shall be a true r.m.s. type.\nNOTE: The inverter voltmeter may be installed in proximity to the switchboard."
+} 

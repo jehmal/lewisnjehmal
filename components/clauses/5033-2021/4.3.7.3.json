@@ -1,0 +1,5 @@
+{
+  "id": "4.3.7.3",
+  "title": "OVERCURRENT PROTECTION FOR PV SYSTEMS CONNECTED TO BESS",
+  "fullText": "Where BESS is directly connected to PV circuits or connected to PV circuits via a non-separated PCE, overcurrent protection shall be installed on all live conductors to protect the PV system and associated equipment from a fault current originating from the BESS.\nThe overcurrent protection device shall be adjacent to the PCE.\nEXCEPTION — Over current protection is not required to be adjacent where it is integrated into the PCE or BESS and appropriately rated to protect the PV system.\nNOTE The PV array overcurrent protection devices are commonly installed between the battery or batteries and the charge controller as close as possible to the battery or batteries. If these devices are appropriately rated, they provide protection to both the charge controller and the PV array cable. In such cases, no further PV array cable overcurrent protection between the PV array and the charge controller is required."
+} 

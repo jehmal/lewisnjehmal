@@ -1,0 +1,5 @@
+{
+    "id": "2.6.3",
+    "title": "Generator output isolator",
+    "fullText": "Each generating set shall be provided with an isolating switch operating in all live conductors, that is installed adjacent to, or on, the generating set so that a person working\nA1\ton the generating set has a clear view of the isolating device, and may be combined with overcurrent protection required by Clause 2.6.2.\nException 1:\nThe isolating switch may be located in the generator switchboard.\nException 2:\nWhere the generating set is the sole source of supply, the isolating switch shall not operate in the neutral conductor."
+} 

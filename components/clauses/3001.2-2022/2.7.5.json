@@ -1,0 +1,5 @@
+{
+    "id": "2.7.4",
+    "title": "Supply source connections to earthing system",
+    "fullText": "The neutral conductor of the output of any low voltage supply source shall be connected to the earthing system of the connectable electrical installation in accordance with one of the following: (a) Isolated supplies: Where the electricity supply source is obtained from an isolated onboard generator or isolated inverter or EPB inverter, the neutral connection of the generator or inverter shall be connected to the earth system of the connectable electrical installation only when it is supplying the connectable electrical installation. AS/NZS 3001.2:2022 © Standards Australia Limited/Standards New Zealand 2022 35 NOTE 1 This connection converts the isolated (IT) supply characteristics to have the properties of a TN-S supply, enabling correct operation of the RCD protection. NOTE 2 The connection is typically achieved by use of an additional pole in the changeover device. See Figures 2.8 and 2.9."
+} 

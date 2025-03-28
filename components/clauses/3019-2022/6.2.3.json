@@ -1,0 +1,5 @@
+{
+    "id": "6.2.3",
+    "title": "Testing",
+    "fullText": "Testing shall be undertaken to assess all of the following:\n(a) That socket-outlets with current rating not exceeding 30 A have additional protection by RCD in accordance with AS/NZS 3000 requirements for new sockets.\nEXCEPTIONS:\n1. RCD protection is not required for final subcircuits, only for socket-outlets.\n2. This requirement need not apply to sockets that are —\n(a) not using automatic disconnection of supply as the means of fault protection; or\n(b) supplied from a monitored earth system; or\n(c) supplied at reduced low voltage (see Clause 1.5.4).\nNOTE In domestic and residential installations; this requirement need not apply to sockets for fixed or stationary electric cooking appliances; provided that the socket-outlet is —\n(i) located in a position that is not likely to be accessed for general purposes; and\n(ii) clearly marked to indicate its restricted purpose.\n(b) That subcircuits are protected by arc fault detective devices (AFDDs) in accordance with AS/NZS 3000 requirements for new subcircuits."
+} 

@@ -1,0 +1,5 @@
+{
+    "id": "8.6",
+    "title": "INTERNAL COMMUNICATION CIRCUITS",
+    "fullText": "Circuits operating at a voltage of 50 V and above shall have an insulation resistance between the two conductors and between each conductor and earth of not less than 1 MΩ.\nFor circuits operating at a voltage below 50 V, the insulation resistance shall not be less than 0.3 MΩ.\nNOTE: If necessary, any or all appliances connected to the circuit may be disconnected while the insulation resistance is tested."
+} 

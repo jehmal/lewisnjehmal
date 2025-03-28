@@ -1,0 +1,5 @@
+{
+    "id": "6.4.7",
+    "title": "Correction factors for cable bunching",
+    "fullText": "The current rating values given in Table 6 (and those derived from these values) may be used without further correction for bunching.\nIf there are up to six cables bunched together on cable trays, in cable conduits, pipes or trunking, and if these cables are expected to operate simultaneously at their full rated capacity and are laid close together in such a way that there is an absence of free air circulation around them, then a correction factor of 0.85 shall be applied."
+} 

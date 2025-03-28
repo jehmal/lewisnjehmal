@@ -1,0 +1,5 @@
+{
+  "id": "3.2.4.3",
+  "title": "ARC FLASH BOUNDARY",
+  "fullText": "The arc flash boundary is the distance from the arc source at which the incident energy equals 1.2 cal/cm2. This is the distance at which a person could receive a second degree burn if an arc flash were to occur.\nThe arc flash boundary shall be determined for all battery systems with a nominal voltage greater than DVC-A.\nNOTE 1 The arc flash boundary may be determined by calculation or by reference to Appendix F.\nNOTE 2 The arc flash boundary is used to determine the PPE requirements for personnel working on or near the battery system."
+} 

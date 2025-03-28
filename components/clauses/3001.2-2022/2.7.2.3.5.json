@@ -1,0 +1,5 @@
+{
+    "id": "2.7.2.3.5",
+    "title": "Inverter and inverter charger nameplate information requirements",
+    "fullText": "All inverters shall include the following information:\n(a) input voltage and current; and\n(b) continuous output current at rated voltage; and\n(c) nominal output voltage and frequency; and\n(d) surge capability and duration.\nAll inverter-chargers shall include the following information:\n(i) input voltage, current and frequency; and\n(ii) nominal output voltage and current; and\n(iii) d.c. output voltage at float or shut off, if applicable; and\n(iv) continuous output current at nominal battery voltage at 25 °C; and\n(v) battery type.\nNOTE For further guidance, refer to ISO 13297, AS/NZS 4763, AS/NZS 60335.2.29, AS/NZS 60335.1."
+} 

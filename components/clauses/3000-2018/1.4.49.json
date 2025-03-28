@@ -1,0 +1,5 @@
+{
+  "id": "1.4.49",
+  "title": "Earth fault-loop impedance",
+  "fullText": "The impedance of the earth fault-current loop (active-to-earth loop) starting and ending at the point-of-earth fault.\nNOTE: Clause 5.7 provides a description of the constituent parts of an earth fault-current loop.\nEarthing conductor (see Clause 1.4.81 Main earthing conductor).\n(see Clause 1.4.100 Protective earthing conductor)."
+} 

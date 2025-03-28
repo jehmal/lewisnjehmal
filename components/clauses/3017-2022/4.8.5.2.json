@@ -1,0 +1,5 @@
+{
+    "id": "4.8.5.2",
+    "title": "Supply not available",
+    "fullText": "When the supply is not available the resistance of the conductors of an individual circuit which form part of the earth fault-loop may be measured by an ohmmeter as follows:\n(a) Connect the active conductor and protective earthing conductors of the circuit under test together at the origin of the circuit (normally where the protective device is fitted). See Figure 4.25.\n(b) At the furthermost point on the circuit, connect one lead of the ohmmeter to the active conductor and the other lead to the associated protective earthing conductor.\nMeasure the combined resistance of the active and protective earthing conductors.\nNOTE 1 A low ohm range meter is suitable to undertake this task; refer to Clause 2.1.\nNOTE 2 The following Table is reproduced from AS/NZS 3000:2018 Table 8.1."
+} 

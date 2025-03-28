@@ -1,0 +1,5 @@
+{
+  "id": "5.5.2.2",
+  "title": "DISCONNECTION POINT",
+  "fullText": "A sign containing the following text shall be attached to both the positive and negative cable within 100 mm of the disconnection point of the PV string:\n\nWARNING: LOADS MUST BE ISOLATED AND CIRCUIT MUST BE TESTED FOR THE ABSENCE OF CURRENT BEFORE UNPLUGGING\n\nNOTE 1 See Figure A.4(c).\n\nA sign containing the following text shall be attached to the PV module or structure within 300 mm of the disconnection point to identify the location of the disconnection point:\n\nWARNING: PV STRING DISCONNECTION POINT\n\nNOTE 2 See Figure A.4(d).\n\nThe text shall be with a minimum letter size of 10 mm."
+}

@@ -1,0 +1,5 @@
+{
+  "id": "6.3.1.8.2",
+  "title": "BATTERY SYSTEM NOT EARTHED — BONDING",
+  "fullText": "For an installation comprising a single BESS with voltages greater than DVC-A, all metallic equipment enclosures associated with the BESS installation, shall be bonded together and connected to the earthing system of the electrical installation to prevent a shock hazard occurring.\nThe minimum size of the bonding conductor shall be 6 mm2."
+} 

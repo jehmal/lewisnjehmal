@@ -1,0 +1,5 @@
+{
+    "id": "4.4.2.2",
+    "title": "Provision of equipotential earthing system",
+    "fullText": "A cardiac-protected electrical area shall only contain one EP earthing system. An EP earthing system may serve more than one patient location.\nAn EP earthing system may serve more than one cardiac-protected electrical area.\nThe locations described in Items (a), (b) and (c) below shall share a single, common EP earthing system:\n(a)\tAll cardiac-protected electrical areas serviced by a single medical electrical system.\n(b)\tAll non-patient areas in which a part of the medical electrical system is connected to the LV supply or earthed.\nException:\n1\tThis requirement need not apply to equipment that meets the isolation requirements as specified in AS/NZS IEC 60601.1.\n(c)\tIf socket-outlets are connected to multiple EP earthing due to the 5.0 m requirement (see Clause 2.4.3.2.2(b)), then the area shall be configured as a single EP earthing system.\nNOTE: Clause 4.4.2.9 requires an EP test point to be provided in each cardiac-protected electrical area served by an EP earthing system."
+} 

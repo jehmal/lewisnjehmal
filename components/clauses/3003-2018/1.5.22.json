@@ -1,0 +1,5 @@
+{
+    "id": "1.5.22",
+    "title": "Patient location",
+    "fullText": "Any intended location of a patient within a patient area, whether or not occupied by the patient.\nWhere the location of a patient undergoing a body-type or cardiac-type procedure is likely to vary for different occasions (e.g. in some operating theatres) the patient location extends laterally to the entire room. This includes locations for incubators or cribs in delivery suites.\nNOTE: Figure 3 illustrates the relationship between patient area, patient environment and patient location."
+} 

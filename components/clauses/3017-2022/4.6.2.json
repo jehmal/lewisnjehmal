@@ -1,0 +1,5 @@
+{
+    "id": "4.6.2",
+    "title": "Considerations",
+    "fullText": "Testing considerations include the following:\n(a) Transposition of conductors is not always obvious under certain operating conditions, but is unsafe if —\n(i) the protective earthing conductor becomes \"open circuited\" causing one portion of the conductor and any exposed conductive parts connected to it, to become \"live\" when there is a fault between live conductors and the portion of the protective earthing conductor isolated from the earthing system; or\n(ii) the protective earthing conductor becomes overheated by carrying the load of larger neutral conductors; or\n(iii) work is carried out on a protective earthing conductor that has become energized.\n(b) For lighting circuits, unless all two-way and intermediate switching complete the circuit, the test may not be complete because the luminaire is not in circuit.\n(c) Where RCDs are installed, tests need to be carried out on the load side of the RCDs."
+} 

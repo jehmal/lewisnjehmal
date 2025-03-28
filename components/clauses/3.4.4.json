@@ -1,8 +1,0 @@
-{
-  "id": "3.4.4",
-  "title": "Coordination between conductors and protective devices",
-  "fullText": "In accordance with Clause 2.5.3, the continuous current-carrying capacity of the cables shall be coordinated with the current for which the circuit is designed and the type and current rating of the overload protective device.\nTaking into account the different overload operating characteristics for fuses and circuit-breakers, one of the relevant following conditions shall be satisfied:\n(a) The current rating of circuit-breakers shall not be greater than the cable current-carrying capacity (IB ≤ IN ≤ IZ; see Clause 2.5.3.1).\n(b) The current rating of HRC fuses shall not be greater than 90% of the cable current-carrying capacity (IB ≤ IN ≤ 0.9 IZ; see Clause 2.5.3.1).",
-  "references": {
-    "sections": ["2.5.3", "2.5.3.1"]
-  }
-} 

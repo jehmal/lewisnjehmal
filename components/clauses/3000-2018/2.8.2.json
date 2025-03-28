@@ -1,0 +1,5 @@
+{
+  "id": "2.8.2",
+  "title": "Selection of protective device",
+  "fullText": "The characteristics of the undervoltage protective device shall be compatible with the requirements of the appropriate Standards for starting and the use of electrical equipment.\nWhere the re-closure of a protective device is likely to create a dangerous situation, the re-closure shall not be automatic.\nInstantaneous disconnection by the undervoltage device shall not be impaired by contacts that have intentional delays in their operation.\nException: The operation of undervoltage protective devices may be delayed if the operation of the protected electrical equipment allows a brief interruption or loss of voltage without danger.\nNOTES:\n1\tProtective devices having time-delay facilities should permit the starting of motors where the supply voltage exceeds 85% of rated voltage and continued operation where the voltage is within 10% of the rated voltage.\n2\tExamples of protective devices for undervoltage are—\n(a)\tundervoltage relays or releases operating a switch or a circuit-breaker; and\n(b)\tnon-latched contactors."
+} 

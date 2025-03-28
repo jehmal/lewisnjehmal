@@ -1,8 +1,0 @@
-{
-  "id": "3.7.3",
-  "title": "Joints in cables",
-  "fullText": "Joints in cables shall be enclosed, e.g. in a junction box, to provide adequate protection against relevant external influences.\nException: Joints in cables need not be enclosed, provided that the joint—\n(a) is not subjected to any undue strain;\n(b) is made in accordance with the requirements of Clause 3.7.2;\n(c) has any mechanical protection that was removed or damaged reinstated; and\n(d) is insulated and sheathed to provide the equivalent of the original cable insulation and sheathing, including the requirements in Clause 3.10.1.2.",
-  "references": {
-    "sections": ["3.7.2", "3.10.1.2"]
-  }
-} 

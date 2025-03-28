@@ -1,0 +1,5 @@
+{
+  "id": "3.9.8.3",
+  "title": "SEGREGATION OF DIFFERENT VOLTAGE LEVELS",
+  "fullText": "Cables of high voltage circuits and cables of low or extra-low voltage circuits shall not be enclosed in the same wiring system.\nCables of low voltage circuits and cables of extra-low voltage circuits shall only be enclosed in the same wiring system where one of the following arrangements is employed:\n(a)\tThe low voltage cables are of a type providing the equivalent of double insulation.\n(b)\tAll cables or each conductor of a multi-core cable are insulated for the highest voltage present.\n(c)\tThe low voltage cables are installed in a separate compartment of a common cable trunking system having fixed and continuous barriers between compartments."
+} 

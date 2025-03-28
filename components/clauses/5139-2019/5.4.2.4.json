@@ -1,0 +1,5 @@
+{
+  "id": "5.4.2.4",
+  "title": "TESTING",
+  "fullText": "The testing of the installation shall be performed in accordance with the requirements of the manufacturer of the pre-assembled battery system and other components of the BESS and the requirements of AS/NZS 3000:2018 Section 8.\nBattery system polarity shall be tested prior to connection to a PCE. Testing shall be carried out to ensure no inadvertent connections between floating or isolated battery systems and earth.\nThe following measurements should be undertaken and results recorded in the commissioning documentation:\n(a) Total battery system voltage.\n(b) Individual pre-assembled battery system voltages, if applicable.\n(c) Overall battery system voltage drop from cabling at maximum rated discharge current."
+} 

@@ -1,0 +1,5 @@
+{
+    "id": "1.4.3",
+    "title": "Closed transition changeover device",
+    "fullText": "A device that permits the transfer of the generating set output to the normal supply without interruption of the supply to the load when transferring the load from the generator supply to the normal supply.\nThe closed transition changeover device operates in a 'make before break' mode when the normal supply and the generating set output are synchronized and then operates in parallel only for a very short duration.\nThe duration of the parallel connection is dependent on the connected load, the type of loading and the ability of the normal supply to deliver a high step increase in loading.\nNOTE: The installation and use of a closed transition changeover device system in an electrical installation is subject to a formal agreement with the electricity distributor."
+} 

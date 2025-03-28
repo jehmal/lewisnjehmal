@@ -1,0 +1,5 @@
+{
+    "id": "2.4.2.1",
+    "title": "Operation",
+    "fullText": "The isolating device when in the 'off' or 'isolated' position shall prevent the generating set engine being started by any automatic control device or remote control switch.\nWhere a switch located in a control or starting circuit is used for this purpose, it shall disconnect all live conductors of the circuit.\nElectronic equipment or devices shall not be used as an isolation device."
+} 

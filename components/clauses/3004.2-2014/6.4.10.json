@@ -1,0 +1,5 @@
+{
+    "id": "6.4.10",
+    "title": "Segregation of circuits",
+    "fullText": "Separate cables shall be used for all circuits requiring individual short-circuit/overcurrent protection, except in the following cases:\n(a)\tA control circuit which is taken from its main circuit (e.g. for an electric motor) may be carried in the same cable as the main circuit, provided that the main circuit and the subsidiary control circuit are controlled by a common isolator.\n(b)\tNon-essential circuits with voltages not exceeding the safety voltage, as defined in Clause 1.4.11, may be carried in the same cable.\nIf it is necessary to bunch in a common clip, gland, conduit or duct cables that have insulating materials with a different maximum rated conductor temperature, the size of these cables shall be sufficient to ensure that no cable can reach a temperature higher than its rating."
+} 

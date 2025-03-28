@@ -1,0 +1,5 @@
+{
+    "id": "2.7.7",
+    "title": "Busbars",
+    "fullText": "Busbars and their connections shall be made of copper and shall be designed to withstand mechanical stresses due to short-circuit. The maximum temperature rise shall be 45°C. Bare busbars shall comply with the minimum clearances and creepage distances given in Table 4.\n\nTABLE 4\nMINIMUM CLEARANCES AND CREEPAGE DISTANCES FOR BARE BUSBARS\n\nRated insulation voltage\nV\tMinimum clearance\nmm\tMinimum creepage distance\nmm\n≤ 250\t15\t20\n>250 to <690\t20\t25\n>690 to <1000\t25\t35"
+} 

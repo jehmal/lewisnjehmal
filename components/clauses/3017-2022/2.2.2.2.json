@@ -1,0 +1,5 @@
+{
+    "id": "2.2.2.2",
+    "title": "Low range ohmmeter",
+    "fullText": "The tests specified in this Standard require the ability to accurately measure low values of resistance. Test instruments have inherent errors. It is essential that these errors are only a small fraction of the maximum permitted value.\nThe meter shall be either —\n(a) an analogue type meter with a range having full scale deflection of the needle of no more than 2 Ω; or\n(b) a digital type or electronic-analogue meter giving readings, in ohms, to at least 2 decimal places.\nMost insulation resistance meters have a suitable range.\nNOTE See Appendix A for additional information."
+} 

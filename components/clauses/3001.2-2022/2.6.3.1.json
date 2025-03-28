@@ -1,0 +1,5 @@
+{
+    "id": "2.6.3.1",
+    "title": "Multi-phase installations",
+    "fullText": "In multi-phase electrical installations, provision shall be made for the ability to check the phase sequence of any external supply, and to match the supply phase sequence with the connectable electrical installation phase sequence.\nException: This requirement does not apply where all multi‑phase equipment within the connectable electrical installation is such that safety is not adversely affected by incorrect phase rotation.\nNOTE A combined phase sequence sensor and transposition sensor may be used to satisfy this requirement."
+} 

@@ -1,0 +1,5 @@
+{
+  "id": "5.3.1.3.1",
+  "title": "GENERAL",
+  "fullText": "Disconnecting means shall be provided in pre-assembled battery systems to isolate the pre-assembled battery system from the PCE and vice versa, and to allow for maintenance, repair, fault-finding and inspection tasks to be carried out safely.\nAll pre-assembled battery systems shall be capable of being electrically isolated from all other equipment within the BESS. Isolation devices shall be capable of being secured in the open position, shall operate simultaneously in all live conductors, and shall be capable of load breaking.\nThe overcurrent protection device may also perform the function of the isolation device provided it is rated for isolation function.\nWhere a pre-assembled battery system includes an internal non-serviceable battery management system, the point of isolation shall be after the output terminals of the battery system.\nWhere a switch-disconnector is used for this purpose, it shall conform to Clause 5.3.1.3.3. Where a circuit breaker is used for this purpose, it shall conform to Clause 5.3.1.2 and be rated for isolation."
+} 

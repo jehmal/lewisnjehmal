@@ -1,0 +1,5 @@
+{
+    "id": "8.2.4.2",
+    "title": "Prospective hazard current alarm",
+    "fullText": "The prospective hazard current (PHC) alarm of each LIM shall be tested to ensure that it operates when a PHC of between 4.5 and 10.5 mA (tester to have accuracy of 5%) is applied, as follows:\n(a)\tResistive PHC applied in turn between each isolated supply conductor and earth.\n(b)\tResistive PHC applied at the same time between each isolated supply conductor and earth.\n(c)\tCapacitive PHC applied in turn between each isolated supply conductor and earth.\n(d)\tCapacitive PHC applied at the same time between each isolated supply conductors and earth.\nIt is not a requirement of this Standard that the accuracy of the prospective hazard current meter or indicator be verified during routine inspection and testing of patient areas."
+} 

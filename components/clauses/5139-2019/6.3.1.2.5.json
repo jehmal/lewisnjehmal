@@ -1,0 +1,5 @@
+{
+  "id": "6.3.1.2.5",
+  "title": "LOCATION OF OVERCURRENT PROTECTION DEVICES",
+  "fullText": "Battery systems that are categorized as explosive gas hazards have restrictions regarding where overcurrent protection devices are able to be located (see location requirements of Clauses 6.3.5.3, 6.3.5.4 and 6.3.5.5).\nWhen a battery system overcurrent protection device or devices are not included within the battery system in accordance with Clause 6.3.1.2.4, the overcurrent protection devices shall be installed as close as practical to the output terminals of the battery system but no greater than 2 m away.\nFor many battery system technologies, there is no overcurrent protection provided if a short/fault occurs on the battery system side of the overcurrent protection device/s. Therefore there is no overcurrent protection for the interconnecting connectors, cables or links that interconnect the battery or battery modules in series within a battery system. Interconnecting connectors, cables or links should be protected by inter-string overcurrent protection internal to the battery system."
+}

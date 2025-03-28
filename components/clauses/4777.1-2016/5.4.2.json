@@ -1,0 +1,5 @@
+{
+  "id": "5.4.2",
+  "title": "ADDITIONAL INVERTER REQUIREMENTS",
+  "fullText": "The inverter shall comply with the requirements of AS/NZS 4777.2 for multiple mode inverters with a stand-alone functionality.\n\nNOTE: Non-isolated multiple mode inverters with a stand-alone port functionality require earth fault protection, which can be internal or through use of a correctly rated RCD."
+} 

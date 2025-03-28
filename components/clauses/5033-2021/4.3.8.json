@@ -1,0 +1,5 @@
+{
+  "id": "4.3.8",
+  "title": "SELECTION OF PLUGS, SOCKETS AND CONNECTORS",
+  "fullText": "Plugs, sockets and connectors shall —\n(a) conform to AS/NZS 62852;\n(b) be protected from contact with live parts in connected and disconnected states (e.g. shrouded);\n(c) have a voltage rating greater than or equal to the calculated PV d.c. circuit maximum voltage in accordance with Clause 4.2.1.3;\n(d) have a current rating greater than or equal to the calculated PV d.c. circuit current in accordance with Clause 4.2.2;\n(e) be capable of accepting the cable used for the circuit to which they are fitted;\n(f) require a deliberate force to separate;\n(g) have a temperature rating suitable for their installation location;\n(h) be polarized, where multi-polar;\n(i) conform to Class II for systems where the calculated PV d.c. circuit maximum voltage is above 35 V; and\n(j) be rated for outdoor use, be of a UV-resistant type and be of an IP rating suitable for the location where exposed to the environment."
+} 

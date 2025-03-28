@@ -1,0 +1,5 @@
+{
+    "id": "10.3",
+    "title": "D.C. POLARITY",
+    "fullText": "Before the power is connected to the battery bank, circuit polarity shall be checked at the main fuses and then progressively out to the circuits furthest from the battery bank (where necessary).\nAfter the initial polarity check, the battery bank main fuse shall be connected. A voltmeter shall be used to confirm voltage and polarity, while circuit protection and equipment are being connected. All measurements shall be recorded as initial operating parameters as part of the commissioning records, for future reference (see Section 11)."
+} 

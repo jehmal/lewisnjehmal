@@ -1,0 +1,5 @@
+{
+    "id": "3.4.11.1",
+    "title": "Sizing—general",
+    "fullText": "Generating set sizing has two primary requirements—\n(a)\tthat the alternator is capable of supplying the continuous and surge load apparent power (in volt amperes); and\n(b)\tthat the engine is capable of providing the real power requirements of the alternator.\nThe generating set should be able to meet these requirements under any operating conditions normally experienced at the site. Care should be taken to avoid excessively oversizing the generating set as light loading may be detrimental to the unit (refer to manufacturer's data)."
+} 

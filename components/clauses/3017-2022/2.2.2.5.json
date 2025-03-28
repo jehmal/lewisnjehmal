@@ -1,0 +1,5 @@
+{
+    "id": "2.2.2.5",
+    "title": "Equipment for confirming correct operation of RCDs",
+    "fullText": "The test equipment shall be capable of performing the following three functions:\n(a) Confirming the RCD has been correctly connected. This requires use of voltage and/or continuity test equipment.\n(b) Initiating operation of the RCD, by applying an appropriate residual current through the RCD sensing coil. This requires that the RCD be energized and a suitable residual current be applied. The value of the residual current shall be at least the RCD's rated residual current, and should not exceed 120 % of that value.\nNOTE 1 A portable independent source providing 50 Hz supply will be needed for testing RCDs where normal supply is not available. See Clause 2.2.2.6.\n(c) Confirming that operation of the RCD results in disconnection of the circuit(s) intended to be protected by the RCD. This requires the use of a dual-contact voltage indicator and/or ohmeter.\nNOTE 2 Testing advice of the RCD manufacturer should be followed.\nNOTE 3 See Appendix A for additional information."
+} 

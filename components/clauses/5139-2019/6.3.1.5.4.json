@@ -1,0 +1,5 @@
+{
+  "id": "6.3.1.5.4",
+  "title": "VOLTAGE DROP",
+  "fullText": "The voltage drop between the battery system and the PCE should be no more than 2 % based on the rated d.c. battery port current of the PCE and shall be no more than 5 % under any operating condition.\nNOTE Voltage drop impacts the settings for charge and discharge control of the battery system and to ensure safe charging and discharging of the battery system needs to be taken into account in setpoints."
+} 

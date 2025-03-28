@@ -1,9 +1,0 @@
-{
-    "section": "7.3.8.2.2",
-    "title": "Switching",
-    "parent": "7.3.8.2",
-    "type": "clause",
-    "content": {
-        "fullText": "A main switch shall be provided to enable isolation of the inverter output from the switchboard to which it is connected. All switches shall be clearly identified as to their function, in accordance with Clause 2.3.2."
-    }
-} 

@@ -1,0 +1,5 @@
+{
+    "id": "2.7.6",
+    "title": "Festoon lighting",
+    "fullText": "Temporary protected lighting as defined in AS/NZS 60598.2.20 shall not be regarded as festoon lighting.\nThe following requirements apply to festoon lighting:\n(a)\tFestoon lampholders shall be permanently moulded to their supply cable. The lampholders shall be provided with a non-conductive mechanical guard for the lamp.\n(b)\tThe maximum permitted operating voltages for festoon lighting are—\n(i)\tin Australia, extra-low voltage, e.g. ≤50 V a.c.; or\n(ii)\tin New Zealand, low voltage (e.g. 230 V a.c.), provided the circuit is protected by 30 mA RCDs, as specified in Clause 2.4.6.\n(c)\tFestoon lighting shall be supported at least 2.5 m above any floor, ground, platform or working area or be installed immediately below a ceiling.\nException: This requirement need not apply in stairwells, lift shafts, and service shafts where support that prevents sagging of conductors shall be provided."
+} 

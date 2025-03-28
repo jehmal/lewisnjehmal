@@ -1,0 +1,5 @@
+{
+    "id": "4.12.4",
+    "title": "Results",
+    "fullText": "Voltage on the neutral is measured to an effective independent earth.\nA voltage on the neutral of 6 V or less is acceptable.\nA voltage on the neutral of greater than 6 V and less than 15 V shall be subject to investigation to ensure the reading is a result of normal system conditions.\nNetwork configurations which produce neutral voltages of greater than 15 V, but less than 32 V, shall be subject to a risk assessment to adequately provide for the safety of the public.\nNeutral voltages of greater than 32 V, in line with other published Australian Standards, are generally considered unacceptable.\nA voltage on an active conductor exceeding the nominal limits in the relevant Australian Standard may indicate a supply system abnormality.\nRefer to AS 4741 for additional guidance."
+} 

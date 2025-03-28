@@ -1,0 +1,5 @@
+{
+    "id": "2.4.5.2",
+    "title": "Final sub-circuits",
+    "fullText": "Devices for protection against overload and short-circuit currents in final sub-circuits shall be one of the following types:\n(a)\tMiniature overcurrent circuit-breakers complying with AS/NZS 3111 or AS/NZS 60898.1.\n(b)\tMoulded-case circuit-breakers complying with AS/NZS IEC 60947.2.\n(c)\tWhere supplying fixed appliances rated at 50 A per phase or greater, enclosed fuse-links complying with the IEC 60269 series of Standards and having a degree of protection of at least IP2X when the removal carrier is inserted or removed."
+} 

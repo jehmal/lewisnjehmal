@@ -1,9 +1,0 @@
-{
-  "id": "4.19.1.1",
-  "title": "General",
-  "fullText": "A gas appliance connected to the electricity supply shall be provided with a means of electrical isolation that is adjacent to the appliance location and is accessible with the appliance in the installed position.\nFor cooking appliances, the means of isolation shall not be mounted in the prohibited location specified in Clause 4.7.3 and Figure 4.17 for clearance from open cooking surfaces.\nIf the appliance has an open cooking surface incorporating both gas and electric cooking, it shall also comply with Clause 4.7.",
-  "references": {
-    "clauses": ["4.7.3", "4.7"],
-    "figures": ["4.17"]
-  }
-} 

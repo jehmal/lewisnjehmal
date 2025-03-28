@@ -1,5 +1,0 @@
-{
-  "id": "1.5.5.5",
-  "title": "Protection by electrical separation",
-  "fullText": "Separation is intended, in an individual circuit, to prevent shock current through contact with exposed conductive parts that might be energized by a fault in the basic insulation of that circuit.\nLive parts of a separated circuit shall not be connected at any point to earth or to another circuit.\nAny protective bonding conductor associated with a separated circuit shall not be connected at any point to earth.\nNOTE: Clause 7.4 contains requirements for protection by electrical separation."
-} 

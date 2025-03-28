@@ -1,0 +1,5 @@
+{
+  "id": "1.4.79",
+  "title": "Live part",
+  "fullText": "A conductor or conductive part intended to be energized in normal use, including a neutral conductor and conductive parts connected to a neutral conductor.\nExceptions: Under the multiple earthed neutral (MEN) earthing system this term does not apply to the following:\n1. Earthing conductors.\n2. The MEN connection and the neutral bar or link at which the MEN connection is made.\n3. The neutral bar or link in a switchboard without an MEN connection where the active supply to the switchboard has been isolated.\n4. The sheath of an MIMS cable and associated conductive fittings used as a combined protective earthing and neutral (PEN) conductor in an earth sheath return (ESR) system.\n5. Conductive supports and enclosures associated with unprotected consumer mains that are earthed in accordance with Clause 5.5.3.5.\n6. A submain neutral conductor or final subcircuit neutral conductor where the active supply to the submain or final subcircuit has been isolated"
+} 

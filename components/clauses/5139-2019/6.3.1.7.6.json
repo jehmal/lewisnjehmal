@@ -1,0 +1,5 @@
+{
+  "id": "6.3.1.7.6",
+  "title": "BATTERY SYSTEM EARTH LOCATION",
+  "fullText": "The earth connection shall be on the PCE side of the battery system isolator (see Figure 6.9). Isolating the battery system from the PCE and earth connection provides an isolated battery system that is floating, minimizing the electrical hazard during maintenance.\nWhen the BESS comprises multiple parallel battery systems that require earthing, there shall be an earth connection on the PCE side of the battery system isolators as shown in Figures 6.10 to 6.14.\nIf there are multiple parallel battery systems that are earthed, each system shall have a conductor that is connected to the earthing system via one earth conductor (see Figure 6.12).\nIf there are multiple parallel BESSs and each BESS is earthed on the d.c. supply side, each BESS shall have a conductor connected to the earthing system (see Figure 6.13).\nIf there are multiple parallel PCEs and one battery system, the earth conductor between the battery system isolator and all PCE isolators (see Figure 6.14)."
+} 
