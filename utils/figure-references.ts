@@ -5,28 +5,28 @@ import { PLACEHOLDER_IMAGE_PATH, FIGURES_BASE_PATH } from '@/lib/image-constants
 // Map of standard prefixes to use in file paths
 const STANDARD_PREFIXES: Record<string, string[]> = {
   // Main standards with observed prefixes
-  '3000': ['AN3000_', 'WA_'],
+  '3000': ['AN3000_'],
   '3003': ['3003_'],
-  '3004.1': ['ASNZS3004_1_', 'AS3004_1_', '3004.1_'],
-  '3004.2': ['ASNZS3004_2_', 'AS3004_2_', '3004.2_'],
+  '3004.1': ['3004.1_'],
+  '3004.2': ['3004.2_'],
   '3012': ['3012_'],
   '5033': ['5033_'],
   '5139': ['5139_'], // Only use the exact prefix needed
   '4509.2': ['4509.2_'],
   '4509.1': ['4509.1_'],
   '3017': ['3017_'],
-  '3019': ['ASNZS3019_', 'AS3019_', '3019_'],
-  '3820': ['ASNZS3820_', 'AS3820_', '3820_'],
+  '3019': ['3019_'],
+  '3820': ['3820_'],
   '2293.2': ['2293.2_'],
   '3001.1': ['3001.1_'],
   '3010': ['3010_'],
   
   // Additional standards from your system message
-  '3001.2': ['3001.2_', 'ASNZS3001_2_', 'AS3001_2_'],
-  '3002': ['ASNZS3002_', 'AS3002_', '3002_'],
+  '3001.2': ['3001.2_'],
+  '3002': ['3002_'],
   '4777.1': ['4777.1_'],
-  '4836': ['4836_', 'ASNZS4836_', 'AS4836_'],
-  '3760': ['ASNZS3760_', 'AS3760_', '3760_'],
+  '4836': ['4836_'],
+  '3760': ['3760_'], // Removed ASNZS prefix for 3760 standard
 };
 
 // File extensions to try for images - prioritize png for newer standards
